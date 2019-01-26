@@ -8,6 +8,7 @@
         Title="MainWindow" Height="450" Width="200">
     <Border Padding="5">
         <StackPanel>
+            <!--Charakterystyka przekroju-->
             <TextBlock Margin="0 5" Text="Charakterystyka przekroju" FontWeight="Bold"/>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -23,15 +24,16 @@
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" >
-                    <TextBox Background="Beige" Margin="5 2 5 2"/>
-                    <TextBox Background="Beige" Margin="5 2 5 2" />
-                    <TextBox Background="Green" Margin="5 2 5 2" IsReadOnly="true" />
+                    <TextBox x:Name="bbox" Background="Beige" Margin="5 2 5 2"/>
+                    <TextBox x:Name="hbox" Background="Beige" Margin="5 2 5 2" />
+                    <TextBox x:Name="abox" Background="Green" Margin="5 2 5 2" IsReadOnly="true" />
                 </StackPanel>
 
                 <StackPanel Grid.Column="2" >
                     <TextBlock Margin="5 2 5 2" Text="[m]" />
                     <TextBlock Margin="5 2 5 2" Text="[m]"/>
                     <TextBlock Margin="5 2 5 2" Text="[m&#x00B2;]" />
+                    <Button x:Name="resultBtn" Click="ResultBtn_Click" Margin="5 15 5 5" Content="Oblicz" Grid.Column="2" />
                 </StackPanel>
 
             </Grid>
