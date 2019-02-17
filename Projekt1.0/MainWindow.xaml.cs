@@ -20,29 +20,11 @@ namespace Projekt1._0
     /// </summary>
     public partial class MainWindow : Window
     {
-        CrossSectionCharacteristic przekroj1 = new CrossSectionCharacteristic();
+       
         public MainWindow()
         {
             InitializeComponent();
-            przekroj1.h = 0;
-            przekroj1.b = 0;
-            refreshboxa(przekroj1.a);
         }
-
-        private void refreshboxa(double wynik)
-        {
-            this.abox.Text = wynik.ToString();
-        }
-
-        private void ResultBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Double high = Double.Parse(hbox.Text.Replace('.', ','));
-            przekroj1.h = high;
-           
-            Double width = Double.Parse(bbox.Text.Replace('.', ','));
-            przekroj1.b = width;
-            refreshboxa(przekroj1.a);
-            
-        }
+                
     }
 }
