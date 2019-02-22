@@ -21,25 +21,63 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Column="0">
-                    <TextBlock  Margin="5 2 5 2" Text="b=" />
-                     <TextBlock Margin="5 2 5 2" Text="h=" />
-                     <TextBlock Margin="5 2 5 2" Text="A=" />
+                    <TextBlock  Margin="5 4 5 2" Text="b=" />
+                     <TextBlock Margin="5 4 5 2" Text="h=" />
+                     <TextBlock Margin="5 4 5 2" Text="n=" />
+                    <TextBlock Margin="5 4 5 2" Text="fi=" />
+                    <TextBlock Margin="5 4 5 2" Text="As1=" />
+                    <TextBlock Margin="5 4 5 2" Text="A=" />
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" >
                     <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.Width, Source={StaticResource column}}"/>
                     <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.Height, Source={StaticResource column}}" />
-                    <TextBox Background="Green" Margin="5 2 5 2"  IsReadOnly="true" Text="{Binding CrossSectionCharacteristic.AreaConcrete, Mode=OneWay, Source={StaticResource column}}" />
+                    <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.CountAs1, Source={StaticResource column}}"  />
+                    <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.FiAs1, Source={StaticResource column}}" />
+                    <TextBox Background="Green" Margin="5 2 5 2" IsReadOnly="True" Text="{Binding CrossSectionCharacteristic.AreaAs1, Mode=OneWay, Source={StaticResource column}, StringFormat={}{0:n2}}"  />
+                    <TextBox Background="Green" Margin="5 2 5 2"  IsReadOnly="true" Text="{Binding CrossSectionCharacteristic.AreaConcrete, Mode=OneWay, Source={StaticResource column}, StringFormat={}{0:n2}}" />
                 </StackPanel>
 
                 <StackPanel Grid.Column="2" >
-                    <TextBlock Margin="5 2 5 2" Text="[m]" />
-                    <TextBlock Margin="5 2 5 2" Text="[m]"/>
-                    <TextBlock Margin="5 2 5 2" Text="[m&#x00B2;]" />
+                    <TextBlock Margin="5 4 5 2" Text="[m]" />
+                    <TextBlock Margin="5 4 5 2" Text="[m]"/>
+                    <TextBlock Margin="5 4 5 2" Text="[szt.]" />
+                    <TextBlock Margin="5 4 5 2" Text="[mm]" />
+                    <TextBlock Margin="5 4 5 2" Text="[mm&#x00B2;]" />
+                    <TextBlock Margin="5 4 5 2" Text="[m&#x00B2;]" />
+                </StackPanel>
+
+            </Grid>
+            <!--Statyka-->
+            <TextBlock Margin="0 5" Text="Statyka" FontWeight="Bold"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock  Margin="5 4 5 2" Text="L=" />
+                    <TextBlock Margin="5 4 5 2" Text="P=" />
+                    
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" >
+                    <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding Statics.ColumnHeight, Source={StaticResource column}}"  />
+                    <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding Statics.CompressiveForce, Source={StaticResource column}}"  />
+                    
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" >
+                    <TextBlock Margin="5 4 5 2" Text="[m]" />
+                    <TextBlock Margin="5 4 5 2" Text="[kN]"/>
                     <Button  Margin="5 15 5 5" Content="Oblicz" Grid.Column="2" Command="{Binding Calculate, Mode=OneWay, Source={StaticResource column}}" CommandParameter="{DynamicResource column}" />
                 </StackPanel>
 
             </Grid>
+
+
 
         </StackPanel>
     </Border>

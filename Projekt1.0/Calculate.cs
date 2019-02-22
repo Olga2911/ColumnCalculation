@@ -39,6 +39,18 @@ namespace Projekt1._0
             {
                 crossSectionCharacteristic.UpdateData();
             }
+
+            Statics statics = column.Statics;
+            if (statics != null)
+            {
+                statics.UpdateData();
+            }
+
+            Concrete concrete = column.Concrete;
+            if (concrete != null)
+            {
+                concrete.UpdateData();
+            }
         }
 
     }

@@ -10,7 +10,10 @@ namespace Projekt1._0
     class Column
     {
         private CrossSectionCharacteristic crossSectionCharacteristic = new CrossSectionCharacteristic();
+        private Statics statics = new Statics();
         private Calculate calculate = new Calculate();
+        private Concrete concrete = new Concrete();
+
 
         public CrossSectionCharacteristic CrossSectionCharacteristic
         {
@@ -21,6 +24,31 @@ namespace Projekt1._0
             set
             {
                 crossSectionCharacteristic = value;
+            }
+        }
+
+        public Statics Statics
+        {
+            get
+            {
+                return statics;
+            }
+            set
+            {
+                statics = value;
+            }
+        }
+
+        public Concrete Concrete
+
+        {
+            get
+            {
+                return concrete;
+            }
+            set
+            {
+                concrete = value;
             }
         }
 
