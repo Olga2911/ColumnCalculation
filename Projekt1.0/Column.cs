@@ -13,6 +13,7 @@ namespace Projekt1._0
         private Statics statics = new Statics();
         private Calculate calculate = new Calculate();
         private Concrete concrete = new Concrete();
+        private SectionType sectionType = new SectionType();
 
 
         public CrossSectionCharacteristic CrossSectionCharacteristic
@@ -49,6 +50,19 @@ namespace Projekt1._0
             set
             {
                 concrete = value;
+            }
+        }
+
+        public SectionType SectionType
+
+        {
+            get
+            {
+                return sectionType;
+            }
+            set
+            {
+                sectionType = value;
             }
         }
 
