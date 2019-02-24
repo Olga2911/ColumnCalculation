@@ -56,6 +56,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Concrete.cs" />
+    <Compile Include="MaterialParameters.cs" />
+    <Compile Include="MaterialParameters.xaml.cs">
+      <DependentUpon>MaterialParameters.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SectionType.cs" />
     <Compile Include="Statics.cs" />
     <Page Include="MainWindow.xaml">
@@ -73,6 +77,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MaterialParameters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

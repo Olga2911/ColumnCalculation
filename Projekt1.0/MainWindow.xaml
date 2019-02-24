@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt1._0"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="350">
+        Title="Słup" Height="700" Width="350">
     <Window.Resources>
         <local:Column x:Key="column"/>
     </Window.Resources>
     <Border Padding="5">
         <StackPanel>
             <!--Charakterystyka przekroju-->
-            
+            <Button  Margin="5 15 5 5" Content="Szczegóły" Width="80" Command="{Binding ViewMaterialParameters, Mode=OneWay, Source={StaticResource column}}" CommandParameter="{DynamicResource column}" />
             <TextBlock Margin="0 5" Text="Charakterystyka przekroju" FontWeight="Bold"/>
             <ComboBox Width="150" ItemsSource="{Binding SectionType.ArraySectionType, Source={StaticResource column}}" SelectedIndex="0" IsSynchronizedWithCurrentItem="True" SelectedItem="{Binding SectionType.Section, Source={StaticResource column}}"  />
             <Image Width="80" Source="{Binding SectionType.PathToDraw, Source={StaticResource column}}"/>

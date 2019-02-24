@@ -14,6 +14,7 @@ namespace Projekt1._0
         private Calculate calculate = new Calculate();
         private Concrete concrete = new Concrete();
         private SectionType sectionType = new SectionType();
+        private MaterialParametersCommand materialParametersCommand = new MaterialParametersCommand();
 
 
         public CrossSectionCharacteristic CrossSectionCharacteristic
@@ -74,6 +75,13 @@ namespace Projekt1._0
             }
         }
 
+        public ICommand ViewMaterialParameters
+        {
+            get
+            {
+                return materialParametersCommand;
+            }
+        }
 
     }
 }
