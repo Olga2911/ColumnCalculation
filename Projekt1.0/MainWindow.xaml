@@ -18,7 +18,7 @@
             <Image Width="80" Source="{Binding SectionType.PathToDraw, Source={StaticResource column}}"/>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="130" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
@@ -47,7 +47,7 @@
                 <StackPanel Grid.Column="2" >
                     <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.Width, Source={StaticResource column}}"/>
                     <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.Height, Source={StaticResource column}}" />
-                    <TextBox Background="Beige" Margin="5 2 5 2"  />
+                    <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.Diameter, Source={StaticResource column}}"  />
                     <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.CountAs1, Source={StaticResource column}}"  />
                     <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.FiAs1, Source={StaticResource column}}" />
                     <TextBox Background="Green" Margin="5 2 5 2" IsReadOnly="True" Text="{Binding CrossSectionCharacteristic.AreaAs1, Mode=OneWay, Source={StaticResource column}, StringFormat={}{0:n2}}"  />

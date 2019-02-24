@@ -23,6 +23,7 @@ namespace Projekt1._0
             set
             {
                 section = value;
+                UpdateData();
             }
         }
 
@@ -30,7 +31,15 @@ namespace Projekt1._0
         {
             get
             {
-                return pathToDraw;
+                if (section.Equals(SectionTypeEnum.Prostokątny))
+                    {
+                    return pathToDraw;
+                }
+                else
+                {
+                    return "C:/Users/USER/Desktop/Praca mgr/C#/Projekt1.0/Projekt1.0/Draws/myszrys.png";
+                }
+                
             }
             set
             {

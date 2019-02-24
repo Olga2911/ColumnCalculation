@@ -51,6 +51,13 @@ namespace Projekt1._0
             {
                 concrete.UpdateData();
             }
+
+            SectionType type = column.SectionType;
+            if (type != null)
+            {
+                type.UpdateData();
+            }
+
         }
 
     }
