@@ -64,7 +64,42 @@ namespace Projekt1._0
         {
             PropertyChanged(this, new PropertyChangedEventArgs("PathToDraw"));
             PropertyChanged(this, new PropertyChangedEventArgs("Section"));
+            PropertyChanged(this, new PropertyChangedEventArgs("IsProstokatnySection"));
+            PropertyChanged(this, new PropertyChangedEventArgs("IsKolowySection"));
         }
+
+        public bool IsProstokatnySection
+        {
+            get
+                {
+                if (section.Equals(SectionTypeEnum.Prostokątny))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+           
+        }
+
+        public bool IsKolowySection
+        {
+            get
+            {
+                if (section.Equals(SectionTypeEnum.Kołowy))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+        }
+
 
     }
 }
