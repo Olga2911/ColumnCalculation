@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt1._0"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="200">
+        Title="MainWindow" Height="700" Width="350">
     <Window.Resources>
         <local:Column x:Key="column"/>
     </Window.Resources>
@@ -18,31 +18,45 @@
             <Image Width="80" Source="{Binding SectionType.PathToDraw, Source={StaticResource column}}"/>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Column="0">
+                    <TextBlock  Margin="5 4 5 2" Text="Szerokość przekroju:" />
+                    <TextBlock Margin="5 4 5 2" Text="Wysokość przekroju: " />
+                    <TextBlock Margin="5 4 5 2" Text="Średnica przekroju: " />
+                    <TextBlock Margin="5 4 5 2" Text="n=" />
+                    <TextBlock Margin="5 4 5 2" Text="fi=" />
+                    <TextBlock Margin="5 4 5 2" Text="As1=" />
+                    <TextBlock Margin="5 4 5 2" Text="A=" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="1">
                     <TextBlock  Margin="5 4 5 2" Text="b=" />
                      <TextBlock Margin="5 4 5 2" Text="h=" />
+                    <TextBlock Margin="5 4 5 2" Text="d=" />
                      <TextBlock Margin="5 4 5 2" Text="n=" />
                     <TextBlock Margin="5 4 5 2" Text="fi=" />
                     <TextBlock Margin="5 4 5 2" Text="As1=" />
                     <TextBlock Margin="5 4 5 2" Text="A=" />
                 </StackPanel>
 
-                <StackPanel Grid.Column="1" >
+                <StackPanel Grid.Column="2" >
                     <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.Width, Source={StaticResource column}}"/>
                     <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.Height, Source={StaticResource column}}" />
+                    <TextBox Background="Beige" Margin="5 2 5 2"  />
                     <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.CountAs1, Source={StaticResource column}}"  />
                     <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.FiAs1, Source={StaticResource column}}" />
                     <TextBox Background="Green" Margin="5 2 5 2" IsReadOnly="True" Text="{Binding CrossSectionCharacteristic.AreaAs1, Mode=OneWay, Source={StaticResource column}, StringFormat={}{0:n2}}"  />
                     <TextBox Background="Green" Margin="5 2 5 2"  IsReadOnly="true" Text="{Binding CrossSectionCharacteristic.AreaConcrete, Mode=OneWay, Source={StaticResource column}, StringFormat={}{0:n2}}" />
                 </StackPanel>
 
-                <StackPanel Grid.Column="2" >
+                <StackPanel Grid.Column="3" >
                     <TextBlock Margin="5 4 5 2" Text="[m]" />
+                    <TextBlock Margin="5 4 5 2" Text="[m]"/>
                     <TextBlock Margin="5 4 5 2" Text="[m]"/>
                     <TextBlock Margin="5 4 5 2" Text="[szt.]" />
                     <TextBlock Margin="5 4 5 2" Text="[mm]" />

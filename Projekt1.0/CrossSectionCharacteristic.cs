@@ -12,6 +12,7 @@ namespace Projekt1._0
     {
         private Double width = 0.3;
         private Double height = 0.5;
+        private Double diameter = 0.4;
         private int countAs1 = 4;
         private int fiAs1 = 12;
         
@@ -48,6 +49,23 @@ namespace Projekt1._0
                 height = value;
                 }
                     
+            }
+
+        }
+
+        public double Diameter
+        {
+            get
+            {
+                return diameter;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    height = diameter;
+                }
+
             }
 
         }
