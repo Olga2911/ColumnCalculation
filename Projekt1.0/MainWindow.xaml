@@ -12,6 +12,9 @@
     <Border Padding="5">
         <StackPanel>
             <!--Dane materiałowe-->
+            <Border Padding="5">
+                
+            </Border>
             <TextBlock Margin="0 0" Text="Dane materiałowe" FontWeight="Bold"/>
             <Grid >
                 <Grid.ColumnDefinitions>

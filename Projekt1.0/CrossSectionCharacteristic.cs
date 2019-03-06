@@ -14,6 +14,7 @@ namespace Projekt1._0
         private Double height = 0.5;
         private Double diameter = 0.4;
         private int countAs1 = 4;
+        // fi [mm]
         private int fiAs1 = 12;
         
         private Double areaConcrete = 0.0;
@@ -121,10 +122,15 @@ namespace Projekt1._0
 
         public void UpdateData()
         {
-            areaAs1=Math.PI*fiAs1*fiAs1*0.25 * countAs1;
-            areaConcrete = width * height-(areaAs1*0.000001);
+            Calculate();
             PropertyChanged(this, new PropertyChangedEventArgs("AreaAs1"));
             PropertyChanged(this, new PropertyChangedEventArgs("AreaConcrete"));
+        }
+
+        public void Calculate()
+        {
+            areaAs1 = Math.PI * fiAs1 * fiAs1 * 0.25 * countAs1;
+            areaConcrete = width * height - (areaAs1 * 0.000001);
         }
     }
 }
