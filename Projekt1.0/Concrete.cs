@@ -29,15 +29,9 @@ namespace Projekt1._0
             }
         }
 
-        
-
         public void UpdateData()
         {
-
             fcd = fck / gammaF;
-
-       
-
         }
 
         public enum ConcreteClasses

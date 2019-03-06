@@ -11,23 +11,66 @@
     </Window.Resources>
     <Border Padding="5">
         <StackPanel>
-            <!--Charakterystyka przekroju-->
-            <Button  Margin="5 15 5 5" Content="Szczegóły" Width="80" Command="{Binding ViewMaterialParameters, Mode=OneWay, Source={StaticResource column}}" CommandParameter="{DynamicResource column}" />
-            <TextBlock Margin="0 5" Text="Charakterystyka przekroju" FontWeight="Bold"/>
-            <ComboBox Width="150" ItemsSource="{Binding SectionType.ArraySectionType, Source={StaticResource column}}" SelectedIndex="0" IsSynchronizedWithCurrentItem="True" SelectedItem="{Binding SectionType.Section, Source={StaticResource column}}"  />
+            <!--Dane materiałowe-->
+            <TextBlock Margin="0 0" Text="Dane materiałowe" FontWeight="Bold"/>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="1.2*" />
+                    <ColumnDefinition Width="*" />
+
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock Margin="5 4 5 2" Text="Beton:" />
+                    <TextBlock Margin="5 4 5 2" Text="Stal:" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2">
+                    <ComboBox  />
+                    <ComboBox Margin="0 5 0 0"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="3">
+                    <Button  Content="Beton..." Width="60" Command="{Binding ViewMaterialParameters, Mode=OneWay, Source={StaticResource column}}" CommandParameter="{DynamicResource column}" />
+                    <Button Margin="0 8 0 0" Content="Stal..." Width="60"/>
+                </StackPanel>
+            </Grid>
+
+
+            <!--Geometria przekroju-->
+            <TextBlock Margin="0 5" Text="Geometria przekroju" FontWeight="Bold"/>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="1.2*"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock Margin="5 4 5 2" Text="Przekrój:" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2">
+                    <ComboBox Margin=" 0 5 0 0" ItemsSource="{Binding SectionType.ArraySectionType, Source={StaticResource column}}" SelectedIndex="0" IsSynchronizedWithCurrentItem="True" SelectedItem="{Binding SectionType.Section, Source={StaticResource column}}"  />
+                </StackPanel>
+            </Grid>
+
             <Image Width="80" Source="{Binding SectionType.PathToDraw, Source={StaticResource column}}"/>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="130" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="1.2*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Column="0">
-                    <TextBlock  Margin="5 4 5 2" Text="Szerokość przekroju:" IsEnabled="{Binding SectionType.IsProstokatnySection, Mode=OneWay, Source={StaticResource column}}" />
-                    <TextBlock Margin="5 4 5 2" Text="Wysokość przekroju: " IsEnabled="{Binding SectionType.IsProstokatnySection, Mode=OneWay, Source={StaticResource column}}" />
-                    <TextBlock Margin="5 4 5 2" Text="Średnica przekroju: " IsEnabled="{Binding SectionType.IsKolowySection, Mode=OneWay, Source={StaticResource column}}" />
+                    <TextBlock Margin="5 4 5 2" Text="Szerokość:" IsEnabled="{Binding SectionType.IsProstokatnySection, Mode=OneWay, Source={StaticResource column}}" />
+                    <TextBlock Margin="5 4 5 2" Text="Wysokość: " IsEnabled="{Binding SectionType.IsProstokatnySection, Mode=OneWay, Source={StaticResource column}}" />
+                    <TextBlock Margin="5 4 5 2" Text="Średnica: " IsEnabled="{Binding SectionType.IsKolowySection, Mode=OneWay, Source={StaticResource column}}" />
                     <TextBlock Margin="5 4 5 2" Text="n=" />
                     <TextBlock Margin="5 4 5 2" Text="fi=" />
                     <TextBlock Margin="5 4 5 2" Text="As1=" />
@@ -38,7 +81,7 @@
                     <TextBlock  Margin="5 4 5 2" Text="b=" IsEnabled="{Binding SectionType.IsProstokatnySection, Mode=OneWay, Source={StaticResource column}}" />
                     <TextBlock Margin="5 4 5 2" Text="h=" IsEnabled="{Binding SectionType.IsProstokatnySection, Mode=OneWay, Source={StaticResource column}}" />
                     <TextBlock Margin="5 4 5 2" Text="d=" IsEnabled="{Binding SectionType.IsKolowySection, Mode=OneWay, Source={StaticResource column}}" />
-                     <TextBlock Margin="5 4 5 2" Text="n=" />
+                    <TextBlock Margin="5 4 5 2" Text="n=" />
                     <TextBlock Margin="5 4 5 2" Text="fi=" />
                     <TextBlock Margin="5 4 5 2" Text="As1=" />
                     <TextBlock Margin="5 4 5 2" Text="A=" />
@@ -77,13 +120,13 @@
                 <StackPanel Grid.Column="0">
                     <TextBlock  Margin="5 4 5 2" Text="L=" />
                     <TextBlock Margin="5 4 5 2" Text="P=" />
-                    
+
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" >
                     <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding Statics.ColumnHeight, Source={StaticResource column}}"  />
                     <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding Statics.CompressiveForce, Source={StaticResource column}}"  />
-                    
+
                 </StackPanel>
 
                 <StackPanel Grid.Column="2" >

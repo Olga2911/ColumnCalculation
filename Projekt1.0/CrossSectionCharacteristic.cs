@@ -125,10 +125,7 @@ namespace Projekt1._0
             areaConcrete = width * height-(areaAs1*0.000001);
             PropertyChanged(this, new PropertyChangedEventArgs("AreaAs1"));
             PropertyChanged(this, new PropertyChangedEventArgs("AreaConcrete"));
-
         }
-
-
     }
 }
 
