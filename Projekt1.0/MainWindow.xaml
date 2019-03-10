@@ -36,7 +36,7 @@
                 </StackPanel>
 
                 <StackPanel Grid.Column="3">
-                    <Button  Content="Beton..." Width="60" Command="{Binding ViewMaterialParameters, Mode=OneWay, Source={StaticResource column}}" CommandParameter="{DynamicResource column}" />
+                    <Button  Content="Beton..." Width="60" Command="{Binding ViewMaterialParameters, Source={StaticResource column}}" CommandParameter="{DynamicResource column}" />
                     <Button Margin="0 8 0 0" Content="Stal..." Width="60"/>
                 </StackPanel>
             </Grid>

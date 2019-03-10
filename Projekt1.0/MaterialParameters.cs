@@ -33,7 +33,7 @@ namespace Projekt1._0
 
         public void Execute(object parameter)
         {
-            MaterialParameters materialParameters = new MaterialParameters();
+            MaterialParameters materialParameters = new MaterialParameters() { DataContext = parameter };
             materialParameters.ShowDialog();
 
         }

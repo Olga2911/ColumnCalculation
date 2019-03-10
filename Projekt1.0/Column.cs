@@ -9,12 +9,12 @@ namespace Projekt1._0
 {
     class Column
     {
-        private static  CrossSectionCharacteristic crossSectionCharacteristic = new CrossSectionCharacteristic();
-        private static Statics statics = new Statics();
-        private static Calculate calculate = new Calculate();
-        private static Concrete concrete = new Concrete();
-        private static SectionType sectionType = new SectionType();
-        private static MaterialParametersCommand materialParametersCommand = new MaterialParametersCommand();
+        private CrossSectionCharacteristic crossSectionCharacteristic = new CrossSectionCharacteristic();
+        private Statics statics = new Statics();
+        private Calculate calculate = new Calculate();
+        private Concrete concrete = new Concrete();
+        private SectionType sectionType = new SectionType();
+        private MaterialParametersCommand materialParametersCommand = new MaterialParametersCommand();
 
 
         public CrossSectionCharacteristic CrossSectionCharacteristic

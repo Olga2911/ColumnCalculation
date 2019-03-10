@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="MaterialParameters" Height="450" Width="400">
     
-    <Window.Resources>
-        <local:Column x:Key="column"/>
-    </Window.Resources>
+    <Window.DataContext>
+        <local:Column />
+    </Window.DataContext>
     
     <Grid>
         <Border Padding="5">
@@ -23,7 +23,12 @@
                         <ColumnDefinition Width="84*" />
                         <ColumnDefinition Width="85*" />
                     </Grid.ColumnDefinitions>
+                    
+                    <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.Width}"  />
+                    <TextBox Background="Beige" Margin="5 2 5 2"  Text="{Binding CrossSectionCharacteristic.Height}"  />
 
+
+                    <!--
                     <StackPanel Grid.Column="0">
                         <TextBlock  Margin="5 4 5 2" Text="Szerokość przekroju:" IsEnabled="{Binding SectionType.IsProstokatnySection, Mode=OneWay, Source={StaticResource column}}" />
                         <TextBlock Margin="5 4 5 2" Text="Wysokość przekroju: " IsEnabled="{Binding SectionType.IsProstokatnySection, Mode=OneWay, Source={StaticResource column}}" />
@@ -63,7 +68,7 @@
                         <TextBlock Margin="5 4 5 2" Text="[mm&#x00B2;]" />
                         <TextBlock Margin="5 4 5 2" Text="[m&#x00B2;]" />
                     </StackPanel>
-
+-->
                 </Grid>
             </StackPanel>
         </Border>

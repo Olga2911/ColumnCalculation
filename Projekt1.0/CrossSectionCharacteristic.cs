@@ -16,9 +16,11 @@ namespace Projekt1._0
         private int countAs1 = 4;
         // fi [mm]
         private int fiAs1 = 12;
-        
+        //cover [m]
+        private Double cover = 0.04;
         private Double areaConcrete = 0.0;
         private Double areaAs1 = 0.0;
+        private Double aReiforcement = 0.0;
         
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -120,6 +122,31 @@ namespace Projekt1._0
             }
         }
 
+        public Double Cover
+        {
+            get
+            {
+                return cover;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    cover = value;
+                }
+
+            }
+        }
+
+        public Double AReinforcement
+        {
+            get
+            {
+                return aReiforcement;
+            }
+        }
+
+
         public void UpdateData()
         {
             Calculate();
@@ -131,6 +158,7 @@ namespace Projekt1._0
         {
             areaAs1 = Math.PI * fiAs1 * fiAs1 * 0.25 * countAs1;
             areaConcrete = width * height - (areaAs1 * 0.000001);
+            aReiforcement = cover + 0.5 * fiAs1/1000;
         }
     }
 }

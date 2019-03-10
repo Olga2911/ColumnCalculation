@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CheckEccentricity.cs" />
     <Compile Include="Concrete.cs" />
     <Compile Include="MaterialParameters.cs" />
     <Compile Include="MaterialParameters.xaml.cs">

@@ -36,7 +36,20 @@ namespace Project1._0.UnitTests
             var result = Math.Round(crosssection.AreaConcrete, 5);
             //Assert
             Assert.AreEqual(0.14898, result);
+        }
 
+        [TestMethod]
+        public void AReiforcementUnitTest()
+        {
+            //Arrange
+            var crosssection = new CrossSectionCharacteristic();
+            //Act
+            crosssection.FiAs1 = 18;
+            crosssection.Cover = 0.04;
+            crosssection.Calculate();
+            var result = Math.Round(crosssection.AReinforcement, 3);
+            //Assert
+            Assert.AreEqual(0.049, result);
         }
     }
 }

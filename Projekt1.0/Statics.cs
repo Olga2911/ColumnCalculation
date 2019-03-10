@@ -11,6 +11,7 @@ namespace Projekt1._0
     {
         private Double columnHeight = 2;
         private Double compressiveForce = 50;
+        private Double bendingMoment = 0;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -38,11 +39,22 @@ namespace Projekt1._0
             }
         }
 
+        public Double BendingMoment
+        {
+            get
+            {
+                return bendingMoment;
+            }
+            set
+            {
+                bendingMoment = value;
+            }
+        }
+
         public void UpdateData()
         {
             
         }
-
 
     }
 }
