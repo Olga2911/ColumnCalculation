@@ -15,7 +15,7 @@ namespace Projekt1._0
         private Double eTot = 0.0;
         private Double eS1 = 0.0;
         private Double eS2 = 0.0;
-
+        private Double aSmin = 0.0;
 
         public Double EE
         {
@@ -80,10 +80,45 @@ namespace Projekt1._0
             }
         }
 
-        public void Calculate()
+        public Double ASmin
         {
+            get
+            {
+                return aSmin;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    aSmin = value;
+                }
+            }
+
+        }
+
+
+        public void UpdateData(CrossSectionCharacteristic characteristic, Statics statics)
+        {
+            Calculate(characteristic, statics);
+                    }
+
+
+        public void Calculate(CrossSectionCharacteristic characteristic, Statics statics)
+        {
+            eE = statics.BendingMoment / statics.CompressiveForce;
+
+            double ea1 = statics.ColumnHeight / 600;
+            double ea2 = characteristic.Height / 30;
+            double ea3 =0.01;
+
+            eA = Math.Max(ea1, Math.Max(ea2, ea3));
             e0 = eE + eA;
             eTot = eta * e0;
+            eS1 = eTot + 0.5*characteristic.Height-characteristic.AReinforcement;
+            eS2=eTot - 0.5 * characteristic.Height - characteristic.AReinforcement;
+
+            double asmin1 = 0.15 * statics.CompressiveForce;
+
         }
     }
 

@@ -66,7 +66,7 @@ namespace Projekt1._0
             {
                 if (value > 0)
                 {
-                    height = diameter;
+                    diameter = value;
                 }
 
             }
@@ -146,19 +146,25 @@ namespace Projekt1._0
             }
         }
 
-
-        public void UpdateData()
+        public void UpdateData(Boolean isProstokatny)
         {
-            Calculate();
+            Calculate(isProstokatny );
             PropertyChanged(this, new PropertyChangedEventArgs("AreaAs1"));
             PropertyChanged(this, new PropertyChangedEventArgs("AreaConcrete"));
         }
 
-        public void Calculate()
+        public void Calculate(Boolean isProstokatny)
         {
             areaAs1 = Math.PI * fiAs1 * fiAs1 * 0.25 * countAs1;
-            areaConcrete = width * height - (areaAs1 * 0.000001);
-            aReiforcement = cover + 0.5 * fiAs1/1000;
+            aReiforcement = cover + 0.5 * fiAs1 / 1000;
+            if (isProstokatny)
+            {
+                areaConcrete = width * height - (areaAs1 * 0.000001);
+            }
+            else
+            {
+               areaConcrete = Math.PI* diameter * diameter/4 - (areaAs1 * 0.000001);
+            }
         }
     }
 }

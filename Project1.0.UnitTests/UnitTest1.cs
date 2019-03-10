@@ -7,6 +7,7 @@ namespace Project1._0.UnitTests
     [TestClass]
     public class CrossSectionCharacteristicUnitTest
     {
+        /*
         [TestMethod]
         public void AreaReinforcementUnitTest()
         {
@@ -51,5 +52,7 @@ namespace Project1._0.UnitTests
             //Assert
             Assert.AreEqual(0.049, result);
         }
+        */
     }
+    
 }

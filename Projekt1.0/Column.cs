@@ -15,6 +15,7 @@ namespace Projekt1._0
         private Concrete concrete = new Concrete();
         private SectionType sectionType = new SectionType();
         private MaterialParametersCommand materialParametersCommand = new MaterialParametersCommand();
+        private CheckEccentricity checkEccentricity = new CheckEccentricity();
 
 
         public CrossSectionCharacteristic CrossSectionCharacteristic
@@ -66,6 +67,20 @@ namespace Projekt1._0
                 sectionType = value;
             }
         }
+
+        public CheckEccentricity CheckEccentricity
+
+        {
+            get
+            {
+                return checkEccentricity;
+            }
+            set
+            {
+                checkEccentricity = value;
+            }
+        }
+
 
         public ICommand Calculate
         {

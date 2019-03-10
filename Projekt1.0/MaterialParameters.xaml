@@ -14,62 +14,10 @@
     <Grid>
         <Border Padding="5">
             <StackPanel>
-                <!--Charakterystyka przekroju-->
-                <TextBlock Margin="0 5" Text="Charakterystyka przekroju" FontWeight="Bold"/>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="130" />
-                        <ColumnDefinition Width="84.667" />
-                        <ColumnDefinition Width="84*" />
-                        <ColumnDefinition Width="85*" />
-                    </Grid.ColumnDefinitions>
-                    
-                    <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.Width}"  />
-                    <TextBox Background="Beige" Margin="5 2 5 2"  Text="{Binding CrossSectionCharacteristic.Height}"  />
-
-
-                    <!--
-                    <StackPanel Grid.Column="0">
-                        <TextBlock  Margin="5 4 5 2" Text="Szerokość przekroju:" IsEnabled="{Binding SectionType.IsProstokatnySection, Mode=OneWay, Source={StaticResource column}}" />
-                        <TextBlock Margin="5 4 5 2" Text="Wysokość przekroju: " IsEnabled="{Binding SectionType.IsProstokatnySection, Mode=OneWay, Source={StaticResource column}}" />
-                        <TextBlock Margin="5 4 5 2" Text="Średnica przekroju: " IsEnabled="{Binding SectionType.IsKolowySection, Mode=OneWay, Source={StaticResource column}}" />
-                        <TextBlock Margin="5 4 5 2" Text="n=" />
-                        <TextBlock Margin="5 4 5 2" Text="fi=" />
-                        <TextBlock Margin="5 4 5 2" Text="As1=" />
-                        <TextBlock Margin="5 4 5 2" Text="A=" />
-                    </StackPanel>
-
-                    <StackPanel Grid.Column="1">
-                        <TextBlock  Margin="5 4 5 2" Text="b=" IsEnabled="{Binding SectionType.IsProstokatnySection, Mode=OneWay, Source={StaticResource column}}" />
-                        <TextBlock Margin="5 4 5 2" Text="h=" IsEnabled="{Binding SectionType.IsProstokatnySection, Mode=OneWay, Source={StaticResource column}}" />
-                        <TextBlock Margin="5 4 5 2" Text="d=" IsEnabled="{Binding SectionType.IsKolowySection, Mode=OneWay, Source={StaticResource column}}" />
-                        <TextBlock Margin="5 4 5 2" Text="n=" />
-                        <TextBlock Margin="5 4 5 2" Text="fi=" />
-                        <TextBlock Margin="5 4 5 2" Text="As1=" />
-                        <TextBlock Margin="5 4 5 2" Text="A=" />
-                    </StackPanel>
-
-                    <StackPanel Grid.Column="2" >
-                        <TextBox Background="Beige" Margin="5 2 5 2" IsEnabled="{Binding SectionType.IsProstokatnySection, Mode=OneWay, Source={StaticResource column}}" Text="{Binding CrossSectionCharacteristic.Width, Source={StaticResource column}}"/>
-                        <TextBox Background="Beige" Margin="5 2 5 2" IsEnabled="{Binding SectionType.IsProstokatnySection, Mode=OneWay, Source={StaticResource column}}" Text="{Binding CrossSectionCharacteristic.Height, Source={StaticResource column}}" />
-                        <TextBox Background="Beige" Margin="5 2 5 2" IsEnabled="{Binding SectionType.IsKolowySection, Mode=OneWay, Source={StaticResource column}}" Text="{Binding CrossSectionCharacteristic.Diameter, Source={StaticResource column}}"  />
-                        <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.CountAs1, Source={StaticResource column}}"  />
-                        <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.FiAs1, Source={StaticResource column}}" />
-                        <TextBox Background="Green" Margin="5 2 5 2" IsReadOnly="True" Text="{Binding CrossSectionCharacteristic.AreaAs1, Mode=OneWay, Source={StaticResource column}, StringFormat={}{0:n2}}"  />
-                        <TextBox Background="Green" Margin="5 2 5 2"  IsReadOnly="true" Text="{Binding CrossSectionCharacteristic.AreaConcrete, Mode=OneWay, Source={StaticResource column}, StringFormat={}{0:n2}}" />
-                    </StackPanel>
-
-                    <StackPanel Grid.Column="3" >
-                        <TextBlock Margin="5 4 5 2" Text="[m]" />
-                        <TextBlock Margin="5 4 5 2" Text="[m]"/>
-                        <TextBlock Margin="5 4 5 2" Text="[m]"/>
-                        <TextBlock Margin="5 4 5 2" Text="[szt.]" />
-                        <TextBlock Margin="5 4 5 2" Text="[mm]" />
-                        <TextBlock Margin="5 4 5 2" Text="[mm&#x00B2;]" />
-                        <TextBlock Margin="5 4 5 2" Text="[m&#x00B2;]" />
-                    </StackPanel>
--->
-                </Grid>
+                <TextBlock Margin="5 4 5 2" Text="Beton:" />
+                <TextBox Text="{Binding Concrete.ConcreteClass}"  />
+                <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.Height}" />
+                <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.Width}" />
             </StackPanel>
         </Border>
     </Grid>

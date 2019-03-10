@@ -37,7 +37,7 @@ namespace Projekt1._0
             CrossSectionCharacteristic crossSectionCharacteristic = column.CrossSectionCharacteristic;
             if (crossSectionCharacteristic!=null)
             {
-                crossSectionCharacteristic.UpdateData();
+                crossSectionCharacteristic.UpdateData(column.SectionType.IsProstokatnySection);
             }
 
             Statics statics = column.Statics;
@@ -56,6 +56,12 @@ namespace Projekt1._0
             if (type != null)
             {
                 type.UpdateData();
+            }
+
+            CheckEccentricity checkEccentricity = column.CheckEccentricity;
+            if (checkEccentricity != null)
+            {
+                checkEccentricity.UpdateData(column.CrossSectionCharacteristic, column.Statics);
             }
 
         }

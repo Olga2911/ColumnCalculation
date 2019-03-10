@@ -17,6 +17,14 @@ namespace Projekt1._0
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public Array ClassesOfConcrete
+        {
+            get
+            {
+                return Enum.GetValues(typeof(ConcreteClasses));
+            }
+        }
+
         public ConcreteClasses ConcreteClass
         {
             get
@@ -26,17 +34,24 @@ namespace Projekt1._0
             set
             {
                 concreteClasses = value;
+                UpdateData();
             }
         }
 
         public void UpdateData()
+        {
+            Calculate();
+            PropertyChanged(this, new PropertyChangedEventArgs("ConcreteClass"));
+        }
+
+        public void Calculate()
         {
             fcd = fck / gammaF;
         }
 
         public enum ConcreteClasses
         {
-            C1615, C20, C25, C30, C35, C40
+            C15, C20, C25, C30, C35, C40
         }
             
 

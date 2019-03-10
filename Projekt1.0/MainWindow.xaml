@@ -31,7 +31,7 @@
                 </StackPanel>
 
                 <StackPanel Grid.Column="2">
-                    <ComboBox  />
+                    <ComboBox ItemsSource="{Binding Concrete.ClassesOfConcrete, Source={StaticResource column}}"  SelectedIndex="1" SelectedItem="{Binding Concrete.ConcreteClass, Source={StaticResource column}}"   />
                     <ComboBox Margin="0 5 0 0"/>
                 </StackPanel>
 
@@ -90,7 +90,7 @@
                     <TextBlock Margin="5 4 5 2" Text="A=" />
                 </StackPanel>
 
-                <StackPanel Grid.Column="2" >
+                <StackPanel Grid.Column="2" Height="154" Margin="0.333,0,0,0" VerticalAlignment="Bottom" >
                     <TextBox Background="Beige" Margin="5 2 5 2" IsEnabled="{Binding SectionType.IsProstokatnySection, Mode=OneWay, Source={StaticResource column}}" Text="{Binding CrossSectionCharacteristic.Width, Source={StaticResource column}}"/>
                     <TextBox Background="Beige" Margin="5 2 5 2" IsEnabled="{Binding SectionType.IsProstokatnySection, Mode=OneWay, Source={StaticResource column}}" Text="{Binding CrossSectionCharacteristic.Height, Source={StaticResource column}}" />
                     <TextBox Background="Beige" Margin="5 2 5 2" IsEnabled="{Binding SectionType.IsKolowySection, Mode=OneWay, Source={StaticResource column}}" Text="{Binding CrossSectionCharacteristic.Diameter, Source={StaticResource column}}"  />
