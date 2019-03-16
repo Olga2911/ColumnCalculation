@@ -15,7 +15,7 @@
         <Border Padding="5">
             <StackPanel>
                 <TextBlock Margin="5 4 5 2" Text="Beton:" />
-                <TextBox Text="{Binding Concrete.ConcreteClass}"  />
+                <TextBox Text="{Binding Concrete.ConcreteClassDescription}"   />
                 <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.Height}" />
                 <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.Width}" />
             </StackPanel>

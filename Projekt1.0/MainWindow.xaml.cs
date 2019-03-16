@@ -25,6 +25,6 @@ namespace Projekt1._0
         {
             InitializeComponent();
         }
-                
+
     }
 }
