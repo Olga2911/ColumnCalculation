@@ -19,8 +19,6 @@ namespace Projekt1._0
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-
-
         public Array ClassesOfConcrete
         {
             get
@@ -31,9 +29,7 @@ namespace Projekt1._0
                 {
                     var descript = EnumConvert.GetDescription(type);
                     resultList.Add(descript);
-
                 }
-
 
                 return resultList.ToArray();
             }

@@ -32,7 +32,7 @@
 
                 <StackPanel Grid.Column="2">
                     <ComboBox ItemsSource="{Binding Concrete.ClassesOfConcrete, Source={StaticResource column}}"  SelectedIndex="1" SelectedItem="{Binding Concrete.ConcreteClassDescription, Source={StaticResource column}}" />
-                    <ComboBox Margin="0 5 0 0"/>
+                    <ComboBox   Margin="0 5 0 0" ItemsSource="{Binding Steel.ClassesOfSteel, Source={StaticResource column}}" SelectedIndex="3" />
                 </StackPanel>
 
                 <StackPanel Grid.Column="3">
@@ -57,11 +57,11 @@
                 </StackPanel>
 
                 <StackPanel Grid.Column="2">
-                    <ComboBox Margin=" 0 5 0 0" ItemsSource="{Binding SectionType.ArraySectionType, Source={StaticResource column}}" SelectedIndex="0" IsSynchronizedWithCurrentItem="True" SelectedItem="{Binding Concrete.ConcreteClassDescription, Source={StaticResource column}}"   />
+                    <ComboBox Margin=" 0 5 0 0" ItemsSource="{Binding SectionType.ArraySectionType, Source={StaticResource column}}" SelectedIndex="1" IsSynchronizedWithCurrentItem="True" SelectedItem="{Binding Concrete.ConcreteClassDescription, Source={StaticResource column}}"   />
                 </StackPanel>
             </Grid>
 
-            <Image Width="80" Source="{Binding SectionType.PathToDraw, Source={StaticResource column}}"/>
+            <Image Width="100" Source="{Binding SectionType.PathToDraw, Source={StaticResource column}}"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -74,17 +74,17 @@
                     <TextBlock Margin="5 4 5 2" Text="Szerokość:" IsEnabled="{Binding SectionType.IsProstokatnySection, Mode=OneWay, Source={StaticResource column}}" />
                     <TextBlock Margin="5 4 5 2" Text="Wysokość: " IsEnabled="{Binding SectionType.IsProstokatnySection, Mode=OneWay, Source={StaticResource column}}" />
                     <TextBlock Margin="5 4 5 2" Text="Średnica: " IsEnabled="{Binding SectionType.IsKolowySection, Mode=OneWay, Source={StaticResource column}}" />
-                    <TextBlock Margin="5 4 5 2" Text="n=" />
-                    <TextBlock Margin="5 4 5 2" Text="fi=" />
-                    <TextBlock Margin="5 4 5 2" Text="As1=" />
-                    <TextBlock Margin="5 4 5 2" Text="A=" />
+                    <TextBlock Margin="5 4 5 2" Text="Otulina: " />
+                    <TextBlock Margin="5 4 5 2" Text="Średnica zbr:" />
+                    <TextBlock Margin="5 4 5 2" Text="Pole zbrojenia" />
+                    <TextBlock Margin="5 4 5 2" Text="Pole betonu" />
                 </StackPanel>
 
                 <StackPanel Grid.Column="1">
                     <TextBlock  Margin="5 4 5 2" Text="b=" IsEnabled="{Binding SectionType.IsProstokatnySection, Mode=OneWay, Source={StaticResource column}}" />
                     <TextBlock Margin="5 4 5 2" Text="h=" IsEnabled="{Binding SectionType.IsProstokatnySection, Mode=OneWay, Source={StaticResource column}}" />
                     <TextBlock Margin="5 4 5 2" Text="d=" IsEnabled="{Binding SectionType.IsKolowySection, Mode=OneWay, Source={StaticResource column}}" />
-                    <TextBlock Margin="5 4 5 2" Text="n=" />
+                    <TextBlock Margin="5 4 5 2" Text="c=" />
                     <TextBlock Margin="5 4 5 2" Text="fi=" />
                     <TextBlock Margin="5 4 5 2" Text="As1=" />
                     <TextBlock Margin="5 4 5 2" Text="A=" />
@@ -94,7 +94,7 @@
                     <TextBox Background="Beige" Margin="5 2 5 2" IsEnabled="{Binding SectionType.IsProstokatnySection, Mode=OneWay, Source={StaticResource column}}" Text="{Binding CrossSectionCharacteristic.Width, Source={StaticResource column}}"/>
                     <TextBox Background="Beige" Margin="5 2 5 2" IsEnabled="{Binding SectionType.IsProstokatnySection, Mode=OneWay, Source={StaticResource column}}" Text="{Binding CrossSectionCharacteristic.Height, Source={StaticResource column}}" />
                     <TextBox Background="Beige" Margin="5 2 5 2" IsEnabled="{Binding SectionType.IsKolowySection, Mode=OneWay, Source={StaticResource column}}" Text="{Binding CrossSectionCharacteristic.Diameter, Source={StaticResource column}}"  />
-                    <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.CountAs1, Source={StaticResource column}}"  />
+                    <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.Cover, Source={StaticResource column}}"  />
                     <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.FiAs1, Source={StaticResource column}}" />
                     <TextBox Background="Green" Margin="5 2 5 2" IsReadOnly="True" Text="{Binding CrossSectionCharacteristic.AreaAs1, Mode=OneWay, Source={StaticResource column}, StringFormat={}{0:n2}}"  />
                     <TextBox Background="Green" Margin="5 2 5 2"  IsReadOnly="true" Text="{Binding CrossSectionCharacteristic.AreaConcrete, Mode=OneWay, Source={StaticResource column}, StringFormat={}{0:n2}}" />
@@ -104,7 +104,7 @@
                     <TextBlock Margin="5 4 5 2" Text="[m]" />
                     <TextBlock Margin="5 4 5 2" Text="[m]"/>
                     <TextBlock Margin="5 4 5 2" Text="[m]"/>
-                    <TextBlock Margin="5 4 5 2" Text="[szt.]" />
+                    <TextBlock Margin="5 4 5 2" Text="[m]" />
                     <TextBlock Margin="5 4 5 2" Text="[mm]" />
                     <TextBlock Margin="5 4 5 2" Text="[mm&#x00B2;]" />
                     <TextBlock Margin="5 4 5 2" Text="[m&#x00B2;]" />
@@ -115,26 +115,70 @@
             <TextBlock Margin="0 5" Text="Statyka" FontWeight="Bold"/>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="40" />
                     <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="1.2*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Column="0">
-                    <TextBlock  Margin="5 4 5 2" Text="L=" />
-                    <TextBlock Margin="5 4 5 2" Text="P=" />
-
+                    <TextBlock  Margin="5 4 5 2" Text="Wysokość słupa: " />
+                    <TextBlock Margin="5 4 5 2" Text="Siła ściskająca: " />
+                    <TextBlock  Margin="5 4 5 2" Text="Moment zginający: " />
                 </StackPanel>
 
-                <StackPanel Grid.Column="1" >
-                    <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding Statics.ColumnHeight, Source={StaticResource column}}"  />
-                    <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding Statics.CompressiveForce, Source={StaticResource column}}"  />
-
+                <StackPanel Grid.Column="1">
+                    <TextBlock  Margin="5 4 5 2" Text="Lcol= " />
+                    <TextBlock Margin="5 4 5 2" Text="N= " />
+                    <TextBlock  Margin="5 4 5 2" Text="M= " />
                 </StackPanel>
 
                 <StackPanel Grid.Column="2" >
+                    <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding Statics.ColumnHeight, Source={StaticResource column}}"  />
+                    <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding Statics.CompressiveForce, Source={StaticResource column}}"  />
+                    <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding Statics.BendingMoment, Source={StaticResource column}}"  />
+                </StackPanel>
+
+                <StackPanel Grid.Column="3" >
                     <TextBlock Margin="5 4 5 2" Text="[m]" />
                     <TextBlock Margin="5 4 5 2" Text="[kN]"/>
+                    <TextBlock Margin="5 4 5 2" Text="[kNm]"/>
+                </StackPanel>
+            </Grid>
+
+            <!--Wyznaczenie mimośrodów-->
+            <TextBlock Margin="0 5" Text="Wyznaczenie mimośrodów" FontWeight="Bold"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="1.2*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock  Margin="5 4 5 2" Text="Statyczny: " />
+                    <TextBlock Margin="5 4 5 2" Text="Niezamierzony: " />
+                    <TextBlock  Margin="5 4 5 2" Text="Początkowy: " />
+                </StackPanel>
+
+                <StackPanel Grid.Column="1">
+                    <TextBlock  Margin="5 4 5 2" Text="ee= " />
+                    <TextBlock Margin="5 4 5 2" Text="ea= " />
+                    <TextBlock  Margin="5 4 5 2" Text="e0= " />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" >
+                    <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CheckEccentricity.EE, Mode=OneWay, Source={StaticResource column}}"   />
+                    <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CheckEccentricity.EA, Mode=OneWay, Source={StaticResource column}}"   />
+                    <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CheckEccentricity.E0, Mode=OneWay, Source={StaticResource column}}"   />
+                </StackPanel>
+
+                <StackPanel Grid.Column="3" >
+                    <TextBlock Margin="5 4 5 2" Text="[cm]" />
+                    <TextBlock Margin="5 4 5 2" Text="[cm]"/>
+                    <TextBlock Margin="5 4 5 2" Text="[cm]"/>
+
                     <Button  Margin="5 15 5 5" Content="Oblicz" Grid.Column="2" Command="{Binding Calculate, Mode=OneWay, Source={StaticResource column}}" CommandParameter="{DynamicResource column}" />
                 </StackPanel>
 

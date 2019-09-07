@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,16 +8,16 @@ using System.Windows.Input;
 
 namespace Projekt1._0
 {
-    class Column
+    class Column : INotifyPropertyChanged
     {
         private CrossSectionCharacteristic crossSectionCharacteristic = new CrossSectionCharacteristic();
         private Statics statics = new Statics();
-        private Calculate calculate = new Calculate();
         private Concrete concrete = new Concrete();
-        private SectionType sectionType = new SectionType();
+        private Steel steel = new Steel();
         private MaterialParametersCommand materialParametersCommand = new MaterialParametersCommand();
-        private CheckEccentricity checkEccentricity = new CheckEccentricity();
+        //private CheckEccentricity checkEccentricity = new CheckEccentricity();
 
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public CrossSectionCharacteristic CrossSectionCharacteristic
         {
@@ -55,40 +56,33 @@ namespace Projekt1._0
             }
         }
 
-        public SectionType SectionType
+        public Steel Steel
 
         {
             get
             {
-                return sectionType;
+                return steel;
             }
             set
             {
-                sectionType = value;
-            }
-        }
-
-        public CheckEccentricity CheckEccentricity
-
-        {
-            get
-            {
-                return checkEccentricity;
-            }
-            set
-            {
-                checkEccentricity = value;
+                steel = value;
             }
         }
 
 
-        public ICommand Calculate
-        {
-            get
-            {
-                return calculate;
-            }
-        }
+        //public CheckEccentricity CheckEccentricity
+
+        //{
+        //    get
+        //    {
+        //        return checkEccentricity;
+        //    }
+        //    set
+        //    {
+        //        checkEccentricity = value;
+        //    }
+        //}
+
 
         public ICommand ViewMaterialParameters
         {
@@ -98,5 +92,9 @@ namespace Projekt1._0
             }
         }
 
+        void InputPropertyChangedEventChandler (object sender, PropertyChangedEventArgs e )
+        {
+            PropertyChanged(sender, e);
+        }
     }
 }

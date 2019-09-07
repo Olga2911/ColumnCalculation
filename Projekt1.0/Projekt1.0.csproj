@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BasicParameters.cs" />
     <Compile Include="CheckEccentricity.cs" />
     <Compile Include="Concrete.cs" />
     <Compile Include="EnumConvert.cs" />
@@ -62,8 +63,9 @@
     <Compile Include="MaterialParameters.xaml.cs">
       <DependentUpon>MaterialParameters.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SectionType.cs" />
+    <Compile Include="Project.cs" />
     <Compile Include="Statics.cs" />
+    <Compile Include="Steel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -72,7 +74,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Calculate.cs" />
     <Compile Include="Column.cs" />
     <Compile Include="CrossSectionCharacteristic.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -111,8 +112,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Draws\kotrys.jpg" />
-    <Resource Include="Draws\myszrys.png" />
+    <Resource Include="Draws\kolowy.bmp" />
+    <Resource Include="Draws\prostokatny.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
