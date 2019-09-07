@@ -97,13 +97,13 @@ namespace Projekt1._0
         }
 
 
-        public void UpdateData(CrossSectionCharacteristic characteristic, Statics statics)
+        public void UpdateData(SectionDimentions characteristic, Statics statics)
         {
             Calculate(characteristic, statics);
                     }
 
 
-        public void Calculate(CrossSectionCharacteristic characteristic, Statics statics)
+        public void Calculate(SectionDimentions characteristic, Statics statics)
         {
             eE = statics.BendingMoment / statics.CompressiveForce;
 
@@ -114,8 +114,8 @@ namespace Projekt1._0
             eA = Math.Max(ea1, Math.Max(ea2, ea3));
             e0 = eE + eA;
             eTot = eta * e0;
-            eS1 = eTot + 0.5*characteristic.Height-characteristic.AReinforcement;
-            eS2=eTot - 0.5 * characteristic.Height - characteristic.AReinforcement;
+            //eS1 = eTot + 0.5*characteristic.Height-characteristic.AReinforcement;
+            //eS2=eTot - 0.5 * characteristic.Height - characteristic.AReinforcement;
 
             double asmin1 = 0.15 * statics.CompressiveForce;
 

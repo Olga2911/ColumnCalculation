@@ -28,6 +28,15 @@ namespace Projekt1._0
             }
         }
 
+        public BasicParameters BasicParameters
+        {
+            get
+            {
+                return basicParameters;
+            }
+        }
+
+
         void ColumnPropertyChangedEventHandler(object sender, PropertyChangedEventArgs e)
         {
             Calculate();

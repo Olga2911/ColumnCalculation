@@ -10,6 +10,9 @@ namespace Projekt1._0
     class BasicParameters : INotifyPropertyChanged
     {
         private Double areaConcrete = 0.0;
+        private Double areaAs1 = 0.0;
+        private Double aReiforcement = 0.0;
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -26,9 +29,27 @@ namespace Projekt1._0
             }
         }
 
+        public Double AReinforcement
+        {
+            get
+            {
+                return aReiforcement;
+            }
+        }
+
+        public double AreaAs1
+        {
+            get
+            {
+                return areaAs1;
+            }
+        }
+
+
+
         public void Calculate(Project project)
         {
-            areaConcrete = project.Column.CrossSectionCharacteristic.Height * project.Column.CrossSectionCharacteristic.Width;
+            areaConcrete = project.Column.SectionDimensions.Height * project.Column.SectionDimensions.Width;
 
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AreaConcrete"));
             //wpisać wszystkie pola

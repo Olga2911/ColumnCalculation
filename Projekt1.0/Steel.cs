@@ -14,6 +14,13 @@ namespace Projekt1._0
         private Double fyk = 500.0;
         private Double gammaS = 1.15;
         private Double fyd = 0.0;
+        private int countAs1 = 4;
+        // fi [mm]
+        private int fiAs1 = 12;
+        private Double cover = 0.04;
+
+        //cover [m]
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -34,6 +41,59 @@ namespace Projekt1._0
                 return resultsteelList.ToArray();
             }
         }
+
+        public int FiAs1
+        {
+            get
+            {
+                return fiAs1;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    fiAs1 = value;
+                }
+
+            }
+        }
+
+        public int CountAs1
+        {
+            get
+            {
+                return countAs1;
+            }
+            set
+
+            {
+                if (value > 0)
+                {
+                    countAs1 = value;
+                }
+
+            }
+        }
+
+
+        public Double Cover
+        {
+            get
+            {
+                return cover;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    cover = value;
+                }
+
+            }
+        }
+
+
+
 
         public String SteelClassDescription
         {

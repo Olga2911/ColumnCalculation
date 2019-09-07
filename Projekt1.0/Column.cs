@@ -10,7 +10,7 @@ namespace Projekt1._0
 {
     class Column : INotifyPropertyChanged
     {
-        private CrossSectionCharacteristic crossSectionCharacteristic = new CrossSectionCharacteristic();
+        private SectionDimentions sectionDimensions = new SectionDimentions();
         private Statics statics = new Statics();
         private Concrete concrete = new Concrete();
         private Steel steel = new Steel();
@@ -19,15 +19,21 @@ namespace Projekt1._0
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public CrossSectionCharacteristic CrossSectionCharacteristic
+        public Column ()
+        {
+            sectionDimensions.PropertyChanged += InputPropertyChangedEventChandler; 
+            //wymienić wszystkie klasy
+        }
+
+        public SectionDimentions SectionDimensions
         {
             get
             {
-                return crossSectionCharacteristic;
+                return sectionDimensions;
             }
             set
             {
-                crossSectionCharacteristic = value;
+                sectionDimensions = value;
             }
         }
 
