@@ -59,13 +59,17 @@
     <Compile Include="CheckEccentricity.cs" />
     <Compile Include="Concrete.cs" />
     <Compile Include="EnumConvert.cs" />
-    <Compile Include="MaterialParameters.cs" />
-    <Compile Include="MaterialParameters.xaml.cs">
-      <DependentUpon>MaterialParameters.xaml</DependentUpon>
+    <Compile Include="ConcreteParametersCommand.cs" />
+    <Compile Include="ConcretParameters.xaml.cs">
+      <DependentUpon>ConcretParameters.xaml</DependentUpon>
     </Compile>
     <Compile Include="Project.cs" />
     <Compile Include="Statics.cs" />
     <Compile Include="Steel.cs" />
+    <Compile Include="SteelParameters.xaml.cs">
+      <DependentUpon>SteelParameters.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SteelParametersCommand.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -80,7 +84,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MaterialParameters.xaml">
+    <Page Include="ConcretParameters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SteelParameters.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

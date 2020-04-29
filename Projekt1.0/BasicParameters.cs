@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Projekt1._0
 {
-    class BasicParameters : INotifyPropertyChanged
+    class BasicParameters : INotifyPropertyChanged //dziedziczenie klasy z bazy
     {
         private Double areaConcrete = 0.0;
         private Double areaAs1 = 0.0;
         private Double aReiforcement = 0.0;
 
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged; //opcja która potrafi wysłać informację o zmianie danych
 
         public BasicParameters(Project project)
         {
@@ -47,11 +47,10 @@ namespace Projekt1._0
 
 
 
-        public void Calculate(Project project)
+        public void Calculate(Project project) //funkcja licząca - potrzebuje wszystkich danych 
         {
             areaConcrete = project.Column.SectionDimensions.Height * project.Column.SectionDimensions.Width;
-
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AreaConcrete"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AreaConcrete")); //"wysłanie do widoku"
             //wpisać wszystkie pola
         }
     }

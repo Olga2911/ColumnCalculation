@@ -1,0 +1,24 @@
+﻿<Window x:Class="Projekt1._0.MaterialParameters"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projekt1._0"
+        mc:Ignorable="d"
+        Title="Parametry betonu" Height="450" Width="400">
+    
+    <Window.DataContext>
+        <local:Project />
+    </Window.DataContext>
+    
+    <Grid>
+        <Border Padding="5">
+            <StackPanel>
+                <TextBlock Margin="5 4 5 2" Text="Beton:" />
+                <TextBox Text="{Binding Column.Concrete.ConcreteClassDescription}"   />
+                <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.Height}" />
+                <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.Width}" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

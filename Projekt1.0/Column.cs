@@ -14,14 +14,21 @@ namespace Projekt1._0
         private Statics statics = new Statics();
         private Concrete concrete = new Concrete();
         private Steel steel = new Steel();
-        private MaterialParametersCommand materialParametersCommand = new MaterialParametersCommand();
+        private ConcreteParametersCommand materialParametersCommand = new ConcreteParametersCommand();
+        private SteelParametersCommand steelParametersCommand = new SteelParametersCommand();
+
         //private CheckEccentricity checkEccentricity = new CheckEccentricity();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public Column ()
+        public Column () //konstruktor klasy
         {
-            sectionDimensions.PropertyChanged += InputPropertyChangedEventChandler; 
+            sectionDimensions.PropertyChanged += InputPropertyChangedEventChandler;
+            statics.PropertyChanged += InputPropertyChangedEventChandler;
+            concrete.PropertyChanged += InputPropertyChangedEventChandler;
+            steel.PropertyChanged += InputPropertyChangedEventChandler;
+            //materialParametersCommand.PropertyChanged += InputPropertyChangedEventChandler;
+            //steelParametersCommand.PropertyChanged += InputPropertyChangedEventChandler;
             //wymienić wszystkie klasy
         }
 
@@ -95,6 +102,13 @@ namespace Projekt1._0
             get
             {
                 return materialParametersCommand;
+            }
+        }
+        public ICommand ViewSteelParameters
+        {
+            get
+            {
+                return steelParametersCommand;
             }
         }
 

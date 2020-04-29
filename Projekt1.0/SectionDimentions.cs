@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Projekt1._0
     {
-    class SectionDimentions : INotifyPropertyChanged
+    class SectionDimentions : INotifyPropertyChanged 
 
     {
         private Double width = 0.3;

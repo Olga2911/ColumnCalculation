@@ -14,13 +14,9 @@ namespace Projekt1._0
         private Double fyk = 500.0;
         private Double gammaS = 1.15;
         private Double fyd = 0.0;
-        private int countAs1 = 4;
-        // fi [mm]
+        private int countAs1 = 4; //fi [mm]
         private int fiAs1 = 12;
-        private Double cover = 0.04;
-
-        //cover [m]
-
+        private Double cover = 0.04; //cover [m]
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -132,7 +128,6 @@ namespace Projekt1._0
                         gammaS = 1.15;
                         fyd = 0.0;
                         break;
-
                 }
                 UpdateData();
             }
@@ -142,6 +137,12 @@ namespace Projekt1._0
             Calculate();
             PropertyChanged(this, new PropertyChangedEventArgs("SteelClass"));
             PropertyChanged(this, new PropertyChangedEventArgs("SteelClassDescription"));
+            PropertyChanged(this, new PropertyChangedEventArgs("fyk"));
+            PropertyChanged(this, new PropertyChangedEventArgs("gammaS"));
+            PropertyChanged(this, new PropertyChangedEventArgs("fyd"));
+            PropertyChanged(this, new PropertyChangedEventArgs("countAs1"));
+            PropertyChanged(this, new PropertyChangedEventArgs("fiAs1"));
+            PropertyChanged(this, new PropertyChangedEventArgs("cover"));
         }
 
         public void Calculate()

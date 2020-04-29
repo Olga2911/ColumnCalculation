@@ -74,15 +74,19 @@ namespace Projekt1._0
 
         public void UpdateData()
         {
-            Calculate();
+            //Calculate();
             PropertyChanged(this, new PropertyChangedEventArgs("ConcreteClass"));
             PropertyChanged(this, new PropertyChangedEventArgs("ConcreteClassDescription"));
+            PropertyChanged(this, new PropertyChangedEventArgs("fck"));
+            PropertyChanged(this, new PropertyChangedEventArgs("gammaC"));
+            PropertyChanged(this, new PropertyChangedEventArgs("fcd"));
+            PropertyChanged(this, new PropertyChangedEventArgs("Ecm"));
         }
 
-        public void Calculate()
-        {
-            fcd = fck / gammaC;
-        }
+        //public void Calculate()
+        //{
+        //    fcd = fck / gammaC;
+        //}
 
         public enum ConcreteClasses
         {

@@ -24,6 +24,7 @@ namespace Projekt1._0
             set
             {
                 columnHeight = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("ColumnHeight"));
             }
         }
 
@@ -36,6 +37,7 @@ namespace Projekt1._0
             set
             {
                 compressiveForce = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("CompressiveForce"));
             }
         }
 
@@ -48,13 +50,8 @@ namespace Projekt1._0
             set
             {
                 bendingMoment = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("BendingMoment"));
             }
         }
-
-        public void UpdateData()
-        {
-            
-        }
-
     }
 }

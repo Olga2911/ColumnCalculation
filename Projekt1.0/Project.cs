@@ -11,13 +11,13 @@ namespace Projekt1._0
     {
         private Column column = new Column();
 
-        private BasicParameters basicParameters;
+        private BasicParameters basicParameters; //więcej klas
 
-        public Project()
+
+        public Project() //konstruktor
         {
-            column.PropertyChanged += ColumnPropertyChangedEventHandler;
+            column.PropertyChanged += ColumnPropertyChangedEventHandler; //nasłuchiwanie
             basicParameters = new BasicParameters(this);
-
         }
 
         public Column Column

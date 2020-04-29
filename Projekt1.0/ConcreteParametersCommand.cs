@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace Projekt1._0
 {
-    class MaterialParametersCommand : ICommand
+    class ConcreteParametersCommand : ICommand
 
     {
         public event EventHandler CanExecuteChanged;
