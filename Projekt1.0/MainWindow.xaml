@@ -5,162 +5,596 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt1._0"
         mc:Ignorable="d"
-        Title="Słup" Height="700" Width="350">
+        Title="Słup" Height="1200" Width="700">
     <Window.Resources>
         <local:Project x:Key="project"/>
     </Window.Resources>
-    <Border Padding="10">
-        <StackPanel>
-            <!--Parametry przekroju-->
 
-            <TextBlock Margin="0 0 0 0" Text="PARAMETRY PRZEKROJU" FontWeight="Bold"/>
-            <Grid >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="1.2*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+    <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="0" Margin="5">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Column="0">
-                    <TextBlock Margin="5 4 5 2" Text="Beton" />
-                    <TextBlock Margin="5 4 5 2" Text="Stal" />
-                </StackPanel>
+            <StackPanel Background="MintCream" Grid.Column="0">
+                <!-- PARAMETRY PRZEKROJU -->
+                <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="4" Margin="4">
+                    <StackPanel >
+                        <TextBlock FontSize="12" Margin="2 2 0 0" Text="PARAMETRY PRZEKROJU" FontWeight="Bold"/>
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Column="2">
-                    <ComboBox ItemsSource="{Binding Column.Concrete.ClassesOfConcrete, Source={StaticResource project}}" SelectedIndex="0" SelectedItem="{Binding Column.Concrete.ConcreteClassDescription, Source={StaticResource project}}" />
-                    <ComboBox   Margin="0 5 0 0" ItemsSource="{Binding Column.Steel.ClassesOfSteel, Source={StaticResource project}}"  SelectedItem="{Binding Column.Steel.SteelClassDescription, Source={StaticResource project}}"  />
-                </StackPanel>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock FontSize="9" Margin="5 12 5 2" Text="Beton" />
+                                <TextBlock FontSize="9" Margin="5 12 5 2" Text="Stal" />
+                                <TextBlock FontSize="9" Margin="5 12 5 2" Text="Klasa ekspozycji" />
+                                <TextBlock FontSize="9" Margin="5 12 5 2" Text="Klasa konstrukcji" />
 
-                <StackPanel Grid.Column="3" Height="49" Margin="0,0,0.333,-0.333" VerticalAlignment="Bottom">
-                    <Button  Content="Beton..." Width="60" Command="{Binding Column.ViewMaterialParameters, Source={StaticResource project}}" CommandParameter="{DynamicResource project}" />
-                    <Button Margin="0 8 0 0" Content="Stal..." Width="60" Command="{Binding Column.ViewSteelParameters, Source={StaticResource project}}" CommandParameter="{DynamicResource project}"/>
-                </StackPanel>
-            </Grid>
+                            </StackPanel>
 
+                            <StackPanel Grid.Column="1">
+                                <ComboBox ItemsSource="{Binding Column.Concrete.ClassesOfConcrete, Source={StaticResource project}}" SelectedIndex="0" SelectedItem="{Binding Column.Concrete.ConcreteClassDescription, Source={StaticResource project}}" Margin="0 5 0 0" />
+                                <ComboBox ItemsSource="{Binding Column.Steel.ClassesOfSteel, Source={StaticResource project}}"  SelectedItem="{Binding Column.Steel.SteelClassDescription, Source={StaticResource project}}"   Margin="0 5 0 0" />
+                                <ComboBox Margin="0 5 0 0" />
+                                <ComboBox Margin="0 5 0 0"   />
+                            </StackPanel>
 
-            <!--Geometria przekroju-->
-            <TextBlock Margin="0 10 0 0" Text="GEOMETRIA PRZEKROJU" FontWeight="Bold"/>
-            <Grid >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition Width="1.2*"/>
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="2"  >
+                                <Button Command="{Binding Column.ViewMaterialParameters, Source={StaticResource project}}" CommandParameter="{DynamicResource project}"  Margin="0 6 0 0" Content="..." Width="20"  />
+                                <Button Command="{Binding Column.ViewSteelParameters, Source={StaticResource project}}" CommandParameter="{DynamicResource project}" Margin="0 6 0 0" Content="..." Width="20"  />
+                                <Button Margin="0 6 0 0" Content="..." Width="20"  />
+                                <Button Margin="0 6 0 0" Content="..." Width="20" />
+                            </StackPanel>
+                        </Grid>
 
+                        <!-- PEŁZANIE -->
+                        <TextBlock FontSize="12" Margin="2 12 0 0" Text="PEŁZANIE" FontWeight="Bold"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Column="2">
-                    <!--<ComboBox Margin=" 0 5 0 0" ItemsSource="{Binding SectionType.ArraySectionType, Source={StaticResource column}}" SelectedIndex="1" IsSynchronizedWithCurrentItem="True" SelectedItem="{Binding Concrete.ConcreteClassDescription, Source={StaticResource column}}"   />-->
-                </StackPanel>
-            </Grid>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="φ(∞,t0)=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="M0Eqp/M0Ed=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="X=" />
+                            </StackPanel>
 
-            <!--<Image Width="100" Source="{Binding SectionType.PathToDraw, Source={StaticResource column}}"/>-->
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="1.2*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions> 
+                            <StackPanel Grid.Column="1">
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                            </StackPanel>
 
-                <StackPanel Grid.Column="1">
-                    <TextBlock  Margin="5 4 5 2" Text="b=" />
-                    <TextBlock Margin="5 4 5 2" Text="h=" />
-                    <TextBlock Margin="5 4 5 2" Text="A=" />
-                </StackPanel>
+                            <StackPanel Grid.Column="2">
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Border>
 
-                <StackPanel Grid.Column="2" Height="154" Margin="0.333,0,0,0" VerticalAlignment="Bottom" >
-                    <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding Column.SectionDimensions.Width, Source={StaticResource project}}" />
-                    <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding Column.SectionDimensions.Height, Source={StaticResource project}}" />
-                    <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding BasicParameters.AreaConcrete, Mode=OneWay, Source={StaticResource project}}"  />
-                </StackPanel>
+                <!-- GEOMETRIA PRZEKROJU -->
+                <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="4" Margin="4">
+                    <StackPanel>
+                        <TextBlock  FontSize="12" Margin="2 2 0 0" Text="GEOMETRIA PRZEKROJU" FontWeight="Bold"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition  Width="*" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Column="3" >
-                    <TextBlock Margin="5 4 5 2" Text="[m]" />
-                    <TextBlock Margin="5 4 5 2" Text="[m]"/>
-                    <TextBlock Margin="5 4 5 2" Text="[m]" />
-                </StackPanel>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="b=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="h=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="l=" />
+                            </StackPanel>
 
-            </Grid>
-            <!--Statyka-->
-            <TextBlock Margin="0 5" Text="Statyka" FontWeight="Bold"/>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="1.2*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="1">
+                                <TextBox Text="{Binding Column.SectionDimensions.Width, Source={StaticResource project}}"  FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox Text="{Binding Column.SectionDimensions.Height, Source={StaticResource project}}"  FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox Text="{Binding BasicParameters.AreaConcrete, Mode=OneWay, Source={StaticResource project}}"   FontSize="9" Background="Beige" Margin="0 7 0 2"/>
 
-                <StackPanel Grid.Column="0">
-                    <TextBlock  Margin="5 4 5 2" Text="Wysokość słupa: " />
-                    <TextBlock Margin="5 4 5 2" Text="Siła ściskająca: " />
-                    <TextBlock  Margin="5 4 5 2" Text="Moment zginający: " />
-                </StackPanel>
+                            </StackPanel>
 
-                <StackPanel Grid.Column="1">
-                    <TextBlock  Margin="5 4 5 2" Text="Lcol= " />
-                    <TextBlock Margin="5 4 5 2" Text="N= " />
-                    <TextBlock  Margin="5 4 5 2" Text="M= " />
-                </StackPanel>
+                            <StackPanel Grid.Column="2">
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[cm]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[cm]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[cm]" />
+                            </StackPanel>
+                        </Grid>
 
-                <StackPanel Grid.Column="2" >
-                    <TextBox Background="beige" Margin="5 2 5 2" Text="{Binding Column.Statics.ColumnHeight, Source={StaticResource project}}"  />
-                    <TextBox Background="beige" Margin="5 2 5 2" Text="{Binding Column.Statics.CompressiveForce, Source={StaticResource project}}"  />
-                    <TextBox Background="beige" Margin="5 2 5 2" Text="{Binding Column.Statics.BendingMoment, Source={StaticResource project}}"  />
-                </StackPanel>
+                        <!-- ZBROJENIE PRZEKROJU -->
+                        <TextBlock FontSize="12" Margin="2 12 0 0" Text="ZBROJENIE PRZEKROJU" FontWeight="Bold"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Column="3" >
-                    <TextBlock Margin="5 4 5 2" Text="[m]" />
-                    <TextBlock Margin="5 4 5 2" Text="[kN]"/>
-                    <TextBlock Margin="5 4 5 2" Text="[kNm]"/>
-                </StackPanel>
-            </Grid>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="Ф1y=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="Φ2y=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="Φ1z=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="Φ2z=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="Φs=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="n1y=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="n2y=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="n1z=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="n2z=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="s=" />
+                            </StackPanel>
 
-            <!--Wyznaczenie mimośrodów-->
-            <TextBlock Margin="0 5" Text="Wyznaczenie mimośrodów" FontWeight="Bold"/>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="1.2*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="1">
+                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2"/>
+                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2"/>
+                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2"/>
+                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2"/>
+                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                            </StackPanel>
 
-                <StackPanel Grid.Column="0">
-                    <TextBlock  Margin="5 4 5 2" Text="Statyczny: " />
-                    <TextBlock Margin="5 4 5 2" Text="Niezamierzony: " />
-                    <TextBlock  Margin="5 4 5 2" Text="Początkowy: " />
-                </StackPanel>
+                            <StackPanel Grid.Column="2">
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[szt.]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[szt.]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[szt.]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[szt.]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[cm]" />
+                            </StackPanel>
+                        </Grid>
 
-                <StackPanel Grid.Column="1">
-                    <TextBlock  Margin="5 4 5 2" Text="ee= " />
-                    <TextBlock Margin="5 4 5 2" Text="ea= " />
-                    <TextBlock  Margin="5 4 5 2" Text="e0= " />
-                </StackPanel>
+                        <!-- OTULENIE ZBROJENIA -->
+                        <TextBlock FontSize="12" Margin="2 12 0 0" Text="OTULENIE ZBROJENIA" FontWeight="Bold"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Column="2" >
-                    <!--<TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CheckEccentricity.EE, Mode=OneWay, Source={StaticResource column}}"   />
-                    <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CheckEccentricity.EA, Mode=OneWay, Source={StaticResource column}}"   />
-                    <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CheckEccentricity.E0, Mode=OneWay, Source={StaticResource column}}"   />-->
-                </StackPanel>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="cnom=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="a1y=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="a2y=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="a1z=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="a2z=" />
+                            </StackPanel>
 
-                <StackPanel Grid.Column="3" >
-                    <TextBlock Margin="5 4 5 2" Text="[cm]" />
-                    <TextBlock Margin="5 4 5 2" Text="[cm]"/>
-                    <TextBlock Margin="5 4 5 2" Text="[cm]"/>
+                            <StackPanel Grid.Column="1">
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                            </StackPanel>
 
-                </StackPanel>
+                            <StackPanel Grid.Column="2">
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Border>
 
-                <StackPanel >
-                    <TextBlock Text="{Binding Column.Statics.ColumnHeight, Source={StaticResource project}}" HorizontalAlignment="Right" Margin="0,0,-0.333,0" Width="77"/>
-                </StackPanel>
-                
-            </Grid>
+                <!-- SIŁY WEWNĘTRZNE -->
+                <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="4" Margin="4">
+                    <StackPanel>
+                        <TextBlock FontSize="12" Margin="2 2 0 0" Text="SIŁY WEWNĘTRZNE" FontWeight="Bold"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
 
+                            <StackPanel Grid.Column="0">
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="NEd=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="M0,Edy=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="M0,Edz=" />
+                            </StackPanel>
 
+                            <StackPanel Grid.Column="1">
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                            </StackPanel>
 
-        </StackPanel>
+                            <StackPanel Grid.Column="2">
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kN]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kNm]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kNm]" />
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Background="MintCream" Grid.Column="1">
+                <!-- RYSUNEK -->
+                <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="4" Margin="4">
+                    <StackPanel Background="MintCream" Grid.Column="1" >
+                        <TextBlock FontSize="12" Margin="2 2 0 0" Text="RYSUNEK" FontWeight="Bold"/>
+                        <Image Name="image" Source="C:\Users\USER\Desktop\Praca mgr\C#\Projekt1.1\Projekt1.0\Draws\kot.jpg" >
+                        </Image>
+                    </StackPanel>
+                </Border>
+
+                <!-- EFEKTY II-GO RZĘDU - KRYTERIUM -->
+                <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="4" Margin="4">
+                    <StackPanel>
+                        <TextBlock FontSize="12" Margin="2 2 0 0" Text="EFEKTY II-GO RZĘDU - KRYTERIUM" FontWeight="Bold"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.2*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0">
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="A=1/(1+0,2φef)=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="ω=(As*fyd)/Ac*fcd)=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="B=pierw(1+2ω)=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="rm=M01/M02=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="C=1,7-rm=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="n=NEd/Acfcd=" />
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1">
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2">
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                            </StackPanel>
+                        </Grid>
+
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold" FontSize="10" Margin="2 12 0 0" Text="Smukłość graniczna:" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1.2*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock FontWeight="Bold" FontSize="9" Margin="5 9 5 2" Text="λlim=20ABC/pierw(n)=" />
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="1">
+                                    <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="2">
+                                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+
+                        <StackPanel>
+                            <TextBlock FontSize="10" Margin="2 12 0 0" Text="Smukłość słupa" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1.2*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock FontSize="9" Margin="5 9 5 2" Text="μy=" />
+                                    <TextBlock FontSize="9" Margin="5 9 5 2" Text="l0,y=μy∙l" />
+                                    <TextBlock FontWeight="Bold" FontSize="9" Margin="5 9 5 2" Text="λy=pierwiastek(12)*l0,y/h=" />
+                                    <TextBlock FontWeight="Bold" FontSize="9" Margin="5 9 5 2" Text="UWAGA:" />
+                                    <TextBlock FontSize="9" Margin="5 9 5 2" Text="μz=" />
+                                    <TextBlock FontSize="9" Margin="5 9 5 2" Text="l0,z=μz∙l=" />
+                                    <TextBlock FontWeight="Bold" FontSize="9" Margin="5 9 5 2" Text="λz=pierwiastek(12)*l0,z/h=" />
+                                    <TextBlock FontWeight="Bold" FontSize="9" Margin="5 9 5 2" Text="UWAGA:" />
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="1">
+                                    <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                    <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                    <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                    <TextBlock Margin="0 7 0 2"/>
+                                    <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                    <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                    <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="2">
+                                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[m]" />
+                                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                    <TextBlock Margin="8 8 5 2"/>
+                                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[m]" />
+                                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+
+                    </StackPanel>
+                </Border>
+
+                <!-- NOMINALNA SZTYWNOŚĆ -->
+                <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="4" Margin="4">
+                    <StackPanel>
+                        <TextBlock FontSize="12" Margin="2 2 0 0" Text="NOMINALNA SZTYWNOŚĆ" FontWeight="Bold"/>
+                        <TextBlock FontWeight="Bold" FontSize="10" Margin="2 12 0 0" Text="Kierunek y:" />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.2*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0">
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="k1=pierwiastek(fck/20)=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="n=NEd/(Acfcd)" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="k2,y=min{nλy/170;0,2}=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="Kc,y=k1k2,y/(1+ϕef)=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="Ks=1" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="Ic,y=bh^3/12=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="Is,y=" />
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1">
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2">
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[m4]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[m4]" />
+                            </StackPanel>
+                        </Grid>
+
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold" FontSize="10" Margin="2 12 0 0" Text="NOMINALNA SZTYWNOŚĆ - kierunek y:" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1.2*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock FontWeight="Bold" FontSize="9" Margin="5 9 5 2" Text="EIy=Kc,yEcdIc,y+KsEsIs,y=" />
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="1">
+                                    <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="2">
+                                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kNm2]" />
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                        <TextBlock FontWeight="Bold" FontSize="10" Margin="2 12 0 0" Text="Kierunek z:" />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.2*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0">
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="k1=pierwiastek(fck/20)=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="n=NEd/(Acfcd)" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="k2,z=min{nλz/170;0,2}=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="Kc,z=k1k2,z/(1+ϕef)=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="Ks=1" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="Ic,z=hb^3/12=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="Is,z=" />
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1">
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2">
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[m4]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[m4]" />
+                            </StackPanel>
+                        </Grid>
+
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold" FontSize="10" Margin="2 12 0 0" Text="NOMINALNA SZTYWNOŚĆ - kierunek z:" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1.2*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock FontWeight="Bold" FontSize="9" Margin="5 9 5 2" Text="EIz=Kc,zEcdIc,z+KsEsIs,z=" />
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="1">
+                                    <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="2">
+                                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kNm2]" />
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Background="MintCream" Grid.Column="2">
+                <!-- MIMOŚRÓD MINIMALNY-->
+                <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="4" Margin="4">
+                    <StackPanel >
+                        <TextBlock FontSize="12" Margin="2 2 0 0" Text="MIMOŚRÓD MINIMALNY" FontWeight="Bold"/>
+                        <TextBlock FontWeight="Bold" FontSize="10" Margin="2 5 0 0" Text="Kierunek y:" />
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.2*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0">
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="β=π^2/c_0=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="N_(B,y)=(π^2 EIy)/(l_(0,y)^2 )=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="M_Edy=M_(0,Edz) (1+β/(N_(B,z)/N_Ed -1))=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="e_z=M_Edy/N_Ed =" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="e_0=max⁡{h/30;2 [cm]}=" />
+                                <TextBlock FontWeight="Bold" FontSize="9" Margin="5 9 5 2" Text="UWAGA:" />
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1">
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2">
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kN]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kNm]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[m]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[m]" />
+                            </StackPanel>
+                        </Grid>
+
+                        <TextBlock FontWeight="Bold" FontSize="10" Margin="2 12 0 0" Text="Kierunek z:" />
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.2*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0">
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="β=π^2/c_0=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="N_(B,z)=(π^2 EIz)/(l_(0,z)^2 )=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="M_Edz=M_(0,Edz) (1+β/(N_(B,y)/N_Ed -1))=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="e_y=M_Edz/N_Ed =" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="e_0=max⁡{h/30;2 [cm]}=" />
+                                <TextBlock FontWeight="Bold" FontSize="9" Margin="5 9 5 2" Text="UWAGA:" />
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1">
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2">
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kN]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kNm]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[m]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[m]" />
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <!-- MOMENT GRANICZNY-->
+                <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="4" Margin="4">
+                    <StackPanel >
+                        <TextBlock FontSize="12" Margin="2 2 0 0" Text="MOMENT GRANICZNY" FontWeight="Bold"/>
+                        <TextBlock FontWeight="Bold" FontSize="10" Margin="2 5 0 0" Text="Kierunek y:" />
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.2*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0">
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="β=π^2/c_0=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="N_(B,y)=(π^2 EIy)/(l_(0,y)^2 )=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="M_Edz=M_(0,Edy) (1+β/(N_(B,y)/N_Ed -1))" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="e_y=M_Edz/N_Ed=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="e_0=max⁡{h/30;2 [cm]}=" />
+                                <TextBlock FontWeight="Bold" FontSize="9" Margin="5 9 5 2" Text="UWAGA:" />
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1">
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2">
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kN]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kNm]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[m]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[m]" />
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Grid>
     </Border>
 </Window>

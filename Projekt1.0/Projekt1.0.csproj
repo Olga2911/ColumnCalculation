@@ -120,8 +120,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Draws\kolowy.bmp" />
-    <Resource Include="Draws\prostokatny.bmp" />
+    <Resource Include="Draws\kot.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
