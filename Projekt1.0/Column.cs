@@ -10,10 +10,11 @@ namespace Projekt1._0
 {
     class Column : INotifyPropertyChanged
     {
-        private SectionDimentions sectionDimensions = new SectionDimentions();
+        private Dimension dimension = new Dimension();
         private Statics statics = new Statics();
         private Concrete concrete = new Concrete();
         private Steel steel = new Steel();
+        private Diameters diameters = new Diameters();
         private ConcreteParametersCommand materialParametersCommand = new ConcreteParametersCommand();
         private SteelParametersCommand steelParametersCommand = new SteelParametersCommand();
 
@@ -23,24 +24,25 @@ namespace Projekt1._0
 
         public Column () //konstruktor klasy
         {
-            sectionDimensions.PropertyChanged += InputPropertyChangedEventChandler;
+            dimension.PropertyChanged += InputPropertyChangedEventChandler;
             statics.PropertyChanged += InputPropertyChangedEventChandler;
             concrete.PropertyChanged += InputPropertyChangedEventChandler;
             steel.PropertyChanged += InputPropertyChangedEventChandler;
+            diameters.PropertyChanged += InputPropertyChangedEventChandler;
             //materialParametersCommand.PropertyChanged += InputPropertyChangedEventChandler;
             //steelParametersCommand.PropertyChanged += InputPropertyChangedEventChandler;
             //wymienić wszystkie klasy
         }
 
-        public SectionDimentions SectionDimensions
+        public Dimension Dimension
         {
             get
             {
-                return sectionDimensions;
+                return dimension;
             }
             set
             {
-                sectionDimensions = value;
+                dimension = value;
             }
         }
 
@@ -81,6 +83,20 @@ namespace Projekt1._0
                 steel = value;
             }
         }
+
+        public Diameters Diameters
+
+        {
+            get
+            {
+                return diameters;
+            }
+            set
+            {
+                diameters = value;
+            }
+        }
+
 
 
         //public CheckEccentricity CheckEccentricity

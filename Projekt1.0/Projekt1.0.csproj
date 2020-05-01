@@ -55,21 +55,33 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BasicParameters.cs" />
+    <Compile Include="BasicCalculations.cs" />
     <Compile Include="CheckEccentricity.cs" />
     <Compile Include="Concrete.cs" />
+    <Compile Include="ConcreteCover.xaml.cs">
+      <DependentUpon>ConcreteCover.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Diameters.cs" />
     <Compile Include="EnumConvert.cs" />
     <Compile Include="ConcreteParametersCommand.cs" />
     <Compile Include="ConcretParameters.xaml.cs">
       <DependentUpon>ConcretParameters.xaml</DependentUpon>
     </Compile>
     <Compile Include="Project.cs" />
+    <Compile Include="ReinforcementDetails.xaml.cs">
+      <DependentUpon>ReinforcementDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReinforcementDetailsCommand.cs" />
     <Compile Include="Statics.cs" />
     <Compile Include="Steel.cs" />
     <Compile Include="SteelParameters.xaml.cs">
       <DependentUpon>SteelParameters.xaml</DependentUpon>
     </Compile>
     <Compile Include="SteelParametersCommand.cs" />
+    <Page Include="ConcreteCover.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -79,12 +91,16 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Column.cs" />
-    <Compile Include="SectionDimentions.cs" />
+    <Compile Include="Dimension.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ConcretParameters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReinforcementDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

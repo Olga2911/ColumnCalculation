@@ -1,0 +1,108 @@
+﻿<Window x:Class="Projekt1._0.ReinforcementDetails"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projekt1._0"
+        mc:Ignorable="d"
+        Title="ReinforcementDetails" Height="450" Width="400">
+    <Window.DataContext>
+        <local:Project/>
+    </Window.DataContext>
+    
+    <Border BorderBrush="CadetBlue" BorderThickness="2" Padding="0" Margin="5">
+        <StackPanel Background="MintCream" >
+
+            <TextBlock FontSize="12" Margin="2 2 0 0" Text="ZBROJENIE PRZEKROJU" FontWeight="Bold"/>
+            <TextBlock FontSize="9" Margin="2 2 0 0" Text="PODŁUŻNE:" FontWeight="Bold"/>
+
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" >
+                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="Zbrojenie całkowite:" />
+                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="Zbrojenie minimalne:" />
+                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="" />
+                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="Zbrojenie maksymalne:" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" >
+                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="As=" />
+                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="As,min1=" />
+                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="As,min2=" />
+                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="As,max=" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2">
+                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding BasicCalculations.AreaAs, Mode=OneWay}" />
+                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2"/>
+                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2"/>
+                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="3">
+                    <TextBlock Margin="8 8 5 2" FontSize="9" Text="[mm2]" />
+                    <TextBlock Margin="8 8 5 2" FontSize="9" Text="[mm2]" />
+                    <TextBlock Margin="8 8 5 2" FontSize="9" Text="[mm2]" />
+                    <TextBlock Margin="8 8 5 2" FontSize="9" Text="[mm2]" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="4">
+                    <Button Margin="5 6 0 0" Content="?" FontSize="9" Width="20"  />
+                    <Button Margin="5 6 0 0" Content="?" FontSize="9" Width="20"  />
+                    <Button Margin="5 6 0 0" Content="?" FontSize="9" Width="20" />
+                    <Button Margin="5 6 0 0" Content="?" FontSize="9" Width="20"  />
+                </StackPanel>
+            </Grid>
+
+            <TextBlock Margin="2 15 0 0" Text="POPRZECZNE:" FontWeight="Bold" FontSize="9"/>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock Margin="5 9 5 2" Text="Średnica minimalna:" FontSize="9" />
+                    <TextBlock Margin="5 9 5 2" Text="Maksymalny rozstaw:" FontSize="9" />
+                    <TextBlock Margin="5 9 5 2" Text="Maksymalny rozstaw*:" FontSize="9" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="1">
+                    <TextBlock Margin="5 9 5 2"  FontSize="9" Text="Фs,min=" />
+                    <TextBlock Margin="5 9 5 2"  FontSize="9" Text="scl,tmax=" />
+                    <TextBlock Margin="5 9 5 2"  FontSize="9" Text="0,6scl,tmax=" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2">
+                    <TextBox Background="Beige"  FontSize="9" Margin="0 7 0 2"/>
+                    <TextBox Background="Beige"  FontSize="9" Margin="0 7 0 2"/>
+                    <TextBox Background="Beige"  FontSize="9" Margin="0 7 0 2"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="3">
+                    <TextBlock Margin="8 8 5 2" Text="[mm]"  FontSize="9" />
+                    <TextBlock Margin="8 8 5 2" Text="[cm]"  FontSize="9" />
+                    <TextBlock Margin="8 8 5 2" Text="[cm]"  FontSize="9" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="4">
+                    <Button Margin="5 6 0 0" Content="?" Width="20"  FontSize="9" />
+                    <Button Margin="5 6 0 0" Content="?" Width="20"  FontSize="9" />
+                    <Button Margin="5 6 0 0" Content="?" Width="20"  FontSize="9" />
+                </StackPanel>
+            </Grid>
+
+        </StackPanel>
+    </Border>
+
+</Window>

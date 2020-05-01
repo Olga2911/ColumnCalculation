@@ -97,21 +97,21 @@ namespace Projekt1._0
         }
 
 
-        public void UpdateData(SectionDimentions characteristic, Statics statics)
+        public void UpdateData(Dimension characteristic, Statics statics)
         {
             Calculate(characteristic, statics);
                     }
 
 
-        public void Calculate(SectionDimentions characteristic, Statics statics)
+        public void Calculate(Dimension characteristic, Statics statics)
         {
-            eE = statics.BendingMoment / statics.CompressiveForce;
+            eE = statics.BendingMomenty / statics.CompressiveForce;
 
-            double ea1 = statics.ColumnHeight / 600;
+           // double ea1 = statics.ColumnHeight / 600;
             double ea2 = characteristic.Height / 30;
             double ea3 =0.01;
 
-            eA = Math.Max(ea1, Math.Max(ea2, ea3));
+          //  eA = Math.Max(ea1, Math.Max(ea2, ea3));
             e0 = eE + eA;
             eTot = eta * e0;
             //eS1 = eTot + 0.5*characteristic.Height-characteristic.AReinforcement;

@@ -1,12 +1,12 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Projekt1._0;
+﻿//using System;
+//using Microsoft.VisualStudio.TestTools.UnitTesting;
+//using Projekt1._0;
 
-namespace Project1._0.UnitTests
-{
-    [TestClass]
-    public class CrossSectionCharacteristicUnitTest
-    {
+//namespace Project1._0.UnitTests
+//{
+//    [TestClass]
+//    public class CrossSectionCharacteristicUnitTest
+//    {
         /*
         [TestMethod]
         public void AreaReinforcementUnitTest()
@@ -53,6 +53,6 @@ namespace Project1._0.UnitTests
             Assert.AreEqual(0.049, result);
         }
         */
-    }
+//    }
     
-}
+//}

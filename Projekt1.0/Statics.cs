@@ -9,24 +9,11 @@ namespace Projekt1._0
 {
     class Statics : INotifyPropertyChanged 
     {
-        private Double columnHeight = 2;
-        private Double compressiveForce = 50;
-        private Double bendingMoment = 0;
+        private Double compressiveForce = 1200;
+        private Double bendingMomenty = 150;
+        private Double bendingMomentz = 30;
 
         public event PropertyChangedEventHandler PropertyChanged;
-
-        public Double ColumnHeight
-        {
-            get
-            {
-                return columnHeight;
-            }
-            set
-            {
-                columnHeight = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("ColumnHeight"));
-            }
-        }
 
         public Double CompressiveForce
         {
@@ -41,17 +28,31 @@ namespace Projekt1._0
             }
         }
 
-        public Double BendingMoment
+        public Double BendingMomenty
         {
             get
             {
-                return bendingMoment;
+                return bendingMomenty;
             }
             set
             {
-                bendingMoment = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("BendingMoment"));
+                bendingMomenty = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("BendingMomenty"));
             }
         }
+
+        public Double BendingMomentz
+        {
+            get
+            {
+                return bendingMomentz;
+            }
+            set
+            {
+                bendingMomentz = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("BendingMomentz"));
+            }
+        }
+
     }
 }

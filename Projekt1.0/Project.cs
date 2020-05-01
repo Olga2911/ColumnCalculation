@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Projekt1._0
 {
@@ -11,13 +12,14 @@ namespace Projekt1._0
     {
         private Column column = new Column();
 
-        private BasicParameters basicParameters; //więcej klas
+        private BasicCalculations basicCalculations; //więcej klas
+        private ReinforcementDetailsCommand reinforcementDetails = new ReinforcementDetailsCommand();
 
 
         public Project() //konstruktor
         {
             column.PropertyChanged += ColumnPropertyChangedEventHandler; //nasłuchiwanie
-            basicParameters = new BasicParameters(this);
+            basicCalculations = new BasicCalculations(this);
         }
 
         public Column Column
@@ -28,23 +30,32 @@ namespace Projekt1._0
             }
         }
 
-        public BasicParameters BasicParameters
+        public BasicCalculations BasicCalculations
         {
             get
             {
-                return basicParameters;
+                return basicCalculations;
+            }
+        }
+
+        public ICommand ReinforcementDetailsView
+        {
+            get
+            {
+                return reinforcementDetails;
             }
         }
 
 
-        void ColumnPropertyChangedEventHandler(object sender, PropertyChangedEventArgs e)
+
+    void ColumnPropertyChangedEventHandler(object sender, PropertyChangedEventArgs e)
         {
             Calculate();
         }
 
         void Calculate()
         {
-            basicParameters.Calculate(this);
+            basicCalculations.Calculate(this);
             //wpisać wszystkie metody
         }
     }

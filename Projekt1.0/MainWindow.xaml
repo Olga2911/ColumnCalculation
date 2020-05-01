@@ -12,13 +12,17 @@
 
     <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="0" Margin="5">
         <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="311*"/>
+                <RowDefinition Height="848*"/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel Background="MintCream" Grid.Column="0">
+            <StackPanel Background="MintCream" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,255,-0.333" Grid.RowSpan="2">
                 <!-- PARAMETRY PRZEKROJU -->
                 <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="4" Margin="4">
                     <StackPanel >
@@ -39,10 +43,10 @@
                             </StackPanel>
 
                             <StackPanel Grid.Column="1">
-                                <ComboBox ItemsSource="{Binding Column.Concrete.ClassesOfConcrete, Source={StaticResource project}}" SelectedIndex="0" SelectedItem="{Binding Column.Concrete.ConcreteClassDescription, Source={StaticResource project}}" Margin="0 5 0 0" />
-                                <ComboBox ItemsSource="{Binding Column.Steel.ClassesOfSteel, Source={StaticResource project}}"  SelectedItem="{Binding Column.Steel.SteelClassDescription, Source={StaticResource project}}"   Margin="0 5 0 0" />
-                                <ComboBox Margin="0 5 0 0" />
-                                <ComboBox Margin="0 5 0 0"   />
+                                <ComboBox FontSize="9" ItemsSource="{Binding Column.Concrete.ClassesOfConcrete, Source={StaticResource project}}" SelectedIndex="0" SelectedItem="{Binding Column.Concrete.ConcreteClassDescription, Source={StaticResource project}}" Margin="0 5 0 0" />
+                                <ComboBox FontSize="9" ItemsSource="{Binding Column.Steel.ClassesOfSteel, Source={StaticResource project}}"  SelectedItem="{Binding Column.Steel.SteelClassDescription, Source={StaticResource project}}"   Margin="0 5 0 0" />
+                                <ComboBox FontSize="9" Margin="0 5 0 0" />
+                                <ComboBox FontSize="9" Margin="0 5 0 0"   />
                             </StackPanel>
 
                             <StackPanel Grid.Column="2"  >
@@ -101,10 +105,10 @@
                             </StackPanel>
 
                             <StackPanel Grid.Column="1">
-                                <TextBox Text="{Binding Column.SectionDimensions.Width, Source={StaticResource project}}"  FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox Text="{Binding Column.SectionDimensions.Height, Source={StaticResource project}}"  FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox Text="{Binding BasicParameters.AreaConcrete, Mode=OneWay, Source={StaticResource project}}"   FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox Text="{Binding Column.Dimension.Width, Source={StaticResource project}}"  FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox Text="{Binding Column.Dimension.Height, Source={StaticResource project}}"  FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding Column.Dimension.ColumnHeight, Source={StaticResource project}}"/>
+                                <TextBox  FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding BasicCalculations.AreaConcrete, Mode=OneWay, Source={StaticResource project}}"/>
 
                             </StackPanel>
 
@@ -138,15 +142,15 @@
                             </StackPanel>
 
                             <StackPanel Grid.Column="1">
+                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2" ItemsSource="{Binding Column.Diameters.FiArray, Source={StaticResource project}}" SelectedIndex="0" SelectedItem="{Binding Column.Diameters.Fi1y, Source={StaticResource project}}"/>
+                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2" ItemsSource="{Binding Column.Diameters.FiArray, Source={StaticResource project}}" SelectedIndex="0" SelectedItem="{Binding Column.Diameters.Fi2y, Source={StaticResource project}}"/>
                                 <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2"/>
                                 <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2"/>
                                 <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2"/>
-                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2"/>
-                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding Column.Dimension.Quantity1y, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding Column.Dimension.Quantity2y, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding Column.Dimension.Quantity1z, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding Column.Dimension.Quantity2z, Source={StaticResource project}}"/>
                                 <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
                             </StackPanel>
 
@@ -163,6 +167,8 @@
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[cm]" />
                             </StackPanel>
                         </Grid>
+
+                        <Button Margin="0 6 0 0" Content="Szczegóły zborjenia" Width="120" FontSize="9" Command="{Binding ReinforcementDetailsView, Source={StaticResource project}}" CommandParameter="{DynamicResource project}" />
 
                         <!-- OTULENIE ZBROJENIA -->
                         <TextBlock FontSize="12" Margin="2 12 0 0" Text="OTULENIE ZBROJENIA" FontWeight="Bold"/>
@@ -218,9 +224,9 @@
                             </StackPanel>
 
                             <StackPanel Grid.Column="1">
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding Column.Statics.CompressiveForce, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding Column.Statics.BendingMomenty, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding Column.Statics.BendingMomentz, Source={StaticResource project}}"/>
                             </StackPanel>
 
                             <StackPanel Grid.Column="2">
@@ -233,7 +239,7 @@
                 </Border>
             </StackPanel>
 
-            <StackPanel Background="MintCream" Grid.Column="1">
+            <StackPanel Background="MintCream" Grid.Column="1" Margin="0.333,0,0,-0.333" Grid.RowSpan="2">
                 <!-- RYSUNEK -->
                 <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="4" Margin="4">
                     <StackPanel Background="MintCream" Grid.Column="1" >
@@ -480,7 +486,7 @@
                 </Border>
             </StackPanel>
 
-            <StackPanel Background="MintCream" Grid.Column="2">
+            <StackPanel Background="MintCream" Grid.Column="2" Margin="0,0,0.333,-0.333" Grid.RowSpan="2">
                 <!-- MIMOŚRÓD MINIMALNY-->
                 <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="4" Margin="4">
                     <StackPanel >
