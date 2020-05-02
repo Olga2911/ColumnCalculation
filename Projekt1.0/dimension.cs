@@ -20,6 +20,7 @@ namespace Projekt1._0
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+
         public double Width
 
         {

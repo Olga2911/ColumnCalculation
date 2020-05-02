@@ -23,6 +23,19 @@ namespace Projekt1._0
         private Double sCltmax = 0.0;
         private Double sCltmax06 = 0.0;
 
+        private Double cmin = 0.0;
+        private Double cnom = 0.0;
+
+        private Double a1y = 0.0;
+        private Double d1y = 0.0;
+        private Double a2y = 0.0;
+        private Double d2y = 0.0;
+        private Double a1z = 0.0;
+        private Double d1z = 0.0;
+        private Double a2z = 0.0;
+        private Double d2z = 0.0;
+
+
         public event PropertyChangedEventHandler PropertyChanged; //opcja która potrafi wysłać informację o zmianie danych
 
         public BasicCalculations(Project project)
@@ -121,6 +134,87 @@ namespace Projekt1._0
             }
         }
 
+        public double Cmin
+        {
+            get
+            {
+                return cmin;
+            }
+        }
+
+        public double Cnom
+        {
+            get
+            {
+                return cnom;
+            }
+        }
+
+        public double A1y
+        {
+            get
+            {
+                return a1y;
+            }
+        }
+
+        public double D1y
+        {
+            get
+            {
+                return d1y;
+            }
+        }
+
+        public double A2y
+        {
+            get
+            {
+                return a2y;
+            }
+        }
+
+        public double D2y
+        {
+            get
+            {
+                return d2y;
+            }
+        }
+
+        public double A1z
+        {
+            get
+            {
+                return a1z;
+            }
+        }
+
+        public double D1z
+        {
+            get
+            {
+                return d1z;
+            }
+        }
+
+        public double A2z
+        {
+            get
+            {
+                return a2z;
+            }
+        }
+
+        public double D2z
+        {
+            get
+            {
+                return D2z;
+            }
+        }
+
+
 
 
 
@@ -150,12 +244,31 @@ namespace Projekt1._0
                 Math.Min(20 * Math.Min(Math.Min(project.Column.Diameters.Fi1y, project.Column.Diameters.Fi2y), Math.Min(project.Column.Diameters.Fi1z, project.Column.Diameters.Fi2z)),
                 10 * Math.Min(project.Column.Dimension.Height, project.Column.Dimension.Width)),
                 400);               //mm          
-
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SCltmax"));
-
             sCltmax06 =0.6*sCltmax;               //mm          
-
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SCltmax06"));
+
+            cmin = Math.Max(Math.Max(project.Column.ConcreteCoverParameters.Cminb, project.Column.ConcreteCoverParameters.Cmindur + project.Column.ConcreteCoverParameters.Cdurgamma - project.Column.ConcreteCoverParameters.Deltadurst - project.Column.ConcreteCoverParameters.Deltacduradd), 10);                //mm          
+            cnom = cmin + project.Column.ConcreteCoverParameters.Deltacdev;              //mm          
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cnom"));
+
+            a1y=cnom+project.Column.Diameters.FiS+0.5 * project.Column.Diameters.Fi1y;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("A1y"));
+            d1y = project.Column.Dimension.Height - a1y;
+
+            a2y = cnom + project.Column.Diameters.FiS + 0.5 * project.Column.Diameters.Fi2y;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("A2y"));
+            d2y = project.Column.Dimension.Height - a2y;
+
+            a1z = cnom + project.Column.Diameters.FiS + 0.5 * project.Column.Diameters.Fi1z;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("A1z"));
+            d1z = project.Column.Dimension.Width - a1z;
+
+            a2z = cnom + project.Column.Diameters.FiS + 0.5 * project.Column.Diameters.Fi2z;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("A2z"));
+            d2z = project.Column.Dimension.Width - a2z;
+
+
 
 
             //wpisać wszystkie pola

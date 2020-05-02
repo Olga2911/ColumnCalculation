@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:Projekt1._0"
         mc:Ignorable="d"
         Title="ConcreteCover" Height="250" Width="400">
-    <!--<Window.DataContext>
+    <Window.DataContext>
         <local:Project/>
-    </Window.DataContext>-->
+    </Window.DataContext>
 
     <Border BorderBrush="CadetBlue" BorderThickness="2" Padding="0" Margin="5">
         <StackPanel Background="MintCream">
@@ -42,12 +42,12 @@
                 </StackPanel>
 
                 <StackPanel Grid.Column="2">
-                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2"/>
-                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2"/>
-                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2"/>
-                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2"/>
-                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2"/>
-                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2"/>
+                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.ConcreteCoverParameters.Deltacdev}"  />
+                    <!--<TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.ConcreteCoverParameters.Cminb, Source={StaticResource project}}"  />
+                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.ConcreteCoverParameters.Cmindur, Source={StaticResource project}}" />
+                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.ConcreteCoverParameters.Cdurgamma , Source={StaticResource project}}" />
+                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.ConcreteCoverParameters.Deltadurst, Source={StaticResource project}}"/>
+                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.ConcreteCoverParameters.Deltacduradd, Source={StaticResource project}}"/>-->
                 </StackPanel>
 
                 <StackPanel Grid.Column="3">

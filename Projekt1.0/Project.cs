@@ -14,7 +14,7 @@ namespace Projekt1._0
 
         private BasicCalculations basicCalculations; //więcej klas
         private ReinforcementDetailsCommand reinforcementDetails = new ReinforcementDetailsCommand();
-        private ConcreteCoverCommand concreteCover = new ConcreteCoverCommand();
+        //private ConcreteCoverCommand concreteCover = new ConcreteCoverCommand();
 
 
 
@@ -48,13 +48,13 @@ namespace Projekt1._0
             }
         }
 
-        public ICommand ConcreteCoverView
-        {
-            get
-            {
-                return concreteCover;
-            }
-        }
+        //public ICommand ConcreteCoverView
+        //{
+        //    get
+        //    {
+        //        return concreteCover;
+        //    }
+        //}
 
 
 

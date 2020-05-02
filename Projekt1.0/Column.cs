@@ -15,8 +15,10 @@ namespace Projekt1._0
         private Concrete concrete = new Concrete();
         private Steel steel = new Steel();
         private Diameters diameters = new Diameters();
+        private ConcreteCoverParameters concreteCoverParameters = new ConcreteCoverParameters();
         private ConcreteParametersCommand materialParametersCommand = new ConcreteParametersCommand();
         private SteelParametersCommand steelParametersCommand = new SteelParametersCommand();
+        private ConcreteCoverCommand concreteCover = new ConcreteCoverCommand();
 
         //private CheckEccentricity checkEccentricity = new CheckEccentricity();
 
@@ -29,6 +31,8 @@ namespace Projekt1._0
             concrete.PropertyChanged += InputPropertyChangedEventChandler;
             steel.PropertyChanged += InputPropertyChangedEventChandler;
             diameters.PropertyChanged += InputPropertyChangedEventChandler;
+            concreteCoverParameters.PropertyChanged += InputPropertyChangedEventChandler;
+
             //materialParametersCommand.PropertyChanged += InputPropertyChangedEventChandler;
             //steelParametersCommand.PropertyChanged += InputPropertyChangedEventChandler;
             //wymienić wszystkie klasy
@@ -97,6 +101,20 @@ namespace Projekt1._0
             }
         }
 
+        public ConcreteCoverParameters ConcreteCoverParameters
+
+        {
+            get
+            {
+                return concreteCoverParameters;
+            }
+            set
+            {
+                concreteCoverParameters = value;
+            }
+        }
+
+
 
 
         //public CheckEccentricity CheckEccentricity
@@ -120,6 +138,7 @@ namespace Projekt1._0
                 return materialParametersCommand;
             }
         }
+
         public ICommand ViewSteelParameters
         {
             get
@@ -127,6 +146,15 @@ namespace Projekt1._0
                 return steelParametersCommand;
             }
         }
+
+        public ICommand ConcreteCoverView
+        {
+            get
+            {
+                return concreteCover;
+            }
+        }
+
 
         void InputPropertyChangedEventChandler (object sender, PropertyChangedEventArgs e )
         {

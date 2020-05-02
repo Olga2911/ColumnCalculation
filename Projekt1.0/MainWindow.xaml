@@ -188,11 +188,11 @@
                             </StackPanel>
 
                             <StackPanel Grid.Column="1">
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding BasicCalculations.Cnom, Source={StaticResource project}, Mode=OneWay}"  />
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding BasicCalculations.A1y, Mode=OneWay, Source={StaticResource project}}" />
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding BasicCalculations.A2y, Source={StaticResource project}, Mode=OneWay}" />
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding BasicCalculations.A1z, Source={StaticResource project}, Mode=OneWay}" />
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding BasicCalculations.A2z, Source={StaticResource project}, Mode=OneWay}" />
                             </StackPanel>
 
                             <StackPanel Grid.Column="2">
@@ -203,7 +203,7 @@
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
                             </StackPanel>
                         </Grid>
-                        <Button Margin="0 6 0 0" Content="Szczegóły otuliny" Width="120" FontSize="9"  />
+                        <Button Margin="0 6 0 0" Content="Szczegóły otuliny" Width="120" FontSize="9" Command="{Binding Column.ConcreteCoverView, Source={StaticResource project} }" CommandParameter="{DynamicResource project}"  />
                     </StackPanel>
                 </Border>
 

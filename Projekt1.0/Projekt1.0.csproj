@@ -62,6 +62,7 @@
       <DependentUpon>ConcreteCover.xaml</DependentUpon>
     </Compile>
     <Compile Include="ConcreteCoverCommand.cs" />
+    <Compile Include="ConcreteCoverParameters.cs" />
     <Compile Include="Diameters.cs" />
     <Compile Include="EnumConvert.cs" />
     <Compile Include="ConcreteParametersCommand.cs" />
