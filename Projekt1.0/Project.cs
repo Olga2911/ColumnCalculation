@@ -14,7 +14,7 @@ namespace Projekt1._0
 
         private BasicCalculations basicCalculations; //więcej klas
         private ReinforcementDetailsCommand reinforcementDetails = new ReinforcementDetailsCommand();
-        private ConcreteCoverCommand1 concreteCover = new ConcreteCoverCommand1();
+        private ConcreteCoverCommand concreteCover = new ConcreteCoverCommand();
 
 
 

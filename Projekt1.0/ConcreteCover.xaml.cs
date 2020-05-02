@@ -17,9 +17,9 @@ namespace Projekt1._0
     /// <summary>
     /// Interaction logic for ConcreteCover.xaml
     /// </summary>
-    public partial class ConcreteCoverCommand : Window
+    public partial class ConcreteCover : Window
     {
-        public ConcreteCoverCommand()
+        public ConcreteCover()
         {
             InitializeComponent();
         }

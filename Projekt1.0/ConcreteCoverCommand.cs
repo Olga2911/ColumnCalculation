@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace Projekt1._0
 {
-    class ConcreteCoverCommand1 : ICommand
+    class ConcreteCoverCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
         private bool executable = true;
