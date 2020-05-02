@@ -14,6 +14,8 @@ namespace Projekt1._0
 
         private BasicCalculations basicCalculations; //więcej klas
         private ReinforcementDetailsCommand reinforcementDetails = new ReinforcementDetailsCommand();
+        private ConcreteCoverCommand1 concreteCover = new ConcreteCoverCommand1();
+
 
 
         public Project() //konstruktor
@@ -46,9 +48,18 @@ namespace Projekt1._0
             }
         }
 
+        public ICommand ConcreteCoverView
+        {
+            get
+            {
+                return concreteCover;
+            }
+        }
 
 
-    void ColumnPropertyChangedEventHandler(object sender, PropertyChangedEventArgs e)
+
+
+        void ColumnPropertyChangedEventHandler(object sender, PropertyChangedEventArgs e)
         {
             Calculate();
         }

@@ -9,11 +9,11 @@ namespace Projekt1._0
 {
     class Diameters : INotifyPropertyChanged
     {
-        private int fi1y = 10; //mm
+        private int fi1y = 16; //mm
         private int fi2y = 12; //mm
         private int fi1z = 8; //mm
         private int fi2z = 8; //mm
-
+        private int fiS = 6; //mm
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -69,11 +69,24 @@ namespace Projekt1._0
             }
         }
 
+        public int FiS
+        {
+            get
+            {
+                return fiS;
+            }
+            set
+            {
+                fiS = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("FiS"));
+            }
+        }
+
         public Array FiArray
         {
             get
             {
-                return new int[] { 8, 10, 12, 16, 25, 32 };
+                return new int[] {6, 8, 10, 12, 16, 20, 25, 32 };
             }
         }
 

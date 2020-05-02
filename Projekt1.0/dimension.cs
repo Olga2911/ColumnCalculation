@@ -21,6 +21,7 @@ namespace Projekt1._0
         public event PropertyChangedEventHandler PropertyChanged;
 
         public double Width
+
         {
             get
             {
@@ -100,8 +101,8 @@ namespace Projekt1._0
                     PropertyChanged(this, new PropertyChangedEventArgs("Quantity2y"));
                 }
             }
-
         }
+
         public double Quantity1z
         {
             get
@@ -116,8 +117,8 @@ namespace Projekt1._0
                     PropertyChanged(this, new PropertyChangedEventArgs("Quantity1z"));
                 }
             }
-
         }
+
         public double Quantity2z
         {
             get
@@ -132,13 +133,7 @@ namespace Projekt1._0
                     PropertyChanged(this, new PropertyChangedEventArgs("Quantity2z"));
                 }
             }
-
         }
-
-
-
-
-
     }
 }
 

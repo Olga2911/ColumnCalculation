@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:Projekt1._0"
         mc:Ignorable="d"
         Title="ConcreteCover" Height="250" Width="400">
+    <!--<Window.DataContext>
+        <local:Project/>
+    </Window.DataContext>-->
 
     <Border BorderBrush="CadetBlue" BorderThickness="2" Padding="0" Margin="5">
         <StackPanel Background="MintCream">
@@ -68,5 +71,4 @@
             </Grid>
         </StackPanel>
     </Border>
-
 </Window>

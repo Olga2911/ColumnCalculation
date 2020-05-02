@@ -43,7 +43,7 @@
                     <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding BasicCalculations.AreaAs, Mode=OneWay}" />
                     <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2"/>
                     <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2"/>
-                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2"/>
+                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding BasicCalculations.AreaAsmax, Mode=OneWay}"/>
                 </StackPanel>
 
                 <StackPanel Grid.Column="3">
@@ -84,15 +84,15 @@
                 </StackPanel>
 
                 <StackPanel Grid.Column="2">
-                    <TextBox Background="Beige"  FontSize="9" Margin="0 7 0 2"/>
-                    <TextBox Background="Beige"  FontSize="9" Margin="0 7 0 2"/>
-                    <TextBox Background="Beige"  FontSize="9" Margin="0 7 0 2"/>
+                    <TextBox Background="Beige"  FontSize="9" Margin="0 7 0 2" Text="{Binding BasicCalculations.FiSmin, Mode=OneWay}"/>
+                    <TextBox Background="Beige"  FontSize="9" Margin="0 7 0 2" Text="{Binding BasicCalculations.SCltmax, Mode=OneWay}"/>
+                    <TextBox Background="Beige"  FontSize="9" Margin="0 7 0 2" Text="{Binding BasicCalculations.SCltmax06, Mode=OneWay}"/>
                 </StackPanel>
 
-                <StackPanel Grid.Column="3">
+                <StackPanel Grid.Column="3" IsEnabled="False">
                     <TextBlock Margin="8 8 5 2" Text="[mm]"  FontSize="9" />
-                    <TextBlock Margin="8 8 5 2" Text="[cm]"  FontSize="9" />
-                    <TextBlock Margin="8 8 5 2" Text="[cm]"  FontSize="9" />
+                    <TextBlock Margin="8 8 5 2" Text="[mm]"  FontSize="9" />
+                    <TextBlock Margin="8 8 5 2" Text="[mm]"  FontSize="9" />
                 </StackPanel>
 
                 <StackPanel Grid.Column="4">

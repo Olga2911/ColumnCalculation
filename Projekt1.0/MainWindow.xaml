@@ -142,11 +142,11 @@
                             </StackPanel>
 
                             <StackPanel Grid.Column="1">
-                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2" ItemsSource="{Binding Column.Diameters.FiArray, Source={StaticResource project}}" SelectedIndex="0" SelectedItem="{Binding Column.Diameters.Fi1y, Source={StaticResource project}}"/>
-                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2" ItemsSource="{Binding Column.Diameters.FiArray, Source={StaticResource project}}" SelectedIndex="0" SelectedItem="{Binding Column.Diameters.Fi2y, Source={StaticResource project}}"/>
-                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2"/>
-                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2"/>
-                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2"/>
+                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2" ItemsSource="{Binding Column.Diameters.FiArray, Source={StaticResource project}}" SelectedIndex="4" SelectedItem="{Binding Column.Diameters.Fi1y, Source={StaticResource project}}"/>
+                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2" ItemsSource="{Binding Column.Diameters.FiArray, Source={StaticResource project}}" SelectedIndex="3" SelectedItem="{Binding Column.Diameters.Fi2y, Source={StaticResource project}}"/>
+                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2" ItemsSource="{Binding Column.Diameters.FiArray, Source={StaticResource project}}" SelectedIndex="1" SelectedItem="{Binding Column.Diameters.Fi1z, Source={StaticResource project}}"/>
+                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2" ItemsSource="{Binding Column.Diameters.FiArray, Source={StaticResource project}}" SelectedIndex="1" SelectedItem="{Binding Column.Diameters.Fi2z, Source={StaticResource project}}"/>
+                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2" ItemsSource="{Binding Column.Diameters.FiArray, Source={StaticResource project}}" SelectedIndex="0" SelectedItem="{Binding Column.Diameters.FiS, Source={StaticResource project}}"/>
                                 <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding Column.Dimension.Quantity1y, Source={StaticResource project}}"/>
                                 <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding Column.Dimension.Quantity2y, Source={StaticResource project}}"/>
                                 <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding Column.Dimension.Quantity1z, Source={StaticResource project}}"/>
@@ -168,7 +168,7 @@
                             </StackPanel>
                         </Grid>
 
-                        <Button Margin="0 6 0 0" Content="Szczegóły zborjenia" Width="120" FontSize="9" Command="{Binding ReinforcementDetailsView, Source={StaticResource project}}" CommandParameter="{DynamicResource project}" />
+                        <Button Margin="0 6 0 0" Content="Szczegóły zbrojenia" Width="120" FontSize="9" Command="{Binding ReinforcementDetailsView, Source={StaticResource project}}" CommandParameter="{DynamicResource project}" />
 
                         <!-- OTULENIE ZBROJENIA -->
                         <TextBlock FontSize="12" Margin="2 12 0 0" Text="OTULENIE ZBROJENIA" FontWeight="Bold"/>
@@ -203,6 +203,7 @@
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
                             </StackPanel>
                         </Grid>
+                        <Button Margin="0 6 0 0" Content="Szczegóły otuliny" Width="120" FontSize="9"  />
                     </StackPanel>
                 </Border>
 
