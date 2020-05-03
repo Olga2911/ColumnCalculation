@@ -41,7 +41,7 @@ namespace Projekt1._0
         private Double fcd = 0.0;
         private Double fyd = 0.0;
 
-        public event PropertyChangedEventHandler PropertyChanged; //opcja która potrafi wysłać informację o zmianie danych
+        public event PropertyChangedEventHandler PropertyChanged; 
 
         public BasicCalculations(Project project)
         {
@@ -261,19 +261,31 @@ namespace Projekt1._0
             areaConcrete = project.Column.Dimension.Height * project.Column.Dimension.Width;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AreaConcrete"));                                 //"wysłanie do widoku"
 
-            areaAs = project.Column.Dimension.Quantity1y*project.Column.Diameters.Fi1y + project.Column.Dimension.Quantity2y * project.Column.Diameters.Fi2y + project.Column.Dimension.Quantity1z * project.Column.Diameters.Fi1z + project.Column.Dimension.Quantity2z * project.Column.Diameters.Fi2z;
+            areaAs = project.Column.Dimension.Quantity1y*(project.Column.Diameters.Fi1y*0.5)*(project.Column.Diameters.Fi1y * 0.5)*Math.PI+ + 
+                project.Column.Dimension.Quantity2y*(project.Column.Diameters.Fi2y*0.5)*(project.Column.Diameters.Fi2y*0.5)*Math.PI+ 
+                project.Column.Dimension.Quantity1z*(project.Column.Diameters.Fi1z*0.5)*(project.Column.Diameters.Fi1z * 0.5)*Math.PI+
+                project.Column.Dimension.Quantity2z*(project.Column.Diameters.Fi2z*0.5)* (project.Column.Diameters.Fi2z * 0.5)*Math.PI;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AreaAs"));
 
-            //areaAsmin = Math.Max(0.0001 * project.Column.Statics.CompressiveForce / project.Column.Steel.Fyd, 0);
+            fiEfektywne = project.Column.EnvironmentalCondition.FiKoncowe * project.Column.EnvironmentalCondition.M0eqpm0ed;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("FiEfektywne"));
+
+            fcd = project.Column.Concrete.Fck / project.Column.Concrete.GammaC;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Fcd"));
+
+            fyd = project.Column.Steel.Fyk / project.Column.Steel.GammaS;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Fyd"));
+
+            areaAsmin =100* Math.Max(project.Column.Statics.CompressiveForce / fyd, areaConcrete*0.002); //mm
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AreaAsmin"));
 
             areaAsmax = 0.4 * project.Column.Dimension.Height * project.Column.Dimension.Width;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AreaAsmax"));
 
-            areaAs1y = project.Column.Dimension.Quantity1y * project.Column.Diameters.Fi1y;
-            areaAs2y = project.Column.Dimension.Quantity2y * project.Column.Diameters.Fi2y;
-            areaAs1z = project.Column.Dimension.Quantity1z * project.Column.Diameters.Fi1z;
-            areaAs2z = project.Column.Dimension.Quantity2z * project.Column.Diameters.Fi2z;
+            areaAs1y = project.Column.Dimension.Quantity1y * (project.Column.Diameters.Fi1y*0.5) * (project.Column.Diameters.Fi1y * 0.5) * Math.PI;
+            areaAs2y = project.Column.Dimension.Quantity2y * (project.Column.Diameters.Fi2y*0.5) * (project.Column.Diameters.Fi2y * 0.5) * Math.PI;
+            areaAs1z = project.Column.Dimension.Quantity1z * (project.Column.Diameters.Fi1z*0.5) * (project.Column.Diameters.Fi1z * 0.5) * Math.PI;
+            areaAs2z = project.Column.Dimension.Quantity2z * (project.Column.Diameters.Fi2z*0.5) * (project.Column.Diameters.Fi2z * 0.5) * Math.PI;
             areaAsy = AreaAs1y + AreaAs2y;
             areaAsz = AreaAs1z + AreaAs2z;
 
@@ -309,14 +321,6 @@ namespace Projekt1._0
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("A2z"));
             d2z = project.Column.Dimension.Width - a2z;
 
-            fiEfektywne = project.Column.EnvironmentalCondition.FiKoncowe * project.Column.EnvironmentalCondition.M0eqpm0ed;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("FiEfektywne"));
-
-            fcd = project.Column.Concrete.Fck / project.Column.Concrete.GammaC;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Fcd"));
-
-            fyd = project.Column.Steel.Fyk / project.Column.Steel.GammaS;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Fyd"));
 
             //wpisać wszystkie pola
         }

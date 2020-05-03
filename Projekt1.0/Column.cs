@@ -20,6 +20,7 @@ namespace Projekt1._0
         private ConcreteParametersCommand materialParametersCommand = new ConcreteParametersCommand();
         private SteelParametersCommand steelParametersCommand = new SteelParametersCommand();
         private ConcreteCoverCommand concreteCover = new ConcreteCoverCommand();
+        private SecondOrderParameters secondOrderParameters = new SecondOrderParameters();
 
         //private CheckEccentricity checkEccentricity = new CheckEccentricity();
 
@@ -34,6 +35,7 @@ namespace Projekt1._0
             environmentalCondition.PropertyChanged += InputPropertyChangedEventChandler;
             diameters.PropertyChanged += InputPropertyChangedEventChandler;
             concreteCoverParameters.PropertyChanged += InputPropertyChangedEventChandler;
+            secondOrderParameters.PropertyChanged += InputPropertyChangedEventChandler;
 
             //materialParametersCommand.PropertyChanged += InputPropertyChangedEventChandler;
             //steelParametersCommand.PropertyChanged += InputPropertyChangedEventChandler;
@@ -129,20 +131,18 @@ namespace Projekt1._0
             }
         }
 
+        public SecondOrderParameters SecondOrderParameters
 
-        //public CheckEccentricity CheckEccentricity
-
-        //{
-        //    get
-        //    {
-        //        return checkEccentricity;
-        //    }
-        //    set
-        //    {
-        //        checkEccentricity = value;
-        //    }
-        //}
-
+        {
+            get
+            {
+                return secondOrderParameters;
+            }
+            set
+            {
+                secondOrderParameters = value;
+            }
+        }
 
         public ICommand ViewMaterialParameters
         {

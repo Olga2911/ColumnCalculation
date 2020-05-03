@@ -12,13 +12,16 @@ namespace Projekt1._0
     {
         private Column column = new Column();
 
-        private BasicCalculations basicCalculations; //więcej klas
+        private BasicCalculations basicCalculations;
         private ReinforcementDetailsCommand reinforcementDetails = new ReinforcementDetailsCommand();
+        private SecondOrderCalculations secondOrderCalculations; 
+
 
         public Project() //konstruktor
         {
             column.PropertyChanged += ColumnPropertyChangedEventHandler; //nasłuchiwanie
             basicCalculations = new BasicCalculations(this);
+            secondOrderCalculations = new SecondOrderCalculations(this);
         }
 
         public Column Column
@@ -34,6 +37,14 @@ namespace Projekt1._0
             get
             {
                 return basicCalculations;
+            }
+        }
+
+        public SecondOrderCalculations SecondOrderCalculations
+        {
+            get
+            {
+                return secondOrderCalculations;
             }
         }
 
@@ -54,7 +65,7 @@ namespace Projekt1._0
         void Calculate()
         {
             basicCalculations.Calculate(this);
-            //wpisać wszystkie metody
+            secondOrderCalculations.Calculate(this);
         }
     }
 

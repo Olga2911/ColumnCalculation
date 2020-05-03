@@ -75,6 +75,8 @@
       <DependentUpon>ReinforcementDetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="ReinforcementDetailsCommand.cs" />
+    <Compile Include="SecondOrderCalculations.cs" />
+    <Compile Include="SecondOrderParameters.cs" />
     <Compile Include="Statics.cs" />
     <Compile Include="Steel.cs" />
     <Compile Include="SteelParameters.xaml.cs">
