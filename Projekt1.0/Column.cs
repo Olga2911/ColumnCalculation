@@ -14,6 +14,7 @@ namespace Projekt1._0
         private Statics statics = new Statics();
         private Concrete concrete = new Concrete();
         private Steel steel = new Steel();
+        private EnvironmentalCondition environmentalCondition = new EnvironmentalCondition();
         private Diameters diameters = new Diameters();
         private ConcreteCoverParameters concreteCoverParameters = new ConcreteCoverParameters();
         private ConcreteParametersCommand materialParametersCommand = new ConcreteParametersCommand();
@@ -30,6 +31,7 @@ namespace Projekt1._0
             statics.PropertyChanged += InputPropertyChangedEventChandler;
             concrete.PropertyChanged += InputPropertyChangedEventChandler;
             steel.PropertyChanged += InputPropertyChangedEventChandler;
+            environmentalCondition.PropertyChanged += InputPropertyChangedEventChandler;
             diameters.PropertyChanged += InputPropertyChangedEventChandler;
             concreteCoverParameters.PropertyChanged += InputPropertyChangedEventChandler;
 
@@ -88,6 +90,19 @@ namespace Projekt1._0
             }
         }
 
+        public EnvironmentalCondition EnvironmentalCondition
+
+        {
+            get
+            {
+                return environmentalCondition;
+            }
+            set
+            {
+                environmentalCondition = value;
+            }
+        }
+
         public Diameters Diameters
 
         {
@@ -113,8 +128,6 @@ namespace Projekt1._0
                 concreteCoverParameters = value;
             }
         }
-
-
 
 
         //public CheckEccentricity CheckEccentricity
@@ -154,7 +167,6 @@ namespace Projekt1._0
                 return concreteCover;
             }
         }
-
 
         void InputPropertyChangedEventChandler (object sender, PropertyChangedEventArgs e )
         {

@@ -30,6 +30,7 @@
                         <Grid >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
+                                
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
@@ -69,18 +70,18 @@
                             <StackPanel Grid.Column="0">
                                 <TextBlock FontSize="9" Margin="5 9 5 2" Text="φ(∞,t0)=" />
                                 <TextBlock FontSize="9" Margin="5 9 5 2" Text="M0Eqp/M0Ed=" />
-                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="X=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="φef=φ(∞,t0)*M0Eqp/M0Ed=" />
                             </StackPanel>
 
                             <StackPanel Grid.Column="1">
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding Column.EnvironmentalCondition.FiKoncowe, Source={StaticResource project}}" />
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding Column.EnvironmentalCondition.M0eqpm0ed, Source={StaticResource project}}" />
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding BasicCalculations.FiEfektywne, Mode=OneWay, Source={StaticResource project}}" />
                             </StackPanel>
 
                             <StackPanel Grid.Column="2">
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
                             </StackPanel>
                         </Grid>

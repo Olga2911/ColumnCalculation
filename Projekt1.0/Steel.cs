@@ -79,7 +79,6 @@ namespace Projekt1._0
         }
         public void UpdateData()
         {
-            Calculate();
             PropertyChanged(this, new PropertyChangedEventArgs("SteelClass"));
             PropertyChanged(this, new PropertyChangedEventArgs("SteelClassDescription"));
             PropertyChanged(this, new PropertyChangedEventArgs("fyk"));
@@ -88,11 +87,6 @@ namespace Projekt1._0
             PropertyChanged(this, new PropertyChangedEventArgs("countAs1"));
             PropertyChanged(this, new PropertyChangedEventArgs("fiAs1"));
             PropertyChanged(this, new PropertyChangedEventArgs("cover"));
-        }
-
-        public void Calculate()
-        {
-            fyd = fyk / gammaS;
         }
 
         public enum SteelClasses
@@ -108,6 +102,56 @@ namespace Projekt1._0
             [Description("A-IIIN RB500")]
             AIIINRB500,
         }
+
+        public double Fyk
+        {
+            get
+            {
+                return fyk;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    fyk = value;
+                    PropertyChanged(this, new PropertyChangedEventArgs("Fyk"));
+                }
+            }
+        }
+
+        public double GammaS
+        {
+            get
+            {
+                return gammaS;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    gammaS = value;
+                    PropertyChanged(this, new PropertyChangedEventArgs("GammaS"));
+                }
+            }
+        }
+
+        public double Fyd
+        {
+            get
+            {
+                return fyd;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    fyd = value;
+                    PropertyChanged(this, new PropertyChangedEventArgs("Fyd"));
+                }
+            }
+        }
+
+
 
     }
 }

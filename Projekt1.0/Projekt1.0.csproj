@@ -69,7 +69,7 @@
     <Compile Include="ConcretParameters.xaml.cs">
       <DependentUpon>ConcretParameters.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EnvironmentExposureClass.cs" />
+    <Compile Include="EnvironmentalCondition.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="ReinforcementDetails.xaml.cs">
       <DependentUpon>ReinforcementDetails.xaml</DependentUpon>

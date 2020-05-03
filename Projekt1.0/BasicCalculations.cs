@@ -11,6 +11,7 @@ namespace Projekt1._0
     {
         private Double areaConcrete = 0.0;
         private Double areaAs = 0.0;
+        private Double areaAsmin = 0.0;
         private Double areaAsmax = 0.0;
         private Double areaAs1y = 0.0;
         private Double areaAs2y = 0.0;
@@ -35,6 +36,10 @@ namespace Projekt1._0
         private Double a2z = 0.0;
         private Double d2z = 0.0;
 
+        private Double fiEfektywne = 0.0;
+
+        private Double fcd = 0.0;
+        private Double fyd = 0.0;
 
         public event PropertyChangedEventHandler PropertyChanged; //opcja która potrafi wysłać informację o zmianie danych
 
@@ -56,6 +61,14 @@ namespace Projekt1._0
             get
             {
                 return areaAs;
+            }
+        }
+
+        public double AreaAsmin
+        {
+            get
+            {
+                return areaAsmin;
             }
         }
 
@@ -210,7 +223,32 @@ namespace Projekt1._0
         {
             get
             {
-                return D2z;
+                return d2z;
+            }
+        }
+
+        public double FiEfektywne
+        {
+            get
+            {
+                return fiEfektywne;
+            }
+        }
+
+        public double Fcd
+        {
+            get
+            {
+                return fcd;
+            }
+        }
+
+
+        public double Fyd
+        {
+            get
+            {
+                return fyd;
             }
         }
 
@@ -225,6 +263,9 @@ namespace Projekt1._0
 
             areaAs = project.Column.Dimension.Quantity1y*project.Column.Diameters.Fi1y + project.Column.Dimension.Quantity2y * project.Column.Diameters.Fi2y + project.Column.Dimension.Quantity1z * project.Column.Diameters.Fi1z + project.Column.Dimension.Quantity2z * project.Column.Diameters.Fi2z;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AreaAs"));
+
+            //areaAsmin = Math.Max(0.0001 * project.Column.Statics.CompressiveForce / project.Column.Steel.Fyd, 0);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AreaAsmin"));
 
             areaAsmax = 0.4 * project.Column.Dimension.Height * project.Column.Dimension.Width;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AreaAsmax"));
@@ -268,8 +309,14 @@ namespace Projekt1._0
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("A2z"));
             d2z = project.Column.Dimension.Width - a2z;
 
+            fiEfektywne = project.Column.EnvironmentalCondition.FiKoncowe * project.Column.EnvironmentalCondition.M0eqpm0ed;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("FiEfektywne"));
 
+            fcd = project.Column.Concrete.Fck / project.Column.Concrete.GammaC;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Fcd"));
 
+            fyd = project.Column.Steel.Fyk / project.Column.Steel.GammaS;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Fyd"));
 
             //wpisać wszystkie pola
         }

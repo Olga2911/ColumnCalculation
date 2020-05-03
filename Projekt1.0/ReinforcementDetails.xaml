@@ -28,26 +28,22 @@
                 <StackPanel Grid.Column="0" >
                     <TextBlock Margin="5 9 5 2" FontSize="9" Text="Zbrojenie całkowite:" />
                     <TextBlock Margin="5 9 5 2" FontSize="9" Text="Zbrojenie minimalne:" />
-                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="" />
                     <TextBlock Margin="5 9 5 2" FontSize="9" Text="Zbrojenie maksymalne:" />
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" >
                     <TextBlock Margin="5 9 5 2" FontSize="9" Text="As=" />
-                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="As,min1=" />
-                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="As,min2=" />
+                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="As,min=" />
                     <TextBlock Margin="5 9 5 2" FontSize="9" Text="As,max=" />
                 </StackPanel>
 
                 <StackPanel Grid.Column="2">
                     <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding BasicCalculations.AreaAs, Mode=OneWay}" />
-                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2"/>
-                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2"/>
+                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding BasicCalculations.AreaAsmin, Mode=OneWay}" />
                     <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding BasicCalculations.AreaAsmax, Mode=OneWay}"/>
                 </StackPanel>
 
                 <StackPanel Grid.Column="3">
-                    <TextBlock Margin="8 8 5 2" FontSize="9" Text="[mm2]" />
                     <TextBlock Margin="8 8 5 2" FontSize="9" Text="[mm2]" />
                     <TextBlock Margin="8 8 5 2" FontSize="9" Text="[mm2]" />
                     <TextBlock Margin="8 8 5 2" FontSize="9" Text="[mm2]" />
@@ -57,7 +53,6 @@
                     <Button Margin="5 6 0 0" Content="?" FontSize="9" Width="20"  />
                     <Button Margin="5 6 0 0" Content="?" FontSize="9" Width="20"  />
                     <Button Margin="5 6 0 0" Content="?" FontSize="9" Width="20" />
-                    <Button Margin="5 6 0 0" Content="?" FontSize="9" Width="20"  />
                 </StackPanel>
             </Grid>
 

@@ -15,7 +15,7 @@ namespace Projekt1._0
         private Double fck = 20.0;
         private Double gammaC = 1.5;
         private Double fcd = 0.0;
-        private Double Ecm = 30.0;
+        private Double ecm = 30.0;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -49,23 +49,27 @@ namespace Projekt1._0
                 {
                     case ConcreteClasses.C16:
                         fck = 16;
-                        Ecm = 29;
+                        ecm = 29;
                         break;
                     case ConcreteClasses.C20:
                         fck = 20;
-                        Ecm = 30;
+                        ecm = 30;
                         break;
                     case ConcreteClasses.C25:
                         fck = 25;
-                        Ecm = 31;
+                        ecm = 31;
                         break;
                     case ConcreteClasses.C30:
                         fck = 30;
-                        Ecm = 32;
+                        ecm = 32;
                         break;
                     case ConcreteClasses.C35:
                         fck = 35;
-                        Ecm = 34;
+                        ecm = 34;
+                        break;
+                    case ConcreteClasses.C40:
+                            fck = 40;
+                        ecm = 35;
                         break;
                 }
                 UpdateData();
@@ -74,7 +78,6 @@ namespace Projekt1._0
 
         public void UpdateData()
         {
-            //Calculate();
             PropertyChanged(this, new PropertyChangedEventArgs("ConcreteClass"));
             PropertyChanged(this, new PropertyChangedEventArgs("ConcreteClassDescription"));
             PropertyChanged(this, new PropertyChangedEventArgs("fck"));
@@ -82,11 +85,6 @@ namespace Projekt1._0
             PropertyChanged(this, new PropertyChangedEventArgs("fcd"));
             PropertyChanged(this, new PropertyChangedEventArgs("Ecm"));
         }
-
-        //public void Calculate()
-        //{
-        //    fcd = fck / gammaC;
-        //}
 
         public enum ConcreteClasses
         {
@@ -103,5 +101,58 @@ namespace Projekt1._0
             [Description("C40/50")]
             C40
         }
+
+        public double Fck
+        {
+            get
+            {
+                return fck;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    fck = value;
+                    PropertyChanged(this, new PropertyChangedEventArgs("Fck"));
+                }
+            }
+        }
+
+        public double GammaC
+        {
+            get
+            {
+                return gammaC;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    gammaC = value;
+                    PropertyChanged(this, new PropertyChangedEventArgs("GammaC"));
+                }
+            }
+        }
+
+        public double Ecm
+        {
+            get
+            {
+                return ecm;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    ecm = value;
+                    PropertyChanged(this, new PropertyChangedEventArgs("Ecm"));
+                }
+            }
+        }
+
+
+
+
+
     }
 }
