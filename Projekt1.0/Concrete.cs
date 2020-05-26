@@ -10,12 +10,14 @@ namespace Projekt1._0
     class Concrete : INotifyPropertyChanged
 
     {
-        private ConcreteClasses concreteClasses = ConcreteClasses.C20;
-        private String concreteClassDescription = EnumConvert.GetDescription(ConcreteClasses.C20);
-        private Double fck = 20.0;
-        private Double gammaC = 1.5;
+        private ConcreteClasses concreteClasses = ConcreteClasses.C30;
+        private String concreteClassDescription = EnumConvert.GetDescription(ConcreteClasses.C30);
+        private Double fck = 30.0;
+        private Double gammaC = 1.4;
         private Double fcd = 0.0;
         private Double ecm = 30.0;
+        private Double epsilonCu2 = 0.0035;
+        private Double epsilonC3 = 0.00175;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -68,7 +70,7 @@ namespace Projekt1._0
                         ecm = 34;
                         break;
                     case ConcreteClasses.C40:
-                            fck = 40;
+                        fck = 40;
                         ecm = 35;
                         break;
                 }
@@ -84,6 +86,9 @@ namespace Projekt1._0
             PropertyChanged(this, new PropertyChangedEventArgs("gammaC"));
             PropertyChanged(this, new PropertyChangedEventArgs("fcd"));
             PropertyChanged(this, new PropertyChangedEventArgs("Ecm"));
+            PropertyChanged(this, new PropertyChangedEventArgs("EpsilonCu2"));
+            PropertyChanged(this, new PropertyChangedEventArgs("EpsilonC3"));
+
         }
 
         public enum ConcreteClasses
@@ -149,6 +154,40 @@ namespace Projekt1._0
                 }
             }
         }
+
+        public double EpsilonCu2
+        {
+            get
+            {
+                return epsilonCu2;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    epsilonCu2 = value;
+                    PropertyChanged(this, new PropertyChangedEventArgs("EpsilonCu2"));
+                }
+            }
+        }
+
+        public double EpsilonC3
+        {
+            get
+            {
+                return epsilonC3;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    epsilonC3 = value;
+                    PropertyChanged(this, new PropertyChangedEventArgs("EpsilonC3"));
+                }
+            }
+        }
+
+
 
 
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt1._0"
         mc:Ignorable="d"
-        Title="Słup" Height="1100" Width="700">
+        Title="Słup" Height="1100" Width="900">
     <Window.Resources>
         <local:Project x:Key="project"/>
     </Window.Resources>
@@ -20,10 +20,11 @@
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
 
             <StackPanel Background="MintCream" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,255,-0.333" Grid.RowSpan="2">
-               
+
                 <!-- PARAMETRY PRZEKROJU -->
                 <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="4" Margin="4">
                     <StackPanel >
@@ -31,7 +32,6 @@
                         <Grid >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
-                                
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
@@ -47,15 +47,15 @@
                             <StackPanel Grid.Column="1">
                                 <ComboBox FontSize="9" ItemsSource="{Binding Column.Concrete.ClassesOfConcrete, Source={StaticResource project}}" SelectedIndex="0" SelectedItem="{Binding Column.Concrete.ConcreteClassDescription, Source={StaticResource project}}" Margin="0 5 0 0" />
                                 <ComboBox FontSize="9" ItemsSource="{Binding Column.Steel.ClassesOfSteel, Source={StaticResource project}}"  SelectedItem="{Binding Column.Steel.SteelClassDescription, Source={StaticResource project}}"   Margin="0 5 0 0" />
-                                <ComboBox FontSize="9" Margin="0 5 0 0" />
-                                <ComboBox FontSize="9" Margin="0 5 0 0"   />
+                                <ComboBox FontSize="9" ItemsSource="{Binding Column.ConcreteCoverMinDur.ClassOfExposure, Source={StaticResource project}}" SelectedItem="{Binding Column.ConcreteCoverMinDur.ExposureClassDescription,  Source={StaticResource project}}" Margin="0 5 0 0" />
+                                <ComboBox FontSize="9" ItemsSource="{Binding Column.ConcreteCoverMinDur.ClassOfStructural, Source={StaticResource project}}"  SelectedItem="{Binding Column.ConcreteCoverMinDur.StructuralClassDescription, Source={StaticResource project}}" Margin="0 5 0 0"   />
                             </StackPanel>
 
                             <StackPanel Grid.Column="2"  >
                                 <Button Command="{Binding Column.ViewMaterialParameters, Source={StaticResource project}}" CommandParameter="{DynamicResource project}"  Margin="0 6 0 0" Content="..." Width="20"  />
                                 <Button Command="{Binding Column.ViewSteelParameters, Source={StaticResource project}}" CommandParameter="{DynamicResource project}" Margin="0 6 0 0" Content="..." Width="20"  />
                                 <Button Margin="0 6 0 0" Content="..." Width="20"  />
-                                <Button Margin="0 6 0 0" Content="..." Width="20" />
+                                <Button  Margin="0 6 0 0" Content="..." Width="20" />
                             </StackPanel>
                         </Grid>
 
@@ -68,8 +68,8 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <StackPanel Grid.Column="0">
                                 <TextBlock FontSize="9" Margin="5 9 5 2" Text="φ(∞,t0)=" />
+                            <StackPanel Grid.Column="0">
                                 <TextBlock FontSize="9" Margin="5 9 5 2" Text="M0Eqp/M0Ed=" />
                                 <TextBlock FontSize="9" Margin="5 9 5 2" Text="φef=φ(∞,t0)*M0Eqp/M0Ed=" />
                             </StackPanel>
@@ -144,10 +144,10 @@
                             </StackPanel>
 
                             <StackPanel Grid.Column="1">
-                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2" ItemsSource="{Binding Column.Diameters.FiArray, Source={StaticResource project}}" SelectedIndex="4" SelectedItem="{Binding Column.Diameters.Fi1y, Source={StaticResource project}}"/>
-                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2" ItemsSource="{Binding Column.Diameters.FiArray, Source={StaticResource project}}" SelectedIndex="3" SelectedItem="{Binding Column.Diameters.Fi2y, Source={StaticResource project}}"/>
-                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2" ItemsSource="{Binding Column.Diameters.FiArray, Source={StaticResource project}}" SelectedIndex="1" SelectedItem="{Binding Column.Diameters.Fi1z, Source={StaticResource project}}"/>
-                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2" ItemsSource="{Binding Column.Diameters.FiArray, Source={StaticResource project}}" SelectedIndex="1" SelectedItem="{Binding Column.Diameters.Fi2z, Source={StaticResource project}}"/>
+                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2" ItemsSource="{Binding Column.Diameters.FiArray, Source={StaticResource project}}" SelectedIndex="5" SelectedItem="{Binding Column.Diameters.Fi1y, Source={StaticResource project}}"/>
+                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2" ItemsSource="{Binding Column.Diameters.FiArray, Source={StaticResource project}}" SelectedIndex="5" SelectedItem="{Binding Column.Diameters.Fi2y, Source={StaticResource project}}"/>
+                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2" ItemsSource="{Binding Column.Diameters.FiArray, Source={StaticResource project}}" SelectedIndex="5" SelectedItem="{Binding Column.Diameters.Fi1z, Source={StaticResource project}}"/>
+                                <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2" ItemsSource="{Binding Column.Diameters.FiArray, Source={StaticResource project}}" SelectedIndex="5" SelectedItem="{Binding Column.Diameters.Fi2z, Source={StaticResource project}}"/>
                                 <ComboBox FontSize="9" Background="Beige" Margin="0 4 0 2" ItemsSource="{Binding Column.Diameters.FiArray, Source={StaticResource project}}" SelectedIndex="0" SelectedItem="{Binding Column.Diameters.FiS, Source={StaticResource project}}"/>
                                 <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding Column.Dimension.Quantity1y, Source={StaticResource project}}"/>
                                 <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding Column.Dimension.Quantity2y, Source={StaticResource project}}"/>
@@ -211,7 +211,7 @@
             </StackPanel>
 
             <StackPanel Background="MintCream" Grid.Column="1" Margin="0.333,0,0,-0.333" Grid.RowSpan="2">
-             
+
                 <!-- RYSUNEK -->
                 <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="4" Margin="4">
                     <StackPanel Background="MintCream" Grid.Column="1" >
@@ -223,7 +223,7 @@
 
                 <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="4" Margin="4">
                     <StackPanel>
-                        
+
                         <!-- SIŁY WEWNĘTRZNE -->
                         <TextBlock FontSize="12" Margin="2 2 0 0" Text="SIŁY WEWNĘTRZNE" FontWeight="Bold"/>
                         <Grid>
@@ -348,11 +348,11 @@
 
                                 <StackPanel Grid.Column="2">
                                     <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
-                                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[m]" />
+                                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[cm]" />
                                     <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
                                     <TextBlock Margin="8 8 5 2"/>
                                     <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
-                                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[m]" />
+                                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[cm]" />
                                     <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
                                 </StackPanel>
                             </Grid>
@@ -419,7 +419,7 @@
                                 </StackPanel>
 
                                 <StackPanel Grid.Column="1">
-                                    <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                    <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Eiy, Mode=OneWay, Source={StaticResource project}}" />
                                 </StackPanel>
 
                                 <StackPanel Grid.Column="2">
@@ -477,7 +477,7 @@
                                 </StackPanel>
 
                                 <StackPanel Grid.Column="1">
-                                    <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                    <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Eiz, Mode=OneWay, Source={StaticResource project}}"  />
                                 </StackPanel>
 
                                 <StackPanel Grid.Column="2">
@@ -502,26 +502,58 @@
                             </Grid.ColumnDefinitions>
 
                             <StackPanel Grid.Column="0">
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="c0=" />
                                 <TextBlock FontSize="9" Margin="5 9 5 2" Text="β=π^2/c_0=" />
                                 <TextBlock FontSize="9" Margin="5 9 5 2" Text="N_(B,y)=(π^2 EIy)/(l_(0,y)^2 )=" />
-                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="M_Edy=M_(0,Edz) (1+β/(N_(B,z)/N_Ed -1))=" />
-                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="e_z=M_Edy/N_Ed =" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="M_Edz=M_(0,Edy) (1+β/(N_(B,y)/N_Ed -1))=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="e_y=M_Edz/N_Ed =" />
                                 <TextBlock FontSize="9" Margin="5 9 5 2" Text="e_0=max⁡{h/30;2 [cm]}=" />
                                 <TextBlock FontWeight="Bold" FontSize="9" Margin="5 9 5 2" Text="UWAGA:" />
                             </StackPanel>
 
                             <StackPanel Grid.Column="1">
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding Column.SecondOrderParameters.C0, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Beta, Mode=OneWay, Source={StaticResource project}}" />
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Nby, Mode=OneWay, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Medz, Mode=OneWay, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Ey, Mode=OneWay, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.E0, Mode=OneWay, Source={StaticResource project}}"/>
                             </StackPanel>
 
                             <StackPanel Grid.Column="2">
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kN]" />
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kNm]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[m]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[m]" />
+                            </StackPanel>
+                        </Grid>
+
+                        <TextBlock FontWeight="Bold" FontSize="10" Margin="2 5 0 0" Text="Wpływ imperfekcji:" />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.2*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="aα_(h)=min{max{2/(√l);2/3};1}=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="θ_(i)=α_(h)/200=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="e_(i,y)=0,5θ_(i,y) l_(0,y)=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="e_y=max{e_0,e_(i,y) }=" />
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1">
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Alfah, Mode=OneWay, Source={StaticResource project}}" />
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Tetai, Mode=OneWay, Source={StaticResource project}}"  />
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Eiyi, Mode=OneWay, Source={StaticResource project}}"  />
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Eyi, Mode=OneWay, Source={StaticResource project}}" />
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2">
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[m]" />
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[m]" />
                             </StackPanel>
@@ -536,23 +568,26 @@
                             </Grid.ColumnDefinitions>
 
                             <StackPanel Grid.Column="0">
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="c0 =" />
                                 <TextBlock FontSize="9" Margin="5 9 5 2" Text="β=π^2/c_0=" />
                                 <TextBlock FontSize="9" Margin="5 9 5 2" Text="N_(B,z)=(π^2 EIz)/(l_(0,z)^2 )=" />
-                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="M_Edz=M_(0,Edz) (1+β/(N_(B,y)/N_Ed -1))=" />
-                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="e_y=M_Edz/N_Ed =" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="M_Edy=M_(0,Edz) (1+β/(N_(B,z)/N_Ed -1))=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="e_z=M_Edz/N_Ed =" />
                                 <TextBlock FontSize="9" Margin="5 9 5 2" Text="e_0=max⁡{h/30;2 [cm]}=" />
                                 <TextBlock FontWeight="Bold" FontSize="9" Margin="5 9 5 2" Text="UWAGA:" />
                             </StackPanel>
 
                             <StackPanel Grid.Column="1">
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding Column.SecondOrderParameters.C0, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Beta, Mode=OneWay, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Nbz, Mode=OneWay, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Medy, Mode=OneWay, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Ez, Mode=OneWay, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.E0, Mode=OneWay, Source={StaticResource project}}"/>
                             </StackPanel>
 
                             <StackPanel Grid.Column="2">
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kN]" />
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kNm]" />
@@ -560,9 +595,43 @@
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[m]" />
                             </StackPanel>
                         </Grid>
+
+                        <TextBlock FontWeight="Bold" FontSize="10" Margin="2 5 0 0" Text="Wpływ imperfekcji:" />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.2*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="aα_(h)=min{max{2/(√l);2/3};1}=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="θ_(i)=α_(h)/200=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="e_(i,z)=0,5θ_(i,z) l_(0,z)=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="e_z=max{e_0,e_(i,z) }=" />
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1">
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Alfah, Mode=OneWay, Source={StaticResource project}}" />
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Tetai, Mode=OneWay, Source={StaticResource project}}"  />
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Eizi, Mode=OneWay, Source={StaticResource project}}"  />
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Ezi, Mode=OneWay, Source={StaticResource project}}" />
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2">
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[m]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[m]" />
+                            </StackPanel>
+                        </Grid>
+
                     </StackPanel>
                 </Border>
+            </StackPanel>
 
+
+
+            <StackPanel Background="MintCream" Grid.Column="3" Margin="0,0,0.333,-0.333" Grid.RowSpan="3">
                 <!-- MOMENT GRANICZNY-->
                 <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="4" Margin="4">
                     <StackPanel >
@@ -576,32 +645,133 @@
                             </Grid.ColumnDefinitions>
 
                             <StackPanel Grid.Column="0">
-                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="β=π^2/c_0=" />
-                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="N_(B,y)=(π^2 EIy)/(l_(0,y)^2 )=" />
-                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="M_Edz=M_(0,Edy) (1+β/(N_(B,y)/N_Ed -1))" />
-                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="e_y=M_Edz/N_Ed=" />
-                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="e_0=max⁡{h/30;2 [cm]}=" />
-                                <TextBlock FontWeight="Bold" FontSize="9" Margin="5 9 5 2" Text="UWAGA:" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="Sy=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="n Ed,y=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="alfa 1,y=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="alfa 2,y=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="delta 1y=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="delta 2y=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="mRd1,y=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="MRdy=" />
                             </StackPanel>
 
                             <StackPanel Grid.Column="1">
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.Sy, Mode=OneWay, Source={StaticResource project}}" />
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.NEdy, Mode=OneWay, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.Alfa1y, Mode=OneWay, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.Alfa2y, Mode=OneWay, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.Delta1y, Mode=OneWay, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.Delta2y, Mode=OneWay, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.MRd1Y, Mode=OneWay, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.MRdY, Mode=OneWay, Source={StaticResource project}}"/>
                             </StackPanel>
 
                             <StackPanel Grid.Column="2">
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kN]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kN]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kNm]" />
+                            </StackPanel>
+                        </Grid>
+
+                        <TextBlock FontWeight="Bold" FontSize="10" Margin="2 5 0 0" Text="Kierunek z:" />
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="26*" />
+                                <ColumnDefinition Width="57*"/>
+                                <ColumnDefinition Width="69*" />
+                                <ColumnDefinition Width="70*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0.333,0.333">
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="Sz=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="n Ed,z=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="alfa 1,z=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="alfa 2,z=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="delta 1z=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="delta 2z=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="mRd1,z=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="MRdz=" />
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1" Grid.ColumnSpan="3" Margin="57,0,69.666,0.333">
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.Sz, Mode=OneWay, Source={StaticResource project}}" />
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.NEdz, Mode=OneWay, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.Alfa1z, Mode=OneWay, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.Alfa2z, Mode=OneWay, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.Delta1z, Mode=OneWay, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.Delta2z, Mode=OneWay, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.MRd1Z, Mode=OneWay, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.MRdZ, Mode=OneWay, Source={StaticResource project}}"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="3" Margin="0.334,0,-0.334,0.333">
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kN]" />
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[m]" />
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[m]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kNm]" />
                             </StackPanel>
                         </Grid>
                     </StackPanel>
                 </Border>
+
+                <!--ZGINANIE UKOŚNE-->
+                <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="4" Margin="4">
+                    <StackPanel >
+                        <TextBlock FontSize="12" Margin="2 2 0 0" Text="ZGINANIE UKOŚNE" FontWeight="Bold"/>
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.2*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0">
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="lambdaZ/lambdaY=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="b eq=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="h eq=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="(eiy/heq)/(eiz/beq)=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="(eiz/beq)/(eiy/heq)="  />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="NEd/NRd=" />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="a= EC 5.8.9 " />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="(MEdz/MRdz)^a+(MEdy/MRdy)^a=" />
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1">
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding BiaxialBendingCalculation.LambdaZlambdaY, Mode=OneWay, Source={StaticResource project}}" />
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding BiaxialBendingCalculation.BEq, Mode=OneWay, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding BiaxialBendingCalculation.HEq, Mode=OneWay, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding BiaxialBendingCalculation.BiaxialBendingCriterium1, Mode=OneWay, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding BiaxialBendingCalculation.BiaxialBendingCriterium2, Mode=OneWay, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding BiaxialBendingCalculation.NEdNRd, Mode=OneWay, Source={StaticResource project}}"/>
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" />
+                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" />
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2">
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[cm]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[cm]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kNm]" />
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+
+
             </StackPanel>
         </Grid>
     </Border>

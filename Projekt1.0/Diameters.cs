@@ -10,7 +10,7 @@ namespace Projekt1._0
     class Diameters : INotifyPropertyChanged
     {
         private int fi1y = 16; //mm
-        private int fi2y = 12; //mm
+        private int fi2y = 16; //mm
         private int fi1z = 8; //mm
         private int fi2z = 8; //mm
         private int fiS = 6; //mm

@@ -7,48 +7,46 @@ using System.Threading.Tasks;
 
 namespace Projekt1._0
 {
-    class EnvironmentalCondition : INotifyPropertyChanged
+    class LoadCapacityParameters : INotifyPropertyChanged
     {
-        private Double fiKoncowe = 2.25;
-        private Double m0eqpm0ed=0.3;
+        private Double ni = 1.0;
+        private Double lambda = 0.8;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public double FiKoncowe
+        public double Ni
         {
             get
             {
-                return fiKoncowe;
+                return ni;
             }
             set
             {
                 if (value > 0)
                 {
-                    fiKoncowe = value;
-                    PropertyChanged(this, new PropertyChangedEventArgs("FiKoncowe"));
+                    ni= value;
+                    PropertyChanged(this, new PropertyChangedEventArgs("Ni"));
                 }
             }
         }
 
-        public double M0eqpm0ed
+        public double Lambda
         {
             get
             {
-                return m0eqpm0ed;
+                return lambda;
             }
             set
             {
                 if (value > 0)
                 {
-                    m0eqpm0ed = value;
-                    PropertyChanged(this, new PropertyChangedEventArgs("M0eqpm0ed"));
+                    lambda = value;
+                    PropertyChanged(this, new PropertyChangedEventArgs("Lambda"));
                 }
             }
         }
-
 
 
 
     }
 }
-

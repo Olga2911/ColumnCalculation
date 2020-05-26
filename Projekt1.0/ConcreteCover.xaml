@@ -44,7 +44,7 @@
                 <StackPanel Grid.Column="2">
                     <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.ConcreteCoverParameters.Deltacdev}"/>
                     <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.ConcreteCoverParameters.Cminb}"/>
-                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.ConcreteCoverParameters.Cmindur}"/>
+                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" />
                     <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.ConcreteCoverParameters.Cdurgamma}"/>
                     <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.ConcreteCoverParameters.Deltadurst}"/>
                     <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.ConcreteCoverParameters.Deltacduradd}"/>

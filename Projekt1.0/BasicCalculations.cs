@@ -24,6 +24,7 @@ namespace Projekt1._0
         private Double sCltmax = 0.0;
         private Double sCltmax06 = 0.0;
 
+        //private Double cmindur = 0.0;
         private Double cmin = 0.0;
         private Double cnom = 0.0;
 
@@ -252,10 +253,6 @@ namespace Projekt1._0
             }
         }
 
-
-
-
-
         public void Calculate(Project project)              //funkcja licząca - potrzebuje wszystkich danych 
         {
             areaConcrete = project.Column.Dimension.Height * project.Column.Dimension.Width;
@@ -301,25 +298,32 @@ namespace Projekt1._0
             sCltmax06 =0.6*sCltmax;               //mm          
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SCltmax06"));
 
-            cmin = Math.Max(Math.Max(project.Column.ConcreteCoverParameters.Cminb, project.Column.ConcreteCoverParameters.Cmindur + project.Column.ConcreteCoverParameters.Cdurgamma - project.Column.ConcreteCoverParameters.Deltadurst - project.Column.ConcreteCoverParameters.Deltacduradd), 10);                //mm          
+
+
+
+            // zweryfikować cmindur
+
+
+
+            cmin = Math.Max(Math.Max(project.Column.ConcreteCoverParameters.Cminb, project.ConcreteCoverMinDurCalculation.CMinDur + project.Column.ConcreteCoverParameters.Cdurgamma - project.Column.ConcreteCoverParameters.Deltadurst - project.Column.ConcreteCoverParameters.Deltacduradd), 10);                //mm          
             cnom = cmin + project.Column.ConcreteCoverParameters.Deltacdev;              //mm          
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cnom"));
 
-            a1y=cnom+project.Column.Diameters.FiS+0.5 * project.Column.Diameters.Fi1y;
+            a1y = cnom + project.Column.Diameters.FiS + 0.5 * project.Column.Diameters.Fi1y;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("A1y"));
-            d1y = project.Column.Dimension.Height - a1y;
+            d1y = project.Column.Dimension.Height - a1y * 0.1;
 
             a2y = cnom + project.Column.Diameters.FiS + 0.5 * project.Column.Diameters.Fi2y;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("A2y"));
-            d2y = project.Column.Dimension.Height - a2y;
+            d2y = project.Column.Dimension.Height - a2y * 0.1;
 
             a1z = cnom + project.Column.Diameters.FiS + 0.5 * project.Column.Diameters.Fi1z;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("A1z"));
-            d1z = project.Column.Dimension.Width - a1z;
+            d1z = project.Column.Dimension.Width - a1z * 0.1;
 
             a2z = cnom + project.Column.Diameters.FiS + 0.5 * project.Column.Diameters.Fi2z;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("A2z"));
-            d2z = project.Column.Dimension.Width - a2z;
+            d2z = project.Column.Dimension.Width - a2z*0.1;
 
 
             //wpisać wszystkie pola

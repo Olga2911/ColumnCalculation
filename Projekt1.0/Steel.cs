@@ -13,6 +13,7 @@ namespace Projekt1._0
         private String steelClassDescription = EnumConvert.GetDescription(SteelClasses.AIIINRB500);
         private Double fyk = 500.0;
         private Double gammaS = 1.15;
+        private Double es = 200; //GPa
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -78,9 +79,8 @@ namespace Projekt1._0
             PropertyChanged(this, new PropertyChangedEventArgs("fyk"));
             PropertyChanged(this, new PropertyChangedEventArgs("gammaS"));
             PropertyChanged(this, new PropertyChangedEventArgs("fyd"));
-            PropertyChanged(this, new PropertyChangedEventArgs("countAs1"));
-            PropertyChanged(this, new PropertyChangedEventArgs("fiAs1"));
-            PropertyChanged(this, new PropertyChangedEventArgs("cover"));
+            PropertyChanged(this, new PropertyChangedEventArgs("es"));
+
         }
 
         public enum SteelClasses
@@ -125,6 +125,22 @@ namespace Projekt1._0
                 {
                     gammaS = value;
                     PropertyChanged(this, new PropertyChangedEventArgs("GammaS"));
+                }
+            }
+        }
+
+        public double Es
+        {
+            get
+            {
+                return es;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    es = value;
+                    PropertyChanged(this, new PropertyChangedEventArgs("Es"));
                 }
             }
         }

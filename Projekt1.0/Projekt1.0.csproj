@@ -56,12 +56,16 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BasicCalculations.cs" />
+    <Compile Include="BiaxialBendingCalculation.cs" />
+    <Compile Include="BiaxialBendingParameters.cs" />
     <Compile Include="CheckEccentricity.cs" />
     <Compile Include="Concrete.cs" />
     <Compile Include="ConcreteCover.xaml.cs">
       <DependentUpon>ConcreteCover.xaml</DependentUpon>
     </Compile>
     <Compile Include="ConcreteCoverCommand.cs" />
+    <Compile Include="ConcreteCoverMinDur.cs" />
+    <Compile Include="ConcreteCoverMinDurCalculation.cs" />
     <Compile Include="ConcreteCoverParameters.cs" />
     <Compile Include="Diameters.cs" />
     <Compile Include="EnumConvert.cs" />
@@ -70,6 +74,8 @@
       <DependentUpon>ConcretParameters.xaml</DependentUpon>
     </Compile>
     <Compile Include="EnvironmentalCondition.cs" />
+    <Compile Include="LoadCapacityCalculation.cs" />
+    <Compile Include="LoadCapacityParameters.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="ReinforcementDetails.xaml.cs">
       <DependentUpon>ReinforcementDetails.xaml</DependentUpon>

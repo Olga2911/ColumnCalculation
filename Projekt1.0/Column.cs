@@ -14,6 +14,7 @@ namespace Projekt1._0
         private Statics statics = new Statics();
         private Concrete concrete = new Concrete();
         private Steel steel = new Steel();
+        private ConcreteCoverMinDur concreteCoverMinDur = new ConcreteCoverMinDur();
         private EnvironmentalCondition environmentalCondition = new EnvironmentalCondition();
         private Diameters diameters = new Diameters();
         private ConcreteCoverParameters concreteCoverParameters = new ConcreteCoverParameters();
@@ -21,6 +22,7 @@ namespace Projekt1._0
         private SteelParametersCommand steelParametersCommand = new SteelParametersCommand();
         private ConcreteCoverCommand concreteCover = new ConcreteCoverCommand();
         private SecondOrderParameters secondOrderParameters = new SecondOrderParameters();
+        private LoadCapacityParameters loadCapacityParameters = new LoadCapacityParameters();
 
         //private CheckEccentricity checkEccentricity = new CheckEccentricity();
 
@@ -32,10 +34,13 @@ namespace Projekt1._0
             statics.PropertyChanged += InputPropertyChangedEventChandler;
             concrete.PropertyChanged += InputPropertyChangedEventChandler;
             steel.PropertyChanged += InputPropertyChangedEventChandler;
+            concreteCoverMinDur.PropertyChanged += InputPropertyChangedEventChandler;
             environmentalCondition.PropertyChanged += InputPropertyChangedEventChandler;
             diameters.PropertyChanged += InputPropertyChangedEventChandler;
             concreteCoverParameters.PropertyChanged += InputPropertyChangedEventChandler;
             secondOrderParameters.PropertyChanged += InputPropertyChangedEventChandler;
+            loadCapacityParameters.PropertyChanged += InputPropertyChangedEventChandler;
+
 
             //materialParametersCommand.PropertyChanged += InputPropertyChangedEventChandler;
             //steelParametersCommand.PropertyChanged += InputPropertyChangedEventChandler;
@@ -92,6 +97,20 @@ namespace Projekt1._0
             }
         }
 
+        public ConcreteCoverMinDur ConcreteCoverMinDur
+
+        {
+            get
+            {
+                return concreteCoverMinDur;
+            }
+            set
+            {
+                concreteCoverMinDur = value;
+            }
+        }
+
+
         public EnvironmentalCondition EnvironmentalCondition
 
         {
@@ -141,6 +160,19 @@ namespace Projekt1._0
             set
             {
                 secondOrderParameters = value;
+            }
+        }
+
+        public LoadCapacityParameters LoadCapacityParameters
+
+        {
+            get
+            {
+                return loadCapacityParameters;
+            }
+            set
+            {
+                loadCapacityParameters = value;
             }
         }
 

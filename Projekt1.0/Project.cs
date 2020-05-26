@@ -11,17 +11,21 @@ namespace Projekt1._0
     class Project
     {
         private Column column = new Column();
-
+        private ConcreteCoverMinDurCalculation concreteCoverMinDurCalculation;
         private BasicCalculations basicCalculations;
         private ReinforcementDetailsCommand reinforcementDetails = new ReinforcementDetailsCommand();
-        private SecondOrderCalculations secondOrderCalculations; 
-
+        private SecondOrderCalculations secondOrderCalculations;
+        private LoadCapacityCalculation loadCapacityCalculation;
+        private BiaxialBendingCalculation biaxialBendingCalculation;
 
         public Project() //konstruktor
         {
             column.PropertyChanged += ColumnPropertyChangedEventHandler; //nasłuchiwanie
+            concreteCoverMinDurCalculation = new ConcreteCoverMinDurCalculation(this);
             basicCalculations = new BasicCalculations(this);
             secondOrderCalculations = new SecondOrderCalculations(this);
+            loadCapacityCalculation = new LoadCapacityCalculation(this);
+            biaxialBendingCalculation = new BiaxialBendingCalculation(this);
         }
 
         public Column Column
@@ -29,6 +33,14 @@ namespace Projekt1._0
             get
             {
                 return column;
+            }
+        }
+
+        public ConcreteCoverMinDurCalculation ConcreteCoverMinDurCalculation
+        {
+            get
+            {
+                return concreteCoverMinDurCalculation;
             }
         }
 
@@ -48,6 +60,22 @@ namespace Projekt1._0
             }
         }
 
+        public LoadCapacityCalculation LoadCapacityCalculation
+        {
+            get
+            {
+                return loadCapacityCalculation;
+            }
+        }
+
+        public BiaxialBendingCalculation BiaxialBendingCalculation
+        {
+            get
+            {
+                return biaxialBendingCalculation;
+            }
+        }
+
         public ICommand ReinforcementDetailsView
         {
             get
@@ -64,8 +92,11 @@ namespace Projekt1._0
 
         void Calculate()
         {
+            concreteCoverMinDurCalculation.Calculate(this);
             basicCalculations.Calculate(this);
             secondOrderCalculations.Calculate(this);
+            loadCapacityCalculation.Calculate(this);
+            biaxialBendingCalculation.Calculate(this);
         }
     }
 

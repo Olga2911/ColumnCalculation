@@ -10,13 +10,13 @@ namespace Projekt1._0
     class Dimension : INotifyPropertyChanged 
 
     {
-        private Double width = 30;
-        private Double height = 50;
-        private Double columnHeight = 250;
-        private Double quantity1y = 5;
-        private Double quantity2y = 3;
-        private Double quantity1z = 2;
-        private Double quantity2z = 2;
+        private Double width = 40;
+        private Double height = 60;
+        private Double columnHeight = 500;
+        private Double quantity1y = 10.75;
+        private Double quantity2y = 21.5;
+        private Double quantity1z = 3;
+        private Double quantity2z = 3;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -130,7 +130,7 @@ namespace Projekt1._0
             {
                 if (value > 0)
                 {
-                    quantity1y = value;
+                    quantity2z = value;
                     PropertyChanged(this, new PropertyChangedEventArgs("Quantity2z"));
                 }
             }

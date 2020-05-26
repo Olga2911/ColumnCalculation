@@ -32,6 +32,24 @@ namespace Projekt1._0
         private Double eiy = 0.0;
         private Double eiz = 0.0;
 
+        private Double beta = 0.0;
+        private Double nby = 0.0;
+        private Double nbz = 0.0;
+        private Double medy = 0.0;
+        private Double medz = 0.0;
+        private Double ey = 0.0;
+        private Double ez = 0.0;
+        private Double e0 = 0.0;
+
+        private Double alfah = 0.0;
+        private Double tetai = 0.0;
+        private Double eiyi = 0.0;
+        private Double eizi = 0.0;
+        private Double eyi= 0.0;
+        private Double ezi = 0.0;
+
+
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public SecondOrderCalculations(Project project)
@@ -207,7 +225,117 @@ namespace Projekt1._0
             }
         }
 
+        public Double Beta
+        {
+            get
+            {
+                return beta;
+            }
+        }
 
+        public Double Nby
+        {
+            get
+            {
+                return nby;
+            }
+        }
+
+        public Double Nbz
+        {
+            get
+            {
+                return nbz;
+            }
+        }
+
+        public Double Medy
+        {
+            get
+            {
+                return medy;
+            }
+        }
+
+        public Double Medz
+        {
+            get
+            {
+                return medz;
+            }
+        }
+
+        public Double Ez
+        {
+            get
+            {
+                return ez;
+            }
+        }
+
+        public Double Ey
+        {
+            get
+            {
+                return ey;
+            }
+        }
+
+        public Double E0
+        {
+            get
+            {
+                return e0;
+            }
+        }
+
+        public Double Alfah
+        {
+            get
+            {
+                return alfah;
+            }
+        }
+
+        public Double Tetai
+        {
+            get
+            {
+                return tetai;
+            }
+        }
+
+        public Double Eiyi
+        {
+            get
+            {
+                return eiyi;
+            }
+        }
+
+        public Double Eizi
+        {
+            get
+            {
+                return eizi;
+            }
+        }
+
+        public Double Eyi
+        {
+            get
+            {
+                return eyi;
+            }
+        }
+
+        public Double Ezi
+        {
+            get
+            {
+                return ezi;
+            }
+        }
 
 
 
@@ -217,7 +345,7 @@ namespace Projekt1._0
             aParameter = 1 / (1 + 0.2 * project.BasicCalculations.FiEfektywne);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AParameter"));
 
-            omega =(project.BasicCalculations.AreaAs*project.BasicCalculations.Fyd)/(project.BasicCalculations.AreaConcrete * project.BasicCalculations.Fcd);
+            omega =(project.BasicCalculations.AreaAs*project.BasicCalculations.Fyd)/(project.BasicCalculations.AreaConcrete * project.BasicCalculations.Fcd)*0.01;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Omega"));
 
             bParameter = Math.Sqrt(1 + 2 * omega);
@@ -260,8 +388,8 @@ namespace Projekt1._0
                 project.BasicCalculations.AreaAs2y * 0.01 * (0.5 * project.Column.Dimension.Height - project.BasicCalculations.A2y * 0.1) * (0.5 * project.Column.Dimension.Height - project.BasicCalculations.A2y * 0.1);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Isy"));
 
-            //eiy = kcy * project.Column.Concrete.Ecm * Icy + project.Column.SecondOrderParameters.Ks * project.Column.Steel.Fyk * Isy;
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Eiy"));
+            eiy = kcy * project.Column.Concrete.Ecm * Icy*0.01 + project.Column.SecondOrderParameters.Ks * project.Column.Steel.Es * Isy*0.01; 
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Eiy"));
 
             k2z = Math.Min(nForce * lambdaz / 170, 0.2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("K2z"));
@@ -275,6 +403,57 @@ namespace Projekt1._0
             isz = project.BasicCalculations.AreaAs1z * 0.01 * (0.5 * project.Column.Dimension.Width - project.BasicCalculations.A1z * 0.1) * (0.5 * project.Column.Dimension.Width - project.BasicCalculations.A1z * 0.1) +
                 project.BasicCalculations.AreaAs2z * 0.01 * (0.5 * project.Column.Dimension.Width - project.BasicCalculations.A2z * 0.1) * (0.5 * project.Column.Dimension.Width - project.BasicCalculations.A2z * 0.1);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Isz"));
+
+            eiz = kcz * project.Column.Concrete.Ecm * Icz*0.01 + project.Column.SecondOrderParameters.Ks * project.Column.Steel.Es * Isz*0.01;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Eiz"));
+
+
+
+            beta = Math.PI * Math.PI / project.Column.SecondOrderParameters.C0;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Beta"));
+
+            nby = Math.PI* Math.PI * eiy / (height0y * height0y)*10000;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Nby"));
+
+            nbz = Math.PI* Math.PI * eiz / (height0z * height0z)*10000;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Nbz"));
+
+            medy = project.Column.Statics.BendingMomentz * (1 + beta / ((nbz / project.Column.Statics.CompressiveForce) - 1));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Medy"));
+
+            medz = project.Column.Statics.BendingMomenty * (1 + beta / ((nby / project.Column.Statics.CompressiveForce) - 1));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Medz"));
+
+            ey = medz / project.Column.Statics.CompressiveForce;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ey"));
+
+            ez = medy / project.Column.Statics.CompressiveForce;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ez"));
+
+            e0 = 0.01*Math.Max(project.Column.Dimension.Height / 30, 0.02);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("E0"));
+
+
+
+            alfah = Math.Min(Math.Max(2 / Math.Sqrt(project.Column.Dimension.ColumnHeight*0.01), 2 / 3), 1);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Alfah"));
+
+            tetai = alfah / 200;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tetai"));
+
+            eiyi = 0.5 * tetai * height0y/100;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Eiyi"));
+
+            eizi = 0.5 * tetai * height0z/100;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Eizi"));
+
+            eyi = Math.Max(e0, eiyi);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Eyi"));
+
+            ezi = Math.Max(e0, eizi);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ezi"));
+
+
 
         }
 
