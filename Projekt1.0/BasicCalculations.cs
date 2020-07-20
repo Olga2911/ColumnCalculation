@@ -19,6 +19,7 @@ namespace Projekt1._0
         private Double areaAs2z = 0.0;
         private Double areaAsy = 0.0;
         private Double areaAsz = 0.0;
+        private Double ro = 0.0;
 
         private Double fiSmin = 0.0;
         private Double sCltmax = 0.0;
@@ -124,6 +125,14 @@ namespace Projekt1._0
             get
             {
                 return areaAsz;
+            }
+        }
+
+        public double Ro
+        {
+            get
+            {
+                return ro;
             }
         }
 
@@ -291,6 +300,10 @@ namespace Projekt1._0
                 project.Column.Dimension.Quantity2z*(project.Column.Diameters.Fi2z*0.5)* (project.Column.Diameters.Fi2z * 0.5)*Math.PI;
             areaAs = Math.Round((Double)areaAs, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AreaAs"));
+
+            ro = 0.01*areaAs/areaConcrete;
+            ro = Math.Round((Double)ro, 5);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ro"));               
 
             fiEfektywne = project.Column.EnvironmentalCondition.FiKoncowe * project.Column.EnvironmentalCondition.M0eqpm0ed;
             fiEfektywne = Math.Round((Double)fiEfektywne, 3);

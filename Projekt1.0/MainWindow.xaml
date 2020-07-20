@@ -244,7 +244,6 @@
                 <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="4" Margin="4">
                     <StackPanel>
                         <TextBlock FontSize="12" Margin="2 2 0 2" Text="EFEKTY II-GO RZĘDU - KRYTERIUM" FontWeight="Bold"/>
-                        <!--<Border BorderBrush="LightBlue" BorderThickness="1" Padding="0" Margin="1">-->
                         <StackPanel>
                             <TextBlock FontSize="9" Margin="2 2 0 0" Text="SMUKŁOŚĆ GRANICZNA" FontWeight="Bold"/>
                             <Grid>
@@ -325,11 +324,8 @@
                                 </StackPanel>
 
                         </StackPanel>
-                        <!--</Border>-->
 
                         <!--SMUKŁOŚĆ SŁUPA - KIERUNEK Y-->
-                        <!--<Border BorderBrush="LightBlue" BorderThickness="1" Padding="0" Margin="1">-->
-
                             <StackPanel>
                                 <TextBlock FontSize="9" Margin="2 6 0 2" Text="SMUKŁOŚĆ SŁUPA - KIERUNEK Y" FontWeight="Bold" />
                                 <Grid>
@@ -351,31 +347,62 @@
                                         <TextBlock FontSize="9" Margin="5 9 5 2" >
                                         λ<Run FontSize="7" BaselineAlignment="Subscript">y</Run>=√12*l<Run FontSize="7" BaselineAlignment="Subscript">0,y</Run>/h=
                                         </TextBlock>
-
-                                        <TextBlock FontWeight="Bold" FontSize="9" Margin="5 9 5 2" Text="{Binding SecondOrderCalculations.Commenty, Mode=OneWay, Source={StaticResource project}}" />
                                     </StackPanel>
 
                                     <StackPanel Grid.Column="1">
                                         <TextBox FontSize="9" Background="Beige" Margin="0 2 0 2" Text="{Binding Column.SecondOrderParameters.Miy,  Source={StaticResource project}}" />
                                         <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Height0y, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
                                         <TextBox FontSize="9" FontWeight="Bold"  Background="Gainsboro" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Lambday, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
-
-                                        <TextBlock FontWeight="Bold" FontSize="9" Margin="5 9 5 2" Text=""/>
-
                                     </StackPanel>
 
                                     <StackPanel Grid.Column="2">
                                         <TextBlock FontSize="9" Margin="8 2 5 2" Text="[-]" />
                                         <TextBlock FontSize="9" Margin="8 8 5 2" Text="[cm]" />
                                         <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
-                                        <TextBlock Margin="8 8 5 2"/>
                                     </StackPanel>
                                 </Grid>
-                            </StackPanel>
-                        <!--</Border>-->
 
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="1.6*" />
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <StackPanel Grid.Column="0">
+                                        <TextBlock FontWeight="Bold" FontSize="9" Margin="5 5 5 0" Text="Warunek:"/>
+                                    </StackPanel>
+                                    
+                                    <StackPanel Grid.Column="1">
+                                    <TextBlock FontWeight="Bold" FontSize="9" Margin="5 5 5 0" >
+                                        λ<Run FontSize="7" BaselineAlignment="Subscript">y</Run>≤λ<Run FontSize="7" BaselineAlignment="Subscript">lim</Run>
+                                    </TextBlock>
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Column="2">
+                                        <TextBlock Foreground="OrangeRed" FontWeight="Bold" FontSize="12" Margin="0 3 5 0"  Text="{Binding SecondOrderCalculations.CommentyY, Mode=OneWay, Source={StaticResource project}}"/>
+                                    </StackPanel>
+                                </Grid>
+                                
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.3*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackPanel Grid.Column="0">
+                                        <TextBlock  FontSize="9" Margin="5 0 5 2" Text="Uwaga:"/>
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Column="1">
+                                        <TextBlock TextAlignment="Right" FontSize="8" Margin="0 1 5 2"  Text="{Binding SecondOrderCalculations.WarningY, Mode=OneWay, Source={StaticResource project}}"/>
+                                    </StackPanel>
+                                </Grid>
+                        </StackPanel>
+                        
+                        
+                        
                         <!--SMUKŁOŚĆ SŁUPA - KIERUNEK Z-->
-                        <!--<Border BorderBrush="LightBlue" BorderThickness="1" Padding="0" Margin="1">-->
                             <StackPanel>
                                 <TextBlock FontSize="9" Margin="2 6 0 0" Text="SMUKŁOŚĆ SŁUPA - KIERUNEK Z" FontWeight="Bold" />
                                 <Grid>
@@ -398,8 +425,6 @@
                                         <TextBlock FontSize="9" Margin="5 9 5 2" >
                                         λ<Run FontSize="7" BaselineAlignment="Subscript">z</Run>=√12*l<Run FontSize="7" BaselineAlignment="Subscript">0,z</Run>/h=
                                         </TextBlock>
-
-                                        <TextBlock FontWeight="Bold" FontSize="9" Margin="5 9 5 2" Text="UWAGA:" />
                                     </StackPanel>
 
                                     <StackPanel Grid.Column="1">
@@ -414,8 +439,45 @@
                                         <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
                                     </StackPanel>
                                 </Grid>
-                            </StackPanel>
-                        <!--</Border>-->
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="1.6*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock FontWeight="Bold" FontSize="9" Margin="5 5 5 0" Text="Warunek:"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="1">
+                                    <TextBlock FontWeight="Bold" FontSize="9" Margin="5 5 5 0" >
+                                        λ<Run FontSize="7" BaselineAlignment="Subscript">z</Run>≤λ<Run FontSize="7" BaselineAlignment="Subscript">lim</Run>
+                                    </TextBlock>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="2">
+                                    <TextBlock Foreground="OrangeRed" FontWeight="Bold" FontSize="12" Margin="0 3 5 0"  Text="{Binding SecondOrderCalculations.CommentyZ, Mode=OneWay, Source={StaticResource project}}"/>
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.3*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock  FontSize="9" Margin="5 0 5 2" Text="Uwaga:"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="1">
+                                    <TextBlock TextAlignment="Right" FontSize="8" Margin="0 1 5 2"  Text="{Binding SecondOrderCalculations.WarningZ, Mode=OneWay, Source={StaticResource project}}"/>
+                                </StackPanel>
+                            </Grid>
+
+                        </StackPanel>
                     </StackPanel>
                 </Border>
 
@@ -443,6 +505,8 @@
                                 <TextBlock FontSize="9" Margin="5 9 5 2" >
                                     K<Run FontSize="7" BaselineAlignment="Subscript">s</Run>=
                                 </TextBlock>
+                                
+                                <Button Margin="0 6 0 0" Content="Ks?" FontSize="9" Command="{Binding Column.KSParameterInformation, Source={StaticResource project}}" CommandParameter="{DynamicResource project}"/>
 
                             </StackPanel>
 
@@ -637,6 +701,8 @@
                                 <TextBlock FontSize="9" Margin="5 9 5 2">
                                     e<Run FontSize="7" BaselineAlignment="Subscript">0</Run>=max(h/30; 2cm)=
                                 </TextBlock>
+
+                                <Button Margin="0 6 0 0" Content="c0 ?" FontSize="9" Command="{Binding Column.C0ParameterInformation, Source={StaticResource project}}" CommandParameter="{DynamicResource project}"/>
 
                             </StackPanel>
 

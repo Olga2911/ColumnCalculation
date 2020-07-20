@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt1._0"
         mc:Ignorable="d"
-        Title="MiParameterInformation" Height="300" Width="400">
+        Title="MiParameterInformation" Height="325" Width="400">
     
         <Window.DataContext>
         <local:Project/>
@@ -15,16 +15,47 @@
         <StackPanel Background="MintCream">
            
             <TextBlock Margin="5 0 5 2" FontSize="12" FontWeight="Bold">
-              PARAMETR µ
+              PARAMETRY µ
             </TextBlock>
 
-            <Image Margin="5 2 5 5" Width="300" Name="image" Source="D:\Studia\Mgr\ColumnCalculation-master\ColumnCalculation-master\Rysunki\Mi.jpg " >
+            <TextBlock Margin="5 3 5 5" FontSize="9" >
+              przyjęte zgodnie z poniższymi schematami:
+                
+            </TextBlock>
+
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="0.8*" />
+                    <ColumnDefinition Width="5*" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock FontSize="9" Margin="5 2 5 2" >
+                      μ<Run FontSize="7" BaselineAlignment="Subscript">y</Run>=
+                    </TextBlock>
+
+                    <TextBlock FontSize="9" Margin="5 2 5 2" >
+                     μ<Run FontSize="7" BaselineAlignment="Subscript">z</Run>=
+                    </TextBlock>
+
+                </StackPanel>
+
+                <StackPanel Grid.Column="1">
+                    <TextBox FontSize="9" Background="Beige" Margin="0 1 0 2" Text="{Binding Column.SecondOrderParameters.Miy}"  />
+                    <TextBox FontSize="9" Background="Beige" Margin="0 1 0 2" Text="{Binding Column.SecondOrderParameters.Miz}"  />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2">
+                    <TextBlock Margin="8 3 5 2" FontSize="9" Text="[-]" />
+                    <TextBlock Margin="8 3 5 2" FontSize="9" Text="[-]" />
+                </StackPanel>
+                
+            </Grid>
+
+            <Image Margin="5 8 5 5" Width="365" Name="image" Source="D:\Studia\Mgr\ColumnCalculation-master\ColumnCalculation-master\Rysunki\Mi.jpg " >
             </Image>
-
-
 
         </StackPanel>
     </Border>
-
-
 </Window>

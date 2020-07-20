@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace Projekt1._0
 {
-    class MiParameterInformationCommand : ICommand
+    class C0ParameterInformationCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
         private bool executable = true;
@@ -32,8 +32,8 @@ namespace Projekt1._0
 
         public void Execute(object parameter)
         {
-            MiParameterInformation miParameterInformation = new MiParameterInformation() { DataContext = parameter };
-            miParameterInformation.ShowDialog();
+            C0ParameterInformation c0ParameterInformation = new C0ParameterInformation() { DataContext = parameter };
+            c0ParameterInformation.ShowDialog();
         }
     }
 }

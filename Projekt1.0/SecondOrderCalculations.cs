@@ -48,7 +48,10 @@ namespace Projekt1._0
         private Double eyi = 0.0;
         private Double ezi = 0.0;
 
-        private String commenty;
+        private String commentyY;
+        private String warningY;
+        private String commentyZ;
+        private String warningZ;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -337,17 +340,55 @@ namespace Projekt1._0
             }
         }
 
-        public String Commenty
+        public String CommentyY
         {
             get
             {
-                return commenty;
+                return commentyY;
             }
             set
             {
-                commenty = value;
+                commentyY = value;
             }
         }
+
+        public String WarningY
+        {
+            get
+            {
+                return warningY;
+            }
+            set
+            {
+                warningY = value;
+            }
+        }
+
+        public String CommentyZ
+        {
+            get
+            {
+                return commentyZ;
+            }
+            set
+            {
+                commentyZ = value;
+            }
+        }
+
+        public String WarningZ
+        {
+            get
+            {
+                return warningZ;
+            }
+            set
+            {
+                warningZ = value;
+            }
+        }
+
+
 
         public void Calculate(Project project)
         {
@@ -499,14 +540,34 @@ namespace Projekt1._0
 
             if (lambday <= lambdalim)
             {
-                commenty = "Należy uwzględnić efekty II-go rzędu";
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("commenty"));
+                commentyY = "SPEŁNIONY";
+                warningY = "Efekty II-go rzędu można pominąć.";
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("commentyY"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("warningY"));
             }
             else
             {
-                commenty = "Efekty II-go rzędu można pominąć";
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("commenty"));
+                commentyY = "NIESPEŁNIONY";
+                warningY = "Należy uwzględnić efekty II-go rzędu.";
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("commentyY"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("warningY"));
             }
+
+            if (lambdaz <= lambdalim)
+            {
+                commentyZ = "SPEŁNIONY";
+                warningZ = "Efekty II-go rzędu można pominąć.";
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("commentyZ"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("warningZ"));
+            }
+            else
+            {
+                commentyZ = "NIESPEŁNIONY";
+                warningZ = "Należy uwzględnić efekty II-go rzędu.";
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("commentyZ"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("warningZ"));
+            }
+
         }
     }
 }

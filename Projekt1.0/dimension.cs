@@ -12,7 +12,7 @@ namespace Projekt1._0
     {
         private Double width = 40;
         private Double height = 60;
-        private Double columnHeight = 500;
+        private Double columnHeight = 250;
         private Double quantity1y = 4;
         private Double quantity2y = 3;
         private Double quantity1z = 2;

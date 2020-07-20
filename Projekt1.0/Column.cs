@@ -31,8 +31,9 @@ namespace Projekt1._0
         private LoadCapacityParameters loadCapacityParameters = new LoadCapacityParameters();
 
         private MiParameterInformationCommand miParameterInformationCommand = new MiParameterInformationCommand();
-        //private RMParameterInformationCommand rMParameterInformationCommand = new RMParameterInformationCommand();
-
+        private RMParameterInformationCommand rMParameterInformationCommand = new RMParameterInformationCommand();
+        private KSParameterInformationCommand kSParameterInformationCommand = new KSParameterInformationCommand();
+        private C0ParameterInformationCommand c0ParameterInformationCommand = new C0ParameterInformationCommand();
 
 
         //private CheckEccentricity checkEccentricity = new CheckEccentricity();
@@ -252,13 +253,29 @@ namespace Projekt1._0
             }
         }
 
-        //public ICommand RMParameterInformation
-        //{
-        //    get
-        //    {
-        //        return rMParameterInformationCommand;
-        //    }
-        //}
+        public ICommand RMParameterInformation
+        {
+            get
+            {
+                return rMParameterInformationCommand;
+            }
+        }
+
+        public ICommand KSParameterInformation
+        {
+            get
+            {
+                return kSParameterInformationCommand;
+            }
+        }
+
+        public ICommand C0ParameterInformation
+        {
+            get
+            {
+                return c0ParameterInformationCommand;
+            }
+        }
 
 
         void InputPropertyChangedEventChandler (object sender, PropertyChangedEventArgs e )
