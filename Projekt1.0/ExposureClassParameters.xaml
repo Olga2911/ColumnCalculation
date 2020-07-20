@@ -1,0 +1,48 @@
+﻿<Window x:Class="Projekt1._0.ExposureClassParameters"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projekt1._0"
+        mc:Ignorable="d"
+        Title="Klasa ekspozycji" Height="600" Width="570">
+   
+    <Window.DataContext>
+        <local:Project />
+    </Window.DataContext>
+    
+    <ScrollViewer HorizontalScrollBarVisibility="Hidden"
+                  VerticalScrollBarVisibility="Visible">
+        
+    <Border BorderBrush="CadetBlue" BorderThickness="2" Padding="0" Margin="5">
+        <StackPanel Background="MintCream">
+            <Grid >
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock Margin="5 9 5 2" FontSize="12" FontWeight="Bold" Text="KLASA EKSPOZYCJI:" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="1">
+                    <ComboBox FontSize="9" FontWeight="Bold" Margin="0 7 5 0" ItemsSource="{Binding Column.ConcreteCoverMinDur.ClassOfExposure}" SelectedIndex="0" SelectedItem="{Binding Column.ConcreteCoverMinDur.ExposureClassDescription}"  />
+
+                </StackPanel>
+                
+            </Grid>
+            
+            <TextBlock Margin="5 20 5 0" FontStyle="Italic"  FontSize="10" Text="Tab. Klasy ekspozycji w zależności od warunków środowiskowych [źródło EC2 Tablica 4.1]" />
+
+            <Image Margin="5 2 5 5" Width="515" Name="image" Source="D:\Studia\Mgr\ColumnCalculation-master\ColumnCalculation-master\Rysunki\TabKlasaEkspozycji.jpg " >
+            </Image>
+
+        </StackPanel>
+    </Border>
+    </ScrollViewer>
+</Window>
+    
+    

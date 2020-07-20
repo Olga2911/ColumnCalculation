@@ -5,99 +5,318 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt1._0"
         mc:Ignorable="d"
-        Title="ReinforcementDetails" Height="450" Width="400">
+        Title="ReinforcementDetails" Height="552" Width="437">
     <Window.DataContext>
         <local:Project/>
     </Window.DataContext>
     
-    <Border BorderBrush="CadetBlue" BorderThickness="2" Padding="0" Margin="5">
+    <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="0" Margin="5">
         <StackPanel Background="MintCream" >
+            <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="4" Margin="4">
+                <StackPanel Background="MintCream" >
+                   
+                    <!-- ZBROJENIE PODŁUŻNE -->
+                    <TextBlock FontSize="12" Margin="2 2 0 9" Text="ZBROJENIE PODŁUŻNE" FontWeight="Bold"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.9*" />
+                            <ColumnDefinition Width="1.5*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="0.7*" />
+                            <ColumnDefinition Width="0.9*" />
+                            <ColumnDefinition Width="1.5*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="0.7*" />
+                            <ColumnDefinition Width="0.9*" />
+                            <ColumnDefinition Width="1.5*" />
+                            <ColumnDefinition Width="*" />
 
-            <TextBlock FontSize="12" Margin="2 2 0 0" Text="ZBROJENIE PRZEKROJU" FontWeight="Bold"/>
-            <TextBlock FontSize="9" Margin="2 2 0 0" Text="PODŁUŻNE:" FontWeight="Bold"/>
+                        </Grid.ColumnDefinitions>
 
-            <Grid >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="3*" />
-                    <ColumnDefinition Width="2*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" >
+                            <TextBlock FontSize="9" Margin="5 5 5 2">
+                                   φ<Run FontSize="7" BaselineAlignment="Subscript">1y</Run>=
+                            </TextBlock>
+                            <TextBlock FontSize="9" Margin="5 8 5 2">
+                                   φ<Run FontSize="7" BaselineAlignment="Subscript">2y</Run>=
+                            </TextBlock>
+                            <TextBlock FontSize="9" Margin="5 8 5 2">
+                                   φ<Run FontSize="7" BaselineAlignment="Subscript">1z</Run>=
+                            </TextBlock>
+                            <TextBlock FontSize="9" Margin="5 8 5 2">
+                                    φ<Run FontSize="7" BaselineAlignment="Subscript">2z</Run>=
+                            </TextBlock>
+                        </StackPanel>
 
-                <StackPanel Grid.Column="0" >
-                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="Zbrojenie całkowite:" />
-                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="Zbrojenie minimalne:" />
-                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="Zbrojenie maksymalne:" />
+                        <StackPanel Grid.Column="1">
+                            <ComboBox FontSize="9" Background="Beige" Margin="3 3 3 0" ItemsSource="{Binding Column.Diameters.FiArray}" SelectedIndex="5" SelectedItem="{Binding Column.Diameters.Fi1y}"/>
+                            <ComboBox FontSize="9" Background="Beige" Margin="3 3 3 0" ItemsSource="{Binding Column.Diameters.FiArray}" SelectedIndex="5" SelectedItem="{Binding Column.Diameters.Fi2y}"/>
+                            <ComboBox FontSize="9" Background="Beige" Margin="3 3 3 0" ItemsSource="{Binding Column.Diameters.FiArray}" SelectedIndex="5" SelectedItem="{Binding Column.Diameters.Fi1z}"/>
+                            <ComboBox FontSize="9" Background="Beige" Margin="3 3 3 0" ItemsSource="{Binding Column.Diameters.FiArray}" SelectedIndex="5" SelectedItem="{Binding Column.Diameters.Fi2z}"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2">
+                            <TextBlock FontSize="9" Margin="8 5 5 2" Text="[mm]" />
+                            <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                            <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                            <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="4" >
+                            <TextBlock FontSize="9" Margin="5 5 5 2">
+                                    n<Run FontSize="7" BaselineAlignment="Subscript">1y</Run>=
+                            </TextBlock>
+                            <TextBlock FontSize="9" Margin="5 8 5 2">
+                                    n<Run FontSize="7" BaselineAlignment="Subscript">2y</Run>=
+                            </TextBlock>
+                            <TextBlock FontSize="9" Margin="5 8 5 2">
+                                    n<Run FontSize="7" BaselineAlignment="Subscript">1z</Run>=
+                            </TextBlock>
+                            <TextBlock FontSize="9" Margin="5 8 5 2">
+                                    n<Run FontSize="7" BaselineAlignment="Subscript">2z</Run>=
+                            </TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="5">
+                            <TextBox FontSize="9" Background="Beige" Margin="3 3 3 0" Text="{Binding Column.Dimension.Quantity1y}"/>
+                            <TextBox FontSize="9" Background="Beige" Margin="3 9 3 0" Text="{Binding Column.Dimension.Quantity2y}"/>
+                            <TextBox FontSize="9" Background="Beige" Margin="3 9 3 0" Text="{Binding Column.Dimension.Quantity1z}"/>
+                            <TextBox FontSize="9" Background="Beige" Margin="3 9 3 0" Text="{Binding Column.Dimension.Quantity2z}"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="6">
+                            <TextBlock FontSize="9" Margin="8 5 5 2" Text="[szt.]" />
+                            <TextBlock FontSize="9" Margin="8 8 5 2" Text="[szt.]" />
+                            <TextBlock FontSize="9" Margin="8 8 5 2" Text="[szt.]" />
+                            <TextBlock FontSize="9" Margin="8 8 5 2" Text="[szt.]" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="8" >
+                            <TextBlock FontSize="9" Margin="5 5 5 2">
+                                    A<Run FontSize="7" BaselineAlignment="Subscript">1y</Run>=
+                            </TextBlock>
+                            <TextBlock FontSize="9" Margin="5 8 5 2">
+                                    A<Run FontSize="7" BaselineAlignment="Subscript">2y</Run>=
+                            </TextBlock>
+                            <TextBlock FontSize="9" Margin="5 8 5 2">
+                                    A<Run FontSize="7" BaselineAlignment="Subscript">1z</Run>=
+                            </TextBlock>
+                            <TextBlock FontSize="9" Margin="5 8 5 2">
+                                    A<Run FontSize="7" BaselineAlignment="Subscript">2z</Run>=
+                            </TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="9">
+                            <TextBox FontSize="9" Background="Gainsboro" Margin="3 3 3 0" Text="{Binding BasicCalculations.AreaAs1y, Mode=OneWay}" IsReadOnly="True"/>
+                            <TextBox FontSize="9" Background="Gainsboro" Margin="3 9 3 0" Text="{Binding BasicCalculations.AreaAs2y, Mode=OneWay}" IsReadOnly="True"/>
+                            <TextBox FontSize="9" Background="Gainsboro" Margin="3 9 3 0" Text="{Binding BasicCalculations.AreaAs1z, Mode=OneWay}" IsReadOnly="True"/>
+                            <TextBox FontSize="9" Background="Gainsboro" Margin="3 9 3 0" Text="{Binding BasicCalculations.AreaAs2z, Mode=OneWay}" IsReadOnly="True"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="10">
+                            <TextBlock FontSize="9" Margin="5 1 5 2">
+                                    [mm<Run FontSize="7" BaselineAlignment="Superscript">2</Run>]
+                            </TextBlock>
+                            <TextBlock FontSize="9" Margin="5 4 5 2">
+                                    [mm<Run FontSize="7" BaselineAlignment="Superscript">2</Run>]
+                            </TextBlock>
+                            <TextBlock FontSize="9" Margin="5 4 5 2">
+                                    [mm<Run FontSize="7" BaselineAlignment="Superscript">2</Run>]
+                            </TextBlock>
+                            <TextBlock FontSize="9" Margin="5 4 5 2">
+                                    [mm<Run FontSize="7" BaselineAlignment="Superscript">2</Run>]
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1.8*" />
+                            <ColumnDefinition Width="0.5*" />
+                            <ColumnDefinition Width="0.35*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" >
+                            <TextBlock Margin="5 15 5 2" FontSize="9" Text="Zbrojenie całkowite:" />
+                            <TextBlock Margin="5 9 5 2" FontSize="9" Text="Zbrojenie minimalne:" />
+                            <TextBlock Margin="5 9 5 2" FontSize="9" Text="Zbrojenie maksymalne:" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" >
+                            <TextBlock FontSize="9" Margin="5 15 5 2">
+                                    A<Run FontSize="7" BaselineAlignment="Subscript">s</Run>=A<Run FontSize="7" BaselineAlignment="Subscript">1y</Run>+A<Run FontSize="7" BaselineAlignment="Subscript">2y</Run>+A<Run FontSize="7" BaselineAlignment="Subscript">1z</Run>+A<Run FontSize="7" BaselineAlignment="Subscript">2z</Run>=
+                            </TextBlock>
+                            <TextBlock FontSize="9" Margin="5 9 5 2">
+                                    A<Run FontSize="7" BaselineAlignment="Subscript">s,min</Run>=max{0,1N<Run FontSize="7" BaselineAlignment="Subscript">Ed</Run>/f<Run FontSize="7" BaselineAlignment="Subscript">yd</Run>; 0,002bh}=
+                            </TextBlock>
+                            <TextBlock FontSize="9" Margin="5 8 5 2">
+                                    A<Run FontSize="7" BaselineAlignment="Subscript">s,max</Run>=0,4bh=
+                            </TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2">
+                            <TextBox Background="Gainsboro" FontSize="9" Margin="0 13 0 2" Text="{Binding BasicCalculations.AreaAs, Mode=OneWay}" IsReadOnly="True"/>
+                            <TextBox Background="Gainsboro" FontSize="9" Margin="0 7 0 2" Text="{Binding BasicCalculations.AreaAsmin, Mode=OneWay}" IsReadOnly="True"/>
+                            <TextBox Background="Gainsboro" FontSize="9" Margin="0 7 0 2" Text="{Binding BasicCalculations.AreaAsmax, Mode=OneWay}" IsReadOnly="True"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="3">
+                            <TextBlock FontSize="9" Margin="5 10 5 2">
+                                    [mm<Run FontSize="7" BaselineAlignment="Superscript">2</Run>]
+                            </TextBlock>
+                            <TextBlock FontSize="9" Margin="5 1 5 2">
+                                    [mm<Run FontSize="7" BaselineAlignment="Superscript">2</Run>]
+                            </TextBlock>
+                            <TextBlock FontSize="9" Margin="5 1 5 2">
+                                    [mm<Run FontSize="7" BaselineAlignment="Superscript">2</Run>]
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+
+
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1.8*" />
+                            <ColumnDefinition Width="0.85*" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" FontSize="9"  Margin="2 10 0 0" Text="Warunek:" FontWeight="Bold"/>
+
+                        <StackPanel Grid.Column="1">
+                            <TextBlock TextAlignment="Left" FontWeight="Bold"  Margin="5 5 5 2" FontSize="12">
+                                 A<Run FontSize="7" BaselineAlignment="Subscript">s,min</Run>≤A<Run FontSize="7" BaselineAlignment="Subscript">s</Run>≤A<Run FontSize="7" BaselineAlignment="Subscript">s,max</Run>
+                            </TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2">
+                            <TextBlock Foreground="OrangeRed" FontWeight="Bold" FontSize="12" Margin="0 5 5 2" Text="{Binding BasicCalculations.AsMinMaxComment, Mode=OneWay}"  />
+                        </StackPanel>
+                    </Grid>
                 </StackPanel>
+            </Border>
 
-                <StackPanel Grid.Column="1" >
-                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="As=" />
-                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="As,min=" />
-                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="As,max=" />
+            <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="4" Margin="4">
+                <StackPanel Background="MintCream" >
+                    <!-- ZBROJENIE POPRZECZNE -->
+                    <TextBlock FontSize="12" Margin="2 2 0 0" Text="ZBROJENIE POPRZECZNE" FontWeight="Bold"/>
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1.8*" />
+                            <ColumnDefinition Width="0.5*" />
+                            <ColumnDefinition Width="0.35*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Margin="5 9 5 2" Text="Średnica:" FontSize="9" />
+                            <TextBlock Margin="5 9 5 2" Text="Średnica minimalna:" FontSize="9" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1">
+                            <TextBlock FontSize="9" Margin="5 9 5 2">
+                                    φ<Run FontSize="7" BaselineAlignment="Subscript">s</Run>=
+                            </TextBlock>
+                            <TextBlock TextWrapping="Wrap" FontSize="9" Margin="5 9 5 2">
+                                    φ<Run FontSize="7" BaselineAlignment="Subscript">s,min</Run>=max{φ<Run FontSize="7" BaselineAlignment="Subscript">1y</Run>/4; φ<Run FontSize="7" BaselineAlignment="Subscript">2y</Run>/4; φ<Run FontSize="7" BaselineAlignment="Subscript">1z</Run>/4; φ<Run FontSize="7" BaselineAlignment="Subscript">2z</Run>/4; 6}=
+                            </TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2">
+                            <ComboBox FontSize="9" Background="Beige" Margin="0 7 0 2" ItemsSource="{Binding Column.Diameters.FiArray}" SelectedIndex="5" SelectedItem="{Binding Column.Diameters.FiS}"/>
+                            <TextBox Background="Gainsboro"  FontSize="9" Margin="0 7 0 2" Text="{Binding BasicCalculations.FiSmin, Mode=OneWay}" IsReadOnly="True"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="3" IsEnabled="False">
+                            <TextBlock Margin="8 8 5 2" Text="[mm]"  FontSize="9" />
+                            <TextBlock Margin="8 8 5 2" Text="[mm]"  FontSize="9" />
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1.8*" />
+                            <ColumnDefinition Width="0.85*" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" FontSize="9"  Margin="2 10 0 0" Text="Warunek:" FontWeight="Bold"/>
+
+                        <StackPanel Grid.Column="1">
+                            <TextBlock TextAlignment="Left" FontWeight="Bold"  Margin="5 5 5 2" FontSize="12">
+                                    φ<Run FontSize="7" BaselineAlignment="Subscript">s,min</Run>≤φ<Run FontSize="7" BaselineAlignment="Subscript">s</Run>
+                            </TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2">
+                            <TextBlock Foreground="OrangeRed" FontWeight="Bold" FontSize="12" Margin="0 5 5 2" Text="{Binding BasicCalculations.FiSComment, Mode=OneWay}"  />
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1.8*" />
+                            <ColumnDefinition Width="0.5*" />
+                            <ColumnDefinition Width="0.35*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Margin="5 9 5 2" Text="Rozstaw:" FontSize="9" />
+                            <TextBlock Margin="5 9 5 2" Text="Maksymalny rozstaw:" FontSize="9" />
+                            <TextBlock Margin="5 9 5 2" Text="Maksymalny rozstaw*:" FontSize="9" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1">
+                            <TextBlock Margin="5 9 5 2"  FontSize="9" Text="s=" />
+                            <TextBlock TextWrapping="Wrap" FontSize="9" Margin="5 9 5 2">
+                                    s<Run FontSize="7" BaselineAlignment="Subscript">cl,tmax</Run>=min{20(φ<Run FontSize="7" BaselineAlignment="Subscript">1y</Run>; φ<Run FontSize="7" BaselineAlignment="Subscript">2y</Run>; φ<Run FontSize="7" BaselineAlignment="Subscript">1z</Run>; φ<Run FontSize="7" BaselineAlignment="Subscript">2z</Run>); b; h; 400}=
+                            </TextBlock>
+                            <TextBlock FontSize="9" Margin="5 9 5 2">
+                                    0,6s<Run FontSize="7" BaselineAlignment="Subscript">cl,tmax</Run>=
+                            </TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2">
+                            <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding Column.Dimension.S}"/>
+                            <TextBox Background="Gainsboro"  FontSize="9" Margin="0 7 0 2" Text="{Binding BasicCalculations.SCltmax, Mode=OneWay}" IsReadOnly="True"/>
+                            <TextBox Background="Gainsboro"  FontSize="9" Margin="0 7 0 2" Text="{Binding BasicCalculations.SCltmax06, Mode=OneWay}" IsReadOnly="True"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="3" IsEnabled="False">
+                            <TextBlock Margin="8 8 5 2" Text="[mm]"  FontSize="9" />
+                            <TextBlock Margin="8 8 5 2" Text="[mm]"  FontSize="9" />
+                            <TextBlock Margin="8 8 5 2" Text="[mm]"  FontSize="9" />
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1.8*" />
+                            <ColumnDefinition Width="0.85*" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" FontSize="9"  Margin="2 10 0 0" Text="Warunek:" FontWeight="Bold"/>
+
+                        <StackPanel Grid.Column="1">
+                            <TextBlock TextAlignment="Left" FontWeight="Bold"  Margin="5 5 5 2" FontSize="12">
+                                    s≤s<Run FontSize="7" BaselineAlignment="Subscript">cl,tmax</Run>
+                            </TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2">
+                            <TextBlock Foreground="OrangeRed" FontWeight="Bold" FontSize="12" Margin="0 5 5 2" Text="{Binding BasicCalculations.SComment, Mode=OneWay}"  />
+                        </StackPanel>
+                    </Grid>
+
+                    <TextBlock Margin="5 15 5 2" Text="*Maksymalny rozstaw:" FontSize="7" />
+                    <TextBlock TextWrapping="Wrap" Margin="5 0 5 2" Text="1. na odcinkach równych większemu wymiarowi przekroju poprzecznego słupa powyżej i poniżej połączonej belki ze słupem," FontSize="7" />
+                    <TextBlock TextWrapping="Wrap" Margin="5 0 5 2" Text="2. w pobliżu połączeń na zakład, gdy maksymalna średnica prętów podłużnych jest większa niż 14 mm, na długości zakładu należy umieścić co najmniej trzy równomiernie rozmieszczone pręty poprzeczne." FontSize="7" />
+
                 </StackPanel>
-
-                <StackPanel Grid.Column="2">
-                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding BasicCalculations.AreaAs, Mode=OneWay}" />
-                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding BasicCalculations.AreaAsmin, Mode=OneWay}" />
-                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding BasicCalculations.AreaAsmax, Mode=OneWay}"/>
-                </StackPanel>
-
-                <StackPanel Grid.Column="3">
-                    <TextBlock Margin="8 8 5 2" FontSize="9" Text="[mm2]" />
-                    <TextBlock Margin="8 8 5 2" FontSize="9" Text="[mm2]" />
-                    <TextBlock Margin="8 8 5 2" FontSize="9" Text="[mm2]" />
-                </StackPanel>
-
-                <StackPanel Grid.Column="4">
-                    <Button Margin="5 6 0 0" Content="?" FontSize="9" Width="20"  />
-                    <Button Margin="5 6 0 0" Content="?" FontSize="9" Width="20"  />
-                    <Button Margin="5 6 0 0" Content="?" FontSize="9" Width="20" />
-                </StackPanel>
-            </Grid>
-
-            <TextBlock Margin="2 15 0 0" Text="POPRZECZNE:" FontWeight="Bold" FontSize="9"/>
-            <Grid >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="3*" />
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-
-                <StackPanel Grid.Column="0">
-                    <TextBlock Margin="5 9 5 2" Text="Średnica minimalna:" FontSize="9" />
-                    <TextBlock Margin="5 9 5 2" Text="Maksymalny rozstaw:" FontSize="9" />
-                    <TextBlock Margin="5 9 5 2" Text="Maksymalny rozstaw*:" FontSize="9" />
-                </StackPanel>
-
-                <StackPanel Grid.Column="1">
-                    <TextBlock Margin="5 9 5 2"  FontSize="9" Text="Фs,min=" />
-                    <TextBlock Margin="5 9 5 2"  FontSize="9" Text="scl,tmax=" />
-                    <TextBlock Margin="5 9 5 2"  FontSize="9" Text="0,6scl,tmax=" />
-                </StackPanel>
-
-                <StackPanel Grid.Column="2">
-                    <TextBox Background="Beige"  FontSize="9" Margin="0 7 0 2" Text="{Binding BasicCalculations.FiSmin, Mode=OneWay}"/>
-                    <TextBox Background="Beige"  FontSize="9" Margin="0 7 0 2" Text="{Binding BasicCalculations.SCltmax, Mode=OneWay}"/>
-                    <TextBox Background="Beige"  FontSize="9" Margin="0 7 0 2" Text="{Binding BasicCalculations.SCltmax06, Mode=OneWay}"/>
-                </StackPanel>
-
-                <StackPanel Grid.Column="3" IsEnabled="False">
-                    <TextBlock Margin="8 8 5 2" Text="[mm]"  FontSize="9" />
-                    <TextBlock Margin="8 8 5 2" Text="[mm]"  FontSize="9" />
-                    <TextBlock Margin="8 8 5 2" Text="[mm]"  FontSize="9" />
-                </StackPanel>
-
-                <StackPanel Grid.Column="4">
-                    <Button Margin="5 6 0 0" Content="?" Width="20"  FontSize="9" />
-                    <Button Margin="5 6 0 0" Content="?" Width="20"  FontSize="9" />
-                    <Button Margin="5 6 0 0" Content="?" Width="20"  FontSize="9" />
-                </StackPanel>
-            </Grid>
-
+            </Border>
         </StackPanel>
     </Border>
-
 </Window>

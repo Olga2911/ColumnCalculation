@@ -20,9 +20,20 @@ namespace Projekt1._0
         private ConcreteCoverParameters concreteCoverParameters = new ConcreteCoverParameters();
         private ConcreteParametersCommand materialParametersCommand = new ConcreteParametersCommand();
         private SteelParametersCommand steelParametersCommand = new SteelParametersCommand();
-        private ConcreteCoverCommand concreteCover = new ConcreteCoverCommand();
+
+        private ConcreteCoverCommand concreteCoverCommand = new ConcreteCoverCommand();
+
+        private StructuralClassCommand structuralClassCommand = new StructuralClassCommand();
+        private ExposureClassCommand exposureClassCommand = new ExposureClassCommand();
+        private EnvironmentalClassCommand environmentalClassCommand = new EnvironmentalClassCommand();
+
         private SecondOrderParameters secondOrderParameters = new SecondOrderParameters();
         private LoadCapacityParameters loadCapacityParameters = new LoadCapacityParameters();
+
+        private MiParameterInformationCommand miParameterInformationCommand = new MiParameterInformationCommand();
+        //private RMParameterInformationCommand rMParameterInformationCommand = new RMParameterInformationCommand();
+
+
 
         //private CheckEccentricity checkEccentricity = new CheckEccentricity();
 
@@ -191,14 +202,64 @@ namespace Projekt1._0
                 return steelParametersCommand;
             }
         }
+        
 
-        public ICommand ConcreteCoverView
+
+
+
+
+        public ICommand ConcreteCover
         {
             get
             {
-                return concreteCover;
+                return concreteCoverCommand;
             }
         }
+
+
+
+
+
+        public ICommand StructuralClassParameters
+        {
+            get
+            {
+                return structuralClassCommand;
+            }
+        }
+
+        public ICommand ExposureClassParameters
+        {
+            get
+            {
+                return exposureClassCommand;
+            }
+        }
+
+        public ICommand EnvironmentalClassParameters
+        {
+            get
+            {
+                return environmentalClassCommand;
+            }
+        }
+
+        public ICommand MiParameterInformation
+        {
+            get
+            {
+                return miParameterInformationCommand;
+            }
+        }
+
+        //public ICommand RMParameterInformation
+        //{
+        //    get
+        //    {
+        //        return rMParameterInformationCommand;
+        //    }
+        //}
+
 
         void InputPropertyChangedEventChandler (object sender, PropertyChangedEventArgs e )
         {

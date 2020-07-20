@@ -33,18 +33,31 @@
 
                 <StackPanel Grid.Column="1">
                     <TextBlock Margin="5 9 5 2" FontSize="12" FontWeight="Bold" Text="" />
-                    <TextBlock Margin="5 8 5 2" FontSize="9" Text="fck=" />
-                    <TextBlock Margin="5 8 5 2" FontSize="9" Text="gammac=" />
-                    <TextBlock Margin="5 8 5 2" FontSize="9" Text="fd=" />
-                    <TextBlock Margin="5 8 5 2" FontSize="9" Text="Ecm=" />
+                    
+                    <TextBlock FontSize="9" Margin="5 8 5 2">
+                      f<Run FontSize="7" BaselineAlignment="Subscript">ck</Run>=
+                    </TextBlock>
+
+                    <TextBlock FontSize="9" Margin="5 8 5 2">
+                      γ<Run FontSize="7" BaselineAlignment="Subscript">c</Run>=
+                    </TextBlock>
+
+                    <TextBlock FontSize="9" Margin="5 8 5 2">
+                      f<Run FontSize="7" BaselineAlignment="Subscript">cd</Run>=
+                    </TextBlock>
+
+                    <TextBlock FontSize="9" Margin="5 8 5 2">
+                      E<Run FontSize="7" BaselineAlignment="Subscript">cm</Run>=
+                    </TextBlock>
+
                 </StackPanel>
 
                 <StackPanel Grid.Column="2">
                     <ComboBox FontSize="9" FontWeight="Bold" Margin="0 7 0 0" ItemsSource="{Binding Column.Concrete.ClassesOfConcrete}" SelectedIndex="0" SelectedItem="{Binding Column.Concrete.ConcreteClassDescription }"  />
-                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.Concrete.Fck}" />
+                    <TextBox Background="Gainsboro" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.Concrete.Fck}" IsReadOnly="True"/>
                     <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.Concrete.GammaC}" />
-                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding BasicCalculations.Fcd, Mode=OneWay}" />
-                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.Concrete.Ecm}" />
+                    <TextBox Background="Gainsboro" FontSize="9" Margin="0 7 0 2" Text="{Binding BasicCalculations.Fcd, Mode=OneWay}" IsReadOnly="True"/>
+                    <TextBox Background="Gainsboro" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.Concrete.Ecm}" IsReadOnly="True" />
 
                 </StackPanel>
 

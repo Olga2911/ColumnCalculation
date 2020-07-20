@@ -1,0 +1,74 @@
+﻿<Window x:Class="Projekt1._0.RMParameterInformation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projekt1._0"
+        mc:Ignorable="d"
+        Title="RMParameterInformation"  Height="220" Width="395">
+    <!--<Window.DataContext>
+        <local:Project/>
+    </Window.DataContext>-->
+
+
+    <!--<Border BorderBrush="CadetBlue" BorderThickness="1" Padding="0" Margin="5">
+
+        <StackPanel Background="MintCream">
+
+            --><!--PARAMETR RM--><!--
+            <TextBlock Margin="5 0 5 2" FontSize="12" FontWeight="Bold">
+              PARAMETR r<Run FontSize="7" BaselineAlignment="Subscript">m</Run>
+            </TextBlock>
+
+
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3.5*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="5*" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock FontSize="9" Margin="5 3 5 2">
+                     r<Run FontSize="7" BaselineAlignment="Subscript">m</Run>=M<Run FontSize="7" BaselineAlignment="Subscript">01</Run>/M<Run FontSize="7" BaselineAlignment="Subscript">02</Run>=
+                    </TextBlock>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1">
+                    <TextBox FontSize="9" Background="Beige" Margin="0 1 0 2" Text="{Binding Column.SecondOrderParameters.Rm}"  />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2">
+                    <TextBlock Margin="8 3 5 2" FontSize="9" Text="[-]" />
+                </StackPanel>
+            </Grid>
+
+            <TextBlock TextWrapping="Wrap" FontSize="9" Margin="5 12 5 2">
+                     M<Run FontSize="7" BaselineAlignment="Subscript">01</Run> i M<Run FontSize="7" BaselineAlignment="Subscript">02</Run> są to momenty pierwszego rzędu na końcach elementu, tak ponumerowane żeby |M<Run FontSize="7" BaselineAlignment="Subscript">01</Run>| ≤ |M<Run FontSize="7" BaselineAlignment="Subscript">02</Run>|.
+            </TextBlock>
+
+            <TextBlock TextWrapping="Wrap" FontSize="9" Margin="5 4 5 2">
+                     Jeżeli momenty na końcach M<Run FontSize="7" BaselineAlignment="Subscript">01</Run> i M<Run FontSize="7" BaselineAlignment="Subscript">02</Run> powodują rozciąganie po tej samej stronie elementu, to zmiennej r<Run FontSize="7" BaselineAlignment="Subscript">m</Run> należy dodać wartość dodatnią, a w innych przypadkach wartość ujemną.
+            </TextBlock>
+
+            <TextBlock TextWrapping="Wrap" FontSize="9" Margin="5 4 5 0">
+                     Rozpatrując:
+            </TextBlock>
+            <TextBlock TextWrapping="Wrap" FontSize="9" Margin="5 0 5 0">
+                     - elementy usztywniane, w których momenty pierwszego rzędu powstają tylko lub przede wszystkim na skutek imperfekcji lub obciążenia poprzecznego,
+            </TextBlock>
+
+            <TextBlock TextWrapping="Wrap" FontSize="9" Margin="5 0 5 0">
+                     - elementy nieusztywnione,
+            </TextBlock>
+
+            <TextBlock TextWrapping="Wrap" FontSize="9" Margin="5 0 5 0">
+                     należy przyjnować  r<Run FontSize="7" BaselineAlignment="Subscript">m</Run>=1,0.
+            </TextBlock>
+
+
+        </StackPanel>
+    </Border>-->
+</Window>
+
+

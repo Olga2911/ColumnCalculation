@@ -1,0 +1,30 @@
+﻿<Window x:Class="Projekt1._0.MiParameterInformation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projekt1._0"
+        mc:Ignorable="d"
+        Title="MiParameterInformation" Height="300" Width="400">
+    
+        <Window.DataContext>
+        <local:Project/>
+        </Window.DataContext>
+
+    <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="0" Margin="5">
+        <StackPanel Background="MintCream">
+           
+            <TextBlock Margin="5 0 5 2" FontSize="12" FontWeight="Bold">
+              PARAMETR µ
+            </TextBlock>
+
+            <Image Margin="5 2 5 5" Width="300" Name="image" Source="D:\Studia\Mgr\ColumnCalculation-master\ColumnCalculation-master\Rysunki\Mi.jpg " >
+            </Image>
+
+
+
+        </StackPanel>
+    </Border>
+
+
+</Window>

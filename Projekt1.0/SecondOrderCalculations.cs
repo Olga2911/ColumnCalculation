@@ -45,10 +45,10 @@ namespace Projekt1._0
         private Double tetai = 0.0;
         private Double eiyi = 0.0;
         private Double eizi = 0.0;
-        private Double eyi= 0.0;
+        private Double eyi = 0.0;
         private Double ezi = 0.0;
 
-
+        private String commenty;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -337,128 +337,176 @@ namespace Projekt1._0
             }
         }
 
-
-
+        public String Commenty
+        {
+            get
+            {
+                return commenty;
+            }
+            set
+            {
+                commenty = value;
+            }
+        }
 
         public void Calculate(Project project)
         {
             aParameter = 1 / (1 + 0.2 * project.BasicCalculations.FiEfektywne);
+            aParameter = Math.Round((Double)aParameter, 3);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AParameter"));
 
-            omega =(project.BasicCalculations.AreaAs*project.BasicCalculations.Fyd)/(project.BasicCalculations.AreaConcrete * project.BasicCalculations.Fcd)*0.01;
+            omega = (project.BasicCalculations.AreaAs * project.BasicCalculations.Fyd) / (project.BasicCalculations.AreaConcrete * project.BasicCalculations.Fcd) * 0.01;
+            omega = Math.Round((Double)omega, 3);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Omega"));
 
             bParameter = Math.Sqrt(1 + 2 * omega);
+            bParameter = Math.Round((Double)bParameter, 3);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BParameter"));
 
             cParameter = 1.7 - project.Column.SecondOrderParameters.Rm;
+            cParameter = Math.Round((Double)cParameter, 3);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CParameter"));
 
-            nForce = 10*project.Column.Statics.CompressiveForce/(project.BasicCalculations.AreaConcrete*project.BasicCalculations.Fcd);
+            nForce = 10 * project.Column.Statics.CompressiveForce / (project.BasicCalculations.AreaConcrete * project.BasicCalculations.Fcd);
+            nForce = Math.Round((Double)nForce, 3);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NForce"));
 
             lambdalim = 20 * aParameter * BParameter * cParameter / Math.Sqrt(nForce);
+            lambdalim = Math.Round((Double)lambdalim, 3);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lambdalim"));
 
-            height0y = project.Column.SecondOrderParameters.Miy*project.Column.Dimension.ColumnHeight;
+            height0y = project.Column.SecondOrderParameters.Miy * project.Column.Dimension.ColumnHeight;
+            height0y = Math.Round((Double)height0y, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Height0y"));
 
             lambday = height0y * Math.Sqrt(12) / project.Column.Dimension.Height;
+            lambday = Math.Round((Double)lambday, 3);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lambday"));
 
             height0z = project.Column.SecondOrderParameters.Miz * project.Column.Dimension.ColumnHeight;
+            height0z = Math.Round((Double)height0z, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Height0z"));
 
             lambdaz = height0z * Math.Sqrt(12) / project.Column.Dimension.Width;
+            lambdaz = Math.Round((Double)lambdaz, 3);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lambdaz"));
 
-            k1 = Math.Sqrt(project.Column.Concrete.Fck/20);
+            k1 = Math.Sqrt(project.Column.Concrete.Fck / 20);
+            k1 = Math.Round((Double)k1, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("K1"));
 
-            k2y = Math.Min(nForce*lambday/170, 0.2);
+            k2y = Math.Min(nForce * lambday / 170, 0.2);
+            k2y = Math.Round((Double)k2y, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("K2y"));
 
-            kcy = k1*k2y/(1+project.BasicCalculations.FiEfektywne);
+            kcy = k1 * k2y / (1 + project.BasicCalculations.FiEfektywne);
+            kcy = Math.Round((Double)kcy, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Kcy"));
 
-            icy = project.Column.Dimension.Width*project.Column.Dimension.Height* project.Column.Dimension.Height* project.Column.Dimension.Height/12;
+            icy = project.Column.Dimension.Width * project.Column.Dimension.Height * project.Column.Dimension.Height * project.Column.Dimension.Height / 12;
+            icy = Math.Round((Double)icy, 0);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Icy"));
 
-            isy = project.BasicCalculations.AreaAs1y*0.01*(0.5*project.Column.Dimension.Height-project.BasicCalculations.A1y*0.1)* (0.5 * project.Column.Dimension.Height - project.BasicCalculations.A1y * 0.1)+
+            isy = project.BasicCalculations.AreaAs1y * 0.01 * (0.5 * project.Column.Dimension.Height - project.BasicCalculations.A1y * 0.1) * (0.5 * project.Column.Dimension.Height - project.BasicCalculations.A1y * 0.1) +
                 project.BasicCalculations.AreaAs2y * 0.01 * (0.5 * project.Column.Dimension.Height - project.BasicCalculations.A2y * 0.1) * (0.5 * project.Column.Dimension.Height - project.BasicCalculations.A2y * 0.1);
+            isy = Math.Round((Double)isy, 0);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Isy"));
 
-            eiy = kcy * project.Column.Concrete.Ecm * Icy*0.01 + project.Column.SecondOrderParameters.Ks * project.Column.Steel.Es * Isy*0.01; 
+            eiy = kcy * project.Column.Concrete.Ecm * Icy * 0.01 + project.Column.SecondOrderParameters.Ks * project.Column.Steel.Es * Isy * 0.01;
+            eiy = Math.Round((Double)eiy, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Eiy"));
 
             k2z = Math.Min(nForce * lambdaz / 170, 0.2);
+            k2z = Math.Round((Double)k2z, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("K2z"));
 
             kcz = k1 * k2z / (1 + project.BasicCalculations.FiEfektywne);
+            kcz = Math.Round((Double)kcz, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Kcz"));
 
             icz = project.Column.Dimension.Height * project.Column.Dimension.Width * project.Column.Dimension.Width * project.Column.Dimension.Width / 12;
+            icz = Math.Round((Double)icz, 0);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Icz"));
 
             isz = project.BasicCalculations.AreaAs1z * 0.01 * (0.5 * project.Column.Dimension.Width - project.BasicCalculations.A1z * 0.1) * (0.5 * project.Column.Dimension.Width - project.BasicCalculations.A1z * 0.1) +
                 project.BasicCalculations.AreaAs2z * 0.01 * (0.5 * project.Column.Dimension.Width - project.BasicCalculations.A2z * 0.1) * (0.5 * project.Column.Dimension.Width - project.BasicCalculations.A2z * 0.1);
+            isz = Math.Round((Double)isz, 0);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Isz"));
 
-            eiz = kcz * project.Column.Concrete.Ecm * Icz*0.01 + project.Column.SecondOrderParameters.Ks * project.Column.Steel.Es * Isz*0.01;
+            eiz = kcz * project.Column.Concrete.Ecm * Icz * 0.01 + project.Column.SecondOrderParameters.Ks * project.Column.Steel.Es * Isz * 0.01;
+            eiz = Math.Round((Double)eiz, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Eiz"));
 
 
 
             beta = Math.PI * Math.PI / project.Column.SecondOrderParameters.C0;
+            beta = Math.Round((Double)beta, 3);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Beta"));
 
-            nby = Math.PI* Math.PI * eiy / (height0y * height0y)*10000;
+            nby = Math.PI * Math.PI * eiy / (height0y * height0y) * 10000;
+            nby = Math.Round((Double)nby, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Nby"));
 
-            nbz = Math.PI* Math.PI * eiz / (height0z * height0z)*10000;
+            nbz = Math.PI * Math.PI * eiz / (height0z * height0z) * 10000;
+            nbz = Math.Round((Double)nbz, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Nbz"));
 
             medy = project.Column.Statics.BendingMomentz * (1 + beta / ((nbz / project.Column.Statics.CompressiveForce) - 1));
+            medy = Math.Round((Double)medy, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Medy"));
 
             medz = project.Column.Statics.BendingMomenty * (1 + beta / ((nby / project.Column.Statics.CompressiveForce) - 1));
+            medz = Math.Round((Double)medz, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Medz"));
 
             ey = medz / project.Column.Statics.CompressiveForce;
+            ey = Math.Round((Double)ey, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ey"));
 
             ez = medy / project.Column.Statics.CompressiveForce;
+            ez = Math.Round((Double)ez, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ez"));
 
-            e0 = 0.01*Math.Max(project.Column.Dimension.Height / 30, 0.02);
+            e0 = 0.01 * Math.Max(project.Column.Dimension.Height / 30, 2);
+            e0 = Math.Round((Double)e0, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("E0"));
 
 
 
-            alfah = Math.Min(Math.Max(2 / Math.Sqrt(project.Column.Dimension.ColumnHeight*0.01), 2 / 3), 1);
+            alfah = Math.Min(Math.Max(2 / Math.Sqrt(project.Column.Dimension.ColumnHeight * 0.01), 2 / 3), 1);
+            alfah = Math.Round((Double)alfah, 3);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Alfah"));
 
             tetai = alfah / 200;
+            tetai = Math.Round((Double)tetai, 3);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tetai"));
 
-            eiyi = 0.5 * tetai * height0y/100;
+            eiyi = 0.5 * tetai * height0y / 100;
+            eiyi = Math.Round((Double)eiyi, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Eiyi"));
 
-            eizi = 0.5 * tetai * height0z/100;
+            eizi = 0.5 * tetai * height0z / 100;
+            eizi = Math.Round((Double)eizi, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Eizi"));
 
             eyi = Math.Max(e0, eiyi);
+            eyi = Math.Round((Double)eyi, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Eyi"));
 
             ezi = Math.Max(e0, eizi);
+            ezi = Math.Round((Double)ezi, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ezi"));
 
-
-
+            if (lambday <= lambdalim)
+            {
+                commenty = "Należy uwzględnić efekty II-go rzędu";
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("commenty"));
+            }
+            else
+            {
+                commenty = "Efekty II-go rzędu można pominąć";
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("commenty"));
+            }
         }
-
-
-
     }
-
 }

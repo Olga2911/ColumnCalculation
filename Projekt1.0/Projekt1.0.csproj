@@ -73,14 +73,30 @@
     <Compile Include="ConcretParameters.xaml.cs">
       <DependentUpon>ConcretParameters.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EnvironmentalClassCommand.cs" />
+    <Compile Include="EnvironmentalClassParameters.xaml.cs">
+      <DependentUpon>EnvironmentalClassParameters.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EnvironmentalCondition.cs" />
+    <Compile Include="ExposureClassCommand.cs" />
+    <Compile Include="ExposureClassParameters.xaml.cs">
+      <DependentUpon>ExposureClassParameters.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MiParameterInformation.xaml.cs">
+      <DependentUpon>MiParameterInformation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoadCapacityCalculation.cs" />
     <Compile Include="LoadCapacityParameters.cs" />
+    <Compile Include="MiParameterInformationCommand.cs" />
+    <Compile Include="RMParameterInformation.xaml.cs">
+      <DependentUpon>RMParameterInformation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Project.cs" />
     <Compile Include="ReinforcementDetails.xaml.cs">
       <DependentUpon>ReinforcementDetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="ReinforcementDetailsCommand.cs" />
+    <Compile Include="RMParameterInformationCommand.cs" />
     <Compile Include="SecondOrderCalculations.cs" />
     <Compile Include="SecondOrderParameters.cs" />
     <Compile Include="Statics.cs" />
@@ -89,7 +105,23 @@
       <DependentUpon>SteelParameters.xaml</DependentUpon>
     </Compile>
     <Compile Include="SteelParametersCommand.cs" />
+    <Compile Include="StructuralClassCommand.cs" />
+    <Compile Include="StructuralClassParameters.xaml.cs">
+      <DependentUpon>StructuralClassParameters.xaml</DependentUpon>
+    </Compile>
     <Page Include="ConcreteCover.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EnvironmentalClassParameters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExposureClassParameters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MiParameterInformation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -111,11 +143,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="RMParameterInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ReinforcementDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SteelParameters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StructuralClassParameters.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -147,7 +187,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Draws\kot.jpg" />
+    <Resource Include="Draws\TabKlasaKonstrukcji.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Draws\TabKlasaEkspozycji.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Draws\KonWspPel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Draws\Mi.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

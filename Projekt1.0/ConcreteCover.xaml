@@ -5,70 +5,277 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt1._0"
         mc:Ignorable="d"
-        Title="ConcreteCover" Height="250" Width="400">
+        Title="ConcreteCover" Height="401" Width="405">
     <Window.DataContext>
         <local:Project/>
     </Window.DataContext>
-
-    <Border BorderBrush="CadetBlue" BorderThickness="2" Padding="0" Margin="5">
+    
+        <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="0" Margin="5">
+            
         <StackPanel Background="MintCream">
-            <TextBlock FontSize="12" Margin="2 2 0 0" Text="OTULENIE ZBROJENIA" FontWeight="Bold"/>
-            <Grid Height="177" Margin="0,0,0.333,0" >
+            <StackPanel>
+                <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="3" Margin="4">
+                    <StackPanel>
+                        
+                        <!--SKŁADOWE OTULENIA MINIMALNEGO-->
+                        <TextBlock Margin="5 0 5 2" FontSize="12" FontWeight="Bold" Text="SKŁADOWE WARTOŚCI OTULENIA" />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="4.9*" />
+                                <ColumnDefinition Width="1.1*" />
+                                <ColumnDefinition Width="0.9*" />
+                                <ColumnDefinition Width="0.7*" />
+                            </Grid.ColumnDefinitions>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="3*" />
-                    <ColumnDefinition Width="2*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock Margin="5 1 5 2" FontSize="9" Text="Odchyłka otuliny:" />
 
-                <StackPanel Grid.Column="0">
-                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="Odchyłka otuliny:" />
-                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="Otulina minimalna:" />
-                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="Otulina ze względu na środowisko:" />
-                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="Otulina składnik bezpieczeństwa:" />
-                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="Otulina dot. rodzaju stali:" />
-                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="Otulina dot. dod. ochronę betonu:" />
+                                <TextBlock FontStyle="Italic" TextWrapping="Wrap" Margin="5 0 5 0" FontSize="7">
+                                (wartość zalecana to 10 mm, jednak przy wykorzystaniu technik pomiarowych otulenia zbrojenia podczas układania mieszanki betonowej, wielkość odchyłki można zmniejszyć zgodnie z 4.4.1.3 EC2)
+                                </TextBlock>
+
+
+                                <TextBlock Margin="5 9 5 2" FontSize="9" Text="Otulina minimalna ze względu na przyczepność:" />
+                                <TextBlock FontStyle="Italic" TextWrapping="Wrap" Margin="5 0 5 0" FontSize="7">
+                                (wartość zalecana jest równa średnicy pręta, jednak przy maksymalnym wymiarze kruszywa >32 mm, wartość należy zwiększyć o 5 mm)
+                                </TextBlock>
+
+                                <TextBlock Margin="5 9 5 2" FontSize="9" Text="Otulina ze względu na środowisko:" />
+                                <TextBlock FontStyle="Italic" Margin="5 0 5 0" FontSize="7">
+                                (wartość zależna od klasy ekspozycji i klasy konstrukcji)
+                                </TextBlock>
+
+                                <TextBlock Margin="5 9 5 2" FontSize="9" Text="Otulina składnik bezpieczeństwa:" />
+                                <TextBlock FontStyle="Italic" Margin="5 0 5 0" FontSize="7">
+                                (wartość zalecana to zero)
+                                </TextBlock>
+
+                                <TextBlock Margin="5 9 5 2" FontSize="9" Text="Otulina dot. rodzaju stali:" />
+                                <TextBlock FontStyle="Italic" Margin="5 0 5 0" FontSize="7">
+                                (wartość zalecana, gdy nie ma specjalnych wymagań, to zero)
+                                </TextBlock>
+
+                                <TextBlock Margin="5 9 5 2" FontSize="9" Text="Otulina dot. dod. ochronę betonu:" />
+                                <TextBlock FontStyle="Italic" Margin="5 0 5 0" FontSize="7">
+                                (wartość zalecana, gdy nie ma specjalnych wymagań, to zero)
+                                </TextBlock>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1">
+                                <TextBlock Margin="5 1 5 2" FontSize="9">
+                                Δc<Run FontSize="7" BaselineAlignment="Subscript">dev</Run>=
+                                </TextBlock>
+                                <TextBlock Margin="5 35 5 2" FontSize="9">
+                                c<Run FontSize="7" BaselineAlignment="Subscript">min,b</Run>=
+                                </TextBlock>
+                                <TextBlock Margin="5 28 5 2" FontSize="9">
+                                c<Run FontSize="7" BaselineAlignment="Subscript">min,dur</Run>=
+                                </TextBlock>
+                                <TextBlock Margin="5 18 5 2" FontSize="9">
+                                 c<Run FontSize="7" BaselineAlignment="Subscript">dur,γ</Run>=
+                                </TextBlock>
+                                <TextBlock Margin="5 17 5 2" FontSize="9">
+                                Δc<Run FontSize="7" BaselineAlignment="Subscript">dur,stal</Run>=
+                                </TextBlock>
+                                <TextBlock Margin="5 18 5 2" FontSize="9">
+                                Δc<Run FontSize="7" BaselineAlignment="Subscript">dur,add</Run>=
+                                </TextBlock>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2">
+                                <TextBox Background="Beige" FontSize="9" Margin="0 1 0 2" Text="{Binding Column.ConcreteCoverParameters.Deltacdev}"/>
+                                <TextBox Background="Beige" FontSize="9" Margin="0 34 0 2" Text="{Binding Column.ConcreteCoverParameters.Cminb}"/>
+                                <TextBox Background="Gainsboro" FontSize="9" Margin="0 26 0 2" Text="{Binding ConcreteCoverMinDurCalculation.CMinDur, Mode=OneWay}" IsReadOnly="True" />
+                                <TextBox Background="Beige" FontSize="9" Margin="0 16 0 2" Text="{Binding Column.ConcreteCoverParameters.Cdurgamma}"/>
+                                <TextBox Background="Beige" FontSize="9" Margin="0 16 0 2" Text="{Binding Column.ConcreteCoverParameters.Deltadurst}"/>
+                                <TextBox Background="Beige" FontSize="9" Margin="0 16 0 2" Text="{Binding Column.ConcreteCoverParameters.Deltacduradd}"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="3">
+                                <TextBlock Margin="8 1 5 2" FontSize="9" Text="[mm]" />
+                                <TextBlock Margin="8 37 5 2" FontSize="9" Text="[mm]" />
+                                <TextBlock Margin="8 28 5 2" FontSize="9" Text="[mm]" />
+                                <TextBlock Margin="8 18 5 2" FontSize="9" Text="[mm]" />
+                                <TextBlock Margin="8 18 5 2" FontSize="9" Text="[mm]" />
+                                <TextBlock Margin="8 18 5 2" FontSize="9" Text="[mm]" />
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <!--OTULENIE MINIMALNE-->
+                <StackPanel>
+                <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="3" Margin="4">
+                <StackPanel>
+                    <TextBlock Margin="5 0 5 2" FontSize="12" FontWeight="Bold" Text="OTULENIE MINIMALNE" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="6*" />
+                            <ColumnDefinition Width="0.9*" />
+                            <ColumnDefinition Width="0.7*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0">
+                            <TextBlock FontSize="9" Margin="5 3 5 2">
+                            c<Run FontSize="7" BaselineAlignment="Subscript">min</Run>=max{<TextBlock>c<Run FontSize="7" BaselineAlignment="Subscript">min,b</Run>; 
+                            </TextBlock>
+                
+                            <TextBlock >
+                            c<Run FontSize="7" BaselineAlignment="Subscript">min,dur</Run>+c<Run FontSize="7" BaselineAlignment="Subscript">dur,γ</Run>-Δc<Run FontSize="7" BaselineAlignment="Subscript">dur,stal</Run>-Δc<Run FontSize="7" BaselineAlignment="Subscript">dur,add</Run>; 10mm}=
+                            </TextBlock>
+                            </TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1">
+                            <TextBox Background="Gainsboro" FontSize="9" Margin="0 1 0 2" IsReadOnly="True" Text="{Binding BasicCalculations.Cmin, Mode=OneWay}"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2">
+                            <TextBlock Margin="8 2 5 2" FontSize="9" Text="[mm]" />
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+                </Border>
                 </StackPanel>
 
-                <StackPanel Grid.Column="1">
-                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="Δcdev=" />
-                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="cmin,b=" />
-                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="cmin,dur=" />
-                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="cdur,γ=" />
-                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="Δcdur,stal=" />
-                    <TextBlock Margin="5 9 5 2" FontSize="9" Text="Δcdur,add=" />
-                </StackPanel>
+                <!--OTULENIE NOMINALNE-->
+                <StackPanel>
+                    <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="3" Margin="4">
+                        <StackPanel>
+                            <TextBlock Margin="5 0 5 2" FontSize="12" FontWeight="Bold" Text="OTULENIE NOMINALNE" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="6*" />
+                                    <ColumnDefinition Width="0.9*" />
+                                    <ColumnDefinition Width="0.7*" />
+                                </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Column="2">
-                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.ConcreteCoverParameters.Deltacdev}"/>
-                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.ConcreteCoverParameters.Cminb}"/>
-                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" />
-                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.ConcreteCoverParameters.Cdurgamma}"/>
-                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.ConcreteCoverParameters.Deltadurst}"/>
-                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.ConcreteCoverParameters.Deltacduradd}"/>
-                </StackPanel>
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock FontSize="9" Margin="5 4 5 2">
+                                    c<Run FontSize="7" BaselineAlignment="Subscript">nom</Run>=c<Run FontSize="7" BaselineAlignment="Subscript">min</Run>+Δc<Run FontSize="7" BaselineAlignment="Subscript">dev</Run>=
+                                    </TextBlock>
+                                </StackPanel>
 
-                <StackPanel Grid.Column="3">
-                    <TextBlock Margin="8 8 5 2" FontSize="9" Text="[mm]" />
-                    <TextBlock Margin="8 8 5 2" FontSize="9" Text="[mm]" />
-                    <TextBlock Margin="8 8 5 2" FontSize="9" Text="[mm]" />
-                    <TextBlock Margin="8 8 5 2" FontSize="9" Text="[mm]" />
-                    <TextBlock Margin="8 8 5 2" FontSize="9" Text="[mm]" />
-                    <TextBlock Margin="8 8 5 2" FontSize="9" Text="[mm]" />
-                </StackPanel>
+                                <StackPanel Grid.Column="1">
+                                    <TextBox FontWeight="Bold" Background="Gainsboro" FontSize="9" Margin="0 0 0 2" IsReadOnly="True" Text="{Binding BasicCalculations.Cnom, Mode=OneWay}"/>
+                                </StackPanel>
 
-                <StackPanel Grid.Column="4">
-                    <Button Margin="5 6 0 0" FontSize="9"  Content="?" Width="20"  />
-                    <Button Margin="5 6 0 0" FontSize="9"  Content="?" Width="20"  />
-                    <Button Margin="5 6 0 0" FontSize="9"  Content="?" Width="20" />
-                    <Button Margin="5 6 0 0" FontSize="9"  Content="?" Width="20"  />
-                    <Button Margin="5 6 0 0" FontSize="9"  Content="?" Width="20" />
-                    <Button Margin="5 6 0 0" FontSize="9"  Content="?" Width="20" />
+                                <StackPanel Grid.Column="2">
+                                    <TextBlock Margin="8 0 5 2" FontSize="9" Text="[mm]" />
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
                 </StackPanel>
-
-            </Grid>
+            </StackPanel>
         </StackPanel>
     </Border>
 </Window>
+
+
+
+<!--ODLEGŁOŚCI A 
+            <TextBlock FontWeight="Bold" Margin="5 9 5 2" FontSize="9" Text="Kierunek y:" />
+            <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4.9*" />
+                        <ColumnDefinition Width="1.2*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock FontSize="9" Margin="5 9 5 2">
+                       a<Run FontSize="7" BaselineAlignment="Subscript">1y</Run>=
+                      
+                      <TextBlock FontSize="9">
+                       c<Run FontSize="7" BaselineAlignment="Subscript">nom</Run> + 
+                      </TextBlock>
+
+                       <TextBlock FontSize="9" >
+                        φ<Run FontSize="7" BaselineAlignment="Subscript">1y</Run> + 
+                       </TextBlock>
+
+                       <TextBlock FontSize="9" >
+                        0,5φ<Run FontSize="7" BaselineAlignment="Subscript">s</Run> = 
+                       </TextBlock>
+                    </TextBlock>
+                    
+                    <TextBlock FontSize="9" Margin="5 9 5 2">
+                        d<Run FontSize="7" BaselineAlignment="Subscript">1y</Run> = h - 
+                        
+                       <TextBlock FontSize="9">
+                        a<Run FontSize="7" BaselineAlignment="Subscript">1y</Run> = 
+                       </TextBlock>
+                    </TextBlock>
+                    
+                    <TextBlock FontSize="9" Margin="5 9 5 2">
+                       a<Run FontSize="7" BaselineAlignment="Subscript">2y</Run>=
+                        
+                       <TextBlock FontSize="9">
+                        c<Run FontSize="7" BaselineAlignment="Subscript">nom</Run> + 
+                       </TextBlock>
+
+                       <TextBlock FontSize="9" >
+                        φ<Run FontSize="7" BaselineAlignment="Subscript">2y</Run> + 
+                       </TextBlock>
+
+                       <TextBlock FontSize="9" >
+                        0,5φ<Run FontSize="7" BaselineAlignment="Subscript">s</Run> = 
+                       </TextBlock>
+                    </TextBlock>
+
+                    <TextBlock FontSize="9" Margin="5 9 5 2">
+                        d<Run FontSize="7" BaselineAlignment="Subscript">2y</Run> = h - 
+                        
+                       <TextBlock FontSize="9">
+                        a<Run FontSize="7" BaselineAlignment="Subscript">2y</Run> = 
+                       </TextBlock>
+                    </TextBlock>
+                    
+
+                    <TextBlock FontWeight="Bold" Margin="5 9 5 2" FontSize="9" Text="Kierunek z:" />
+
+                    <TextBlock FontSize="9" Margin="5 9 5 2">
+                                   a<Run FontSize="7" BaselineAlignment="Subscript">1z</Run>=
+                    </TextBlock>
+                    <TextBlock FontSize="9" Margin="5 9 5 2">
+                                   d<Run FontSize="7" BaselineAlignment="Subscript">1z</Run>=
+                    </TextBlock>
+                    <TextBlock FontSize="9" Margin="5 9 5 2">
+                                   a<Run FontSize="7" BaselineAlignment="Subscript">2z</Run>=
+                    </TextBlock>
+                    <TextBlock FontSize="9" Margin="5 9 5 2">
+                                   d<Run FontSize="7" BaselineAlignment="Subscript">2z</Run>=
+                    </TextBlock>
+                </StackPanel>
+                
+                <StackPanel Grid.Column="2">
+                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2"  IsReadOnly="True" Text="{Binding BasicCalculations.A1y, Mode=OneWay}"/>
+                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" IsReadOnly="True" Text="{Binding BasicCalculations.D1y, Mode=OneWay}"/>
+                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" IsReadOnly="True" Text="{Binding BasicCalculations.A2y, Mode=OneWay}"/>
+                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" IsReadOnly="True" Text="{Binding BasicCalculations.D2y, Mode=OneWay}"/>
+
+                    <TextBlock FontSize="9" Margin="0 7 0 2" />
+
+                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" IsReadOnly="True" Text="{Binding BasicCalculations.A1z, Mode=OneWay}"/>
+                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" IsReadOnly="True" Text="{Binding BasicCalculations.D1z, Mode=OneWay}"/>
+                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" IsReadOnly="True" Text="{Binding BasicCalculations.A2z, Mode=OneWay}"/>
+                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" IsReadOnly="True" Text="{Binding BasicCalculations.D2z, Mode=OneWay}"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="3">
+                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+
+                    <TextBlock FontSize="9" Margin="0 7 0 2" />
+
+                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                </StackPanel>
+            </Grid>-->

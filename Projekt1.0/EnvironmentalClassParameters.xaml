@@ -1,0 +1,141 @@
+﻿<Window x:Class="Projekt1._0.EnvironmentalClassParameters"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projekt1._0"
+        mc:Ignorable="d"
+        Title="Efektywny współczynnik pełzania" Height="600" Width="400">
+
+        <Window.DataContext>
+            <local:Project />
+        </Window.DataContext>
+
+    <ScrollViewer 
+                  VerticalScrollBarVisibility="Visible">
+
+        <Border BorderBrush="CadetBlue" BorderThickness="2" Padding="0" Margin="5">
+            <StackPanel Background="MintCream">
+
+                <TextBlock FontSize="12" Margin="2 2 0 0" Text="EFEKTYWNY WSPÓŁCZYNNIK PEŁZANIA" FontWeight="Bold"/>
+                <TextBlock  TextWrapping="Wrap" Margin="5 8 5 2" FontSize="9" Text="Końcowy współczynnik pełzania (wyznaczony zgodnie z poniższą metodą):" />
+
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3.5*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="5*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="9" Margin="5 2 5 2" >
+                                    φ<Run FontSize="7" BaselineAlignment="Subscript">(∞,t0)</Run>=
+                        </TextBlock>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1">
+                        <TextBox FontSize="9" Background="Beige" Margin="0 1 0 2" Text="{Binding Column.EnvironmentalCondition.FiKoncowe }" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Margin="8 3 5 2" FontSize="9" Text="[-]" />
+                    </StackPanel>
+
+                </Grid>
+
+                <TextBlock  TextWrapping="Wrap" Margin="5 5 5 2" FontSize="9" Text="Iloraz momentu zginającego pierwszego rzędu wywołanego prawie stałą kombinacją obciążeń (SLS) i momentu zginającego pierwszego rzędu wywołanym obliczeniową kombinacją obciążeń (ULS):" />
+
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3.5*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="5*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0">
+
+                        <TextBlock FontSize="9" Margin="5 2 5 2" >
+                                    M<Run FontSize="7" BaselineAlignment="Subscript">0Eqp</Run>/M<Run FontSize="7" BaselineAlignment="Subscript">0Ed</Run>=
+                        </TextBlock>
+
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1">
+                        <TextBox FontSize="9" Background="Beige" Margin="0 1 0 2" Text="{Binding Column.EnvironmentalCondition.M0eqpm0ed }" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Margin="8 2 5 2" FontSize="9" Text="[-]" />
+                    </StackPanel>
+
+                </Grid>
+
+                <TextBlock Margin="5 5 5 2" FontSize="9" Text="Efektywny współczynnik pełzania:" />
+
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3.5*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="5*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="9" Margin="5 2 5 2">
+                                    φ<Run FontSize="7" BaselineAlignment="Subscript">ef
+                                    </Run>=φ<Run FontSize="7" BaselineAlignment="Subscript">(∞,t0)</Run>(M<Run FontSize="7" BaselineAlignment="Subscript">0Eqp</Run>/M<Run FontSize="7" BaselineAlignment="Subscript">0Ed</Run>)=
+                        </TextBlock>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1">
+                        <TextBox FontWeight="Bold" FontSize="9" Background="Gainsboro" Margin="0 1 0 2" Text="{Binding BasicCalculations.FiEfektywne, Mode=OneWay}" IsReadOnly="True" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Margin="8 2 5 2" FontSize="9" Text="[-]" />
+                    </StackPanel>
+
+                </Grid>
+
+
+
+                <TextBlock Margin="5 15 5 2" FontSize="9" FontWeight="Bold" Text="Metoda wynaczenia końcowego współczynnika pełzania" />
+
+                <TextBlock Width="369"  TextWrapping="Wrap" Margin="5 0 5 2" FontSize="9" Text="przy temperaturze otoczenia mieszczącej się w przedziale od -40°C do +40°C i średniej wilgotności względnej w przedziale od RH=40% do RH=100%, gdzie: " />
+
+
+                <StackPanel>
+
+                    <TextBlock FontSize="9" Margin="5 3 5 2" >
+                      φ<Run FontSize="7" BaselineAlignment="Subscript">(∞,t0)</Run> - końcowy wpółczynnik pełzania,
+                    </TextBlock>
+
+                    <TextBlock FontSize="9" Margin="5 0 5 2" >
+                      t<Run FontSize="7" BaselineAlignment="Subscript">0</Run> - wiek betonu przy pierwszym obciążeniu mierzony w dniach,
+                    </TextBlock>
+
+                    <TextBlock TextWrapping="Wrap" FontSize="9" Margin="5 0 5 2" >
+                      h<Run FontSize="7" BaselineAlignment="Subscript">0</Run> - miarodajny wymiar 
+                        A<Run FontSize="7" BaselineAlignment="Subscript">c</Run>/u, gdzie A<Run FontSize="7" BaselineAlignment="Subscript">c</Run> jest polem przekroju betonu, a u obwodem tej części, która jest poddana wysychaniu,
+                    </TextBlock>
+
+                    <TextBlock TextWrapping="Wrap" FontSize="9" Margin="5 0 5 2" >
+                      S - cement wolnotwardniejący,
+                    </TextBlock>
+
+                    <TextBlock TextWrapping="Wrap" FontSize="9" Margin="5 0 5 2" >
+                      N - cement normalnie twardniejący,
+                    </TextBlock>
+
+                    <TextBlock TextWrapping="Wrap" FontSize="9" Margin="5 0 5 2" >
+                      S - cement szybkotwardniejący.
+                    </TextBlock>
+
+                    <Image Margin="5 2 5 5" Width="350" Name="image" Source="D:\Studia\Mgr\ColumnCalculation-master\ColumnCalculation-master\Rysunki\KonWspPel.jpg " >
+                    </Image>
+
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+    </ScrollViewer>
+</Window>

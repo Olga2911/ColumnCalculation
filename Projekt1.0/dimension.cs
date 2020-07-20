@@ -13,10 +13,11 @@ namespace Projekt1._0
         private Double width = 40;
         private Double height = 60;
         private Double columnHeight = 500;
-        private Double quantity1y = 10.75;
-        private Double quantity2y = 21.5;
-        private Double quantity1z = 3;
-        private Double quantity2z = 3;
+        private Double quantity1y = 4;
+        private Double quantity2y = 3;
+        private Double quantity1z = 2;
+        private Double quantity2z = 2;
+        private Double s = 100;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -135,6 +136,23 @@ namespace Projekt1._0
                 }
             }
         }
+
+        public double S
+        {
+            get
+            {
+                return s;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    s= value;
+                    PropertyChanged(this, new PropertyChangedEventArgs("S"));
+                }
+            }
+        }
+
     }
 }
 
