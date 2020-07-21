@@ -5,12 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt1._0"
         mc:Ignorable="d"
-        Title="Słup" Height="700" Width="1100">
+        Title="Słup" Height="850" Width="1100">
     <Window.Resources>
         <local:Project x:Key="project"/>
     </Window.Resources>
 
-    <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="0" Margin="5">
+    <!--<ScrollViewer
+        VerticalScrollBarVisibility="Visible">-->
+
+        <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="0" Margin="5">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2.6*"/>
@@ -28,7 +31,7 @@
                         <TextBlock FontSize="12" Margin="2 2 0 0" Text="PARAMETRY MATERIAŁOWE" FontWeight="Bold"/>
                         <Grid >
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
@@ -179,22 +182,35 @@
                             </StackPanel>
 
                             <StackPanel Grid.Column="2">
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackPanel Grid.Column="0">
+                                        <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Column="1">
+                                        <Button Margin="0 6 0 0" Content="?" Width="15" FontSize="9" Command="{Binding Column.ConcreteCover , Source={StaticResource project} }" CommandParameter="{DynamicResource project}"  />
+                                    </StackPanel>
+                                </Grid>
+
                             </StackPanel>
                         </Grid>
-                        <Button Margin="0 6 0 0" Content="Szczegóły otuliny" Width="120" FontSize="9" Command="{Binding Column.ConcreteCover , Source={StaticResource project} }" CommandParameter="{DynamicResource project}"  />
                     </StackPanel>
                 </Border>
             </StackPanel>
 
             <StackPanel Background="MintCream" Grid.Column="1" Margin="0.333,0,0,-0.333" Grid.RowSpan="2">
 
-                <!-- RYSUNEK -->
+                <!-- RYSUNEK1 -->
                 <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="4" Margin="4">
                     <StackPanel Background="MintCream" Grid.Column="1" >
-                        <TextBlock FontSize="12" Margin="2 2 0 0" Text="RYSUNEK" FontWeight="Bold"/>
-                        <!--<Image Name="image" Source="C:\Users\USER\Desktop\Praca mgr\C#\Projekt1.1\Projekt1.0\Draws\kot.jpg" >
-                        </Image>-->
+                        <!--<TextBlock FontSize="12" Margin="2 2 0 0" Text="RYSUNEK" FontWeight="Bold"/>-->
+                        <Image Margin="0 0 0 0" Width="120" Name="image" Source="D:\Studia\Mgr\ColumnCalculation-master\ColumnCalculation\Projekt1.0\Draws\RysZbrojenie.jpg" >
+                        </Image>
                     </StackPanel>
                 </Border>
 
@@ -275,8 +291,6 @@
                                     n=N<Run FontSize="7" BaselineAlignment="Subscript">Ed</Run>/A<Run FontSize="7" BaselineAlignment="Subscript">c</Run>*f<Run FontSize="7" BaselineAlignment="Subscript">cd</Run>=
                                 </TextBlock>
                                 
-                                <Button Margin="0 6 0 0" Content="RM ?" FontSize="9" Command="{Binding Column.RMParameterInformation, Source={StaticResource project}}" CommandParameter="{DynamicResource project}"/>
-                                <Button Margin="0 6 0 0" Content="MI?" FontSize="9" Command="{Binding Column.MiParameterInformation, Source={StaticResource project}}" CommandParameter="{DynamicResource project}" />
 
                             </StackPanel>
 
@@ -293,7 +307,22 @@
                                 <TextBlock FontSize="9" Margin="8 2 5 2" Text="[-]" />
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackPanel Grid.Column="0">
+                                            <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                        </StackPanel>
+                                        
+                                        <StackPanel Grid.Column="1">
+                                            <Button Margin="0 8 0 0" Content="?" Width="15" FontSize="9" Command="{Binding Column.RMParameterInformation, Source={StaticResource project}}" CommandParameter="{DynamicResource project}" RenderTransformOrigin="-0.137,0.444"/>
+                                        </StackPanel>
+                                    </Grid>
+                                
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
                             </StackPanel>
@@ -327,7 +356,7 @@
 
                         <!--SMUKŁOŚĆ SŁUPA - KIERUNEK Y-->
                             <StackPanel>
-                                <TextBlock FontSize="9" Margin="2 6 0 2" Text="SMUKŁOŚĆ SŁUPA - KIERUNEK Y" FontWeight="Bold" />
+                                <TextBlock FontSize="9" Margin="2 6 0 2" Text="SMUKŁOŚĆ SŁUPA - kierunek y" FontWeight="Bold" />
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="2.5*" />
@@ -356,7 +385,22 @@
                                     </StackPanel>
 
                                     <StackPanel Grid.Column="2">
-                                        <TextBlock FontSize="9" Margin="8 2 5 2" Text="[-]" />
+                                        
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackPanel Grid.Column="0">
+                                            <TextBlock FontSize="9" Margin="8 2 5 2" Text="[-]" />
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Column="1">
+                                            <Button Margin="0 0 0 0" Width="15" Content="?" FontSize="9" Command="{Binding Column.MiParameterInformation, Source={StaticResource project}}" CommandParameter="{DynamicResource project}" />
+                                        </StackPanel>
+                                    </Grid>
+
                                         <TextBlock FontSize="9" Margin="8 8 5 2" Text="[cm]" />
                                         <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
                                     </StackPanel>
@@ -404,7 +448,7 @@
                         
                         <!--SMUKŁOŚĆ SŁUPA - KIERUNEK Z-->
                             <StackPanel>
-                                <TextBlock FontSize="9" Margin="2 6 0 0" Text="SMUKŁOŚĆ SŁUPA - KIERUNEK Z" FontWeight="Bold" />
+                                <TextBlock FontSize="9" Margin="2 6 0 0" Text="SMUKŁOŚĆ SŁUPA - kierunek z" FontWeight="Bold" />
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="2.5*" />
@@ -434,7 +478,21 @@
                                     </StackPanel>
 
                                     <StackPanel Grid.Column="2">
-                                        <TextBlock FontSize="9" Margin="8 2 5 2" Text="[-]" />
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackPanel Grid.Column="0">
+                                            <TextBlock FontSize="9" Margin="8 2 5 2" Text="[-]" />
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Column="1">
+                                            <Button Margin="0 0 0 0" Width="15" Content="?" FontSize="9" Command="{Binding Column.MiParameterInformation, Source={StaticResource project}}" CommandParameter="{DynamicResource project}" />
+                                        </StackPanel>
+                                    </Grid>
+
                                         <TextBlock FontSize="9" Margin="8 8 5 2" Text="[cm]" />
                                         <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
                                     </StackPanel>
@@ -506,7 +564,6 @@
                                     K<Run FontSize="7" BaselineAlignment="Subscript">s</Run>=
                                 </TextBlock>
                                 
-                                <Button Margin="0 6 0 0" Content="Ks?" FontSize="9" Command="{Binding Column.KSParameterInformation, Source={StaticResource project}}" CommandParameter="{DynamicResource project}"/>
 
                             </StackPanel>
 
@@ -517,12 +574,26 @@
 
                             <StackPanel Grid.Column="2">
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackPanel Grid.Column="0">
+                                        <TextBlock FontSize="9" Margin="8 7 5 2" Text="[-]" />
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Column="1">
+                                        <Button Margin="0 6 0 0" Width="15" Content="?" FontSize="9" Command="{Binding Column.KSParameterInformation, Source={StaticResource project}}" CommandParameter="{DynamicResource project}"/>
+                                    </StackPanel>
+                                </Grid>
+                                
                             </StackPanel>
                         </Grid>
 
-
-                        <TextBlock FontWeight="Bold" FontSize="10" Margin="2 12 0 0" Text="Kierunek y:" />
+                        <TextBlock FontWeight="Bold" FontSize="10" Margin="2 12 0 0" Text="NOMINALNA SZTYWNOŚĆ - kierunek y" />
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="2.5*" />
@@ -570,7 +641,6 @@
                         </Grid>
 
                         <StackPanel>
-                            <TextBlock FontWeight="Bold" FontSize="10" Margin="2 12 0 0" Text="NOMINALNA SZTYWNOŚĆ - kierunek y:" />
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="2.5*" />
@@ -579,13 +649,13 @@
                                 </Grid.ColumnDefinitions>
 
                                 <StackPanel Grid.Column="0">
-                                    <TextBlock FontWeight="Bold" FontSize="9" Margin="5 9 5 2">
+                                    <TextBlock FontSize="9" Margin="5 9 5 2">
                                         EI<Run FontSize="7" BaselineAlignment="Subscript">y</Run>=K<Run FontSize="7" BaselineAlignment="Subscript">c,y</Run>E<Run FontSize="7" BaselineAlignment="Subscript">cd</Run>I<Run FontSize="7" BaselineAlignment="Subscript">c,y</Run>+K<Run FontSize="7" BaselineAlignment="Subscript">s</Run>E<Run FontSize="7" BaselineAlignment="Subscript">s</Run>I<Run FontSize="7" BaselineAlignment="Subscript">s,y</Run>=
                                     </TextBlock>
                                 </StackPanel>
 
                                 <StackPanel Grid.Column="1">
-                                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Eiy, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
+                                    <TextBox FontWeight="Bold" FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Eiy, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
                                 </StackPanel>
 
                                 <StackPanel Grid.Column="2">
@@ -595,7 +665,8 @@
                                 </StackPanel>
                             </Grid>
                         </StackPanel>
-                        <TextBlock FontWeight="Bold" FontSize="10" Margin="2 12 0 0" Text="Kierunek z:" />
+                        
+                        <TextBlock FontWeight="Bold" FontSize="10" Margin="2 12 0 0" Text="NOMINALNA SZTYWNOŚĆ - kierunek z" />
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="2.5*" />
@@ -643,7 +714,6 @@
                         </Grid>
 
                         <StackPanel>
-                            <TextBlock FontWeight="Bold" FontSize="10" Margin="2 12 0 0" Text="NOMINALNA SZTYWNOŚĆ - kierunek z:" />
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="2.5*" />
@@ -653,14 +723,14 @@
 
                                 <StackPanel Grid.Column="0">
 
-                                    <TextBlock FontWeight="Bold" FontSize="9" Margin="5 9 5 2" >
+                                    <TextBlock FontSize="9" Margin="5 9 5 2" >
                                         EI<Run FontSize="7" BaselineAlignment="Subscript">z</Run>=K<Run FontSize="7" BaselineAlignment="Subscript">c,z</Run>E<Run FontSize="7" BaselineAlignment="Subscript">cd</Run>I<Run FontSize="7" BaselineAlignment="Subscript">c,z</Run>+K<Run FontSize="7" BaselineAlignment="Subscript">s</Run>E<Run FontSize="7" BaselineAlignment="Subscript">s</Run>I<Run FontSize="7" BaselineAlignment="Subscript">s,z</Run>=
                                     </TextBlock>
 
                                 </StackPanel>
 
                                 <StackPanel Grid.Column="1">
-                                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Eiz, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True" />
+                                    <TextBox FontWeight="Bold" FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Eiz, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True" />
                                 </StackPanel>
 
                                 <StackPanel Grid.Column="2">
@@ -672,6 +742,16 @@
                         </StackPanel>
                     </StackPanel>
                 </Border>
+
+                <!-- RYSUNEK2 -->
+                <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="4" Margin="4">
+                    <StackPanel Background="MintCream" Grid.Column="1" >
+                        <!--<TextBlock FontSize="12" Margin="2 2 0 0" Text="RYSUNEK" FontWeight="Bold"/>-->
+                        <Image Margin="0 0 0 0" Width="160" Name="image2" Source="D:\Studia\Mgr\ColumnCalculation-master\ColumnCalculation\Projekt1.0\Draws\RysMimośrody.jpg" >
+                        </Image>
+                    </StackPanel>
+                </Border>
+
             </StackPanel>
 
             <StackPanel Background="MintCream" Grid.Column="3" Margin="0,0,0.333,-0.333" Grid.RowSpan="2">
@@ -683,7 +763,7 @@
 
                         <Grid >
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1.2*" />
+                                <ColumnDefinition Width="2.5*" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
@@ -702,8 +782,6 @@
                                     e<Run FontSize="7" BaselineAlignment="Subscript">0</Run>=max(h/30; 2cm)=
                                 </TextBlock>
 
-                                <Button Margin="0 6 0 0" Content="c0 ?" FontSize="9" Command="{Binding Column.C0ParameterInformation, Source={StaticResource project}}" CommandParameter="{DynamicResource project}"/>
-
                             </StackPanel>
 
                             <StackPanel Grid.Column="1">
@@ -713,6 +791,22 @@
                             </StackPanel>
 
                             <StackPanel Grid.Column="2">
+                                
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackPanel Grid.Column="0">
+                                        <TextBlock FontSize="9" Margin="8 7 5 2" Text="[-]" />
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Column="1">
+                                        <Button Margin="0 6 0 0" Content="?" Width="15" FontSize="9" Command="{Binding Column.C0ParameterInformation, Source={StaticResource project}}" CommandParameter="{DynamicResource project}"/>
+                                    </StackPanel>
+                                </Grid>
+
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[m]" />
@@ -722,7 +816,7 @@
                         <TextBlock FontWeight="Bold" FontSize="10" Margin="2 5 0 0" Text="Kierunek y:" />
                         <Grid >
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1.2*" />
+                                <ColumnDefinition Width="2.5*" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
@@ -760,7 +854,7 @@
                         <TextBlock FontWeight="Bold" FontSize="10" Margin="2 5 0 0" Text="Wpływ imperfekcji:" />
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1.2*" />
+                                <ColumnDefinition Width="2.5*" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
@@ -802,7 +896,7 @@
                         <TextBlock FontWeight="Bold" FontSize="10" Margin="2 12 0 0" Text="Kierunek z:" />
                         <Grid >
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1.2*" />
+                                <ColumnDefinition Width="2.5*" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
@@ -840,7 +934,7 @@
                         <TextBlock FontWeight="Bold" FontSize="10" Margin="2 5 0 0" Text="Wpływ imperfekcji:" />
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1.2*" />
+                                <ColumnDefinition Width="2.5*" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
@@ -894,7 +988,7 @@
                         <TextBlock FontWeight="Bold" FontSize="10" Margin="2 5 0 0" Text="Kierunek y:" />
                         <Grid >
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1.2*" />
+                                <ColumnDefinition Width="2.5*" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
@@ -961,7 +1055,7 @@
                         <TextBlock FontWeight="Bold" FontSize="10" Margin="2 5 0 0" Text="Kierunek z:" />
                         <Grid >
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1.2*" />
+                                <ColumnDefinition Width="2.5*" />
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
@@ -1033,7 +1127,7 @@
                         <TextBlock FontSize="12" Margin="2 2 0 0" Text="ZGINANIE UKOŚNE" FontWeight="Bold"/>
                         <Grid >
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1.2*" />
+                                <ColumnDefinition Width="2.5*" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
@@ -1079,4 +1173,5 @@
             </StackPanel>
         </Grid>
     </Border>
+    <!--</ScrollViewer>-->
 </Window>

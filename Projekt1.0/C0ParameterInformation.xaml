@@ -14,53 +14,43 @@
 
             <!--PARAMETR C0-->
             <TextBlock Margin="5 0 5 2" FontSize="12" FontWeight="Bold">
-              PARAMETR c<Run FontSize="7" BaselineAlignment="Subscript">0</Run>
+              WSPÓŁCZYNNIK c<Run FontSize="7" BaselineAlignment="Subscript">0</Run>
             </TextBlock>
-
-            <!--<Grid >
+            
+            <TextBlock TextWrapping="Wrap" TextAlignment="Justify" FontSize="9" Margin="5 0 5 0">
+                     jest to współczynnik zależny od rozkładu momentu pierwszego rzędu (np. c<Run FontSize="7" BaselineAlignment="Subscript">0</Run>=8 gdy moment pierwszego rodzaju jest stały, c<Run FontSize="7" BaselineAlignment="Subscript">0</Run>=9,6 gdy ma rozkład paraboliczny, c<Run FontSize="7" BaselineAlignment="Subscript">0</Run>=12 gdy ma symetryczny rozkład trójkątny, itd.)
+            </TextBlock>
+            
+            <Grid >
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="0.7*" />
+                    <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="3*" />
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Column="0">
-                    <TextBlock FontSize="9" Margin="5 3 5 2">
-                     r<Run FontSize="7" BaselineAlignment="Subscript">m</Run>=M<Run FontSize="7" BaselineAlignment="Subscript">01</Run>/M<Run FontSize="7" BaselineAlignment="Subscript">02</Run>=
+                    <TextBlock Margin="5 0 5 2" FontSize="9" >
+                       c<Run FontSize="7" BaselineAlignment="Subscript">0</Run>=
                     </TextBlock>
                 </StackPanel>
 
-                <StackPanel Grid.Column="1">
-                    <TextBox FontSize="9" Background="Beige" Margin="0 1 0 2" Text="{Binding Column.SecondOrderParameters.Rm}"  />
-                </StackPanel>
+                <!--<StackPanel Grid.Column="1">
+                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 1 0 2" Text="{Binding Column.SecondOrderParameters.C0, Source={StaticResource project}}" />
+                </StackPanel>-->
 
                 <StackPanel Grid.Column="2">
                     <TextBlock Margin="8 3 5 2" FontSize="9" Text="[-]" />
                 </StackPanel>
             </Grid>
 
-            <TextBlock TextWrapping="Wrap" FontSize="9" Margin="5 12 5 2">
-                     M<Run FontSize="7" BaselineAlignment="Subscript">01</Run> i M<Run FontSize="7" BaselineAlignment="Subscript">02</Run> są to momenty pierwszego rzędu na końcach elementu, tak ponumerowane żeby |M<Run FontSize="7" BaselineAlignment="Subscript">01</Run>| ≤ |M<Run FontSize="7" BaselineAlignment="Subscript">02</Run>|.
+            <TextBlock TextWrapping="Wrap" TextAlignment="Justify"  FontSize="9" Margin="5 3 5 0">
+                W elementach bez obciążenia poprzecznego, różniące się momenty pierwszego rzędu na końcach elementu  M<Run FontSize="7" BaselineAlignment="Subscript">01</Run> i M<Run FontSize="7" BaselineAlignment="Subscript">02</Run> można zastąpić ekwiwalentnym momentem pierwszego rzędu M<Run FontSize="7" BaselineAlignment="Subscript">0e</Run>, zgodnie z 5.8.8.2(2) EC2. Konsekwentnie należy przyjąć c<Run FontSize="7" BaselineAlignment="Subscript">0</Run>=8, jak dla momentu stałego na całej długości. 
             </TextBlock>
 
-            <TextBlock TextWrapping="Wrap" FontSize="9" Margin="5 4 5 2">
-                     Jeżeli momenty na końcach M<Run FontSize="7" BaselineAlignment="Subscript">01</Run> i M<Run FontSize="7" BaselineAlignment="Subscript">02</Run> powodują rozciąganie po tej samej stronie elementu, to zmiennej r<Run FontSize="7" BaselineAlignment="Subscript">m</Run> należy dodać wartość dodatnią, a w innych przypadkach wartość ujemną.
+            <TextBlock TextWrapping="Wrap" TextAlignment="Justify"  FontSize="9" Margin="5 3 5 0">
+                UWAGA: Wartość c<Run FontSize="7" BaselineAlignment="Subscript">0</Run>=8 stosuje się także do elementów zginanych ukoścnie. Należy zauważyć, że w niektórych przypadkach, w zależności od smukłości i siły podłużnej, momenty na końcach mogą być większe niż powiększony moment ekwiwalentny.
             </TextBlock>
 
-            <TextBlock TextWrapping="Wrap" FontSize="9" Margin="5 4 5 0">
-                     Rozpatrując:
-            </TextBlock>
-            <TextBlock TextWrapping="Wrap" FontSize="9" Margin="5 0 5 0">
-                     - elementy usztywniane, w których momenty pierwszego rzędu powstają tylko lub przede wszystkim na skutek imperfekcji lub obciążenia poprzecznego,
-            </TextBlock>
-
-            <TextBlock TextWrapping="Wrap" FontSize="9" Margin="5 0 5 0">
-                     - elementy nieusztywnione,
-            </TextBlock>
-
-            <TextBlock TextWrapping="Wrap" FontSize="9" Margin="5 0 5 0">
-                     należy przyjnować  r<Run FontSize="7" BaselineAlignment="Subscript">m</Run>=1,0.
-            </TextBlock>-->
 
         </StackPanel>
     </Border>
