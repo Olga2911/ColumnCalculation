@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt1._0"
         mc:Ignorable="d"
-        Title="C0ParameterInformation" Height="300" Width="300">
+        Title="C0ParameterInformation" Height="262" Width="320">
     
     
-    <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="0" Margin="5">
+    <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="2" Margin="5">
 
         <StackPanel Background="MintCream">
 
@@ -17,15 +17,15 @@
               WSPÓŁCZYNNIK c<Run FontSize="7" BaselineAlignment="Subscript">0</Run>
             </TextBlock>
             
-            <TextBlock TextWrapping="Wrap" TextAlignment="Justify" FontSize="9" Margin="5 0 5 0">
+            <TextBlock TextWrapping="Wrap" TextAlignment="Justify" FontSize="9" Margin="5 0 5 4">
                      jest to współczynnik zależny od rozkładu momentu pierwszego rzędu (np. c<Run FontSize="7" BaselineAlignment="Subscript">0</Run>=8 gdy moment pierwszego rodzaju jest stały, c<Run FontSize="7" BaselineAlignment="Subscript">0</Run>=9,6 gdy ma rozkład paraboliczny, c<Run FontSize="7" BaselineAlignment="Subscript">0</Run>=12 gdy ma symetryczny rozkład trójkątny, itd.)
             </TextBlock>
             
             <Grid >
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*" />
                     <ColumnDefinition Width="0.7*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="3.5*" />
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Column="0">
@@ -34,12 +34,12 @@
                     </TextBlock>
                 </StackPanel>
 
-                <!--<StackPanel Grid.Column="1">
-                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 1 0 2" Text="{Binding Column.SecondOrderParameters.C0, Source={StaticResource project}}" />
-                </StackPanel>-->
+                <StackPanel Grid.Column="1">
+                    <TextBox FontSize="9" Background="Beige" Margin="0 0 0 4" Text="{Binding Column.SecondOrderParameters.C0}"  />
+                </StackPanel>
 
                 <StackPanel Grid.Column="2">
-                    <TextBlock Margin="8 3 5 2" FontSize="9" Text="[-]" />
+                    <TextBlock Margin="8 0 5 2" FontSize="9" Text="[-]" />
                 </StackPanel>
             </Grid>
 
@@ -48,7 +48,7 @@
             </TextBlock>
 
             <TextBlock TextWrapping="Wrap" TextAlignment="Justify"  FontSize="9" Margin="5 3 5 0">
-                UWAGA: Wartość c<Run FontSize="7" BaselineAlignment="Subscript">0</Run>=8 stosuje się także do elementów zginanych ukoścnie. Należy zauważyć, że w niektórych przypadkach, w zależności od smukłości i siły podłużnej, momenty na końcach mogą być większe niż powiększony moment ekwiwalentny.
+                UWAGA: Wartość c<Run FontSize="7" BaselineAlignment="Subscript">0</Run>=8 stosuje się także do elementów zginanych ukośnie. Należy zauważyć, że w niektórych przypadkach, w zależności od smukłości i siły podłużnej, momenty na końcach mogą być większe niż powiększony moment ekwiwalentny.
             </TextBlock>
 
 

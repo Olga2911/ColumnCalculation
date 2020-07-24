@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt1._0"
         mc:Ignorable="d"
-        Title="KSParameterInformation" Height="175" Width="235">
+        Title="KSParameterInformation" Height="208" Width="287">
     
     
     <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="0" Margin="5">
@@ -19,17 +19,9 @@
             <TextBlock TextWrapping="Wrap" FontSize="9" Margin="5 0 5 0">
                      jest to współczynnik zależny od udziału zbrojenia. 
             </TextBlock>
-            
-            <TextBlock TextWrapping="Wrap" FontSize="9" Margin="5 3 5 0">
-                      W uproszczeniu można przyjąć:
-            </TextBlock>
 
-            <TextBlock TextWrapping="Wrap" FontSize="9" Margin="5 2 5 2">
-                     1. dla ρ≥0,002, K<Run FontSize="7" BaselineAlignment="Subscript">s</Run>=1,0,
-            </TextBlock>
-
-            <TextBlock TextWrapping="Wrap" FontSize="9" Margin="5 0 5 10">
-                     2. dla ρ≥0,01, K<Run FontSize="7" BaselineAlignment="Subscript">s</Run>=0.
+            <TextBlock TextWrapping="Wrap" FontSize="9" Margin="5 7 5 3">
+                     W danym przypadku, stopień zbrojenia:
             </TextBlock>
 
             <Grid >
@@ -43,18 +35,49 @@
                     <TextBlock Margin="5 0 5 2" FontSize="9" >
                         ρ=
                     </TextBlock>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1">
+                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 1 0 2" Text="{Binding BasicCalculations.Ro, Mode=OneWay}" IsReadOnly="True"  />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2">
+                    <TextBlock Margin="8 3 5 2" FontSize="9" Text="[-]" />
+                </StackPanel>
+            </Grid>
+
+            <TextBlock TextWrapping="Wrap" FontSize="9" Margin="5 4 5 0">
+                      W uproszczeniu, zgodnie z EC2 5.8.7.2, zaleca się przyjmować:
+            </TextBlock>
+
+            <TextBlock TextWrapping="Wrap" FontSize="9" Margin="15 2 5 2">
+                     – K<Run FontSize="7" BaselineAlignment="Subscript">s</Run>=1,0 dla ρ≥0,002,  
+            </TextBlock>
+
+            <TextBlock TextWrapping="Wrap" FontSize="9" Margin="15 0 5 0">
+                     – K<Run FontSize="7" BaselineAlignment="Subscript">s</Run>=0 dla ρ≥0,01.
+            </TextBlock>
+
+            <TextBlock Margin="5 7 5 2" FontSize="9" Text="W związku z powyższym, dla danego przypadku przyjmuje się:" />
+
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.7*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
                     <TextBlock Margin="5 0 5 2" FontSize="9" >
                         K<Run FontSize="7" BaselineAlignment="Subscript">s</Run>=
                     </TextBlock>
                 </StackPanel>
 
                 <StackPanel Grid.Column="1">
-                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 1 0 2" Text="{Binding BasicCalculations.Ro, Mode=OneWay}" IsReadOnly="True"  />
                     <TextBox FontSize="9" Background="Beige" Margin="0 1 0 2" Text="{Binding Column.SecondOrderParameters.Ks}"  />
                 </StackPanel>
 
                 <StackPanel Grid.Column="2">
-                    <TextBlock Margin="8 3 5 2" FontSize="9" Text="[-]" />
                     <TextBlock Margin="8 3 5 2" FontSize="9" Text="[-]" />
                 </StackPanel>
             </Grid>
