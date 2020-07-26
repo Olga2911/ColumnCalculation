@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt1._0"
         mc:Ignorable="d"
-        Title="C0ParameterInformation" Height="262" Width="320">
+        Title="C0ParameterInformation" Height="340" Width="320">
     
     
     <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="2" Margin="5">
@@ -18,9 +18,28 @@
             </TextBlock>
             
             <TextBlock TextWrapping="Wrap" TextAlignment="Justify" FontSize="9" Margin="5 0 5 4">
-                     jest to współczynnik zależny od rozkładu momentu pierwszego rzędu (np. c<Run FontSize="7" BaselineAlignment="Subscript">0</Run>=8 gdy moment pierwszego rodzaju jest stały, c<Run FontSize="7" BaselineAlignment="Subscript">0</Run>=9,6 gdy ma rozkład paraboliczny, c<Run FontSize="7" BaselineAlignment="Subscript">0</Run>=12 gdy ma symetryczny rozkład trójkątny, itd.)
+                     jest to współczynnik zależny od rozkładu momentu pierwszego rzędu.
+            </TextBlock>
+
+            <TextBlock TextWrapping="Wrap" TextAlignment="Justify" FontSize="9" Margin="5 0 5 4">
+                     Wartość współczynnika należy przyjąć zgodnie z poniższymi szkicami.
             </TextBlock>
             
+            <Image Margin="0 0 0 0" Width="240" Name="image2" Source="D:\Studia\Mgr\ColumnCalculation-master\ColumnCalculation\Projekt1.0\Draws\C0.jpg" >
+            </Image>
+
+            <TextBlock TextWrapping="Wrap" TextAlignment="Justify" FontSize="9" Margin="5 0 5 9">
+                    UWAGA: Jeżeli powyższe szkice nie przedstawiają rozpatrywanego przypadku, zaleca się przyjąć wartość c<Run FontSize="7" BaselineAlignment="Subscript">0</Run>=1.
+            </TextBlock>
+
+            <!--<TextBlock TextWrapping="Wrap" TextAlignment="Justify"  FontSize="9" Margin="5 3 5 0">
+                W elementach bez obciążenia poprzecznego, różniące się momenty pierwszego rzędu na końcach elementu  M<Run FontSize="7" BaselineAlignment="Subscript">01</Run> i M<Run FontSize="7" BaselineAlignment="Subscript">02</Run> można zastąpić ekwiwalentnym momentem pierwszego rzędu M<Run FontSize="7" BaselineAlignment="Subscript">0e</Run>, zgodnie z 5.8.8.2(2) EC2. Konsekwentnie należy przyjąć c<Run FontSize="7" BaselineAlignment="Subscript">0</Run>=8, jak dla momentu stałego na całej długości. 
+            </TextBlock>
+
+            <TextBlock TextWrapping="Wrap" TextAlignment="Justify"  FontSize="9" Margin="5 3 5 0">
+                UWAGA: Wartość c<Run FontSize="7" BaselineAlignment="Subscript">0</Run>=8 stosuje się także do elementów zginanych ukośnie. Należy zauważyć, że w niektórych przypadkach, w zależności od smukłości i siły podłużnej, momenty na końcach mogą być większe niż powiększony moment ekwiwalentny.
+            </TextBlock>-->
+
             <Grid >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.5*" />
@@ -30,26 +49,25 @@
 
                 <StackPanel Grid.Column="0">
                     <TextBlock Margin="5 0 5 2" FontSize="9" >
-                       c<Run FontSize="7" BaselineAlignment="Subscript">0</Run>=
+                       c<Run FontSize="7" BaselineAlignment="Subscript">0,y</Run>=
                     </TextBlock>
+                    <TextBlock Margin="5 0 5 2" FontSize="9" >
+                       c<Run FontSize="7" BaselineAlignment="Subscript">0,z</Run>=
+                    </TextBlock>
+
                 </StackPanel>
 
                 <StackPanel Grid.Column="1">
-                    <TextBox FontSize="9" Background="Beige" Margin="0 0 0 4" Text="{Binding Column.SecondOrderParameters.C0}"  />
+                    <TextBox FontSize="9" Background="Beige" Margin="0 0 0 4" Text="{Binding Column.SecondOrderParameters.C0Y}"  />
+                    <TextBox FontSize="9" Background="Beige" Margin="0 0 0 4" Text="{Binding Column.SecondOrderParameters.C0Z}"  />
                 </StackPanel>
 
                 <StackPanel Grid.Column="2">
                     <TextBlock Margin="8 0 5 2" FontSize="9" Text="[-]" />
+                    <TextBlock Margin="8 0 5 2" FontSize="9" Text="[-]" />
                 </StackPanel>
             </Grid>
 
-            <TextBlock TextWrapping="Wrap" TextAlignment="Justify"  FontSize="9" Margin="5 3 5 0">
-                W elementach bez obciążenia poprzecznego, różniące się momenty pierwszego rzędu na końcach elementu  M<Run FontSize="7" BaselineAlignment="Subscript">01</Run> i M<Run FontSize="7" BaselineAlignment="Subscript">02</Run> można zastąpić ekwiwalentnym momentem pierwszego rzędu M<Run FontSize="7" BaselineAlignment="Subscript">0e</Run>, zgodnie z 5.8.8.2(2) EC2. Konsekwentnie należy przyjąć c<Run FontSize="7" BaselineAlignment="Subscript">0</Run>=8, jak dla momentu stałego na całej długości. 
-            </TextBlock>
-
-            <TextBlock TextWrapping="Wrap" TextAlignment="Justify"  FontSize="9" Margin="5 3 5 0">
-                UWAGA: Wartość c<Run FontSize="7" BaselineAlignment="Subscript">0</Run>=8 stosuje się także do elementów zginanych ukośnie. Należy zauważyć, że w niektórych przypadkach, w zależności od smukłości i siły podłużnej, momenty na końcach mogą być większe niż powiększony moment ekwiwalentny.
-            </TextBlock>
 
 
         </StackPanel>

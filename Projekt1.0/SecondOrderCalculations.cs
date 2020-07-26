@@ -32,26 +32,32 @@ namespace Projekt1._0
         private Double eiy = 0.0;
         private Double eiz = 0.0;
 
-        private Double beta = 0.0;
+        private Double betaY = 0.0;
+        private Double betaZ = 0.0;
         private Double nby = 0.0;
         private Double nbz = 0.0;
         private Double medy = 0.0;
         private Double medz = 0.0;
-        private Double ey = 0.0;
-        private Double ez = 0.0;
+        private Double e1y = 0.0;
+        private Double e1z = 0.0;
         private Double e0 = 0.0;
 
         private Double alfah = 0.0;
         private Double tetai = 0.0;
         private Double eiyi = 0.0;
         private Double eizi = 0.0;
-        private Double eyi = 0.0;
-        private Double ezi = 0.0;
+        private Double ey = 0.0;
+        private Double ez = 0.0;
 
         private String commentyY;
         private String warningY;
         private String commentyZ;
         private String warningZ;
+
+        //private String eYComment;
+        //private String eZComment;
+        //private String eYWarning;
+        //private String eZWarning;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -228,11 +234,19 @@ namespace Projekt1._0
             }
         }
 
-        public Double Beta
+        public Double BetaY
         {
             get
             {
-                return beta;
+                return betaY;
+            }
+        }
+
+        public Double BetaZ
+        {
+            get
+            {
+                return betaZ;
             }
         }
 
@@ -268,19 +282,19 @@ namespace Projekt1._0
             }
         }
 
-        public Double Ez
+        public Double E1z
         {
             get
             {
-                return ez;
+                return e1z;
             }
         }
 
-        public Double Ey
+        public Double E1y
         {
             get
             {
-                return ey;
+                return e1y;
             }
         }
 
@@ -324,19 +338,19 @@ namespace Projekt1._0
             }
         }
 
-        public Double Eyi
+        public Double Ey
         {
             get
             {
-                return eyi;
+                return ey;
             }
         }
 
-        public Double Ezi
+        public Double Ez
         {
             get
             {
-                return ezi;
+                return ez;
             }
         }
 
@@ -387,7 +401,54 @@ namespace Projekt1._0
                 warningZ = value;
             }
         }
+        
+        //public String EYComment
+        //{
+        //    get
+        //    {
+        //        return eYComment;
+        //    }
+        //    set
+        //    {
+        //        eYComment = value;
+        //    }
+        //}
 
+        //public String EZComment
+        //{
+        //    get
+        //    {
+        //        return eZComment;
+        //    }
+        //    set
+        //    {
+        //        eZComment = value;
+        //    }
+        //}
+
+        //public String EYWarning
+        //{
+        //    get
+        //    {
+        //        return eYWarning;
+        //    }
+        //    set
+        //    {
+        //        eYWarning = value;
+        //    }
+        //}
+
+        //public String EZWarning
+        //{
+        //    get
+        //    {
+        //        return eZWarning;
+        //    }
+        //    set
+        //    {
+        //        eZWarning = value;
+        //    }
+        //}
 
 
         public void Calculate(Project project)
@@ -480,9 +541,14 @@ namespace Projekt1._0
 
 
 
-            beta = Math.PI * Math.PI / project.Column.SecondOrderParameters.C0;
-            beta = Math.Round((Double)beta, 3);
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Beta"));
+            betaY = Math.PI * Math.PI / project.Column.SecondOrderParameters.C0Y;
+            betaY = Math.Round((Double)betaY, 3);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BetaY"));
+
+            betaZ = Math.PI * Math.PI / project.Column.SecondOrderParameters.C0Z;
+            betaZ = Math.Round((Double)betaZ, 3);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BetaZ"));
+
 
             nby = Math.PI * Math.PI * eiy / (height0y * height0y) * 10000;
             nby = Math.Round((Double)nby, 2);
@@ -492,27 +558,25 @@ namespace Projekt1._0
             nbz = Math.Round((Double)nbz, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Nbz"));
 
-            medy = project.Column.Statics.BendingMomentz * (1 + beta / ((nbz / project.Column.Statics.CompressiveForce) - 1));
+            medy = project.Column.Statics.BendingMomentz * (1 + betaZ / ((nbz / project.Column.Statics.CompressiveForce) - 1));
             medy = Math.Round((Double)medy, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Medy"));
 
-            medz = project.Column.Statics.BendingMomenty * (1 + beta / ((nby / project.Column.Statics.CompressiveForce) - 1));
+            medz = project.Column.Statics.BendingMomenty * (1 + betaY / ((nby / project.Column.Statics.CompressiveForce) - 1));
             medz = Math.Round((Double)medz, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Medz"));
-
-            ey = medz / project.Column.Statics.CompressiveForce;
-            ey = Math.Round((Double)ey, 4);
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ey"));
-
-            ez = medy / project.Column.Statics.CompressiveForce;
-            ez = Math.Round((Double)ez, 4);
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ez"));
 
             e0 = 0.01 * Math.Max(project.Column.Dimension.Height / 30, 2);
             e0 = Math.Round((Double)e0, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("E0"));
 
+            e1y = Math.Max(medz/project.Column.Statics.CompressiveForce, e0);
+            e1y = Math.Round((Double)e1y, 4);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("E1y"));
 
+            e1z = Math.Max(medy / project.Column.Statics.CompressiveForce, e0);
+            e1z = Math.Round((Double)e1z, 4);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("E1z"));
 
             alfah = Math.Min(Math.Max(2 / Math.Sqrt(project.Column.Dimension.ColumnHeight * 0.01), 2 / 3), 1);
             alfah = Math.Round((Double)alfah, 3);
@@ -530,13 +594,13 @@ namespace Projekt1._0
             eizi = Math.Round((Double)eizi, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Eizi"));
 
-            eyi = Math.Max(e0, eiyi);
-            eyi = Math.Round((Double)eyi, 4);
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Eyi"));
+            ey = e1y+eiyi;
+            ey = Math.Round((Double)ey, 4);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ey"));
 
-            ezi = Math.Max(e0, eizi);
-            ezi = Math.Round((Double)ezi, 4);
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ezi"));
+            ez = eizi+e1z;
+            ez = Math.Round((Double)ez, 4);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ez"));
 
             if (lambday <= lambdalim)
             {
@@ -553,21 +617,42 @@ namespace Projekt1._0
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("warningY"));
             }
 
-            if (lambdaz <= lambdalim)
-            {
-                commentyZ = "SPEŁNIONY";
-                warningZ = "Efekty II-go rzędu można pominąć.";
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("commentyZ"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("warningZ"));
-            }
-            else
-            {
-                commentyZ = "NIESPEŁNIONY";
-                warningZ = "Należy uwzględnić efekty II-go rzędu.";
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("commentyZ"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("warningZ"));
-            }
+            //if (lambdaz <= lambdalim)
+            //{
+            //    commentyZ = "SPEŁNIONY";
+            //    warningZ = "Efekty II-go rzędu można pominąć.";
+            //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("commentyZ"));
+            //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("warningZ"));
+            //}
+            //else
+            //{
+            //    commentyZ = "NIESPEŁNIONY";
+            //    warningZ = "Należy uwzględnić efekty II-go rzędu.";
+            //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("commentyZ"));
+            //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("warningZ"));
+            //}
+
+            //if (ey <= e0)
+            //{
+            //    eYComment = "SPEŁNIONY";
+            //    eYWarning = "Wpływ imperfekcji można pominąć.";
+            //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("eYComment"));
+            //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("eYWarning"));
+            //}
+            //else
+            //{
+            //    eYComment = "NIESPEŁNIONY";
+            //    eYWarning = "Należy uwzględnić wpływ imperfekcji.";
+            //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("eYComment"));
+            //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("eYWarning"));
+            //}
 
         }
     }
 }
+
+
+
+
+
+
