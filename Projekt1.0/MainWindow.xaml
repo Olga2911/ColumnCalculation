@@ -10,8 +10,8 @@
         <local:Project x:Key="project"/>
     </Window.Resources>
 
-    <!--<ScrollViewer
-        VerticalScrollBarVisibility="Visible">-->
+    <ScrollViewer
+        VerticalScrollBarVisibility="Visible">
 
         <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="0" Margin="5">
         <Grid>
@@ -484,7 +484,7 @@
                                     </StackPanel>
 
                                     <StackPanel Grid.Column="1">
-                                        <TextBox FontSize="9" Background="Beige" Margin="0 2 0 2" Text="{Binding Column.SecondOrderParameters.Miz, Mode=OneWay, Source={StaticResource project}}" />
+                                        <TextBox FontSize="9" Background="Beige" Margin="0 2 0 2" Text="{Binding Column.SecondOrderParameters.Miz, Source={StaticResource project}}" />
                                         <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Height0z, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
                                         <TextBox FontSize="9" FontWeight="Bold" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.Lambdaz, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
                                     </StackPanel>
@@ -1015,7 +1015,7 @@
                 <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="4" Margin="4">
                     <StackPanel >
                         <TextBlock FontSize="12" Margin="2 2 0 0" Text="MOMENT GRANICZNY" FontWeight="Bold"/>
-                        <TextBlock FontWeight="Bold" FontSize="10" Margin="2 5 0 0" Text="Kierunek y:" />
+                        <TextBlock FontWeight="Bold" FontSize="9" Margin="2 2 0 0" Text="MOMENT GRANICZNY - kierunek y" />
                         <Grid >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="2.5*" />
@@ -1025,20 +1025,20 @@
 
                             <StackPanel Grid.Column="0">
                                 
-                                <TextBlock FontSize="9" Margin="5 9 5 2" >
+                                <TextBlock FontSize="9" Margin="5 8 5 2" >
                                     S<Run FontSize="7" BaselineAlignment="Subscript">y</Run>=bd<Run FontSize="7" BaselineAlignment="Subscript">1,y</Run>f<Run FontSize="7" BaselineAlignment="Subscript">cd</Run>=
                                 </TextBlock>
                             
-                                <TextBlock FontSize="9" Margin="5 9 5 2" >
+                                <TextBlock FontSize="9" Margin="5 8 5 2" >
                                     n<Run FontSize="7" BaselineAlignment="Subscript">Ed,y</Run>=N<Run FontSize="7" BaselineAlignment="Subscript">Ed</Run>/S<Run FontSize="7" BaselineAlignment="Subscript">y</Run>=
                                 </TextBlock>
 
-                                <TextBlock FontSize="9" Margin="5 9 5 2">
-                                    α<Run FontSize="7" BaselineAlignment="Subscript">1,y</Run>=A<Run FontSize="7" BaselineAlignment="Subscript">s1</Run>f<Run FontSize="7" BaselineAlignment="Subscript">yd</Run>/ S<Run FontSize="7" BaselineAlignment="Subscript">y</Run>=
+                                <TextBlock FontSize="9" Margin="5 8 5 2">
+                                    α<Run FontSize="7" BaselineAlignment="Subscript">1,y</Run>=A<Run FontSize="7" BaselineAlignment="Subscript">1y</Run>f<Run FontSize="7" BaselineAlignment="Subscript">yd</Run>/ S<Run FontSize="7" BaselineAlignment="Subscript">y</Run>=
                                 </TextBlock>
 
-                                <TextBlock FontSize="9" Margin="5 9 5 2">
-                                    α<Run FontSize="7" BaselineAlignment="Subscript">2,y</Run>=A<Run FontSize="7" BaselineAlignment="Subscript">s2</Run>f<Run FontSize="7" BaselineAlignment="Subscript">yd</Run>/ S<Run FontSize="7" BaselineAlignment="Subscript">y</Run>=
+                                <TextBlock FontSize="9" Margin="5 8 5 2">
+                                    α<Run FontSize="7" BaselineAlignment="Subscript">2,y</Run>=A<Run FontSize="7" BaselineAlignment="Subscript">2y</Run>f<Run FontSize="7" BaselineAlignment="Subscript">yd</Run>/ S<Run FontSize="7" BaselineAlignment="Subscript">y</Run>=
                                 </TextBlock>
 
                                 <TextBlock FontSize="9" Margin="5 9 5 2">
@@ -1049,11 +1049,11 @@
                                     δ<Run FontSize="7" BaselineAlignment="Subscript">2,y</Run>=a<Run FontSize="7" BaselineAlignment="Subscript">2y</Run>/d<Run FontSize="7" BaselineAlignment="Subscript">1y</Run>=
                                 </TextBlock>
 
-                                <TextBlock FontSize="9" Margin="5 9 5 2">
+                                <TextBlock FontSize="9" Margin="5 8 5 2">
                                     m<Run FontSize="7" BaselineAlignment="Subscript">Rd1,y</Run>=
                                 </TextBlock>
 
-                                <TextBlock FontSize="9" Margin="5 9 5 2" >
+                                <TextBlock FontSize="9" Margin="5 8 5 2" >
                                     M<Run FontSize="7" BaselineAlignment="Subscript">Rd,y</Run>=
                                 </TextBlock>
                                 
@@ -1067,22 +1067,22 @@
                                 <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.Delta1y, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True" />
                                 <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.Delta2y, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
                                 <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.MRd1Y, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
-                                <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.MRdY, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
+                                <TextBox FontWeight="Bold" FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.MRdY, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
                             </StackPanel>
 
                             <StackPanel Grid.Column="2">
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kN]" />
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kN]" />
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kNm]" />
+                                <TextBlock FontSize="9" Margin="8 9 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 9 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 9 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 9 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 9 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 9 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 9 5 2" Text="[kNm]" />
                             </StackPanel>
                         </Grid>
 
-                        <TextBlock FontWeight="Bold" FontSize="10" Margin="2 5 0 0" Text="Kierunek z:" />
+                        <TextBlock FontWeight="Bold" FontSize="9" Margin="2 2 0 0" Text="MOMENT GRANICZNY - kierunek z" />
                         <Grid >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="2.5*" />
@@ -1092,20 +1092,20 @@
 
                             <StackPanel Grid.Column="0" >
 
-                                <TextBlock FontSize="9" Margin="5 9 5 2" >
-                                    S<Run FontSize="7" BaselineAlignment="Subscript">z</Run>=bd<Run FontSize="7" BaselineAlignment="Subscript">1,z</Run>f<Run FontSize="7" BaselineAlignment="Subscript">cd</Run>=
+                                <TextBlock FontSize="9" Margin="5 8 5 2" >
+                                    S<Run FontSize="7" BaselineAlignment="Subscript">z</Run>=hd<Run FontSize="7" BaselineAlignment="Subscript">1,z</Run>f<Run FontSize="7" BaselineAlignment="Subscript">cd</Run>=
                                 </TextBlock>
 
-                                <TextBlock FontSize="9" Margin="5 9 5 2" >
+                                <TextBlock FontSize="9" Margin="5 8 5 2" >
                                     n<Run FontSize="7" BaselineAlignment="Subscript">Ed,z</Run>=N<Run FontSize="7" BaselineAlignment="Subscript">Ed</Run>/S<Run FontSize="7" BaselineAlignment="Subscript">z</Run>=
                                 </TextBlock>
 
-                                <TextBlock FontSize="9" Margin="5 9 5 2">
-                                    α<Run FontSize="7" BaselineAlignment="Subscript">1,z</Run>=A<Run FontSize="7" BaselineAlignment="Subscript">s1</Run>f<Run FontSize="7" BaselineAlignment="Subscript">yd</Run>/ S<Run FontSize="7" BaselineAlignment="Subscript">z</Run>=
+                                <TextBlock FontSize="9" Margin="5 8 5 2">
+                                    α<Run FontSize="7" BaselineAlignment="Subscript">1,z</Run>=A<Run FontSize="7" BaselineAlignment="Subscript">1z</Run>f<Run FontSize="7" BaselineAlignment="Subscript">yd</Run>/ S<Run FontSize="7" BaselineAlignment="Subscript">z</Run>=
                                 </TextBlock>
 
-                                <TextBlock FontSize="9" Margin="5 9 5 2">
-                                    α<Run FontSize="7" BaselineAlignment="Subscript">2,z</Run>=A<Run FontSize="7" BaselineAlignment="Subscript">s2</Run>f<Run FontSize="7" BaselineAlignment="Subscript">yd</Run>/ S<Run FontSize="7" BaselineAlignment="Subscript">z</Run>=
+                                <TextBlock FontSize="9" Margin="5 8 5 2">
+                                    α<Run FontSize="7" BaselineAlignment="Subscript">2,z</Run>=A<Run FontSize="7" BaselineAlignment="Subscript">2z</Run>f<Run FontSize="7" BaselineAlignment="Subscript">yd</Run>/ S<Run FontSize="7" BaselineAlignment="Subscript">z</Run>=
                                 </TextBlock>
 
                                 <TextBlock FontSize="9" Margin="5 9 5 2">
@@ -1116,11 +1116,11 @@
                                     δ<Run FontSize="7" BaselineAlignment="Subscript">2,z</Run>=a<Run FontSize="7" BaselineAlignment="Subscript">2z</Run>/d<Run FontSize="7" BaselineAlignment="Subscript">1z</Run>=
                                 </TextBlock>
 
-                                <TextBlock FontSize="9" Margin="5 9 5 2">
+                                <TextBlock FontSize="9" Margin="5 8 5 2">
                                     m<Run FontSize="7" BaselineAlignment="Subscript">Rd1,z</Run>=
                                 </TextBlock>
 
-                                <TextBlock FontSize="9" Margin="5 9 5 2" >
+                                <TextBlock FontSize="9" Margin="5 8 5 2" >
                                     M<Run FontSize="7" BaselineAlignment="Subscript">Rd,z</Run>=
                                 </TextBlock>
 
@@ -1134,18 +1134,18 @@
                                 <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.Delta1z, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
                                 <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.Delta2z, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
                                 <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.MRd1Z, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
-                                <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.MRdZ, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
+                                <TextBox FontWeight="Bold" FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding LoadCapacityCalculation.MRdZ, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
                             </StackPanel>
 
                             <StackPanel Grid.Column="2" >
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kN]" />
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[m]" />
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kNm]" />
+                                <TextBlock FontSize="9" Margin="8 9 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 9 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 9 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 9 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 9 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 9 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 9 5 2" Text="[kNm]" />
                             </StackPanel>
                         </Grid>
                     </StackPanel>
@@ -1163,22 +1163,125 @@
                             </Grid.ColumnDefinitions>
 
                             <StackPanel Grid.Column="0">
-                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="lambdaZ/lambdaY=" />
-                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="b eq=" />
-                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="h eq=" />
-                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="(eiy/heq)/(eiz/beq)=" />
-                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="(eiz/beq)/(eiy/heq)="  />
+                                <TextBlock FontSize="9" Margin="5 9 5 2" >
+                                        λ<Run FontSize="7" BaselineAlignment="Subscript">y</Run>/λ<Run FontSize="7" BaselineAlignment="Subscript">z</Run>=
+                                </TextBlock>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1">
+                                <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding BiaxialBendingCalculation.LambdaYlambdaZ, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2">
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="1.6*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0">
+                                <TextBlock FontWeight="Bold" FontSize="9" Margin="5 5 5 0" Text="Warunek:"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1">
+                                <TextBlock FontWeight="Bold" FontSize="9" Margin="5 5 5 0" >
+                                        0,5≤λ<Run FontSize="7" BaselineAlignment="Subscript">y</Run>/λ<Run FontSize="7" BaselineAlignment="Subscript">z</Run>≤2
+                                </TextBlock>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2">
+                                <TextBlock Foreground="OrangeRed" FontWeight="Bold" FontSize="12" Margin="0 3 5 0"  Text="{Binding BiaxialBendingCalculation.BiaxalConditionChecking1Comment, Mode=OneWay, Source={StaticResource project}}"/>
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2.5*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0">
+                                <TextBlock FontSize="9" Margin="5 9 5 2" >
+                                        b<Run FontSize="7" BaselineAlignment="Subscript">eq</Run>=√(12I<Run FontSize="7" BaselineAlignment="Subscript">c,y</Run>/A<Run FontSize="7" BaselineAlignment="Subscript">c</Run>)=
+                                </TextBlock>
+
+                                <TextBlock FontSize="9" Margin="5 9 5 2" >
+                                        h<Run FontSize="7" BaselineAlignment="Subscript">eq</Run>=√(12I<Run FontSize="7" BaselineAlignment="Subscript">c,z</Run>/A<Run FontSize="7" BaselineAlignment="Subscript">c</Run>)=
+                                </TextBlock>
+
+                                <TextBlock FontSize="9" Margin="5 8 5 2" >
+                                    (e<Run FontSize="7" BaselineAlignment="Subscript">y</Run>/h<Run FontSize="7" BaselineAlignment="Subscript">eq</Run>)/(e<Run FontSize="7" BaselineAlignment="Subscript">z</Run>/b<Run FontSize="7" BaselineAlignment="Subscript">eq</Run>)=
+                                </TextBlock>
+
+                                <TextBlock FontSize="9" Margin="5 8 5 2" >
+                                    (e<Run FontSize="7" BaselineAlignment="Subscript">z</Run>/b<Run FontSize="7" BaselineAlignment="Subscript">eq</Run>)/(e<Run FontSize="7" BaselineAlignment="Subscript">y</Run>/h<Run FontSize="7" BaselineAlignment="Subscript">eq</Run>)=
+                                </TextBlock>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1">
+                                <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding BiaxialBendingCalculation.BEq, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
+                                <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding BiaxialBendingCalculation.HEq, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
+                                <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding BiaxialBendingCalculation.BiaxialBendingCriterium1, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
+                                <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding BiaxialBendingCalculation.BiaxialBendingCriterium2, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2">
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[cm]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[cm]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="1.6*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0">
+                                <TextBlock FontWeight="Bold" FontSize="9" Margin="5 5 5 0" Text="Warunek:"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1">
+                                <TextBlock FontWeight="Bold" FontSize="9" Margin="5 5 5 2" >
+                                    (e<Run FontSize="7" BaselineAlignment="Subscript">y</Run>/h<Run FontSize="7" BaselineAlignment="Subscript">eq</Run>)/(e<Run FontSize="7" BaselineAlignment="Subscript">z</Run>/b<Run FontSize="7" BaselineAlignment="Subscript">eq</Run>)≤0,2
+                                </TextBlock>
+
+                                <TextBlock TextAlignment="Center" FontWeight="Bold" FontSize="9" Margin="5 5 5 0" Text="lub"/>
+
+                                <TextBlock FontWeight="Bold" FontSize="9" Margin="5 5 5 2" >
+                                    (e<Run FontSize="7" BaselineAlignment="Subscript">z</Run>/b<Run FontSize="7" BaselineAlignment="Subscript">eq</Run>)/(e<Run FontSize="7" BaselineAlignment="Subscript">y</Run>/h<Run FontSize="7" BaselineAlignment="Subscript">eq</Run>)≤0,2
+                                </TextBlock>
+
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2">
+                                <TextBlock Foreground="OrangeRed" FontWeight="Bold" FontSize="12" Margin="0 3 5 0"  Text="{Binding BiaxialBendingCalculation.BiaxalConditionChecking2Comment, Mode=OneWay, Source={StaticResource project}}"/>
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2.5*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0">
                                 <TextBlock FontSize="9" Margin="5 9 5 2" Text="NEd/NRd=" />
                                 <TextBlock FontSize="9" Margin="5 9 5 2" Text="a= EC 5.8.9 " />
                                 <TextBlock FontSize="9" Margin="5 9 5 2" Text="(MEdz/MRdz)^a+(MEdy/MRdy)^a=" />
                             </StackPanel>
 
                             <StackPanel Grid.Column="1">
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding BiaxialBendingCalculation.LambdaZlambdaY, Mode=OneWay, Source={StaticResource project}}" />
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding BiaxialBendingCalculation.BEq, Mode=OneWay, Source={StaticResource project}}"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding BiaxialBendingCalculation.HEq, Mode=OneWay, Source={StaticResource project}}"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding BiaxialBendingCalculation.BiaxialBendingCriterium1, Mode=OneWay, Source={StaticResource project}}"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding BiaxialBendingCalculation.BiaxialBendingCriterium2, Mode=OneWay, Source={StaticResource project}}"/>
                                 <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding BiaxialBendingCalculation.NEdNRd, Mode=OneWay, Source={StaticResource project}}"/>
                                 <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" />
                                 <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" />
@@ -1186,22 +1289,18 @@
 
                             <StackPanel Grid.Column="2">
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[cm]" />
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[cm]" />
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kNm]" />
                             </StackPanel>
                         </Grid>
+
+                        
+                        
+                        
                     </StackPanel>
                 </Border>
-
-
-
             </StackPanel>
         </Grid>
     </Border>
-    <!--</ScrollViewer>-->
+    </ScrollViewer>
 </Window>

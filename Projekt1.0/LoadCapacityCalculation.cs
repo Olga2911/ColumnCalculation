@@ -264,39 +264,51 @@ namespace Projekt1._0
         public void Calculate(Project project)
         {
             sy = project.Column.Dimension.Width*project.BasicCalculations.D1y*project.BasicCalculations.Fcd*0.1;
+            sy = Math.Round((Double)sy, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sy"));
 
             sz = project.Column.Dimension.Height * project.BasicCalculations.D1z * project.BasicCalculations.Fcd*0.1;
+            sz = Math.Round((Double)sz, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sz"));
 
             nEdy =project.Column.Statics.CompressiveForce/sy;
+            nEdy = Math.Round((Double)nEdy, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NEdy"));
 
             nEdz = project.Column.Statics.CompressiveForce / sz;
+            nEdz = Math.Round((Double)nEdz, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NEdz"));
 
             alfa1y = project.BasicCalculations.AreaAs1y*0.001*project.BasicCalculations.Fyd/sy;
+            alfa1y = Math.Round((Double)alfa1y, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Alfa1y"));
 
             alfa2y = project.BasicCalculations.AreaAs2y * 0.001 * project.BasicCalculations.Fyd / sy;
+            alfa2y = Math.Round((Double)alfa2y, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Alfa2y"));
 
             alfa1z = project.BasicCalculations.AreaAs1z * 0.001 * project.BasicCalculations.Fyd / sz;
+            alfa1z = Math.Round((Double)alfa1z, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Alfa1z"));
 
             alfa2z = project.BasicCalculations.AreaAs2z * 0.001 * project.BasicCalculations.Fyd / sz;
+            alfa2z = Math.Round((Double)alfa2z, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Alfa2z"));
 
             delta1y = project.BasicCalculations.A1y * 0.1 / project.BasicCalculations.D1y;
+            delta1y = Math.Round((Double)delta1y, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Delta1y"));
 
             delta2y = project.BasicCalculations.A2y * 0.1 / project.BasicCalculations.D2y;
+            delta2y = Math.Round((Double)delta2y, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Delta2y"));
 
             delta1z = project.BasicCalculations.A1z * 0.1 / project.BasicCalculations.D1z;
+            delta1z = Math.Round((Double)delta1z, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Delta1z"));
 
             delta2z = project.BasicCalculations.A2z * 0.1 / project.BasicCalculations.D2z;
+            delta2z = Math.Round((Double)delta2z, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Delta2z"));
 
 
@@ -327,9 +339,11 @@ namespace Projekt1._0
 
                     mRd1Y = project.Column.LoadCapacityParameters.Lambda * project.Column.LoadCapacityParameters.Ni * ksiY * (1 - 0.5 * project.Column.LoadCapacityParameters.Lambda * ksiY) +
                         +k2Y * alfa2y * (1 - delta2y);
+                    mRd1Y = Math.Round((Double)mRd1Y, 4);
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MRd1Y"));
 
                     mRdY = (mRd1Y - 0.5 * nEdy * (1 - delta1y)) * sy * project.BasicCalculations.D1y*0.01;
+                    mRdY = Math.Round((Double)mRdY, 2);
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MRdY"));
                 }
 
@@ -348,9 +362,11 @@ namespace Projekt1._0
 
                         mRd1Y = project.Column.LoadCapacityParameters.Lambda * project.Column.LoadCapacityParameters.Ni * ksiY * (1 - 0.5 * project.Column.LoadCapacityParameters.Lambda * ksiY) +
                             +k2Y * alfa2y * (1 - delta2y);
+                        mRd1Y = Math.Round((Double)mRd1Y, 4);
                         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MRd1Y"));
 
                         mRdY = (mRd1Y - 0.5 * nEdy * (1 - delta1y)) * sy * project.BasicCalculations.D1y*0.01;
+                        mRdY = Math.Round((Double)mRdY, 2);
                         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MRdY"));
                     }
 
@@ -369,9 +385,11 @@ namespace Projekt1._0
 
                             mRd1Y = project.Column.LoadCapacityParameters.Lambda * project.Column.LoadCapacityParameters.Ni * ksiY * (1 - 0.5 * project.Column.LoadCapacityParameters.Lambda * ksiY) +
                                 +k2Y * alfa2y * (1 - delta2y);
+                            mRd1Y = Math.Round((Double)mRd1Y, 4);
                             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MRd1Y"));
 
                             mRdY = (mRd1Y - 0.5 * nEdy * (1 - delta1y)) * sy * project.BasicCalculations.D1y*0.01;
+                            mRdY = Math.Round((Double)mRdY, 2);
                             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MRdY"));
                         }
 
@@ -385,9 +403,11 @@ namespace Projekt1._0
 
                             mRd1Y = project.Column.LoadCapacityParameters.Lambda * project.Column.LoadCapacityParameters.Ni * ksiY * (1 - 0.5 * project.Column.LoadCapacityParameters.Lambda * ksiY) +
                              +k2Y * alfa2y * (1 - delta2y);
+                            mRd1Y = Math.Round((Double)mRd1Y, 4);
                             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MRd1Y"));
 
                             mRdY = (mRd1Y - 0.5 * nEdy * (1 - delta1y)) * sy * project.BasicCalculations.D1y*0.01;
+                            mRdY = Math.Round((Double)mRdY, 2);
                             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MRdY"));
                         }
                     }
@@ -413,9 +433,11 @@ namespace Projekt1._0
                 {
                     mRd1Y = Math.Min(project.Column.LoadCapacityParameters.Lambda * project.Column.LoadCapacityParameters.Ni * (1 - 0.5 * project.Column.LoadCapacityParameters.Lambda) + alfa2y * (1 - delta2y),
                         0.5 * project.Column.LoadCapacityParameters.Ni * (1 - delta1y * delta1y) + kParameterCapacityY * alfa2y * (1 - delta2y));
+                    mRd1Y = Math.Round((Double)mRd1Y, 4);
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MRd1Y"));
 
                     mRdY = (mRd1Y - 0.5 * nEdy * (1 - delta1y)) * sy * project.BasicCalculations.D1y*0.01;
+                    mRdY = Math.Round((Double)mRdY, 2);
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MRdY"));
 
                     if (mRdY < 0)
@@ -430,9 +452,11 @@ namespace Projekt1._0
                     //niewiem co ???
                     mRd1Y = Math.Min(project.Column.LoadCapacityParameters.Lambda * project.Column.LoadCapacityParameters.Ni * (1 - 0.5 * project.Column.LoadCapacityParameters.Lambda) + alfa2y * (1 - delta2y),
                     0.5 * project.Column.LoadCapacityParameters.Ni * (1 - delta1y * delta1y) + kParameterCapacityY * alfa2y * (1 - delta2y));
+                    mRd1Y = Math.Round((Double)mRd1Y, 4);
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MRd1Y"));
 
                     mRdY = (mRd1Y - 0.5 * nEdy * (1 - delta1y)) * sy * project.BasicCalculations.D1y*0.01;
+                    mRdY = Math.Round((Double)mRdY, 2);
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MRdY"));
 
                     if (mRdY < 0)
@@ -471,9 +495,11 @@ namespace Projekt1._0
 
                     mRd1Z = project.Column.LoadCapacityParameters.Lambda * project.Column.LoadCapacityParameters.Ni * ksiZ * (1 - 0.5 * project.Column.LoadCapacityParameters.Lambda * ksiZ) +
                         +k2Z * alfa2z * (1 - delta2z);
+                    mRd1Z = Math.Round((Double)mRd1Z, 4);
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MRd1Z"));
 
                     mRdZ = (mRd1Z - 0.5 * nEdz * (1 - delta1z)) * sz * project.BasicCalculations.D1z * 0.01;
+                    mRdZ = Math.Round((Double)mRdZ, 2);
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MRdZ"));
                 }
 
@@ -492,9 +518,11 @@ namespace Projekt1._0
 
                         mRd1Z = project.Column.LoadCapacityParameters.Lambda * project.Column.LoadCapacityParameters.Ni * ksiZ * (1 - 0.5 * project.Column.LoadCapacityParameters.Lambda * ksiZ) +
                             +k2Z * alfa2z * (1 - delta2z);
+                        mRd1Z = Math.Round((Double)mRd1Z, 4);
                         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MRd1Z"));
 
                         mRdZ = (mRd1Z - 0.5 * nEdz * (1 - delta1z)) * sz * project.BasicCalculations.D1z * 0.01;
+                        mRdZ = Math.Round((Double)mRdZ, 2);
                         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MRdZ"));
                     }
 
@@ -513,9 +541,11 @@ namespace Projekt1._0
 
                             mRd1Z = project.Column.LoadCapacityParameters.Lambda * project.Column.LoadCapacityParameters.Ni * ksiZ * (1 - 0.5 * project.Column.LoadCapacityParameters.Lambda * ksiZ) +
                                 +k2Z * alfa2z * (1 - delta2z);
+                            mRd1Z = Math.Round((Double)mRd1Z, 4);
                             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MRd1Z"));
 
                             mRdZ = (mRd1Z - 0.5 * nEdz * (1 - delta1z)) * sz * project.BasicCalculations.D1z * 0.01;
+                            mRdZ = Math.Round((Double)mRdZ, 2);
                             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MRdZ"));
                         }
 
@@ -529,9 +559,11 @@ namespace Projekt1._0
 
                             mRd1Z = project.Column.LoadCapacityParameters.Lambda * project.Column.LoadCapacityParameters.Ni * ksiZ * (1 - 0.5 * project.Column.LoadCapacityParameters.Lambda * ksiZ) +
                              +k2Z * alfa2z * (1 - delta2z);
+                            mRd1Z = Math.Round((Double)mRd1Z, 4);
                             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MRd1Z"));
 
                             mRdZ = (mRd1Z - 0.5 * nEdz * (1 - delta1z)) * sz * project.BasicCalculations.D1z * 0.01;
+                            mRdZ = Math.Round((Double)mRdZ, 2);
                             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MRdZ"));
                         }
                     }
@@ -557,9 +589,11 @@ namespace Projekt1._0
                 {
                     mRd1Z = Math.Min(project.Column.LoadCapacityParameters.Lambda * project.Column.LoadCapacityParameters.Ni * (1 - 0.5 * project.Column.LoadCapacityParameters.Lambda) + alfa2z * (1 - delta2z),
                         0.5 * project.Column.LoadCapacityParameters.Ni * (1 - delta1z * delta1z) + kParameterCapacityZ * alfa2z * (1 - delta2z));
+                    mRd1Z = Math.Round((Double)mRd1Z, 4);
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MRd1Z"));
 
                     mRdZ = (mRd1Z - 0.5 * nEdz * (1 - delta1z)) * sz * project.BasicCalculations.D1z * 0.01;
+                    mRdZ = Math.Round((Double)mRdZ, 2);
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MRdZ"));
 
                     if (mRdZ < 0)
@@ -576,9 +610,11 @@ namespace Projekt1._0
 
                     mRd1Z = Math.Min(project.Column.LoadCapacityParameters.Lambda * project.Column.LoadCapacityParameters.Ni * (1 - 0.5 * project.Column.LoadCapacityParameters.Lambda) + alfa2z * (1 - delta2z),
                     0.5 * project.Column.LoadCapacityParameters.Ni * (1 - delta1z * delta1z) + kParameterCapacityZ * alfa2z * (1 - delta2z));
+                    mRd1Z = Math.Round((Double)mRd1Z, 4);
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MRd1Z"));
 
                     mRdZ = (mRd1Z - 0.5 * nEdz * (1 - delta1z)) * sz * project.BasicCalculations.D1z * 0.01;
+                    mRdZ = Math.Round((Double)mRdZ, 2);
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MRdZ"));
 
                     if (mRdZ < 0)
@@ -589,11 +625,6 @@ namespace Projekt1._0
 
                 }
             }
-
-
-
-
-
 
         }
     }
