@@ -1268,7 +1268,22 @@
                             </StackPanel>
                         </Grid>
 
-                        <Grid >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.3*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock  FontSize="9" Margin="5 0 5 2" Text="Uwaga:"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="1">
+                                    <TextBlock TextAlignment="Right" FontSize="8" Margin="0 1 5 2"  Text="{Binding BiaxialBendingCalculation.BiaxialBendingConditionWarning, Mode=OneWay, Source={StaticResource project}}"/>
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="2.5*" />
                                 <ColumnDefinition Width="*" />
@@ -1276,28 +1291,83 @@
                             </Grid.ColumnDefinitions>
 
                             <StackPanel Grid.Column="0">
-                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="NEd/NRd=" />
-                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="a= EC 5.8.9 " />
-                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="(MEdz/MRdz)^a+(MEdy/MRdy)^a=" />
-                            </StackPanel>
+                                <TextBlock Margin="5 7 5 2" FontSize="9" >
+                                        N<Run FontSize="7" BaselineAlignment="Subscript">Ed</Run>/N<Run FontSize="7" BaselineAlignment="Subscript">Rd</Run>=N<Run FontSize="7" BaselineAlignment="Subscript">Ed</Run>/(A<Run FontSize="7" BaselineAlignment="Subscript">c</Run>f<Run FontSize="7" BaselineAlignment="Subscript">cd</Run>+A<Run FontSize="7" BaselineAlignment="Subscript">s</Run>f<Run FontSize="7" BaselineAlignment="Subscript">yd</Run>)=
+                                    </TextBlock>
+                                <TextBlock FontSize="9" Margin="5 9 5 2" Text="a=" />
+                                <TextBlock FontSize="9" Margin="5 5 5 2" >
+                                    (M<Run FontSize="7" BaselineAlignment="Subscript">Edz</Run>/M<Run FontSize="7" BaselineAlignment="Subscript">Rdz</Run>)<Run FontSize="7" BaselineAlignment="Superscript">a</Run>+(M<Run FontSize="7" BaselineAlignment="Subscript">Edy</Run>/M<Run FontSize="7" BaselineAlignment="Subscript">Rdy</Run>)<Run FontSize="7" BaselineAlignment="Superscript">a</Run>=
+                                </TextBlock>
+
+                                </StackPanel>
 
                             <StackPanel Grid.Column="1">
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" Text="{Binding BiaxialBendingCalculation.NEdNRd, Mode=OneWay, Source={StaticResource project}}"/>
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" />
-                                <TextBox FontSize="9" Background="Beige" Margin="0 7 0 2" />
-                            </StackPanel>
+                                <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding BiaxialBendingCalculation.NEdNRd, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
+                                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding BiaxialBendingCalculation.AParameter, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
+                                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding BiaxialBendingCalculation.BiaxialBendingCondition, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
+                                </StackPanel>
 
                             <StackPanel Grid.Column="2">
                                 <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
-                                <TextBlock FontSize="9" Margin="8 8 5 2" Text="[kNm]" />
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackPanel Grid.Column="0">
+                                            <TextBlock FontSize="9" Margin="8 4 5 2" Text="[-]" />
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Column="1">
+                                            <Button Margin="0 3 0 0" Content="?" Width="15" FontSize="9" Command="{Binding Column.AParameter, Source={StaticResource project}}" CommandParameter="{DynamicResource project}"/>
+                                        </StackPanel>
+                                    </Grid>
+                                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[-]" />
                             </StackPanel>
                         </Grid>
 
-                        
-                        
-                        
-                    </StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="1.6*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock FontWeight="Bold" FontSize="9" Margin="5 5 5 0" Text="Warunek:"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="1">
+                                    <TextBlock FontWeight="Bold" FontSize="9" Margin="5 0 5 2" >
+                                        (M<Run FontSize="7" BaselineAlignment="Subscript">Edz</Run>/M<Run FontSize="7" BaselineAlignment="Subscript">Rdz</Run>)<Run FontSize="7" BaselineAlignment="Superscript">a</Run>+(M<Run FontSize="7" BaselineAlignment="Subscript">Edy</Run>/M<Run FontSize="7" BaselineAlignment="Subscript">Rdy</Run>)<Run FontSize="7" BaselineAlignment="Superscript">a</Run>≤1
+                                    </TextBlock>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="2">
+                                    <TextBlock Foreground="OrangeRed" FontWeight="Bold" FontSize="12" Margin="0 3 5 0"  Text="{Binding BiaxialBendingCalculation.Biaxalbendingcomment, Mode=OneWay, Source={StaticResource project}}"/>
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.3*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock  FontSize="9" Margin="5 0 5 2" Text="Uwaga:"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="1">
+                                    <TextBlock TextAlignment="Right" FontSize="8" Margin="0 1 5 2"  Text="{Binding BiaxialBendingCalculation.BiaxialBendingWarning, Mode=OneWay, Source={StaticResource project}}"/>
+                                </StackPanel>
+                            </Grid>
+
+
+
+
+                        </StackPanel>
                 </Border>
             </StackPanel>
         </Grid>

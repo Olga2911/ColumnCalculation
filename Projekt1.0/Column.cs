@@ -34,6 +34,7 @@ namespace Projekt1._0
         private RMParameterInformationCommand rMParameterInformationCommand = new RMParameterInformationCommand();
         private KSParameterInformationCommand kSParameterInformationCommand = new KSParameterInformationCommand();
         private C0ParameterInformationCommand c0ParameterInformationCommand = new C0ParameterInformationCommand();
+        private AParameterCommand aParameterCommand = new AParameterCommand();
 
 
         //private CheckEccentricity checkEccentricity = new CheckEccentricity();
@@ -277,6 +278,13 @@ namespace Projekt1._0
             }
         }
 
+        public ICommand AParameter
+        {
+            get
+            {
+                return aParameterCommand;
+            }
+        }
 
         void InputPropertyChangedEventChandler (object sender, PropertyChangedEventArgs e )
         {
