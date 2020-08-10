@@ -93,16 +93,16 @@
 
                         <StackPanel Grid.Column="8" >
                             <TextBlock FontSize="9" Margin="5 5 5 2">
-                                    A<Run FontSize="7" BaselineAlignment="Subscript">1y</Run>=
+                                    A<Run FontSize="7" BaselineAlignment="Subscript">s,1y</Run>=
                             </TextBlock>
                             <TextBlock FontSize="9" Margin="5 8 5 2">
-                                    A<Run FontSize="7" BaselineAlignment="Subscript">2y</Run>=
+                                    A<Run FontSize="7" BaselineAlignment="Subscript">s,2y</Run>=
                             </TextBlock>
                             <TextBlock FontSize="9" Margin="5 8 5 2">
-                                    A<Run FontSize="7" BaselineAlignment="Subscript">1z</Run>=
+                                    A<Run FontSize="7" BaselineAlignment="Subscript">s,1z</Run>=
                             </TextBlock>
                             <TextBlock FontSize="9" Margin="5 8 5 2">
-                                    A<Run FontSize="7" BaselineAlignment="Subscript">2z</Run>=
+                                    A<Run FontSize="7" BaselineAlignment="Subscript">s,2z</Run>=
                             </TextBlock>
                         </StackPanel>
 
@@ -145,7 +145,7 @@
 
                         <StackPanel Grid.Column="1" >
                             <TextBlock FontSize="9" Margin="5 15 5 2">
-                                    A<Run FontSize="7" BaselineAlignment="Subscript">s</Run>=A<Run FontSize="7" BaselineAlignment="Subscript">1y</Run>+A<Run FontSize="7" BaselineAlignment="Subscript">2y</Run>+A<Run FontSize="7" BaselineAlignment="Subscript">1z</Run>+A<Run FontSize="7" BaselineAlignment="Subscript">2z</Run>=
+                                    A<Run FontSize="7" BaselineAlignment="Subscript">s</Run>=A<Run FontSize="7" BaselineAlignment="Subscript">s,1y</Run>+A<Run FontSize="7" BaselineAlignment="Subscript">s,2y</Run>+A<Run FontSize="7" BaselineAlignment="Subscript">s,1z</Run>+A<Run FontSize="7" BaselineAlignment="Subscript">s,2z</Run>=
                             </TextBlock>
                             <TextBlock FontSize="9" Margin="5 9 5 2">
                                     A<Run FontSize="7" BaselineAlignment="Subscript">s,min</Run>=max{0,1N<Run FontSize="7" BaselineAlignment="Subscript">Ed</Run>/f<Run FontSize="7" BaselineAlignment="Subscript">yd</Run>; 0,002bh}=

@@ -38,6 +38,13 @@ namespace Projekt1._0
         private Double bNZ = 0.0;
         private Double kParameterCapacityZ = 0.0;
 
+        private String loadCapacityCheckingCommentY;
+        private String loadCapacityCheckingCommentZ;
+        private String loadCapacityCheckingWarningY;
+        private String loadCapacityCheckingWarningZ;
+        //private String loadCapacityCheckingCaseInformationY;
+        //private String loadCapacityCheckingCaseInformationZ;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public LoadCapacityCalculation (Project project)
@@ -253,8 +260,53 @@ namespace Projekt1._0
             }
         }
 
+        public String LoadCapacityCheckingCommentY
+        {
+            get
+            {
+                return loadCapacityCheckingCommentY;
+            }
+            set
+            {
+                loadCapacityCheckingCommentY = value;
+            }
+        }
 
+        public String LoadCapacityCheckingCommentZ
+        {
+            get
+            {
+                return loadCapacityCheckingCommentZ;
+            }
+            set
+            {
+                loadCapacityCheckingCommentZ = value;
+            }
+        }
 
+        public String LoadCapacityCheckingWarningY
+        {
+            get
+            {
+                return loadCapacityCheckingWarningY;
+            }
+            set
+            {
+                loadCapacityCheckingWarningY = value;
+            }
+        }
+
+        public String LoadCapacityCheckingWarningZ
+        {
+            get
+            {
+                return loadCapacityCheckingWarningZ;
+            }
+            set
+            {
+                loadCapacityCheckingWarningZ = value;
+            }
+        }
 
 
 
@@ -622,9 +674,40 @@ namespace Projekt1._0
                         mRdZ = 0;
                         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MRdZ"));
                     }
-
                 }
             }
+
+            //SPRAWDZIĆ KIERUNKI
+            if (project.SecondOrderCalculations.Medz <= mRdY)
+            {
+                loadCapacityCheckingCommentY = "SPEŁNIONY";
+                loadCapacityCheckingWarningY = "Nośność słupa jest wystarczająca.";
+            }
+            else
+            {
+                loadCapacityCheckingCommentY = "NIESPEŁNIONY";
+                loadCapacityCheckingWarningY = "Nośność słupa nie jest wystarczająca.";
+            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("LoadCapacityCheckingCommentY"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("LoadCapacityCheckingWarningY"));
+
+            if (project.SecondOrderCalculations.Medy <= mRdZ)
+            {
+                loadCapacityCheckingCommentZ = "SPEŁNIONY";
+                loadCapacityCheckingWarningZ = "Nośność słupa jest wystarczająca.";
+            }
+            else
+            {
+                loadCapacityCheckingCommentZ = "NIESPEŁNIONY";
+                loadCapacityCheckingWarningZ = "Nośność słupa nie jest wystarczająca.";
+            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("LoadCapacityCheckingCommentZ"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("LoadCapacityCheckingWarningZ"));
+
+
+
+
+
 
         }
     }

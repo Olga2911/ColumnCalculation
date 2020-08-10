@@ -617,20 +617,20 @@ namespace Projekt1._0
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("warningY"));
             }
 
-            //if (lambdaz <= lambdalim)
-            //{
-            //    commentyZ = "SPEŁNIONY";
-            //    warningZ = "Efekty II-go rzędu można pominąć.";
-            //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("commentyZ"));
-            //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("warningZ"));
-            //}
-            //else
-            //{
-            //    commentyZ = "NIESPEŁNIONY";
-            //    warningZ = "Należy uwzględnić efekty II-go rzędu.";
-            //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("commentyZ"));
-            //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("warningZ"));
-            //}
+            if (lambdaz <= lambdalim)
+            {
+                commentyZ = "SPEŁNIONY";
+                warningZ = "Efekty II-go rzędu można pominąć.";
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("commentyZ"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("warningZ"));
+            }
+            else
+            {
+                commentyZ = "NIESPEŁNIONY";
+                warningZ = "Należy uwzględnić efekty II-go rzędu.";
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("commentyZ"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("warningZ"));
+            }
 
             //if (ey <= e0)
             //{
