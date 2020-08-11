@@ -192,25 +192,23 @@ namespace Projekt1._0
             if ((biaxialBendingCriterium1 <= 0.2) || (biaxialBendingCriterium2 <= 0.2))
             {
                 biaxalConditionChecking2Comment = "SPEŁNIONY";
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BiaxalConditionChecking1Comment"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BiaxalConditionChecking2Comment"));
             }
 
             else
             {
                 biaxalConditionChecking2Comment = "NIESPEŁNIONY";
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BiaxalConditionChecking1Comment"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BiaxalConditionChecking2Comment"));
             }
-
-
 
             if ((0.5 <= lambdaYlambdaZ && lambdaYlambdaZ <= 2) && ((biaxialBendingCriterium1 <= 0.2) || (biaxialBendingCriterium2 <= 0.2)))
             {
-                biaxialBendingConditionWarning = "Warunek na zginanie ukośne można pominąć.";
+                biaxialBendingConditionWarning = "Zginanie ukośne można pominąć.";
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BiaxialBendingConditionWarning"));
             }
             else
             {
-                biaxialBendingConditionWarning = "Należy sprawdzić warunek na zginanie ukośne.";
+                biaxialBendingConditionWarning = "Należy uwzględnić zginanie ukośne.";
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BiaxialBendingConditionWarning"));
             }
 
@@ -273,7 +271,7 @@ namespace Projekt1._0
             }
             else
             {
-                biaxialBendingConditionWarning = "Nośność słupa ukośnie zginanego nie jest wystarczająca";
+                biaxialBendingWarning = "Nośność słupa ukośnie zginanego nie jest wystarczająca";
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BiaxialBendingWarning"));
             }
 
