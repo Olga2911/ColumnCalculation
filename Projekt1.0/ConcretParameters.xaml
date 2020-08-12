@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt1._0"
         mc:Ignorable="d"
-        Title="Parametry betonu" Height="180" Width="400">
+        Title="Parametry betonu" Height="170" Width="380">
     
     <Window.DataContext>
         <local:Project />
@@ -16,57 +16,57 @@
             <Grid Height="177" Margin="0,0,0.333,0" >
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="3.2*" />
+                    <ColumnDefinition Width="0.8*" />
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="0.9*" />
                 </Grid.ColumnDefinitions>
                                                                                                                                           
                 <StackPanel Grid.Column="0">
                     <TextBlock Margin="5 9 5 2" FontSize="12" FontWeight="Bold" Text="KLASA BETONU:" />
-                    <TextBlock Margin="5 8 5 2" FontSize="9" Text="Charakterystyczna wytrzymałość na ściskanie:" />
-                    <TextBlock Margin="5 8 5 2" FontSize="9" Text="Współczynnik bezpieczeństwa:" />
-                    <TextBlock Margin="5 8 5 2" FontSize="9" Text="Obliczeniowa wytrzymałość na ściskanie:" />
-                    <TextBlock Margin="5 8 5 2" FontSize="9" Text="Moduł spężystości betonu:" />
+                    <TextBlock Margin="5 6 5 2" FontSize="9" Text="Charakterystyczna wytrzymałość na ściskanie:" />
+                    <TextBlock Margin="5 6 5 2" FontSize="9" Text="Współczynnik bezpieczeństwa:" />
+                    <TextBlock Margin="5 6 5 2" FontSize="9" Text="Obliczeniowa wytrzymałość na ściskanie:" />
+                    <TextBlock Margin="5 5 5 2" FontSize="9" Text="Moduł spężystości betonu:" />
 
                 </StackPanel>
 
                 <StackPanel Grid.Column="1">
                     <TextBlock Margin="5 9 5 2" FontSize="12" FontWeight="Bold" Text="" />
                     
-                    <TextBlock FontSize="9" Margin="5 8 5 2">
+                    <TextBlock FontSize="9" Margin="5 5 5 2">
                       f<Run FontSize="7" BaselineAlignment="Subscript">ck</Run>=
                     </TextBlock>
 
-                    <TextBlock FontSize="9" Margin="5 8 5 2">
+                    <TextBlock FontSize="9" Margin="5 6 5 2">
                       γ<Run FontSize="7" BaselineAlignment="Subscript">c</Run>=
                     </TextBlock>
 
-                    <TextBlock FontSize="9" Margin="5 8 5 2">
+                    <TextBlock FontSize="9" Margin="5 5 5 2">
                       f<Run FontSize="7" BaselineAlignment="Subscript">cd</Run>=
                     </TextBlock>
 
-                    <TextBlock FontSize="9" Margin="5 8 5 2">
+                    <TextBlock FontSize="9" Margin="5 6 5 2">
                       E<Run FontSize="7" BaselineAlignment="Subscript">cm</Run>=
                     </TextBlock>
 
                 </StackPanel>
 
                 <StackPanel Grid.Column="2">
-                    <ComboBox FontSize="9" FontWeight="Bold" Margin="0 7 0 0" ItemsSource="{Binding Column.Concrete.ClassesOfConcrete}" SelectedIndex="0" SelectedItem="{Binding Column.Concrete.ConcreteClassDescription }"  />
-                    <TextBox Background="Gainsboro" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.Concrete.Fck}" IsReadOnly="True"/>
-                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.Concrete.GammaC}" />
-                    <TextBox Background="Gainsboro" FontSize="9" Margin="0 7 0 2" Text="{Binding BasicCalculations.Fcd, Mode=OneWay}" IsReadOnly="True"/>
-                    <TextBox Background="Gainsboro" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.Concrete.Ecm}" IsReadOnly="True" />
+                    <ComboBox FontSize="9" FontWeight="Bold" Margin="0 8 0 0" ItemsSource="{Binding Column.Concrete.ClassesOfConcrete}" SelectedIndex="0" SelectedItem="{Binding Column.Concrete.ConcreteClassDescription }"  />
+                    <TextBox Background="Gainsboro" FontSize="9" Margin="0 5 0 2" Text="{Binding Column.Concrete.Fck}" IsReadOnly="True"/>
+                    <TextBox Background="Beige" FontSize="9" Margin="0 4 0 2" Text="{Binding Column.Concrete.GammaC}" />
+                    <TextBox Background="Gainsboro" FontSize="9" Margin="0 4 0 2" Text="{Binding BasicCalculations.Fcd, Mode=OneWay}" IsReadOnly="True"/>
+                    <TextBox Background="Gainsboro" FontSize="9" Margin="0 4 0 2" Text="{Binding Column.Concrete.Ecm}" IsReadOnly="True" />
 
                 </StackPanel>
 
                 <StackPanel Grid.Column="3">
                     <TextBlock Margin="5 9 5 2" FontSize="12" FontWeight="Bold" Text="" />
-                    <TextBlock Margin="8 8 5 2" FontSize="9" Text="[MPa]" />
-                    <TextBlock Margin="8 8 5 2" FontSize="9" Text="[-]" />
-                    <TextBlock Margin="8 8 5 2" FontSize="9" Text="[MPa]" />
-                    <TextBlock Margin="8 8 5 2" FontSize="9" Text="[GPa]" />
+                    <TextBlock Margin="8 5 5 2" FontSize="9" Text="[MPa]" />
+                    <TextBlock Margin="8 6 5 2" FontSize="9" Text="[-]" />
+                    <TextBlock Margin="8 6 5 2" FontSize="9" Text="[MPa]" />
+                    <TextBlock Margin="8 6 5 2" FontSize="9" Text="[GPa]" />
                 </StackPanel>
 
             </Grid>

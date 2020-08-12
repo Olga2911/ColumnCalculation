@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt1._0"
         mc:Ignorable="d"
-        Title="AParameter" Height="220" Width="340">
+        Title="Parametr a" Height="220" Width="340">
   
     <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="2" Margin="5">
 
         <StackPanel Background="MintCream">
 
             <TextBlock Margin="5 0 5 2" FontSize="12" FontWeight="Bold">
-              Parametr a 
+              PARAMETR a 
             </TextBlock>
 
             <TextBlock TextWrapping="Wrap" TextAlignment="Justify" FontSize="9" Margin="5 0 5 4">
@@ -32,9 +32,9 @@
             
             <Grid >
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*" />
-                    <ColumnDefinition Width="0.8*" />
-                    <ColumnDefinition Width="1.5*" />
+                    <ColumnDefinition Width="1.7*" />
+                    <ColumnDefinition Width="0.6*" />
+                    <ColumnDefinition Width="1.8*" />
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Column="0">

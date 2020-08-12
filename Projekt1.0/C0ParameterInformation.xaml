@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt1._0"
         mc:Ignorable="d"
-        Title="C0ParameterInformation" Height="340" Width="320">
+        Title="Współczynnik c0" Height="340" Width="320">
     
     
     <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="2" Margin="5">
@@ -43,7 +43,7 @@
             <Grid >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.5*" />
-                    <ColumnDefinition Width="0.7*" />
+                    <ColumnDefinition Width="0.6*" />
                     <ColumnDefinition Width="3.5*" />
                 </Grid.ColumnDefinitions>
 

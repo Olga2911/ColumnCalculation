@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt1._0"
         mc:Ignorable="d"
-        Title="Parametry stali" Height="180" Width="400">
+        Title="Parametry stali" Height="170" Width="380">
     <Window.DataContext>
         <local:Project />
     </Window.DataContext>
@@ -15,18 +15,18 @@
             <Grid Height="177" Margin="0,0,0.333,0" >
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="3.2*" />
+                    <ColumnDefinition Width="0.8*" />
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="0.9*" />
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Column="0">
                     <TextBlock Margin="5 9 5 2" FontSize="12" FontWeight="Bold" Text="KLASA STALI:" />
-                    <TextBlock Margin="5 8 5 2" FontSize="9" Text="Charakterystyczna granica plastyczności:" />
-                    <TextBlock Margin="5 8 5 2" FontSize="9" Text="Współczynnik bezpieczeństwa:" />
-                    <TextBlock Margin="5 8 5 2" FontSize="9" Text="Obliczeniowa granica plastyczności:" />
-                    <TextBlock Margin="5 8 5 2" FontSize="9" Text="Moduł sprężystości:" />
+                    <TextBlock Margin="5 6 5 2" FontSize="9" Text="Charakterystyczna granica plastyczności:" />
+                    <TextBlock Margin="5 6 5 2" FontSize="9" Text="Współczynnik bezpieczeństwa:" />
+                    <TextBlock Margin="5 6 5 2" FontSize="9" Text="Obliczeniowa granica plastyczności:" />
+                    <TextBlock Margin="5 5 5 2" FontSize="9" Text="Moduł sprężystości:" />
 
                 </StackPanel>
 
@@ -34,39 +34,39 @@
                     
                     <TextBlock Margin="5 9 5 2" FontSize="12" FontWeight="Bold" Text="" />
 
-                    <TextBlock FontSize="9" Margin="5 8 5 2">
+                    <TextBlock FontSize="9" Margin="5 5 5 2">
                       f<Run FontSize="7" BaselineAlignment="Subscript">yk</Run>=
                     </TextBlock>
 
-                    <TextBlock FontSize="9" Margin="5 8 5 2">
+                    <TextBlock FontSize="9" Margin="5 6 5 2">
                       γ<Run FontSize="7" BaselineAlignment="Subscript">s</Run>=
                     </TextBlock>
 
-                    <TextBlock FontSize="9" Margin="5 8 5 2">
+                    <TextBlock FontSize="9" Margin="5 5 5 2">
                       f<Run FontSize="7" BaselineAlignment="Subscript">yd</Run>=
                     </TextBlock>
                     
-                    <TextBlock FontSize="9" Margin="5 8 5 2">
+                    <TextBlock FontSize="9" Margin="5 6 5 2">
                       E<Run FontSize="7" BaselineAlignment="Subscript">s</Run>=
                     </TextBlock>
 
                 </StackPanel>
 
                 <StackPanel Grid.Column="2">
-                    <ComboBox FontSize="9" FontWeight="Bold" Margin="0 7 0 0" ItemsSource="{Binding Column.Steel.ClassesOfSteel}" SelectedIndex="0" SelectedItem="{Binding Column.Steel.SteelClassDescription}"/>
-                    <TextBox Background="Gainsboro" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.Steel.Fyk}" IsReadOnly="True" />
-                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.Steel.GammaS}" />
-                    <TextBox Background="Gainsboro" FontSize="9" Margin="0 7 0 2" Text="{Binding BasicCalculations.Fyd, Mode=OneWay}" IsReadOnly="True" />
-                    <TextBox Background="Beige" FontSize="9" Margin="0 7 0 2" Text="{Binding Column.Steel.Es}" />
+                    <ComboBox FontSize="9" FontWeight="Bold" Margin="0 8 0 0" ItemsSource="{Binding Column.Steel.ClassesOfSteel}" SelectedIndex="0" SelectedItem="{Binding Column.Steel.SteelClassDescription}"/>
+                    <TextBox Background="Gainsboro" FontSize="9" Margin="0 5 0 2" Text="{Binding Column.Steel.Fyk}" IsReadOnly="True" />
+                    <TextBox Background="Beige" FontSize="9" Margin="0 4 0 2" Text="{Binding Column.Steel.GammaS}" />
+                    <TextBox Background="Gainsboro" FontSize="9" Margin="0 4 0 2" Text="{Binding BasicCalculations.Fyd, Mode=OneWay}" IsReadOnly="True" />
+                    <TextBox Background="Beige" FontSize="9" Margin="0 4 0 2" Text="{Binding Column.Steel.Es}" />
 
                 </StackPanel>
 
                 <StackPanel Grid.Column="3">
                     <TextBlock Margin="5 9 5 2" FontSize="12" FontWeight="Bold" Text="" />
-                    <TextBlock Margin="8 8 5 2" FontSize="9" Text="[MPa]" />
-                    <TextBlock Margin="8 8 5 2" FontSize="9" Text="[-]" />
-                    <TextBlock Margin="8 8 5 2" FontSize="9" Text="[MPa]" />
-                    <TextBlock Margin="8 8 5 2" FontSize="9" Text="[GPa]" />
+                    <TextBlock Margin="8 5 5 2" FontSize="9" Text="[MPa]" />
+                    <TextBlock Margin="8 6 5 2" FontSize="9" Text="[-]" />
+                    <TextBlock Margin="8 6 5 2" FontSize="9" Text="[MPa]" />
+                    <TextBlock Margin="8 6 5 2" FontSize="9" Text="[GPa]" />
                 </StackPanel>
 
             </Grid>

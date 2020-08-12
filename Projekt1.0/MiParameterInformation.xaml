@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt1._0"
         mc:Ignorable="d"
-        Title="MiParameterInformation" Height="325" Width="400">
+        Title="Współczynniki µ" Height="325" Width="400">
     
         <Window.DataContext>
         <local:Project/>
@@ -15,7 +15,7 @@
         <StackPanel Background="MintCream">
            
             <TextBlock Margin="5 0 5 2" FontSize="12" FontWeight="Bold">
-              PARAMETRY µ
+              WSPÓŁCZYNNIKI µ
             </TextBlock>
 
             <TextBlock Margin="5 3 5 5" FontSize="9" >
