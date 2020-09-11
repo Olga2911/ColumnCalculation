@@ -193,11 +193,11 @@
                                         </TextBlock>
 
                                         <TextBlock FontSize="9" >
-                                        φ<Run FontSize="7" BaselineAlignment="Subscript">1y</Run>+ 
+                                        φ<Run FontSize="7" BaselineAlignment="Subscript">s</Run>+ 
                                         </TextBlock>
 
                                         <TextBlock FontSize="9" >
-                                        0,5φ<Run FontSize="7" BaselineAlignment="Subscript">s</Run>= 
+                                        0,5φ<Run FontSize="7" BaselineAlignment="Subscript">1y</Run>= 
                                         </TextBlock>
                                         </TextBlock>
 
@@ -217,11 +217,11 @@
                                         </TextBlock>
 
                                         <TextBlock FontSize="9" >
-                                        φ<Run FontSize="7" BaselineAlignment="Subscript">2y</Run>+ 
+                                        φ<Run FontSize="7" BaselineAlignment="Subscript">s</Run>+ 
                                         </TextBlock>
 
                                         <TextBlock FontSize="9" >
-                                        0,5φ<Run FontSize="7" BaselineAlignment="Subscript">s</Run>= 
+                                        0,5φ<Run FontSize="7" BaselineAlignment="Subscript">2y</Run>= 
                                         </TextBlock>
                                         </TextBlock>
 
@@ -264,11 +264,11 @@
                                         </TextBlock>
 
                                         <TextBlock FontSize="9" >
-                                        φ<Run FontSize="7" BaselineAlignment="Subscript">1z</Run>+ 
+                                        φ<Run FontSize="7" BaselineAlignment="Subscript">s</Run>+ 
                                         </TextBlock>
 
                                         <TextBlock FontSize="9" >
-                                        0,5φ<Run FontSize="7" BaselineAlignment="Subscript">s</Run>= 
+                                        0,5φ<Run FontSize="7" BaselineAlignment="Subscript">1z</Run>= 
                                         </TextBlock>
                                         </TextBlock>
 
@@ -288,11 +288,11 @@
                                         </TextBlock>
 
                                         <TextBlock FontSize="9" >
-                                        φ<Run FontSize="7" BaselineAlignment="Subscript">2z</Run>+ 
+                                        φ<Run FontSize="7" BaselineAlignment="Subscript">s</Run>+ 
                                         </TextBlock>
 
                                         <TextBlock FontSize="9" >
-                                        0,5φ<Run FontSize="7" BaselineAlignment="Subscript">s</Run>= 
+                                        0,5φ<Run FontSize="7" BaselineAlignment="Subscript">2z</Run>= 
                                         </TextBlock>
                                         </TextBlock>
 

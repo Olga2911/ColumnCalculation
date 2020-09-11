@@ -10,8 +10,8 @@ namespace Projekt1._0
     class ConcreteCoverMinDur : INotifyPropertyChanged
     {
 
-        private StructuralClass structuralClass = StructuralClass.S3;
-        private String structuralClassDescription = EnumConvert.GetDescription(StructuralClass.S3);
+        private StructuralClass structuralClass = StructuralClass.S4;
+        private String structuralClassDescription = EnumConvert.GetDescription(StructuralClass.S4);
 
         private ExposureClass exposureClass = ExposureClass.XC3;
         private String exposureClassDescription = EnumConvert.GetDescription(ExposureClass.XC3);
