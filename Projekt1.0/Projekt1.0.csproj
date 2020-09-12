@@ -86,6 +86,7 @@
       <DependentUpon>EnvironmentalClassParameters.xaml</DependentUpon>
     </Compile>
     <Compile Include="EnvironmentalCondition.cs" />
+    <Compile Include="EnvironmentalConditionCalculation.cs" />
     <Compile Include="ExposureClassCommand.cs" />
     <Compile Include="ExposureClassParameters.xaml.cs">
       <DependentUpon>ExposureClassParameters.xaml</DependentUpon>

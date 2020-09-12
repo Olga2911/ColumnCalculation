@@ -9,8 +9,9 @@ namespace Projekt1._0
 {
     class EnvironmentalCondition : INotifyPropertyChanged
     {
-        private Double fiKoncowe = 2.25;
-        private Double m0eqpm0ed=0.3;
+        private Double fiKoncowe = 2.8;
+        //private Double m0eqpm0edy=0;
+        //private Double m0eqpm0edz = 0;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -30,22 +31,38 @@ namespace Projekt1._0
             }
         }
 
-        public double M0eqpm0ed
-        {
-            get
-            {
-                return m0eqpm0ed;
-            }
-            set
-            {
-                if (value > 0)
-                {
-                    m0eqpm0ed = value;
-                    PropertyChanged(this, new PropertyChangedEventArgs("M0eqpm0ed"));
-                }
-            }
-        }
+        //public double M0eqpm0edy
+        //{
+        //    get
+        //    {
+        //        return m0eqpm0edy;
+        //    }
+        //    set
+        //    {
+        //        if (value > 0)
+        //        {
+        //            m0eqpm0edy = value;
 
+        //            PropertyChanged(this, new PropertyChangedEventArgs("M0eqpm0edy"));
+        //        }
+        //    }
+        //}
+
+        //public double M0eqpm0edz
+        //{
+        //    get
+        //    {
+        //        return m0eqpm0edz;
+        //    }
+        //    set
+        //    {
+        //        if (value > 0)
+        //        {
+        //            m0eqpm0edz = value;
+        //            PropertyChanged(this, new PropertyChangedEventArgs("M0eqpm0edz"));
+        //        }
+        //    }
+        //}
 
 
 

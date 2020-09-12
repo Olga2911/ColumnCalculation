@@ -31,7 +31,7 @@ namespace Projekt1._0
         private LoadCapacityParameters loadCapacityParameters = new LoadCapacityParameters();
 
         private MiParameterInformationCommand miParameterInformationCommand = new MiParameterInformationCommand();
-        private RMParameterInformationCommand rMParameterInformationCommand = new RMParameterInformationCommand();
+        //private RMParameterInformationCommand rMParameterInformationCommand = new RMParameterInformationCommand();
         private KSParameterInformationCommand kSParameterInformationCommand = new KSParameterInformationCommand();
         private C0ParameterInformationCommand c0ParameterInformationCommand = new C0ParameterInformationCommand();
         private AParameterCommand aParameterCommand = new AParameterCommand();
@@ -57,7 +57,6 @@ namespace Projekt1._0
 
             //materialParametersCommand.PropertyChanged += InputPropertyChangedEventChandler;
             //steelParametersCommand.PropertyChanged += InputPropertyChangedEventChandler;
-            //wymienić wszystkie klasy
         }
 
         public Dimension Dimension
@@ -254,13 +253,13 @@ namespace Projekt1._0
             }
         }
 
-        public ICommand RMParameterInformation
-        {
-            get
-            {
-                return rMParameterInformationCommand;
-            }
-        }
+        //public ICommand RMParameterInformation
+        //{
+        //    get
+        //    {
+        //        return rMParameterInformationCommand;
+        //    }
+        //}
 
         public ICommand KSParameterInformation
         {

@@ -43,7 +43,7 @@
 
                 </Grid>
 
-                <TextBlock  TextWrapping="Wrap" Margin="5 5 5 2" FontSize="9" Text="Iloraz momentu zginającego pierwszego rzędu wywołanego prawie stałą kombinacją obciążeń (SLS) i momentu zginającego pierwszego rzędu wywołanym obliczeniową kombinacją obciążeń (ULS):" />
+                <!--<TextBlock  TextWrapping="Wrap" Margin="5 5 5 2" FontSize="9" Text="Iloraz momentu zginającego pierwszego rzędu wywołanego prawie stałą kombinacją obciążeń (SLS) i momentu zginającego pierwszego rzędu wywołanym obliczeniową kombinacją obciążeń (ULS):" />
 
                 <Grid >
                     <Grid.ColumnDefinitions>
@@ -55,20 +55,26 @@
                     <StackPanel Grid.Column="0">
 
                         <TextBlock FontSize="9" Margin="5 2 5 2" >
-                                    M<Run FontSize="7" BaselineAlignment="Subscript">0Eqp</Run>/M<Run FontSize="7" BaselineAlignment="Subscript">0Ed</Run>=
+                                    M<Run FontSize="7" BaselineAlignment="Subscript">0,Eqpy</Run>/M<Run FontSize="7" BaselineAlignment="Subscript">0,Edy</Run>=
+                        </TextBlock>
+
+                        <TextBlock FontSize="9" Margin="5 2 5 2" >
+                                    M<Run FontSize="7" BaselineAlignment="Subscript">0,Eqpz</Run>/M<Run FontSize="7" BaselineAlignment="Subscript">0,Edz</Run>=
                         </TextBlock>
 
                     </StackPanel>
 
                     <StackPanel Grid.Column="1">
-                        <TextBox FontSize="9" Background="Beige" Margin="0 1 0 2" Text="{Binding Column.EnvironmentalCondition.M0eqpm0ed }" />
+                        <TextBox FontSize="9" Background="Beige" Margin="0 1 0 2" Text="{Binding EnvironmentalConditionCalculation.M0eqpm0edy}" />
+                        <TextBox FontSize="9" Background="Beige" Margin="0 1 0 2" Text="{Binding EnvironmentalConditionCalculation.M0eqpm0edz}" />
                     </StackPanel>
 
                     <StackPanel Grid.Column="2">
                         <TextBlock Margin="8 2 5 2" FontSize="9" Text="[-]" />
+                        <TextBlock Margin="8 2 5 2" FontSize="9" Text="[-]" />
                     </StackPanel>
 
-                </Grid>
+                </Grid>-->
 
                 <TextBlock Margin="5 5 5 2" FontSize="9" Text="Efektywny współczynnik pełzania:" />
 
@@ -81,16 +87,23 @@
 
                     <StackPanel Grid.Column="0">
                         <TextBlock FontSize="9" Margin="5 2 5 2">
-                                    φ<Run FontSize="7" BaselineAlignment="Subscript">ef
-                                    </Run>=φ<Run FontSize="7" BaselineAlignment="Subscript">(∞,t0)</Run>(M<Run FontSize="7" BaselineAlignment="Subscript">0Eqp</Run>/M<Run FontSize="7" BaselineAlignment="Subscript">0Ed</Run>)=
+                                    φ<Run FontSize="7" BaselineAlignment="Subscript">ef,y
+                                    </Run>=φ<Run FontSize="7" BaselineAlignment="Subscript">(∞,t0)</Run>(M<Run FontSize="7" BaselineAlignment="Subscript">0,Eqpy</Run>/M<Run FontSize="7" BaselineAlignment="Subscript">0,Edy</Run>)=
+                        </TextBlock>
+                        
+                        <TextBlock FontSize="9" Margin="5 2 5 2">
+                                    φ<Run FontSize="7" BaselineAlignment="Subscript">ef,z
+                                    </Run>=φ<Run FontSize="7" BaselineAlignment="Subscript">(∞,t0)</Run>(M<Run FontSize="7" BaselineAlignment="Subscript">0,Eqpz</Run>/M<Run FontSize="7" BaselineAlignment="Subscript">0,Edz</Run>)=
                         </TextBlock>
                     </StackPanel>
 
                     <StackPanel Grid.Column="1">
-                        <TextBox FontWeight="Bold" FontSize="9" Background="Gainsboro" Margin="0 1 0 2" Text="{Binding BasicCalculations.FiEfektywne, Mode=OneWay}" IsReadOnly="True" />
+                        <TextBox FontWeight="Bold" FontSize="9" Background="Gainsboro" Margin="0 1 0 2" Text="{Binding EnvironmentalConditionCalculation.FiEffY, Mode=OneWay}" IsReadOnly="True" />
+                        <TextBox FontWeight="Bold" FontSize="9" Background="Gainsboro" Margin="0 1 0 2" Text="{Binding EnvironmentalConditionCalculation.FiEffZ, Mode=OneWay}" IsReadOnly="True" />
                     </StackPanel>
 
                     <StackPanel Grid.Column="2">
+                        <TextBlock Margin="8 2 5 2" FontSize="9" Text="[-]" />
                         <TextBlock Margin="8 2 5 2" FontSize="9" Text="[-]" />
                     </StackPanel>
 
