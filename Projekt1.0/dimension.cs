@@ -17,7 +17,7 @@ namespace Projekt1._0
         //private Double quantity2y = 3;
         //private Double quantity1z = 1;
         //private Double quantity2z = 1;
-        //private Double s = 100;
+        private Double s = 100;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -137,21 +137,21 @@ namespace Projekt1._0
         //    }
         //}
 
-        //public double S
-        //{
-        //    get
-        //    {
-        //        return s;
-        //    }
-        //    set
-        //    {
-        //        if (value > 0)
-        //        {
-        //            s= value;
-        //            PropertyChanged(this, new PropertyChangedEventArgs("S"));
-        //        }
-        //    }
-        //}
+        public double S
+        {
+            get
+            {
+                return s;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    s = value;
+                    PropertyChanged(this, new PropertyChangedEventArgs("S"));
+                }
+            }
+        }
 
     }
 }

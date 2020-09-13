@@ -14,6 +14,7 @@ namespace Projekt1._0
         private Double fyk = 500.0;
         private Double gammaS = 1.15;
         private Double es = 200; //GPa
+        private Double ksiEffLim = 0.500; //GPa
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -51,22 +52,27 @@ namespace Projekt1._0
                     case SteelClasses.AIIINRB500:
                         fyk = 500.0;
                         gammaS = 1.15;
+                        ksiEffLim = 0.500;
                         break;
                     case SteelClasses.A0St0Sb:
                         fyk = 220.0;
                         gammaS = 1.15;
+                        ksiEffLim = 0.63;
                         break;
                     case SteelClasses.AISt3SXb:
                         fyk = 240.0;
                         gammaS = 1.15;
+                        ksiEffLim = 0.62;
                         break;
                     case SteelClasses.AIISt50B:
                         fyk = 355.0;
                         gammaS = 1.15;
+                        ksiEffLim = 0.55;
                         break;
                     case SteelClasses.AIII35G2Y:
                         fyk = 410.0;
                         gammaS = 1.15;
+                        ksiEffLim = 0.53;
                         break;
                 }
                 UpdateData();
@@ -80,6 +86,7 @@ namespace Projekt1._0
             PropertyChanged(this, new PropertyChangedEventArgs("gammaS"));
             PropertyChanged(this, new PropertyChangedEventArgs("fyd"));
             PropertyChanged(this, new PropertyChangedEventArgs("es"));
+            PropertyChanged(this, new PropertyChangedEventArgs("ksiEffLim"));
 
         }
 
@@ -145,6 +152,21 @@ namespace Projekt1._0
             }
         }
 
+        public double KsiEffLim
+        {
+            get
+            {
+                return ksiEffLim;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    ksiEffLim = value;
+                    PropertyChanged(this, new PropertyChangedEventArgs("KsiEffLim"));
+                }
+            }
+        }
 
 
     }

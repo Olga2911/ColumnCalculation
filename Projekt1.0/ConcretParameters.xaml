@@ -28,7 +28,6 @@
                     <TextBlock Margin="5 6 5 2" FontSize="9" Text="Współczynnik bezpieczeństwa:" />
                     <TextBlock Margin="5 6 5 2" FontSize="9" Text="Obliczeniowa wytrzymałość na ściskanie:" />
                     <TextBlock Margin="5 5 5 2" FontSize="9" Text="Moduł spężystości betonu:" />
-
                 </StackPanel>
 
                 <StackPanel Grid.Column="1">
@@ -58,7 +57,6 @@
                     <TextBox Background="Beige" FontSize="9" Margin="0 4 0 2" Text="{Binding Column.Concrete.GammaC}" />
                     <TextBox Background="Gainsboro" FontSize="9" Margin="0 4 0 2" Text="{Binding BasicCalculations.Fcd, Mode=OneWay}" IsReadOnly="True"/>
                     <TextBox Background="Gainsboro" FontSize="9" Margin="0 4 0 2" Text="{Binding Column.Concrete.Ecm}" IsReadOnly="True" />
-
                 </StackPanel>
 
                 <StackPanel Grid.Column="3">
@@ -67,6 +65,7 @@
                     <TextBlock Margin="8 6 5 2" FontSize="9" Text="[-]" />
                     <TextBlock Margin="8 6 5 2" FontSize="9" Text="[MPa]" />
                     <TextBlock Margin="8 6 5 2" FontSize="9" Text="[GPa]" />
+
                 </StackPanel>
 
             </Grid>

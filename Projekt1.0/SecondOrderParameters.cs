@@ -9,63 +9,63 @@ namespace Projekt1._0
 {
     class SecondOrderParameters : INotifyPropertyChanged
     {
-        //    private Double rm = 1.0;
-        //    private Double miy = 2.0; 
-        //    private Double miz = 0.7;
+        private Double rm = 1.0;
+        private Double miy = 2.0;
+        private Double miz = 0.7;
         //    private Double ks = 1.0;
         //    private Double c0Y = 8;
         //    private Double c0Z = 8;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        //    public double Rm
+        public double Rm
 
-        //    {
-        //        get
-        //        {
-        //            return rm;
-        //        }
-        //        set
-        //        {
-        //            if (value > 0)
-        //            {
-        //                rm = value;
-        //                PropertyChanged(this, new PropertyChangedEventArgs("Rm"));
-        //            }
-        //        }
-        //    }
+        {
+            get
+            {
+                return rm;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    rm = value;
+                    PropertyChanged(this, new PropertyChangedEventArgs("Rm"));
+                }
+            }
+        }
 
-        //    public double Miy
-        //    {
-        //        get
-        //        {
-        //            return miy;
-        //        }
-        //        set
-        //        {
-        //            if (value > 0)
-        //            {
-        //                miy = value;
-        //                PropertyChanged(this, new PropertyChangedEventArgs("Miy"));
-        //            }
-        //        }
-        //    }
+        public double Miy
+        {
+            get
+            {
+                return miy;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    miy = value;
+                    PropertyChanged(this, new PropertyChangedEventArgs("Miy"));
+                }
+            }
+        }
 
-        //    public double Miz
-        //    {
-        //        get
-        //        {
-        //            return miz;
-        //        }
-        //        set
-        //        {
-        //            if (value > 0)
-        //            {
-        //                miz = value;
-        //                PropertyChanged(this, new PropertyChangedEventArgs("Miz"));
-        //            }
-        //        }
-        //    }
+        public double Miz
+        {
+            get
+            {
+                return miz;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    miz = value;
+                    PropertyChanged(this, new PropertyChangedEventArgs("Miz"));
+                }
+            }
+        }
 
         //    public double Ks
         //    {

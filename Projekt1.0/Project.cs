@@ -11,21 +11,21 @@ namespace Projekt1._0
     class Project
     {
         private Column column = new Column();
-        //private ConcreteCoverMinDurCalculation concreteCoverMinDurCalculation;
+        private ConcreteCoverMinDurCalculation concreteCoverMinDurCalculation;
         private BasicCalculations basicCalculations;
-        //private ReinforcementDetailsCommand reinforcementDetails = new ReinforcementDetailsCommand();
+        private ReinforcementDetailsCommand reinforcementDetails = new ReinforcementDetailsCommand();
         private SecondOrderCalculations secondOrderCalculations;
-        private EnvironmentalConditionCalculation environmentalConditionCalculation;
+        //private EnvironmentalConditionCalculation environmentalConditionCalculation;
         //private LoadCapacityCalculation loadCapacityCalculation;
         //private BiaxialBendingCalculation biaxialBendingCalculation;
 
-        public Project() //konstruktor
+        public Project()
         {
-            column.PropertyChanged += ColumnPropertyChangedEventHandler; 
-            //    concreteCoverMinDurCalculation = new ConcreteCoverMinDurCalculation(this);
+            column.PropertyChanged += ColumnPropertyChangedEventHandler;
+            concreteCoverMinDurCalculation = new ConcreteCoverMinDurCalculation(this);
             basicCalculations = new BasicCalculations(this);
             secondOrderCalculations = new SecondOrderCalculations(this);
-            environmentalConditionCalculation = new EnvironmentalConditionCalculation(this);
+            //environmentalConditionCalculation = new EnvironmentalConditionCalculation(this);
             //    loadCapacityCalculation = new LoadCapacityCalculation(this);
             //    biaxialBendingCalculation = new BiaxialBendingCalculation(this);
         }
@@ -38,13 +38,13 @@ namespace Projekt1._0
             }
         }
 
-        //public ConcreteCoverMinDurCalculation ConcreteCoverMinDurCalculation
-        //{
-        //    get
-        //    {
-        //        return concreteCoverMinDurCalculation;
-        //    }
-        //}
+        public ConcreteCoverMinDurCalculation ConcreteCoverMinDurCalculation
+        {
+            get
+            {
+                return concreteCoverMinDurCalculation;
+            }
+        }
 
         public BasicCalculations BasicCalculations
         {
@@ -62,13 +62,13 @@ namespace Projekt1._0
             }
         }
 
-        public EnvironmentalConditionCalculation EnvironmentalConditionCalculation
-        {
-            get
-            {
-                return environmentalConditionCalculation;
-            }
-        }
+        //public EnvironmentalConditionCalculation EnvironmentalConditionCalculation
+        //{
+        //    get
+        //    {
+        //        return environmentalConditionCalculation;
+        //    }
+        //}
 
         //public LoadCapacityCalculation LoadCapacityCalculation
         //{
@@ -86,13 +86,13 @@ namespace Projekt1._0
         //    }
         //}
 
-        //public ICommand ReinforcementDetailsView
-        //{
-        //    get
-        //    {
-        //        return reinforcementDetails;
-        //    }
-        //}
+        public ICommand ReinforcementDetailsView
+        {
+            get
+            {
+                return reinforcementDetails;
+            }
+        }
 
 
         void ColumnPropertyChangedEventHandler(object sender, PropertyChangedEventArgs e)
@@ -102,10 +102,10 @@ namespace Projekt1._0
 
         void Calculate()
         {
-            //    concreteCoverMinDurCalculation.Calculate(this);
+            concreteCoverMinDurCalculation.Calculate(this);
             basicCalculations.Calculate(this);
             secondOrderCalculations.Calculate(this);
-            environmentalConditionCalculation.Calculate(this);
+            //environmentalConditionCalculation.Calculate(this);
             //    loadCapacityCalculation.Calculate(this);
             //    biaxialBendingCalculation.Calculate(this);
         }

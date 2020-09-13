@@ -27,6 +27,7 @@
                     <TextBlock Margin="5 6 5 2" FontSize="9" Text="Współczynnik bezpieczeństwa:" />
                     <TextBlock Margin="5 6 5 2" FontSize="9" Text="Obliczeniowa granica plastyczności:" />
                     <TextBlock Margin="5 5 5 2" FontSize="9" Text="Moduł sprężystości:" />
+                    <TextBlock Margin="5 5 5 2" FontSize="9" Text="Graniczny zasięg efektywnej strefy ściskanej :" />
 
                 </StackPanel>
 
@@ -50,6 +51,10 @@
                       E<Run FontSize="7" BaselineAlignment="Subscript">s</Run>=
                     </TextBlock>
 
+                    <TextBlock FontSize="9" Margin="5 6 5 2">
+                      ξ<Run FontSize="7" BaselineAlignment="Subscript">eff,lim</Run>=
+                    </TextBlock>
+
                 </StackPanel>
 
                 <StackPanel Grid.Column="2">
@@ -58,6 +63,7 @@
                     <TextBox Background="Beige" FontSize="9" Margin="0 4 0 2" Text="{Binding Column.Steel.GammaS}" />
                     <TextBox Background="Gainsboro" FontSize="9" Margin="0 4 0 2" Text="{Binding BasicCalculations.Fyd, Mode=OneWay}" IsReadOnly="True" />
                     <TextBox Background="Beige" FontSize="9" Margin="0 4 0 2" Text="{Binding Column.Steel.Es}" />
+                    <TextBox Background="Beige" FontSize="9" Margin="0 4 0 2" Text="{Binding Column.Steel.KsiEffLim}" />
 
                 </StackPanel>
 
@@ -67,6 +73,8 @@
                     <TextBlock Margin="8 6 5 2" FontSize="9" Text="[-]" />
                     <TextBlock Margin="8 6 5 2" FontSize="9" Text="[MPa]" />
                     <TextBlock Margin="8 6 5 2" FontSize="9" Text="[GPa]" />
+                    <TextBlock Margin="8 6 5 2" FontSize="9" Text="[-]" />
+
                 </StackPanel>
 
             </Grid>
