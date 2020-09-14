@@ -16,7 +16,7 @@ namespace Projekt1._0
         private ReinforcementDetailsCommand reinforcementDetails = new ReinforcementDetailsCommand();
         private SecondOrderCalculations secondOrderCalculations;
         //private EnvironmentalConditionCalculation environmentalConditionCalculation;
-        //private LoadCapacityCalculation loadCapacityCalculation;
+        private LoadCapacityCalculation loadCapacityCalculation;
         //private BiaxialBendingCalculation biaxialBendingCalculation;
 
         public Project()
@@ -26,7 +26,7 @@ namespace Projekt1._0
             basicCalculations = new BasicCalculations(this);
             secondOrderCalculations = new SecondOrderCalculations(this);
             //environmentalConditionCalculation = new EnvironmentalConditionCalculation(this);
-            //    loadCapacityCalculation = new LoadCapacityCalculation(this);
+            loadCapacityCalculation = new LoadCapacityCalculation(this);
             //    biaxialBendingCalculation = new BiaxialBendingCalculation(this);
         }
 
@@ -70,13 +70,13 @@ namespace Projekt1._0
         //    }
         //}
 
-        //public LoadCapacityCalculation LoadCapacityCalculation
-        //{
-        //    get
-        //    {
-        //        return loadCapacityCalculation;
-        //    }
-        //}
+        public LoadCapacityCalculation LoadCapacityCalculation
+        {
+            get
+            {
+                return loadCapacityCalculation;
+            }
+        }
 
         //public BiaxialBendingCalculation BiaxialBendingCalculation
         //{
@@ -106,7 +106,7 @@ namespace Projekt1._0
             basicCalculations.Calculate(this);
             secondOrderCalculations.Calculate(this);
             //environmentalConditionCalculation.Calculate(this);
-            //    loadCapacityCalculation.Calculate(this);
+            loadCapacityCalculation.Calculate(this);
             //    biaxialBendingCalculation.Calculate(this);
         }
     }
