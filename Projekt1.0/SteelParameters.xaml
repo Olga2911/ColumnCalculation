@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt1._0"
         mc:Ignorable="d"
-        Title="Parametry stali" Height="170" Width="380">
+        Title="Parametry stali" Height="190" Width="380">
     <Window.DataContext>
         <local:Project />
     </Window.DataContext>

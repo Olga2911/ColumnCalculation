@@ -98,8 +98,8 @@
                     </StackPanel>
 
                     <StackPanel Grid.Column="1">
-                        <TextBox FontWeight="Bold" FontSize="9" Background="Gainsboro" Margin="0 1 0 2" Text="{Binding EnvironmentalConditionCalculation.FiEffY, Mode=OneWay}" IsReadOnly="True" />
-                        <TextBox FontWeight="Bold" FontSize="9" Background="Gainsboro" Margin="0 1 0 2" Text="{Binding EnvironmentalConditionCalculation.FiEffZ, Mode=OneWay}" IsReadOnly="True" />
+                        <TextBox FontWeight="Bold" FontSize="9" Background="Gainsboro" Margin="0 1 0 2" Text="{Binding SecondOrderCalculations.FiEffY, Mode=OneWay}" IsReadOnly="True" />
+                        <TextBox FontWeight="Bold" FontSize="9" Background="Gainsboro" Margin="0 1 0 2" Text="{Binding SecondOrderCalculations.FiEffZ, Mode=OneWay}" IsReadOnly="True" />
                     </StackPanel>
 
                     <StackPanel Grid.Column="2">

@@ -12,7 +12,10 @@ namespace Projekt1._0
         private Double rm = 1.0;
         private Double miy = 2.0;
         private Double miz = 0.7;
-        //    private Double ks = 1.0;
+        private Double ks = 1.0;
+        private Double bParameter = 1.1;
+        private Double cParameter = 0.7;
+
         //    private Double c0Y = 8;
         //    private Double c0Z = 8;
 
@@ -67,21 +70,54 @@ namespace Projekt1._0
             }
         }
 
-        //    public double Ks
-        //    {
-        //        get
-        //        {
-        //            return ks;
-        //        }
-        //        set
-        //        {
-        //            if (value > 0)
-        //            {
-        //                ks = value;
-        //                PropertyChanged(this, new PropertyChangedEventArgs("Ks"));
-        //            }
-        //        }
-        //    }
+        public double Ks
+        {
+            get
+            {
+                return ks;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    ks = value;
+                    PropertyChanged(this, new PropertyChangedEventArgs("Ks"));
+                }
+            }
+        }
+
+        public double BParameter
+        {
+            get
+            {
+                return bParameter;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    bParameter = value;
+                    PropertyChanged(this, new PropertyChangedEventArgs("BParameter"));
+                }
+            }
+        }
+
+        public double CParameter
+        {
+            get
+            {
+                return cParameter;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    cParameter = value;
+                    PropertyChanged(this, new PropertyChangedEventArgs("CParameter"));
+                }
+            }
+        }
+
 
         //    public double C0Y
         //    {

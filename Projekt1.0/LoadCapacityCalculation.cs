@@ -430,7 +430,10 @@ namespace Projekt1._0
             ksiEff = project.Column.Steel.KsiEffLim;
             ksiEff = Math.Round((Double)ksiEff, 3);
 
-            as2y = (project.Column.Statics.CompressiveForce * project.SecondOrderCalculations.Es1y - ksiEff * (1 - 0.5 * ksiEff)
+            // NAPRAWIĆ
+
+            as2y =
+                (project.Column.Statics.CompressiveForce * project.SecondOrderCalculations.Es1y - ksiEff * (1 - 0.5 * ksiEff)
                 * project.BasicCalculations.D1y * 0.01 * 0.01 * project.BasicCalculations.D1y * project.Column.Dimension.Width * 0.01 * project.BasicCalculations.Fcd * 1000)
                 / ((project.BasicCalculations.D1y * 0.01 - project.BasicCalculations.A2y * 0.001) * project.BasicCalculations.Fyd * 1000);      //m2
 
@@ -439,8 +442,7 @@ namespace Projekt1._0
 
             if (as2y <= 0.5 * project.BasicCalculations.AreaAsmin * 0.000001)
             {
-                as2y = Math.Max(as2y, 0.5 * project.BasicCalculations.AreaAsmin*0.000001);
-                
+                //as2y = Math.Max(as2y, 0.5 * project.BasicCalculations.AreaAsmin*0.000001);
                 quantity2y = as2y / (0.000001 * Math.PI * ((project.Column.Diameters.Fi2y) / 2) * ((project.Column.Diameters.Fi2y) / 2));
                 quantity2y = Math.Max (2,  Math.Ceiling((Double)quantity2y));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Quantity2y"));
@@ -449,15 +451,15 @@ namespace Projekt1._0
                 as2yProv = Math.Round((Double)as2yProv, 6);     //m2
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("As2yProv"));
 
-                niEff = (project.Column.Statics.CompressiveForce * project.SecondOrderCalculations.Es1y - as2yProv * (0.01 * project.BasicCalculations.D2y - project.BasicCalculations.A2y * 0.001) * project.BasicCalculations.Fyd * 1000)
-                    / (project.Column.Dimension.Width * 0.01 * 0.01 * project.BasicCalculations.D2y * 0.01 * project.BasicCalculations.D2y * project.BasicCalculations.Fcd * 1000);
+                niEff = (project.Column.Statics.CompressiveForce * project.SecondOrderCalculations.Es1y - as2yProv * (0.01 * project.BasicCalculations.D1y - project.BasicCalculations.A2y * 0.001) * project.BasicCalculations.Fyd * 1000)
+                    / (project.Column.Dimension.Width * 0.01 * 0.01 * project.BasicCalculations.D1y * 0.01 * project.BasicCalculations.D1y * project.BasicCalculations.Fcd * 1000);
 
                 ksiEff = 0.2;       //tabela
 
-                if (ksiEff < 2 * project.BasicCalculations.A2y * 0.001 / 0.01 * project.BasicCalculations.D2y)
+                if (ksiEff < 2 * project.BasicCalculations.A2y * 0.001 / 0.01 * project.BasicCalculations.D1y)
                 {
                     as1y = (project.Column.Statics.CompressiveForce * project.SecondOrderCalculations.Es2y)
-                        / (project.BasicCalculations.Fyd * 1000 * (0.01 * project.BasicCalculations.D2y - project.BasicCalculations.A2y * 0.001));
+                        / (project.BasicCalculations.Fyd * 1000 * (0.01 * project.BasicCalculations.D1y - project.BasicCalculations.A2y * 0.001));
 
                     quantity1y = as1y / (0.000001 * Math.PI * ((project.Column.Diameters.Fi1y) / 2) * ((project.Column.Diameters.Fi1y) / 2));
                     quantity1y = Math.Max(2, Math.Ceiling((Double)quantity1y));
@@ -484,7 +486,7 @@ namespace Projekt1._0
             }
             else
             {
-                as1y = (project.Column.Steel.KsiEffLim * project.BasicCalculations.D2y * 0.01 * project.Column.Dimension.Width * 0.01 * project.BasicCalculations.Fcd * 1000 + as2y * project.BasicCalculations.Fyd * 1000 - project.Column.Statics.CompressiveForce) / (project.BasicCalculations.Fyd * 1000);
+                as1y = (project.Column.Steel.KsiEffLim * project.BasicCalculations.D1y * 0.01 * project.Column.Dimension.Width * 0.01 * project.BasicCalculations.Fcd * 1000 + as2y * project.BasicCalculations.Fyd * 1000 - project.Column.Statics.CompressiveForce) / (project.BasicCalculations.Fyd * 1000);
                 as1y = Math.Round((Double)as1y, 6);
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("As1y"));
 
@@ -501,7 +503,7 @@ namespace Projekt1._0
                 else
                 {
                     //MAŁY MIMOŚRÓD
-                    niCEff = project.Column.Statics.CompressiveForce * project.SecondOrderCalculations.Es2y / (project.Column.Dimension.Width * 0.01 * project.BasicCalculations.D2y * 0.01 * project.BasicCalculations.D2y * 0.01 * project.BasicCalculations.Fcd * 1000);
+                    niCEff = project.Column.Statics.CompressiveForce * project.SecondOrderCalculations.Es2y / (project.Column.Dimension.Width * 0.01 * project.BasicCalculations.D1y * 0.01 * project.BasicCalculations.D1y * 0.01 * project.BasicCalculations.Fcd * 1000);
                     niCEff = Math.Round((Double)niCEff, 3);
 
                     // poprawić
@@ -535,8 +537,8 @@ namespace Projekt1._0
                     }
                     else
                     {
-                        as1y = (project.Column.Statics.CompressiveForce * project.SecondOrderCalculations.Es2y - 0.5 * project.BasicCalculations.D2y * 0.01 * project.BasicCalculations.D2y * 0.01 * project.Column.Dimension.Width * 0.01 * project.BasicCalculations.Fcd * 1000)
-                            / ((-1) * project.BasicCalculations.Fyd * 1000 * (0.01 * project.BasicCalculations.D2y - project.BasicCalculations.A2y * 0.001)); //m2
+                        as1y = (project.Column.Statics.CompressiveForce * project.SecondOrderCalculations.Es2y - 0.5 * project.BasicCalculations.D1y * 0.01 * project.BasicCalculations.D1y * 0.01 * project.Column.Dimension.Width * 0.01 * project.BasicCalculations.Fcd * 1000)
+                            / ((-1) * project.BasicCalculations.Fyd * 1000 * (0.01 * project.BasicCalculations.D1y - project.BasicCalculations.A2y * 0.001)); //m2
                         as1y = Math.Round((Double)as1y, 6);
                         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("As1y"));
                     }
@@ -554,6 +556,29 @@ namespace Projekt1._0
                     as2yProv = Math.Round((Double)as2yProv, 6);     //m2
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("As2yProv"));
                 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

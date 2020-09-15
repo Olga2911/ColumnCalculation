@@ -15,8 +15,8 @@ namespace Projekt1._0
         private BasicCalculations basicCalculations;
         private ReinforcementDetailsCommand reinforcementDetails = new ReinforcementDetailsCommand();
         private SecondOrderCalculations secondOrderCalculations;
-        //private EnvironmentalConditionCalculation environmentalConditionCalculation;
         private LoadCapacityCalculation loadCapacityCalculation;
+        //private EnvironmentalConditionCalculation environmentalConditionCalculation;
         //private BiaxialBendingCalculation biaxialBendingCalculation;
 
         public Project()
@@ -25,8 +25,8 @@ namespace Projekt1._0
             concreteCoverMinDurCalculation = new ConcreteCoverMinDurCalculation(this);
             basicCalculations = new BasicCalculations(this);
             secondOrderCalculations = new SecondOrderCalculations(this);
-            //environmentalConditionCalculation = new EnvironmentalConditionCalculation(this);
             loadCapacityCalculation = new LoadCapacityCalculation(this);
+            //environmentalConditionCalculation = new EnvironmentalConditionCalculation(this);
             //    biaxialBendingCalculation = new BiaxialBendingCalculation(this);
         }
 
@@ -105,8 +105,8 @@ namespace Projekt1._0
             concreteCoverMinDurCalculation.Calculate(this);
             basicCalculations.Calculate(this);
             secondOrderCalculations.Calculate(this);
-            //environmentalConditionCalculation.Calculate(this);
             loadCapacityCalculation.Calculate(this);
+            //environmentalConditionCalculation.Calculate(this);
             //    biaxialBendingCalculation.Calculate(this);
         }
     }
