@@ -16,6 +16,7 @@ namespace Projekt1._0
         
         private SecondOrderCalculations secondOrderCalculations;
         private LoadCapacityCalculation loadCapacityCalculation;
+        private NiChecking niChecking;
         //private EnvironmentalConditionCalculation environmentalConditionCalculation;
         //private BiaxialBendingCalculation biaxialBendingCalculation;
 
@@ -28,6 +29,7 @@ namespace Projekt1._0
             basicCalculations = new BasicCalculations(this);
             secondOrderCalculations = new SecondOrderCalculations(this);
             loadCapacityCalculation = new LoadCapacityCalculation(this);
+            niChecking = new NiChecking(this);
             //environmentalConditionCalculation = new EnvironmentalConditionCalculation(this);
             //    biaxialBendingCalculation = new BiaxialBendingCalculation(this);
         }

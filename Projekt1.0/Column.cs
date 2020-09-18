@@ -19,7 +19,6 @@ namespace Projekt1._0
         private Diameters diameters = new Diameters();
         private ConcreteCoverParameters concreteCoverParameters = new ConcreteCoverParameters();
         private SecondOrderParameters secondOrderParameters = new SecondOrderParameters();
-        private LoadCapacityParameters loadCapacityParameters = new LoadCapacityParameters();
 
 
         private ConcreteParametersCommand materialParametersCommand = new ConcreteParametersCommand();
@@ -47,7 +46,6 @@ namespace Projekt1._0
             diameters.PropertyChanged += InputPropertyChangedEventChandler;
             concreteCoverParameters.PropertyChanged += InputPropertyChangedEventChandler;
             secondOrderParameters.PropertyChanged += InputPropertyChangedEventChandler;
-            loadCapacityParameters.PropertyChanged += InputPropertyChangedEventChandler;
         }
 
         public Dimension Dimension
@@ -163,19 +161,6 @@ namespace Projekt1._0
             set
             {
                 secondOrderParameters = value;
-            }
-        }
-
-        public LoadCapacityParameters LoadCapacityParameters
-
-        {
-            get
-            {
-                return loadCapacityParameters;
-            }
-            set
-            {
-                loadCapacityParameters = value;
             }
         }
 

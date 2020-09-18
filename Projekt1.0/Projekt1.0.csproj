@@ -98,8 +98,8 @@
       <DependentUpon>MiParameterInformation.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoadCapacityCalculation.cs" />
-    <Compile Include="LoadCapacityParameters.cs" />
     <Compile Include="MiParameterInformationCommand.cs" />
+    <Compile Include="NiChecking.cs" />
     <Compile Include="RMParameterInformation.xaml.cs">
       <DependentUpon>RMParameterInformation.xaml</DependentUpon>
     </Compile>

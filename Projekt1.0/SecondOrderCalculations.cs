@@ -14,9 +14,7 @@ namespace Projekt1._0
 
         private Double aParameterY = 0.0;
         private Double aParameterZ = 0.0;
-        //private Double omega = 0.0;
-        ////private Double bParameter = 0.0;
-        ////private Double cParameter = 0.0;
+
         private Double nForce = 0.0;
         private Double lambdalimY = 0.0;
         private Double lambdalimZ = 0.0;
@@ -25,22 +23,8 @@ namespace Projekt1._0
         private Double height0z = 0.0;
         private Double lambdaz = 0.0;
 
-        private Double k1 = 0.0;
-        private Double k2y = 0.0;
-        private Double kcy = 0.0;
-        private Double icy = 0.0;
-        private Double isy = 0.0;
-        private Double k2z = 0.0;
-        private Double kcz = 0.0;
-        private Double icz = 0.0;
-        private Double isz = 0.0;
-        private Double eiy = 0.0;
-        private Double eiz = 0.0;
-
         private Double niY = 0.0;
         private Double niZ = 0.0;
-        private Double niY2 = 0.0;
-        private Double niZ2 = 0.0;
 
         private Double e0 = 0.0;
         private Double eey = 0.0;
@@ -54,7 +38,6 @@ namespace Projekt1._0
         private Double es1z = 0.0;
         private Double es2z = 0.0;
 
-
         private String commentyY;
         private String warningY;
         private String commentyZ;
@@ -65,8 +48,6 @@ namespace Projekt1._0
         //    //private String eYWarning;
         //    //private String eZWarning;
 
-        private Double nby = 0.0;
-        private Double nbz = 0.0;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -144,110 +125,6 @@ namespace Projekt1._0
             get
             {
                 return lambdaz;
-            }
-        }
-
-        public Double K1
-        {
-            get
-            {
-                return k1;
-            }
-        }
-
-        public Double K2y
-        {
-            get
-            {
-                return k2y;
-            }
-        }
-
-        public Double Kcy
-        {
-            get
-            {
-                return kcy;
-            }
-        }
-
-        public Double Icy
-        {
-            get
-            {
-                return icy;
-            }
-        }
-
-        public Double Isy
-        {
-            get
-            {
-                return isy;
-            }
-        }
-
-        public Double Eiy
-        {
-            get
-            {
-                return eiy;
-            }
-        }
-
-        public Double K2z
-        {
-            get
-            {
-                return k2z;
-            }
-        }
-
-        public Double Kcz
-        {
-            get
-            {
-                return kcz;
-            }
-        }
-
-        public Double Icz
-        {
-            get
-            {
-                return icz;
-            }
-        }
-
-        public Double Isz
-        {
-            get
-            {
-                return isz;
-            }
-        }
-
-        public Double Eiz
-        {
-            get
-            {
-                return eiz;
-            }
-        }
-
-        public Double Nby
-        {
-            get
-            {
-                return nby;
-            }
-        }
-
-        public Double Nbz
-        {
-            get
-            {
-                return nbz;
             }
         }
 
@@ -353,14 +230,6 @@ namespace Projekt1._0
             get
             {
                 return niZ;
-            }
-        }
-
-        public Double NiY2
-        {
-            get
-            {
-                return niY2;
             }
         }
 
@@ -625,21 +494,21 @@ namespace Projekt1._0
 
             //    }
 
-            k1 = Math.Sqrt(project.Column.Concrete.Fck / 20);
-            k1 = Math.Round((Double)k1, 4);
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("K1"));
+            //k1 = Math.Sqrt(project.Column.Concrete.Fck / 20);
+            //k1 = Math.Round((Double)k1, 4);
+            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("K1"));
 
-            k2y = Math.Min(nForce * lambday / 170, 0.2);
-            k2y = Math.Round((Double)k2y, 4);
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("K2y"));
+            //k2y = Math.Min(nForce * lambday / 170, 0.2);
+            //k2y = Math.Round((Double)k2y, 4);
+            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("K2y"));
 
-            kcy = k1 * k2y / (1 + fiEffY);
-            kcy = Math.Round((Double)kcy, 4);
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Kcy"));
+            //kcy = k1 * k2y / (1 + fiEffY);
+            //kcy = Math.Round((Double)kcy, 4);
+            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Kcy"));
 
-            icy = project.Column.Dimension.Width * project.Column.Dimension.Height * project.Column.Dimension.Height * project.Column.Dimension.Height / 12;
-            icy = Math.Round((Double)icy, 0);
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Icy"));
+            //icy = project.Column.Dimension.Width * project.Column.Dimension.Height * project.Column.Dimension.Height * project.Column.Dimension.Height / 12;
+            //icy = Math.Round((Double)icy, 0);
+            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Icy"));
 
             //isy = project.LoadCapacityCalculation.As1yProv * 0.01 * Math.Pow((0.5 * project.Column.Dimension.Height - project.BasicCalculations.A1y * 0.1), 2) +
             //   project.LoadCapacityCalculation.As2yProv * 0.01 * Math.Pow((0.5 * project.Column.Dimension.Height - project.BasicCalculations.A2y * 0.1), 2);
