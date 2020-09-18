@@ -156,7 +156,7 @@
                     
                 <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="4" Margin="4">
                         <StackPanel Background="MintCream" Grid.Column="1" >
-                            <Image Margin="0 0 0 0" Width="120"  Source="D:\Studia\Mgr\ColumnCalculation-master\ColumnCalculation\Projekt1.0\Draws\RysZbrojenie.jpg" >
+                            <Image Margin="0 0 0 0" Width="120"  Source="Draws\RysZbrojenie.jpg" >
                             </Image>
                         </StackPanel>
                     </Border>
@@ -198,7 +198,7 @@
                             </StackPanel>
 
                             <StackPanel Grid.Column="1">
-                                <TextBox FontSize="9" Background="Gainsboro" Margin="0 2 0 2" Text="{Binding SecondOrderCalculations.AParameterY, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True" />
+                                        <TextBox FontSize="9" Background="Gainsboro" Margin="0 2 0 2" Text="{Binding SecondOrderCalculations.AParameterY, Mode=OneWay, Source={StaticResource project}, StringFormat=\{0:n2\}}" IsReadOnly="True" />
                                 <TextBox FontSize="9" Background="Gainsboro" Margin="0 2 0 2" Text="{Binding SecondOrderCalculations.AParameterZ, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True" />
                                 <TextBox FontSize="9" Background="Gainsboro" Margin="0 2 0 2" Text="{Binding Column.SecondOrderParameters.BParameter,  Source={StaticResource project}}" IsReadOnly="True"/>
 
@@ -789,7 +789,7 @@
                             </StackPanel>
 
                             <StackPanel Grid.Column="1">
-                                <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.K1, Mode=OneWay,  Source={StaticResource project}}" IsReadOnly="True"/>
+                                <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding NiChecking.K1 , Mode=OneWay,  Source={StaticResource project}}" IsReadOnly="True"/>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="1.5*"/>
@@ -841,10 +841,10 @@
                             </StackPanel>
 
                             <StackPanel Grid.Column="1">
-                                <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding SecondOrderCalculations.K2y, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
-                                <TextBox FontSize="9" Background="Gainsboro" Margin="0 4 0 2" Text="{Binding SecondOrderCalculations.Kcy, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
-                                <TextBox FontSize="9" Background="Gainsboro" Margin="0 4 0 2" Text="{Binding SecondOrderCalculations.Icy, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
-                                <TextBox FontSize="9" Background="Gainsboro" Margin="0 4 0 2" Text="{Binding SecondOrderCalculations.Isy, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
+                                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" Text="{Binding NiChecking.K2y, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
+                                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 4 0 2" Text="{Binding NiChecking.Kcy, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
+                                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 4 0 2" Text="{Binding NiChecking.Icy, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
+                                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 4 0 2" Text="{Binding NiChecking.Isy, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
                             </StackPanel>
 
                             <StackPanel Grid.Column="2">
@@ -874,7 +874,7 @@
                                 </StackPanel>
 
                                 <StackPanel Grid.Column="1">
-                                    <TextBox FontWeight="Bold" FontSize="9" Background="Gainsboro" Margin="0 4 0 2" Text="{Binding SecondOrderCalculations.Eiy, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
+                                    <TextBox FontWeight="Bold" FontSize="9" Background="Gainsboro" Margin="0 4 0 2" Text="{Binding NiChecking.Eiy, Mode=OneWay, Source={StaticResource project}}" IsReadOnly="True"/>
                                 </StackPanel>
 
                                 <StackPanel Grid.Column="2">

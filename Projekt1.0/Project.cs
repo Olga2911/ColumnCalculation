@@ -66,14 +66,6 @@ namespace Projekt1._0
             }
         }
 
-        //public EnvironmentalConditionCalculation EnvironmentalConditionCalculation
-        //{
-        //    get
-        //    {
-        //        return environmentalConditionCalculation;
-        //    }
-        //}
-
         public LoadCapacityCalculation LoadCapacityCalculation
         {
             get
@@ -81,6 +73,22 @@ namespace Projekt1._0
                 return loadCapacityCalculation;
             }
         }
+
+        public NiChecking NiChecking
+        {
+            get
+            {
+                return niChecking;
+            }
+        }
+
+        //public EnvironmentalConditionCalculation EnvironmentalConditionCalculation
+        //{
+        //    get
+        //    {
+        //        return environmentalConditionCalculation;
+        //    }
+        //}
 
         //public BiaxialBendingCalculation BiaxialBendingCalculation
         //{
@@ -110,6 +118,7 @@ namespace Projekt1._0
             basicCalculations.Calculate(this);
             secondOrderCalculations.Calculate(this);
             loadCapacityCalculation.Calculate(this);
+            niChecking.Calculate(this);
             //environmentalConditionCalculation.Calculate(this);
             //    biaxialBendingCalculation.Calculate(this);
         }

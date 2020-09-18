@@ -60,13 +60,10 @@
     </Compile>
     <Compile Include="AParameterCommand.cs" />
     <Compile Include="BasicCalculations.cs" />
-    <Compile Include="BiaxialBendingCalculation.cs" />
-    <Compile Include="BiaxialBendingParameters.cs" />
     <Compile Include="C0ParameterInformation.xaml.cs">
       <DependentUpon>C0ParameterInformation.xaml</DependentUpon>
     </Compile>
     <Compile Include="C0ParameterInformationCommand.cs" />
-    <Compile Include="CheckEccentricity.cs" />
     <Compile Include="Concrete.cs" />
     <Compile Include="ConcreteCover.xaml.cs">
       <DependentUpon>ConcreteCover.xaml</DependentUpon>

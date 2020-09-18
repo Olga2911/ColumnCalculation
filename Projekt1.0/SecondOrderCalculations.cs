@@ -223,6 +223,11 @@ namespace Projekt1._0
             {
                 return niY;
             }
+            set
+            {
+                niY = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NiY"));
+            }
         }
 
         public Double NiZ
@@ -230,6 +235,11 @@ namespace Projekt1._0
             get
             {
                 return niZ;
+            }
+            set
+            {
+                niZ = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NiZ"));
             }
         }
 

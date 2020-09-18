@@ -99,8 +99,5 @@ namespace Projekt1._0
                 }
             }
         }
-
-
-
     }
 }

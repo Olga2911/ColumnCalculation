@@ -157,13 +157,29 @@ namespace Projekt1._0
         public void Calculate(Project project)
         {
 
-            //isy = project.LoadCapacityCalculation.As1yProv * 0.01 * Math.Pow((0.5 * project.Column.Dimension.Height - project.BasicCalculations.A1y * 0.1), 2) +
-            //   project.LoadCapacityCalculation.As2yProv * 0.01 * Math.Pow((0.5 * project.Column.Dimension.Height - project.BasicCalculations.A2y * 0.1), 2);
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("isy"));
+            k1 = Math.Sqrt(project.Column.Concrete.Fck / 20);
+            //k1 = Math.Round((Double)k1, 4);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("K1"));
 
-            //eiy = kcy * project.Column.Concrete.Ecm * Icy * 0.01 + project.Column.SecondOrderParameters.Ks * project.Column.Steel.Es * Isy * 0.01;
+            k2y = Math.Min(project.SecondOrderCalculations.NForce * project.SecondOrderCalculations.Lambday / 170, 0.2);
+            //k2y = Math.Round((Double)k2y, 4);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("K2y"));
+
+            kcy = k1 * k2y / (1 + project.SecondOrderCalculations.FiEffY);
+            //kcy = Math.Round((Double)kcy, 4);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Kcy"));
+
+            icy = project.Column.Dimension.Width * project.Column.Dimension.Height * project.Column.Dimension.Height * project.Column.Dimension.Height / 12;
+            //icy = Math.Round((Double)icy, 0);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Icy"));
+
+            isy = project.LoadCapacityCalculation.As1yProv * 0.01 * Math.Pow((0.5 * project.Column.Dimension.Height - project.BasicCalculations.A1y * 0.1), 2) +
+               project.LoadCapacityCalculation.As2yProv * 0.01 * Math.Pow((0.5 * project.Column.Dimension.Height - project.BasicCalculations.A2y * 0.1), 2);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("isy"));
+
+            eiy = kcy * project.Column.Concrete.Ecm * Icy * 0.01 + project.Column.SecondOrderParameters.Ks * project.Column.Steel.Es * Isy * 0.01;
             //eiy = Math.Round((Double)eiy, 2);
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Eiy"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Eiy"));
             ///////////////////////////////////
             //k2z = Math.Min(nForce * lambdaz / 170, 0.2);
             //k2z = Math.Round((Double)k2z, 4);
@@ -188,55 +204,34 @@ namespace Projekt1._0
 
 
 
-            //        betaY = Math.PI * Math.PI / project.Column.SecondOrderParameters.C0Y;
-            //        betaY = Math.Round((Double)betaY, 3);
-            //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BetaY"));
 
-            //        betaZ = Math.PI * Math.PI / project.Column.SecondOrderParameters.C0Z;
-            //        betaZ = Math.Round((Double)betaZ, 3);
-            //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BetaZ"));
-
-            k1 = Math.Sqrt(project.Column.Concrete.Fck / 20);
-            k1 = Math.Round((Double)k1, 4);
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("K1"));
-
-            //k2y = Math.Min(nForce * lambday / 170, 0.2);
-            //k2y = Math.Round((Double)k2y, 4);
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("K2y"));
-
-            //kcy = k1 * k2y / (1 + fiEffY);
-            kcy = Math.Round((Double)kcy, 4);
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Kcy"));
-
-            icy = project.Column.Dimension.Width * project.Column.Dimension.Height * project.Column.Dimension.Height * project.Column.Dimension.Height / 12;
-            icy = Math.Round((Double)icy, 0);
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Icy"));
-
-            //nby = Math.PI * Math.PI * eiy / (height0y * height0y) * 10000;
+            nby = Math.Pow(Math.PI, 2) * eiy * 10000 / (Math.Pow(project.SecondOrderCalculations.Height0y, 2)) ;
             //nby = Math.Round((Double)nby, 2);
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Nby"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Nby"));
 
-            //niY2 = 1 / (1 - (project.Column.Statics.CompressiveForce / nby));
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NiY2"));
+            niY2 = 1 / (1 - (project.Column.Statics.CompressiveForce / nby));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NiY2"));
 
-            //bladNiY = (niY - NiY2) / niY2;
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BladNiY"));
 
+
+
+
+
+
+            if (project.SecondOrderCalculations.NiY != 1.0)
+            {
+                //while (Math.Abs((project.SecondOrderCalculations.NiY - niY2) / niY2) > 0.1)
+                //{
+                //    double dummy = (project.SecondOrderCalculations.NiY - niY2) / niY2;
+                //    project.SecondOrderCalculations.NiY = project.SecondOrderCalculations.NiY + 0.1;
+                //}
+            }
+            
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NiY2"));
 
             //        nbz = Math.PI * Math.PI * eiz / (height0z * height0z) * 10000;
             //        nbz = Math.Round((Double)nbz, 2);
             //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Nbz"));
-
-            //        medy = project.Column.Statics.BendingMomentz * (1 + betaZ / ((nbz / project.Column.Statics.CompressiveForce) - 1));
-            //        medy = Math.Round((Double)medy, 2);
-            //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Medy"));
-
-            //        medz = project.Column.Statics.BendingMomenty * (1 + betaY / ((nby / project.Column.Statics.CompressiveForce) - 1));
-            //        medz = Math.Round((Double)medz, 2);
-            //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Medz"));
-
-
-
 
         }
     }
