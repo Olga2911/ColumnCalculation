@@ -373,7 +373,6 @@ namespace Projekt1._0
             //    asMinMaxComment = "SPEŁNIONY";
             //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AsMinMaxComment"));
             //}
-
             //else
             //{
             //    asMinMaxComment = "NIESPEŁNIONY";
@@ -386,7 +385,6 @@ namespace Projekt1._0
                 fiSComment = "SPEŁNIONY";
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("FiSComment"));
             }
-
             else
             {
                 fiSComment = "NIESPEŁNIONY";
@@ -399,14 +397,11 @@ namespace Projekt1._0
                 sComment = "SPEŁNIONY";
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SComment"));
             }
-
             else
             {
                 sComment = "NIESPEŁNIONY";
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SComment"));
             }
-
-
         }
     }
 }
