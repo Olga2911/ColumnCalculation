@@ -18,26 +18,21 @@ namespace Projekt1._0
         private EnvironmentalCondition environmentalCondition = new EnvironmentalCondition();
         private Diameters diameters = new Diameters();
         private ConcreteCoverParameters concreteCoverParameters = new ConcreteCoverParameters();
-        private ConcreteParametersCommand materialParametersCommand = new ConcreteParametersCommand();
-        private SteelParametersCommand steelParametersCommand = new SteelParametersCommand();
-
-        private ConcreteCoverCommand concreteCoverCommand = new ConcreteCoverCommand();
-
-        private StructuralClassCommand structuralClassCommand = new StructuralClassCommand();
-        private ExposureClassCommand exposureClassCommand = new ExposureClassCommand();
-        private EnvironmentalClassCommand environmentalClassCommand = new EnvironmentalClassCommand();
-
         private SecondOrderParameters secondOrderParameters = new SecondOrderParameters();
         private LoadCapacityParameters loadCapacityParameters = new LoadCapacityParameters();
 
+
+        private ConcreteParametersCommand materialParametersCommand = new ConcreteParametersCommand();
+        private SteelParametersCommand steelParametersCommand = new SteelParametersCommand();
+        private ConcreteCoverCommand concreteCoverCommand = new ConcreteCoverCommand();
+        private StructuralClassCommand structuralClassCommand = new StructuralClassCommand();
+        private ExposureClassCommand exposureClassCommand = new ExposureClassCommand();
+        private EnvironmentalClassCommand environmentalClassCommand = new EnvironmentalClassCommand();
         private MiParameterInformationCommand miParameterInformationCommand = new MiParameterInformationCommand();
         private RMParameterInformationCommand rMParameterInformationCommand = new RMParameterInformationCommand();
         private KSParameterInformationCommand kSParameterInformationCommand = new KSParameterInformationCommand();
         private C0ParameterInformationCommand c0ParameterInformationCommand = new C0ParameterInformationCommand();
         private AParameterCommand aParameterCommand = new AParameterCommand();
-
-
-        //private CheckEccentricity checkEccentricity = new CheckEccentricity();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -53,10 +48,6 @@ namespace Projekt1._0
             concreteCoverParameters.PropertyChanged += InputPropertyChangedEventChandler;
             secondOrderParameters.PropertyChanged += InputPropertyChangedEventChandler;
             loadCapacityParameters.PropertyChanged += InputPropertyChangedEventChandler;
-
-
-            //materialParametersCommand.PropertyChanged += InputPropertyChangedEventChandler;
-            //steelParametersCommand.PropertyChanged += InputPropertyChangedEventChandler;
         }
 
         public Dimension Dimension

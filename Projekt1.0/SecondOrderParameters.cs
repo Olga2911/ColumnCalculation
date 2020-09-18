@@ -16,9 +16,6 @@ namespace Projekt1._0
         private Double bParameter = 1.1;
         private Double cParameter = 0.7;
 
-        //    private Double c0Y = 8;
-        //    private Double c0Z = 8;
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         public double Rm
@@ -117,43 +114,6 @@ namespace Projekt1._0
                 }
             }
         }
-
-
-        //    public double C0Y
-        //    {
-        //        get
-        //        {
-        //            return c0Y;
-        //        }
-        //        set
-        //        {
-        //            if (value > 0)
-        //            {
-        //                c0Y = value;
-        //                PropertyChanged(this, new PropertyChangedEventArgs("C0Y"));
-        //            }
-        //        }
-        //    }
-
-        //    public double C0Z
-        //    {
-        //        get
-        //        {
-        //            return c0Z;
-        //        }
-        //        set
-        //        {
-        //            if (value > 0)
-        //            {
-        //                c0Z = value;
-        //                PropertyChanged(this, new PropertyChangedEventArgs("C0Z"));
-        //            }
-        //        }
-        //    }
-
-
-
-
     }
 }
 

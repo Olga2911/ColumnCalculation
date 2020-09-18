@@ -693,7 +693,7 @@ namespace Projekt1._0
             {
                 commentyY = "NIESPEŁNIONY";
                 warningY = "Uwzględnia się efekty II-go rzędu.";
-                niY = 1.752; //POPRAWIĆ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                niY = 1.001; //POPRAWIĆ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("commentyY"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("warningY"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NiY"));
@@ -712,7 +712,7 @@ namespace Projekt1._0
             {
                 commentyZ = "NIESPEŁNIONY";
                 warningZ = "Uwzględnia się efekty II-go rzędu.";
-                niZ = 2.005; //POPRAWIĆ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                niZ = 1.001; //POPRAWIĆ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("commentyZ"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("warningZ"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NiZ"));
@@ -772,19 +772,18 @@ namespace Projekt1._0
             kcy = Math.Round((Double)kcy, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Kcy"));
 
-            //icy = project.Column.Dimension.Width * project.Column.Dimension.Height * project.Column.Dimension.Height * project.Column.Dimension.Height / 12;
-            //icy = Math.Round((Double)icy, 0);
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Icy"));
+            icy = project.Column.Dimension.Width * project.Column.Dimension.Height * project.Column.Dimension.Height * project.Column.Dimension.Height / 12;
+            icy = Math.Round((Double)icy, 0);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Icy"));
 
-            //isy = project.LoadCapacityCalculation.As1y * 0.01 * (0.5 * project.Column.Dimension.Height - project.BasicCalculations.A1y * 0.1) * (0.5 * project.Column.Dimension.Height - project.BasicCalculations.A1y * 0.1) +
-            //    project.LoadCapacityCalculation.As2y * 0.01 * (0.5 * project.Column.Dimension.Height- project.BasicCalculations.A2y * 0.1) * (0.5 * project.Column.Dimension.Height- project.BasicCalculations.A2y * 0.1);
-            //isy = Math.Round((double)isy, 0);
+            //isy = project.LoadCapacityCalculation.As1yProv * 0.01 * Math.Pow((0.5 * project.Column.Dimension.Height - project.BasicCalculations.A1y * 0.1), 2) +
+            //   project.LoadCapacityCalculation.As2yProv * 0.01 * Math.Pow((0.5 * project.Column.Dimension.Height - project.BasicCalculations.A2y * 0.1), 2);
             //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("isy"));
 
             //eiy = kcy * project.Column.Concrete.Ecm * Icy * 0.01 + project.Column.SecondOrderParameters.Ks * project.Column.Steel.Es * Isy * 0.01;
             //eiy = Math.Round((Double)eiy, 2);
             //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Eiy"));
-
+            ///////////////////////////////////
             //k2z = Math.Min(nForce * lambdaz / 170, 0.2);
             //k2z = Math.Round((Double)k2z, 4);
             //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("K2z"));
@@ -797,7 +796,7 @@ namespace Projekt1._0
             //icz = Math.Round((Double)icz, 0);
             //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Icz"));
 
-            //isz = project.BasicCalculations.AreaAs1z * 0.01 * (0.5 * project.Column.Dimension.Width - project.BasicCalculations.A1z * 0.1) * (0.5 * project.Column.Dimension.Width - project.BasicCalculations.A1z * 0.1) +
+            //isz = project.LoadCapacityCalculation.AreaAs1z * 0.01 * (0.5 * project.Column.Dimension.Width - project.BasicCalculations.A1z * 0.1) * (0.5 * project.Column.Dimension.Width - project.BasicCalculations.A1z * 0.1) +
             //    project.BasicCalculations.AreaAs2z * 0.01 * (0.5 * project.Column.Dimension.Width - project.BasicCalculations.A2z * 0.1) * (0.5 * project.Column.Dimension.Width - project.BasicCalculations.A2z * 0.1);
             //isz = Math.Round((Double)isz, 0);
             //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Isz"));

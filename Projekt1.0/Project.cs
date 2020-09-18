@@ -13,11 +13,13 @@ namespace Projekt1._0
         private Column column = new Column();
         private ConcreteCoverMinDurCalculation concreteCoverMinDurCalculation;
         private BasicCalculations basicCalculations;
-        private ReinforcementDetailsCommand reinforcementDetails = new ReinforcementDetailsCommand();
+        
         private SecondOrderCalculations secondOrderCalculations;
         private LoadCapacityCalculation loadCapacityCalculation;
         //private EnvironmentalConditionCalculation environmentalConditionCalculation;
         //private BiaxialBendingCalculation biaxialBendingCalculation;
+
+        private ReinforcementDetailsCommand reinforcementDetails = new ReinforcementDetailsCommand();
 
         public Project()
         {

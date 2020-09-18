@@ -13,7 +13,7 @@ namespace Projekt1._0
         private String steelClassDescription = EnumConvert.GetDescription(SteelClasses.AIIINRB500);
         private Double fyk = 500.0;
         private Double gammaS = 1.15;
-        private Double es = 200; //GPa
+        private Double es = 200.0; //GPa
         private Double ksiEffLim = 0.500; //GPa
 
         public event PropertyChangedEventHandler PropertyChanged;
