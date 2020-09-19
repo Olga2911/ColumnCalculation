@@ -13,11 +13,14 @@ namespace Projekt1._0
         private Column column = new Column();
         private ConcreteCoverMinDurCalculation concreteCoverMinDurCalculation;
         private BasicCalculations basicCalculations;
-        private ReinforcementDetailsCommand reinforcementDetails = new ReinforcementDetailsCommand();
+        
         private SecondOrderCalculations secondOrderCalculations;
         private LoadCapacityCalculation loadCapacityCalculation;
+        private NiChecking niChecking;
         //private EnvironmentalConditionCalculation environmentalConditionCalculation;
         //private BiaxialBendingCalculation biaxialBendingCalculation;
+
+        private ReinforcementDetailsCommand reinforcementDetails = new ReinforcementDetailsCommand();
 
         public Project()
         {
@@ -26,6 +29,7 @@ namespace Projekt1._0
             basicCalculations = new BasicCalculations(this);
             secondOrderCalculations = new SecondOrderCalculations(this);
             loadCapacityCalculation = new LoadCapacityCalculation(this);
+            niChecking = new NiChecking(this);
             //environmentalConditionCalculation = new EnvironmentalConditionCalculation(this);
             //    biaxialBendingCalculation = new BiaxialBendingCalculation(this);
         }
@@ -62,14 +66,6 @@ namespace Projekt1._0
             }
         }
 
-        //public EnvironmentalConditionCalculation EnvironmentalConditionCalculation
-        //{
-        //    get
-        //    {
-        //        return environmentalConditionCalculation;
-        //    }
-        //}
-
         public LoadCapacityCalculation LoadCapacityCalculation
         {
             get
@@ -77,6 +73,22 @@ namespace Projekt1._0
                 return loadCapacityCalculation;
             }
         }
+
+        public NiChecking NiChecking
+        {
+            get
+            {
+                return niChecking;
+            }
+        }
+
+        //public EnvironmentalConditionCalculation EnvironmentalConditionCalculation
+        //{
+        //    get
+        //    {
+        //        return environmentalConditionCalculation;
+        //    }
+        //}
 
         //public BiaxialBendingCalculation BiaxialBendingCalculation
         //{
@@ -106,6 +118,7 @@ namespace Projekt1._0
             basicCalculations.Calculate(this);
             secondOrderCalculations.Calculate(this);
             loadCapacityCalculation.Calculate(this);
+            niChecking.Calculate(this);
             //environmentalConditionCalculation.Calculate(this);
             //    biaxialBendingCalculation.Calculate(this);
         }

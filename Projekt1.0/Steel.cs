@@ -9,12 +9,12 @@ namespace Projekt1._0
 {
     class Steel : INotifyPropertyChanged
     {
-        private SteelClasses steelClasses = SteelClasses.AIIINRB500;
-        private String steelClassDescription = EnumConvert.GetDescription(SteelClasses.AIIINRB500);
-        private Double fyk = 500.0;
+        private SteelClasses steelClasses = SteelClasses.AIII35G2Y;
+        private String steelClassDescription = EnumConvert.GetDescription(SteelClasses.AIII35G2Y);
+        private Double fyk = 410.0;
         private Double gammaS = 1.15;
-        private Double es = 200; //GPa
-        private Double ksiEffLim = 0.500; //GPa
+        private Double es = 200.0; //GPa
+        private Double ksiEffLim = 0.539; //GPa
 
         public event PropertyChangedEventHandler PropertyChanged;
 

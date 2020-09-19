@@ -9,11 +9,11 @@ namespace Projekt1._0
 {
     class Statics : INotifyPropertyChanged 
     {
-        private Double compressiveForce = 1316.6;
-        private Double bendingMomenty = 19.76;
-        private Double bendingMomentz = 1.90;
-        private Double bendingMomentqpy = 12.67;
-        private Double bendingMomentqpz = 1.10;
+        private Double compressiveForce = 450.17;
+        private Double bendingMomenty = 5.36;
+        private Double bendingMomentz = 7.38;
+        private Double bendingMomentqpy = 3.61;
+        private Double bendingMomentqpz = 4.99;
 
         public event PropertyChangedEventHandler PropertyChanged;
 

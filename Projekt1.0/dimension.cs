@@ -10,14 +10,10 @@ namespace Projekt1._0
     class Dimension : INotifyPropertyChanged 
 
     {
-        private Double width = 35;
-        private Double height = 35;
-        private Double columnHeight = 390;
-        //private Double quantity1y = 3;
-        //private Double quantity2y = 3;
-        //private Double quantity1z = 1;
-        //private Double quantity2z = 1;
-        private Double s = 100;
+        private Double width = 30.0;
+        private Double height = 30.0;
+        private Double columnHeight = 330.0;
+        private Double s = 100.0;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -71,71 +67,6 @@ namespace Projekt1._0
                 }
             }
         }
-
-        //public double Quantity1y
-        //{
-        //    get
-        //    {
-        //        return quantity1y;
-        //    }
-        //    set
-        //    {
-        //        if (value > 0)
-        //        {
-        //            quantity1y = value;
-        //            PropertyChanged(this, new PropertyChangedEventArgs("Quantity1y"));
-        //        }
-        //    }
-
-        //}
-
-        //public double Quantity2y
-        //{
-        //    get
-        //    {
-        //        return quantity2y;
-        //    }
-        //    set
-        //    {
-        //        if (value > 0)
-        //        {
-        //            quantity2y = value;
-        //            PropertyChanged(this, new PropertyChangedEventArgs("Quantity2y"));
-        //        }
-        //    }
-        //}
-
-        //public double Quantity1z
-        //{
-        //    get
-        //    {
-        //        return quantity1z;
-        //    }
-        //    set
-        //    {
-        //        if (value > 0)
-        //        {
-        //            quantity1z = value;
-        //            PropertyChanged(this, new PropertyChangedEventArgs("Quantity1z"));
-        //        }
-        //    }
-        //}
-
-        //public double Quantity2z
-        //{
-        //    get
-        //    {
-        //        return quantity2z;
-        //    }
-        //    set
-        //    {
-        //        if (value > 0)
-        //        {
-        //            quantity2z = value;
-        //            PropertyChanged(this, new PropertyChangedEventArgs("Quantity2z"));
-        //        }
-        //    }
-        //}
 
         public double S
         {

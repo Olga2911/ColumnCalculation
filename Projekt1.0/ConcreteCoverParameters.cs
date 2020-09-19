@@ -10,9 +10,8 @@ namespace Projekt1._0
     class ConcreteCoverParameters : INotifyPropertyChanged
 
     {
-        private Double deltacdev = 10;
+        private Double deltacdev = 5;
         private Double cminb = 16;
-        //private Double cmindur = 10;
         private Double cdurgamma = 0;
         private Double deltacdurst = 0;
         private Double deltacduradd= 0;
@@ -52,22 +51,6 @@ namespace Projekt1._0
                 }
             }
         }
-
-        //public double Cmindur
-        //{
-        //    get
-        //    {
-        //        return cmindur;
-        //    }
-        //    set
-        //    {
-        //        if (value > 0)
-        //        {
-        //            cmindur = value;
-        //            PropertyChanged(this, new PropertyChangedEventArgs("Cmindur"));
-        //        }
-        //    }
-        //}
 
         public double Cdurgamma
         {
@@ -116,8 +99,5 @@ namespace Projekt1._0
                 }
             }
         }
-
-
-
     }
 }

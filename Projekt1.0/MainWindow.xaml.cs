@@ -26,5 +26,9 @@ namespace Projekt1._0
             InitializeComponent();
         }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

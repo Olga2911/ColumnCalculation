@@ -10,12 +10,12 @@ namespace Projekt1._0
     class Concrete : INotifyPropertyChanged
 
     {
-        private ConcreteClasses concreteClasses = ConcreteClasses.C25;
-        private String concreteClassDescription = EnumConvert.GetDescription(ConcreteClasses.C25);
-        private Double fck = 25.0;
+        private ConcreteClasses concreteClasses = ConcreteClasses.C30;
+        private String concreteClassDescription = EnumConvert.GetDescription(ConcreteClasses.C30);
+        private Double fck = 30.0;
         private Double gammaC = 1.5;
         private Double fcd = 0.0;
-        private Double ecm = 31.0;
+        private Double ecm = 32.0;
         private Double epsilonCu2 = 0.0035;
         private Double epsilonC3 = 0.00175;
 
