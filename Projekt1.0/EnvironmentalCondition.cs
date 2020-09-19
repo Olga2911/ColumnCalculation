@@ -9,7 +9,7 @@ namespace Projekt1._0
 {
     class EnvironmentalCondition : INotifyPropertyChanged
     {
-        private Double fiKoncowe = 2.8;
+        private Double fiKoncowe = 2.2;
 
         public event PropertyChangedEventHandler PropertyChanged;
 

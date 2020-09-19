@@ -308,7 +308,7 @@ namespace Projekt1._0
             //fyd = Math.Round((Double)fyd, 3);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Fyd"));
 
-            areaAsmin = 100 * Math.Max(project.Column.Statics.CompressiveForce / fyd, areaConcrete * 0.002); //mm
+            areaAsmin = 100 * Math.Max(project.Column.Statics.CompressiveForce *0.5 / fyd, areaConcrete * 0.5 * 0.002); //mm
             //areaAsmin = Math.Round((Double)areaAsmin, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AreaAsmin"));
 

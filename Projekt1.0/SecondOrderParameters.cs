@@ -15,6 +15,8 @@ namespace Projekt1._0
         private Double ks = 1.0;
         private Double bParameter = 1.1;
         private Double cParameter = 0.7;
+        private Double niY = 0.0;
+        private Double niZ = 0.0;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -112,6 +114,30 @@ namespace Projekt1._0
                     cParameter = value;
                     PropertyChanged(this, new PropertyChangedEventArgs("CParameter"));
                 }
+            }
+        }
+
+        public double NiY
+        {
+            get
+            {
+                return niY;
+            }
+            set
+            {
+                niY = value;
+            }
+        }
+
+        public double NiZ
+        {
+            get
+            {
+                return niZ;
+            }
+            set
+            {
+                niZ = value;
             }
         }
     }

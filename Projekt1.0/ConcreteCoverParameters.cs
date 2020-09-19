@@ -10,7 +10,7 @@ namespace Projekt1._0
     class ConcreteCoverParameters : INotifyPropertyChanged
 
     {
-        private Double deltacdev = 10;
+        private Double deltacdev = 5;
         private Double cminb = 16;
         private Double cdurgamma = 0;
         private Double deltacdurst = 0;

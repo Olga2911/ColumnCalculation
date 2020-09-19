@@ -10,10 +10,10 @@ namespace Projekt1._0
     class Dimension : INotifyPropertyChanged 
 
     {
-        private Double width = 35;
-        private Double height = 35;
-        private Double columnHeight = 390;
-        private Double s = 100;
+        private Double width = 30.0;
+        private Double height = 30.0;
+        private Double columnHeight = 330.0;
+        private Double s = 100.0;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
