@@ -148,7 +148,7 @@
                                     A<Run FontSize="7" BaselineAlignment="Subscript">s</Run>=A<Run FontSize="7" BaselineAlignment="Subscript">s,1y</Run>+A<Run FontSize="7" BaselineAlignment="Subscript">s,2y</Run>+A<Run FontSize="7" BaselineAlignment="Subscript">s,1z</Run>+A<Run FontSize="7" BaselineAlignment="Subscript">s,2z</Run>=
                             </TextBlock>
                             <TextBlock FontSize="9" Margin="5 5 5 2">
-                                    A<Run FontSize="7" BaselineAlignment="Subscript">s,min</Run>=max{0,1N<Run FontSize="7" BaselineAlignment="Subscript">Ed</Run>/f<Run FontSize="7" BaselineAlignment="Subscript">yd</Run>; 0,002bh}=
+                                    A<Run FontSize="7" BaselineAlignment="Subscript">s,min</Run>=A<Run FontSize="7" BaselineAlignment="Subscript">s1,min</Run>=A<Run FontSize="7" BaselineAlignment="Subscript">s2,min</Run>=max{0,05N<Run FontSize="7" BaselineAlignment="Subscript">Ed</Run>/f<Run FontSize="7" BaselineAlignment="Subscript">yd</Run>; 0,001bh}=
                             </TextBlock>
                             <TextBlock FontSize="9" Margin="5 6 5 2">
                                     A<Run FontSize="7" BaselineAlignment="Subscript">s,max</Run>=0,4bh=
@@ -157,7 +157,6 @@
 
                         <StackPanel Grid.Column="2">
                             <TextBox Background="Gainsboro" FontSize="9" Margin="0 13 0 2" Text="{Binding BasicCalculations.AreaAs, Mode=OneWay}" IsReadOnly="True"/>
-                            <TextBox Background="Gainsboro" FontSize="9" Margin="0 4 0 2" Text="{Binding BasicCalculations.AreaAsmin, Mode=OneWay}" IsReadOnly="True"/>
                             <TextBox Background="Gainsboro" FontSize="9" Margin="0 4 0 2" Text="{Binding BasicCalculations.AreaAsmax, Mode=OneWay}" IsReadOnly="True"/>
                         </StackPanel>
 
@@ -197,9 +196,9 @@
                 </StackPanel>
             </Border>
 
-            <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="4" Margin="4">
+            <!--<Border BorderBrush="CadetBlue" BorderThickness="1" Padding="4" Margin="4">
                 <StackPanel Background="MintCream" >
-                    <!-- ZBROJENIE POPRZECZNE -->
+                    --><!-- ZBROJENIE POPRZECZNE --><!--
                     <TextBlock FontSize="12" Margin="2 2 0 0" Text="ZBROJENIE POPRZECZNE" FontWeight="Bold"/>
                     <Grid >
                         <Grid.ColumnDefinitions>
@@ -316,7 +315,7 @@
                     <TextBlock TextWrapping="Wrap" Margin="5 0 5 2" Text="2. w pobliżu połączeń na zakład, gdy maksymalna średnica prętów podłużnych jest większa niż 14 mm, na długości zakładu należy umieścić co najmniej trzy równomiernie rozmieszczone pręty poprzeczne." FontSize="7" />
 
                 </StackPanel>
-            </Border>
+            </Border>-->
         </StackPanel>
     </Border>
 </Window>

@@ -10,8 +10,8 @@ namespace Projekt1._0
     class SecondOrderParameters : INotifyPropertyChanged
     {
         private Double rm = 1.0;
-        private Double miy = 2.0;
-        private Double miz = 0.7;
+        private Double miy = 1;
+        private Double miz = 1;
         private Double ks = 1.0;
         private Double bParameter = 1.1;
         private Double cParameter = 0.7;

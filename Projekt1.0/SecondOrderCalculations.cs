@@ -23,8 +23,6 @@ namespace Projekt1._0
         private Double height0z = 0.0;
         private Double lambdaz = 0.0;
 
-        
-
         private Double e0 = 0.0;
         private Double eey = 0.0;
         private Double eez = 0.0;
@@ -337,11 +335,11 @@ namespace Projekt1._0
             //fiEffZ = Math.Round((Double)fiEffZ, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("FiEffZ"));
 
-            aParameterY =1/(1+0.2*fiEffZ);
+            aParameterY =1/(1+0.2*fiEffY);
             //aParameterY = Math.Round((Double)aParameterY, 3);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AParameterY"));
 
-            aParameterZ = 1 / (1 + 0.2 * fiEffY);
+            aParameterZ = 1 / (1 + 0.2 * fiEffZ);
             //aParameterZ = Math.Round((Double)aParameterZ, 3);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AParameterZ"));
 

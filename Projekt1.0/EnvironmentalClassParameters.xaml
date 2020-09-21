@@ -98,8 +98,8 @@
                     </StackPanel>
 
                     <StackPanel Grid.Column="1">
-                        <TextBox FontWeight="Bold" FontSize="9" Background="Gainsboro" Margin="0 1 0 2" Text="{Binding SecondOrderCalculations.FiEffY, Mode=OneWay}" IsReadOnly="True" />
-                        <TextBox FontWeight="Bold" FontSize="9" Background="Gainsboro" Margin="0 1 0 2" Text="{Binding SecondOrderCalculations.FiEffZ, Mode=OneWay}" IsReadOnly="True" />
+                        <TextBox FontWeight="Bold" FontSize="9" Background="Gainsboro" Margin="0 1 0 2" Text="{Binding SecondOrderCalculations.FiEffY, Mode=OneWay, StringFormat=\{0:n3\}}" IsReadOnly="True" />
+                        <TextBox FontWeight="Bold" FontSize="9" Background="Gainsboro" Margin="0 1 0 2" Text="{Binding SecondOrderCalculations.FiEffZ, Mode=OneWay, StringFormat=\{0:n3\}}" IsReadOnly="True" />
                     </StackPanel>
 
                     <StackPanel Grid.Column="2">
@@ -142,6 +142,14 @@
                     <TextBlock TextWrapping="Wrap" FontSize="9" Margin="5 0 5 2" >
                       S - cement szybkotwardniejący.
                     </TextBlock>
+
+                    <TextBlock Margin="5 20 5 0" FontStyle="Italic"  FontSize="10">
+                        Metoda wyznaczania 
+                         φ<Run FontSize="7" BaselineAlignment="Subscript">(∞,t0)</Run>
+                        w normalnych warunkach [źródło EC2 Rysunek 3.1]
+                    </TextBlock>
+                        
+                        
 
                     <Image Margin="5 2 5 5" Width="350" Name="image" Source="D:\Studia\Mgr\ColumnCalculation-master\ColumnCalculation-master\Rysunki\KonWspPel.jpg " >
                     </Image>
