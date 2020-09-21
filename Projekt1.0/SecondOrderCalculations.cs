@@ -386,7 +386,6 @@ namespace Projekt1._0
             {
                 commentyY = "NIESPEŁNIONY";
                 warningY = "Uwzględnia się efekty II-go rzędu.";
-                project.Column.SecondOrderParameters.NiY = 1.001; 
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("commentyY"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("warningY"));
                 //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NiY"));
@@ -405,7 +404,6 @@ namespace Projekt1._0
             {
                 commentyZ = "NIESPEŁNIONY";
                 warningZ = "Uwzględnia się efekty II-go rzędu.";
-                project.Column.SecondOrderParameters.NiZ = 1.001;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("commentyZ"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("warningZ"));
                 //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NiZ"));

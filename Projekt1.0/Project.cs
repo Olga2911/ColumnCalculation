@@ -30,6 +30,7 @@ namespace Projekt1._0
             secondOrderCalculations = new SecondOrderCalculations(this);
             loadCapacityCalculation = new LoadCapacityCalculation(this);
             niChecking = new NiChecking(this);
+            iterationNi();
             //environmentalConditionCalculation = new EnvironmentalConditionCalculation(this);
             //    biaxialBendingCalculation = new BiaxialBendingCalculation(this);
         }
@@ -119,9 +120,22 @@ namespace Projekt1._0
             secondOrderCalculations.Calculate(this);
             loadCapacityCalculation.Calculate(this);
             niChecking.Calculate(this);
+            iterationNi();
             //environmentalConditionCalculation.Calculate(this);
             //    biaxialBendingCalculation.Calculate(this);
         }
-    }
 
+        private void iterationNi()
+        {
+            if (column.SecondOrderParameters.NiY != 1.0)
+            {
+                while (Math.Abs((column.SecondOrderParameters.NiY - niChecking.NiY2) / niChecking.NiY2) > 0.01)
+                {
+                    column.SecondOrderParameters.NiY = column.SecondOrderParameters.NiY + 0.01;
+                }
+            }
+            // TYLKO TUTAJ MUSISZ DOPISAĆ SPRAWDZENIE NA Y !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            // if...
+        }
+    }
 }

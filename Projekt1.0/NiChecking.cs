@@ -213,19 +213,6 @@ namespace Projekt1._0
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NiY2"));
 
 
-            if (project.Column.SecondOrderParameters.NiY != 1.0)
-            {
-                while (Math.Abs((project.Column.SecondOrderParameters.NiY - niY2) / niY2) > 0.1)
-                {
-                    double dummy = (project.Column.SecondOrderParameters.NiY - niY2) / niY2;
-                    project.Column.SecondOrderParameters.NiY = project.Column.SecondOrderParameters.NiY + 0.1;
-                    //project.SecondOrderCalculations.Calculate(project);
-                    //project.LoadCapacityCalculation.Calculate(project);
-                }
-                
-
-            }
-            //project.Column.SecondOrderParameters.update();
 
             //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NiY2"));
 

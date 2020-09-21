@@ -15,8 +15,8 @@ namespace Projekt1._0
         private Double ks = 1.0;
         private Double bParameter = 1.1;
         private Double cParameter = 0.7;
-        private Double niY = 0.0;
-        private Double niZ = 0.0;
+        private Double niY = 1.01;
+        private Double niZ = 1.01;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
