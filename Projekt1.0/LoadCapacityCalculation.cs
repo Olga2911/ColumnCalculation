@@ -25,7 +25,7 @@ namespace Projekt1._0
         private Double quantity1z = 0.0;
         private Double quantity2z = 0.0;
 
-        private Tables tables;
+        private Tables tables = new Tables();
         public event PropertyChangedEventHandler PropertyChanged;
 
         public LoadCapacityCalculation(Project project)
