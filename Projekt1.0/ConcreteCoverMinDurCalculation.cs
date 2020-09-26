@@ -14,11 +14,6 @@ namespace Projekt1._0
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ConcreteCoverMinDurCalculation(Project project)
-        {
-            Calculate(project);
-        }
-
         public double CMinDur
         {
             get

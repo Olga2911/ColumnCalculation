@@ -10,10 +10,13 @@ namespace Projekt1._0
 {
     class Project
     {
+        // Input data
         private Column column = new Column();
+
+        // Calculated data
         private ConcreteCoverMinDurCalculation concreteCoverMinDurCalculation;
         private BasicCalculations basicCalculations;
-        
+
         private SecondOrderCalculations secondOrderCalculations;
         private LoadCapacityCalculation loadCapacityCalculation;
         private NiChecking niChecking;
@@ -25,14 +28,15 @@ namespace Projekt1._0
         public Project()
         {
             column.PropertyChanged += ColumnPropertyChangedEventHandler;
-            concreteCoverMinDurCalculation = new ConcreteCoverMinDurCalculation(this);
-            basicCalculations = new BasicCalculations(this);
-            secondOrderCalculations = new SecondOrderCalculations(this);
-            loadCapacityCalculation = new LoadCapacityCalculation(this);
-            niChecking = new NiChecking(this);
-            iterationNi();
+            concreteCoverMinDurCalculation = new ConcreteCoverMinDurCalculation();
+            basicCalculations = new BasicCalculations();
+            secondOrderCalculations = new SecondOrderCalculations();
+            loadCapacityCalculation = new LoadCapacityCalculation();
+            niChecking = new NiChecking();
             //environmentalConditionCalculation = new EnvironmentalConditionCalculation(this);
             //    biaxialBendingCalculation = new BiaxialBendingCalculation(this);
+
+            niChecking.FindNi(this);
         }
 
         public Column Column
@@ -107,26 +111,12 @@ namespace Projekt1._0
             }
         }
 
-
         void ColumnPropertyChangedEventHandler(object sender, PropertyChangedEventArgs e)
         {
-            //column.SecondOrderParameters.NiY = 1.01;
-            Calculate();
+            niChecking.FindNi(this);
         }
 
-        void Calculate()
-        {
-            concreteCoverMinDurCalculation.Calculate(this);
-            basicCalculations.Calculate(this);
-            secondOrderCalculations.Calculate(this);
-            loadCapacityCalculation.Calculate(this);
-            niChecking.Calculate(this);
-            iterationNi();
-            //environmentalConditionCalculation.Calculate(this);
-            //    biaxialBendingCalculation.Calculate(this);
-        }
-
-        void Calculate2()
+        public void Calculate()
         {
             concreteCoverMinDurCalculation.Calculate(this);
             basicCalculations.Calculate(this);
@@ -135,20 +125,6 @@ namespace Projekt1._0
             niChecking.Calculate(this);
             //environmentalConditionCalculation.Calculate(this);
             //    biaxialBendingCalculation.Calculate(this);
-        }
-
-        private void iterationNi()
-        {
-            if (column.SecondOrderParameters.NiY != 1.0)
-            {
-                while (Math.Abs((column.SecondOrderParameters.NiY - niChecking.NiY2) / niChecking.NiY2) > 0.05)
-                {
-                    column.SecondOrderParameters.NiY = column.SecondOrderParameters.NiY + 0.05;
-                    Calculate2();
-                }
-            }
-            // TYLKO TUTAJ MUSISZ DOPISAĆ SPRAWDZENIE NA Y !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            // if...
         }
     }
 }

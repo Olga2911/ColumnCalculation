@@ -24,15 +24,12 @@ namespace Projekt1._0
         private Double nby = 0.0;
         private Double nbz = 0.0;
 
+        private Double niY = 1.0;
+        private Double niZ = 1.0;
         private Double niY2 = 0.0;
         private Double niZ2 = 0.0;
 
         public event PropertyChangedEventHandler PropertyChanged;
-
-        public NiChecking(Project project)
-        {
-            Calculate(project);
-        }
 
         public Double K1
         {
@@ -138,6 +135,22 @@ namespace Projekt1._0
             }
         }
 
+        public double NiY
+        {
+            get
+            {
+                return niY;
+            }
+        }
+
+        public double NiZ
+        {
+            get
+            {
+                return niZ;
+            }
+        }
+
         public Double NiY2
         {
             get
@@ -158,19 +171,15 @@ namespace Projekt1._0
         {
 
             k1 = Math.Sqrt(project.Column.Concrete.Fck / 20);
-            //k1 = Math.Round((Double)k1, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("K1"));
 
             k2y = Math.Min(project.SecondOrderCalculations.NForce * project.SecondOrderCalculations.Lambday / 170.0, 0.2);
-            //k2y = Math.Round((Double)k2y, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("K2y"));
 
             kcy = k1 * k2y / (1 + project.SecondOrderCalculations.FiEffY);
-            //kcy = Math.Round((Double)kcy, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Kcy"));
 
             icy = project.Column.Dimension.Width * project.Column.Dimension.Height * project.Column.Dimension.Height * project.Column.Dimension.Height / 12;
-            //icy = Math.Round((Double)icy, 0);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Icy"));
 
             isy = project.LoadCapacityCalculation.As1yProv * 10000 * Math.Pow((0.5 * project.Column.Dimension.Height - project.BasicCalculations.A1y * 0.1), 2) +
@@ -178,11 +187,9 @@ namespace Projekt1._0
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("isy"));
 
             eiy = kcy * project.Column.Concrete.Ecm * Icy * 0.01 + project.Column.SecondOrderParameters.Ks * project.Column.Steel.Es * Isy * 0.01;
-            //eiy = Math.Round((Double)eiy, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Eiy"));
 
             k2z = Math.Min(project.SecondOrderCalculations.NForce* project.SecondOrderCalculations.Lambdaz / 170, 0.2);
-            //k2z = Math.Round((Double)k2z, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("K2z"));
 
             kcz = k1 * k2z / (1 + project.SecondOrderCalculations.FiEffZ);
@@ -190,35 +197,49 @@ namespace Projekt1._0
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Kcz"));
 
             icz = project.Column.Dimension.Height * project.Column.Dimension.Width * project.Column.Dimension.Width * project.Column.Dimension.Width / 12;
-            //icz = Math.Round((Double)icz, 0);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Icz"));
 
-            //isz = project.LoadCapacityCalculation.As1zProv * 0.01 * (0.5 * project.Column.Dimension.Width - project.BasicCalculations.A1z * 0.1) * (0.5 * project.Column.Dimension.Width - project.BasicCalculations.A1z * 0.1) +
-            //    project.BasicCalculations.AreaAs2z * 0.01 * (0.5 * project.Column.Dimension.Width - project.BasicCalculations.A2z * 0.1) * (0.5 * project.Column.Dimension.Width - project.BasicCalculations.A2z * 0.1);
-            //isz = Math.Round((Double)isz, 0);
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Isz"));
+            isz = project.LoadCapacityCalculation.As1zProv * 10000 * Math.Pow((0.5 * project.Column.Dimension.Width- project.BasicCalculations.A1z * 0.1), 2) +
+            project.LoadCapacityCalculation.As2zProv * 10000 * Math.Pow((0.5 * project.Column.Dimension.Width- project.BasicCalculations.A2z * 0.1), 2);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("isz"));
 
-            //        eiz = kcz * project.Column.Concrete.Ecm * Icz * 0.01 + project.Column.SecondOrderParameters.Ks * project.Column.Steel.Es * Isz * 0.01;
-            //        eiz = Math.Round((Double)eiz, 2);
-            //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Eiz"));
-
-
-
+            eiz = kcz * project.Column.Concrete.Ecm * Icz * 0.01 + project.Column.SecondOrderParameters.Ks * project.Column.Steel.Es * Isz * 0.01;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Eiz"));
 
             nby = Math.Pow(Math.PI, 2) * eiy * 10000 / (Math.Pow(project.SecondOrderCalculations.Height0y, 2)) ;
-            //nby = Math.Round((Double)nby, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Nby"));
 
             niY2 = 1 / (1 - (project.Column.Statics.CompressiveForce / nby));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NiY2"));
 
+            nbz = Math.Pow(Math.PI, 2) * eiz * 10000 / (Math.Pow(project.SecondOrderCalculations.Height0z, 2));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Nbz"));
 
+            niZ2 = 1 / (1 - (project.Column.Statics.CompressiveForce / nbz));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NiZ2"));
+        }
 
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NiY2"));
+        public void FindNi(Project project)
+        {
+            niY = 1.0;
+            niZ = 1.0;
 
-            //        nbz = Math.PI * Math.PI * eiz / (height0z * height0z) * 10000;
-            //        nbz = Math.Round((Double)nbz, 2);
-            //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Nbz"));
+            project.Calculate();
+            while ((project.SecondOrderCalculations.Lambday > project.SecondOrderCalculations.LambdalimY) && (Math.Abs((niY - niY2) / niY2) > 0.05))
+            {
+                // TODO: Show progress information in pop-up window - e.g. Show: Trying niY = X.XXX
+                niY = niY + 0.001;
+                project.Calculate();
+            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NiY"));
+
+            while ((project.SecondOrderCalculations.Lambdaz > project.SecondOrderCalculations.LambdalimZ) && (Math.Abs((niZ - niZ2) / niZ2) > 0.05))
+            {
+                // TODO: Show progress information in pop-up window - e.g. Show: Trying niY = X.XXX
+                niZ = niZ + 0.001;
+                project.Calculate();
+            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NiZ"));
 
         }
     }

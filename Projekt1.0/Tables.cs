@@ -473,22 +473,16 @@ namespace Projekt1._0
             {
                 case 0.04:
                     return 0.500;
-                    break;
                 case 0.08:
                     return 0.497;
-                    break;
                 case 0.12:
                     return 0.493;
-                    break;
                 case 0.16:
                     return 0.487;
-                    break;
                 case 0.20:
                     return 0.480;
-                    break;
                 default:
                     return 0.5;
-                    break;
             }
         }
 

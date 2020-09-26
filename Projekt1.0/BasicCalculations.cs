@@ -47,11 +47,6 @@ namespace Projekt1._0
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public BasicCalculations(Project project)
-        {
-            Calculate(project);
-        }
-
         public Double AreaConcrete
         {
             get

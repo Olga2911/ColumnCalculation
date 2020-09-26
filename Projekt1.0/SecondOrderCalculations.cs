@@ -35,9 +35,9 @@ namespace Projekt1._0
         private Double es1z = 0.0;
         private Double es2z = 0.0;
 
-        private String commentyY = "";
+        private String commentY = "";
         private String warningY;
-        private String commentyZ;
+        private String commentZ;
         private String warningZ;
 
         //    //private String eYComment;
@@ -47,11 +47,6 @@ namespace Projekt1._0
 
 
         public event PropertyChangedEventHandler PropertyChanged;
-
-        public SecondOrderCalculations(Project project)
-        {
-            Calculate(project);
-        }
 
         public Double AParameterY
         {
@@ -213,15 +208,15 @@ namespace Projekt1._0
             }
         }
 
-        public String CommentyY
+        public String CommentY
         {
             get
             {
-                return commentyY;
+                return commentY;
             }
             set
             {
-                commentyY = value;
+                commentY = value;
             }
         }
 
@@ -237,15 +232,15 @@ namespace Projekt1._0
             }
         }
 
-        public String CommentyZ
+        public String CommentZ
         {
             get
             {
-                return commentyZ;
+                return commentZ;
             }
             set
             {
-                commentyZ = value;
+                commentZ = value;
             }
         }
 
@@ -260,54 +255,6 @@ namespace Projekt1._0
                 warningZ = value;
             }
         }
-
-        //    //public String EYComment
-        //    //{
-        //    //    get
-        //    //    {
-        //    //        return eYComment;
-        //    //    }
-        //    //    set
-        //    //    {
-        //    //        eYComment = value;
-        //    //    }
-        //    //}
-
-        //    //public String EZComment
-        //    //{
-        //    //    get
-        //    //    {
-        //    //        return eZComment;
-        //    //    }
-        //    //    set
-        //    //    {
-        //    //        eZComment = value;
-        //    //    }
-        //    //}
-
-        //    //public String EYWarning
-        //    //{
-        //    //    get
-        //    //    {
-        //    //        return eYWarning;
-        //    //    }
-        //    //    set
-        //    //    {
-        //    //        eYWarning = value;
-        //    //    }
-        //    //}
-
-        //    //public String EZWarning
-        //    //{
-        //    //    get
-        //    //    {
-        //    //        return eZWarning;
-        //    //    }
-        //    //    set
-        //    //    {
-        //    //        eZWarning = value;
-        //    //    }
-        //    //}
 
         public Double FiEffY
         {
@@ -328,130 +275,101 @@ namespace Projekt1._0
         public void Calculate(Project project)
         {
             fiEffY = project.Column.EnvironmentalCondition.FiKoncowe * project.Column.Statics.BendingMomentqpy / project.Column.Statics.BendingMomenty;
-            //fiEffY = Math.Round((Double)fiEffY, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("FiEffY"));
 
             fiEffZ = project.Column.EnvironmentalCondition.FiKoncowe * project.Column.Statics.BendingMomentqpz / project.Column.Statics.BendingMomentz;
-            //fiEffZ = Math.Round((Double)fiEffZ, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("FiEffZ"));
 
             aParameterY =1/(1+0.2*fiEffY);
-            //aParameterY = Math.Round((Double)aParameterY, 3);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AParameterY"));
 
             aParameterZ = 1 / (1 + 0.2 * fiEffZ);
-            //aParameterZ = Math.Round((Double)aParameterZ, 3);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AParameterZ"));
 
             nForce = 10 * project.Column.Statics.CompressiveForce / (project.BasicCalculations.AreaConcrete * project.BasicCalculations.Fcd);
-            //nForce = Math.Round((Double)nForce, 3);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NForce"));
 
             lambdalimY = 20 * aParameterY * project.Column.SecondOrderParameters.BParameter * project.Column.SecondOrderParameters.CParameter / Math.Sqrt(nForce);
-            //lambdalimY = Math.Round((Double)lambdalimY, 3);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("LambdalimY"));
 
             lambdalimZ = 20 * aParameterZ * project.Column.SecondOrderParameters.BParameter * project.Column.SecondOrderParameters.CParameter / Math.Sqrt(nForce);
-            //lambdalimZ = Math.Round((Double)lambdalimZ, 3);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("LambdalimZ"));
 
             height0y = project.Column.SecondOrderParameters.Miy * project.Column.Dimension.ColumnHeight;
-            //height0y = Math.Round((Double)height0y, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Height0y"));
 
             lambday = height0y * Math.Sqrt(12) / project.Column.Dimension.Height;
-            //lambday = Math.Round((Double)lambday, 3);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lambday"));
 
             height0z = project.Column.SecondOrderParameters.Miz * project.Column.Dimension.ColumnHeight;
-            //height0z = Math.Round((Double)height0z, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Height0z"));
 
             lambdaz = height0z * Math.Sqrt(12) / project.Column.Dimension.Width;
-            //lambdaz = Math.Round((Double)lambdaz, 3);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lambdaz"));
 
 
             if (lambday <= lambdalimY)
             {
-                commentyY = "SPEŁNIONY";
+                commentY = "SPEŁNIONY";
                 warningY = "Pomija się efekty II-go rzędu.";
-                project.Column.SecondOrderParameters.NiY = 1.0;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("commentyY"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("warningY"));
-                //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NiY"));
-
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CommentY"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("WarningY"));
             }
             else
             {
-                commentyY = "NIESPEŁNIONY";
+                commentY = "NIESPEŁNIONY";
                 warningY = "Uwzględnia się efekty II-go rzędu.";
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("commentyY"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("warningY"));
-                //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NiY"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CommentY"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("WarningY"));
             }
 
             if (lambdaz <= lambdalimZ)
             {
-                commentyZ = "SPEŁNIONY";
+                commentZ = "SPEŁNIONY";
                 warningZ = "Pomija się efekty II-go rzędu.";
-                project.Column.SecondOrderParameters.NiZ = 1.0;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("commentyZ"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("warningZ"));
-                //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NiZ"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CommentZ"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("WarningZ"));
             }
             else
             {
-                commentyZ = "NIESPEŁNIONY";
+                commentZ = "NIESPEŁNIONY";
                 warningZ = "Uwzględnia się efekty II-go rzędu.";
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("commentyZ"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("warningZ"));
-                //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NiZ"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CommentZ"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("WarningZ"));
             }
 
 
             e0 = 0.01 * Math.Max(project.Column.Dimension.Height / 30.0, 2);
-                //e0 = Math.Round((Double) e0, 4);
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("E0"));
 
                 eey = project.Column.Statics.BendingMomenty / project.Column.Statics.CompressiveForce;
-                //eey = Math.Round((Double)eey, 4);
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Eey"));
 
                 eez = project.Column.Statics.BendingMomentz / project.Column.Statics.CompressiveForce;
-                //eez = Math.Round((Double)eez, 4);
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Eez"));
 
             e0y = eey+e0;
-            //e0y = Math.Round((Double)e0y, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("E0y"));
 
             e0z = eez+e0;
-            //e0z = Math.Round((Double)e0z, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("E0z"));
 
-            eTotY = project.Column.SecondOrderParameters.NiY * e0y;
-            //eTotY = Math.Round((Double)eTotY, 4);
+            eTotY = project.NiChecking.NiY * e0y;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ETotY"));
 
-            eTotZ = project.Column.SecondOrderParameters.NiZ * e0z;
-            //eTotZ = Math.Round((Double)eTotZ, 4);
+            eTotZ = project.NiChecking.NiZ * e0z;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ETotZ"));
 
             es1y = eTotY+0.5*project.Column.Dimension.Height*0.01-project.BasicCalculations.A1y*0.001;
-            //es1y = Math.Round((Double)es1y, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Es1y"));
 
             es2y = -eTotY + 0.5 * project.Column.Dimension.Height*0.01 - project.BasicCalculations.A2y*0.001;
-            //es2y = Math.Round((Double)es2y, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Es2y"));
 
             es1z = eTotZ + 0.5 * project.Column.Dimension.Width*0.01 - project.BasicCalculations.A1z*0.001;
-            //es1z = Math.Round((Double)es1z, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Es1z"));
 
             es2z = -eTotZ + 0.5 * project.Column.Dimension.Width*0.01 - project.BasicCalculations.A2z*0.001;
-            //es2z = Math.Round((Double)es2z, 4);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Es2z"));
 
 

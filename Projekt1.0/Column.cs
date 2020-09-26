@@ -37,15 +37,15 @@ namespace Projekt1._0
 
         public Column () //konstruktor klasy
         {
-            dimension.PropertyChanged += InputPropertyChangedEventChandler;
-            statics.PropertyChanged += InputPropertyChangedEventChandler;
-            concrete.PropertyChanged += InputPropertyChangedEventChandler;
-            steel.PropertyChanged += InputPropertyChangedEventChandler;
-            concreteCoverMinDur.PropertyChanged += InputPropertyChangedEventChandler;
-            environmentalCondition.PropertyChanged += InputPropertyChangedEventChandler;
-            diameters.PropertyChanged += InputPropertyChangedEventChandler;
-            concreteCoverParameters.PropertyChanged += InputPropertyChangedEventChandler;
-            secondOrderParameters.PropertyChanged += InputPropertyChangedEventChandler;
+            dimension.PropertyChanged += InputPropertyChangedEventHandler;
+            statics.PropertyChanged += InputPropertyChangedEventHandler;
+            concrete.PropertyChanged += InputPropertyChangedEventHandler;
+            steel.PropertyChanged += InputPropertyChangedEventHandler;
+            concreteCoverMinDur.PropertyChanged += InputPropertyChangedEventHandler;
+            environmentalCondition.PropertyChanged += InputPropertyChangedEventHandler;
+            diameters.PropertyChanged += InputPropertyChangedEventHandler;
+            concreteCoverParameters.PropertyChanged += InputPropertyChangedEventHandler;
+            secondOrderParameters.PropertyChanged += InputPropertyChangedEventHandler;
         }
 
         public Dimension Dimension
@@ -252,7 +252,7 @@ namespace Projekt1._0
             }
         }
 
-        void InputPropertyChangedEventChandler (object sender, PropertyChangedEventArgs e )
+        void InputPropertyChangedEventHandler (object sender, PropertyChangedEventArgs e )
         {
             PropertyChanged(sender, e);
         }
