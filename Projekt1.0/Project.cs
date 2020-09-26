@@ -110,6 +110,7 @@ namespace Projekt1._0
 
         void ColumnPropertyChangedEventHandler(object sender, PropertyChangedEventArgs e)
         {
+            //column.SecondOrderParameters.NiY = 1.01;
             Calculate();
         }
 
@@ -125,13 +126,25 @@ namespace Projekt1._0
             //    biaxialBendingCalculation.Calculate(this);
         }
 
+        void Calculate2()
+        {
+            concreteCoverMinDurCalculation.Calculate(this);
+            basicCalculations.Calculate(this);
+            secondOrderCalculations.Calculate(this);
+            loadCapacityCalculation.Calculate(this);
+            niChecking.Calculate(this);
+            //environmentalConditionCalculation.Calculate(this);
+            //    biaxialBendingCalculation.Calculate(this);
+        }
+
         private void iterationNi()
         {
             if (column.SecondOrderParameters.NiY != 1.0)
             {
-                while (Math.Abs((column.SecondOrderParameters.NiY - niChecking.NiY2) / niChecking.NiY2) > 0.01)
+                while (Math.Abs((column.SecondOrderParameters.NiY - niChecking.NiY2) / niChecking.NiY2) > 0.05)
                 {
-                    column.SecondOrderParameters.NiY = column.SecondOrderParameters.NiY + 0.01;
+                    column.SecondOrderParameters.NiY = column.SecondOrderParameters.NiY + 0.05;
+                    Calculate2();
                 }
             }
             // TYLKO TUTAJ MUSISZ DOPISAĆ SPRAWDZENIE NA Y !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

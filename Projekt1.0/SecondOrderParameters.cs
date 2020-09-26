@@ -126,6 +126,7 @@ namespace Projekt1._0
             set
             {
                 niY = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("NiY"));
             }
         }
 
@@ -138,6 +139,7 @@ namespace Projekt1._0
             set
             {
                 niZ = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("NiZ"));
             }
         }
     }
