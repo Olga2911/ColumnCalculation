@@ -24,6 +24,7 @@ namespace Projekt1._0
         private Double quantity1z = 0.0;
         private Double quantity2z = 0.0;
 
+        private Tables tables;
         public event PropertyChangedEventHandler PropertyChanged;
 
         public LoadCapacityCalculation(Project project)
@@ -151,7 +152,8 @@ namespace Projekt1._0
                 niEff = (project.Column.Statics.CompressiveForce * project.SecondOrderCalculations.Es1y - as2yProv * (0.01 * project.BasicCalculations.D1y - project.BasicCalculations.A2y * 0.001) * project.BasicCalculations.Fyd * 1000)
                     / (project.Column.Dimension.Width * 0.01 * 0.01 * project.BasicCalculations.D1y * 0.01 * project.BasicCalculations.D1y * project.BasicCalculations.Fcd * 1000);
 
-                ksiEff = 0.2;       //tabela
+                //tabela zal2 z ni!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                ksiEff = tables.setKsi48(niCEff);
 
                 if (ksiEff < 2 * project.BasicCalculations.A2y * 0.001 / 0.01 * project.BasicCalculations.D1y)
                 {

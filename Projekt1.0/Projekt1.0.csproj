@@ -118,6 +118,7 @@
     <Compile Include="StructuralClassParameters.xaml.cs">
       <DependentUpon>StructuralClassParameters.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Tables.cs" />
     <Page Include="AParameter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
