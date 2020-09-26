@@ -11,6 +11,7 @@ namespace Projekt1._0
     {
         //WYMIAROWANIE ZBROJENIA
         private Double ksiEff = 0.0;
+        private Double ksiEffM = 0.0;
         private Double as1y = 0.0;
         private Double as1yProv = 0.0;
         private Double as2y = 0.0;
@@ -37,6 +38,14 @@ namespace Projekt1._0
             get
             {
                 return ksiEff;
+            }
+        }
+
+        public Double KsiEffM
+        {
+            get
+            {
+                return ksiEffM;
             }
         }
 
@@ -152,7 +161,7 @@ namespace Projekt1._0
                 niEff = (project.Column.Statics.CompressiveForce * project.SecondOrderCalculations.Es1y - as2yProv * (0.01 * project.BasicCalculations.D1y - project.BasicCalculations.A2y * 0.001) * project.BasicCalculations.Fyd * 1000)
                     / (project.Column.Dimension.Width * 0.01 * 0.01 * project.BasicCalculations.D1y * 0.01 * project.BasicCalculations.D1y * project.BasicCalculations.Fcd * 1000);
 
-                //tabela zal2 z ni!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                //tabela 4.8 zal2 z ni
                 ksiEff = tables.setKsi48(niCEff);
 
                 if (ksiEff < 2 * project.BasicCalculations.A2y * 0.001 / 0.01 * project.BasicCalculations.D1y)
@@ -199,10 +208,10 @@ namespace Projekt1._0
                 {
                     //MAŁY MIMOŚRÓD
                     niCEff = project.Column.Statics.CompressiveForce * project.SecondOrderCalculations.Es2y / (project.Column.Dimension.Width * 0.01 * project.BasicCalculations.D1y * 0.01 * project.BasicCalculations.D1y * 0.01 * project.BasicCalculations.Fcd * 1000);
-                    niCEff = Math.Round((Double)niCEff, 3);
 
-                    // poprawić
-                    niCEffMax = 0.5;
+                    //tabelka 5.1
+                    niCEffMax = tables.niCeffMax(project.BasicCalculations.A2y / project.BasicCalculations.D1y);
+                    ksiEffM = tables.ksieffM(project.BasicCalculations.A2y / project.BasicCalculations.D1y, niCEff); 
 
                     if (niCEff < niCEffMax)
                     {
@@ -235,7 +244,7 @@ namespace Projekt1._0
                         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("As1y"));
                     }
 
-                    as2y = (project.Column.Statics.CompressiveForce * project.SecondOrderCalculations.Es1y - niCEff* project.BasicCalculations.D1y * 0.01 * project.BasicCalculations.D1y * 0.01 * 0.01 * project.Column.Dimension.Width * project.BasicCalculations.Fcd * 1000)
+                    as2y = (project.Column.Statics.CompressiveForce * project.SecondOrderCalculations.Es1y - ksiEffM * (1 - 0.5 * ksiEffM) * Math.Pow(project.BasicCalculations.D1y * 0.01, 2 ) * 0.01 * project.Column.Dimension.Width * project.BasicCalculations.Fcd * 1000)
                         / (project.BasicCalculations.Fyd * 1000 * (0.01 * project.BasicCalculations.D1y - project.BasicCalculations.A2y * 0.001)); //m2
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("As2y"));
 
