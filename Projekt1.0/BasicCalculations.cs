@@ -10,17 +10,8 @@ namespace Projekt1._0
     class BasicCalculations : INotifyPropertyChanged
     {
         private Double areaConcrete = 0.0;
-        //private Double areaAs = 0.0;
         private Double areaAsmin = 0.0;
         private Double areaAsmax = 0.0;
-        //private Double areaAs1y = 0.0;
-        //private Double areaAs2y = 0.0;
-        //private Double areaAs1z = 0.0;
-        //private Double areaAs2z = 0.0;
-        //private Double areaAsy = 0.0;
-        //private Double areaAsz = 0.0;
-
-        ////private Double ro = 0.0;
 
         private Double fiSmin = 0.0;
         private Double sCltmax = 0.0;
@@ -41,7 +32,6 @@ namespace Projekt1._0
         private Double fcd = 0.0;
         private Double fyd = 0.0;
 
-        private String asMinMaxComment;
         private String fiSComment;
         private String sComment;
 
@@ -54,14 +44,6 @@ namespace Projekt1._0
                 return areaConcrete;
             }
         }
-
-        //public double AreaAs
-        //{
-        //    get
-        //    {
-        //        return areaAs;
-        //    }
-        //}
 
         public double AreaAsmin
         {
@@ -86,57 +68,6 @@ namespace Projekt1._0
                 return areaAsmax;
             }
         }
-
-        //public double AreaAs1y
-        //{
-        //    get
-        //    {
-        //        return areaAs1y;
-        //    }
-        //}
-        //public double AreaAs2y
-        //{
-        //    get
-        //    {
-        //        return areaAs2y;
-        //    }
-        //}
-        //public double AreaAs1z
-        //{
-        //    get
-        //    {
-        //        return areaAs1z;
-        //    }
-        //}
-        //public double AreaAs2z
-        //{
-        //    get
-        //    {
-        //        return areaAs2z;
-        //    }
-        //}
-        //public double AreaAsy
-        //{
-        //    get
-        //    {
-        //        return areaAsy;
-        //    }
-        //}
-        //public double AreaAsz
-        //{
-        //    get
-        //    {
-        //        return areaAsz;
-        //    }
-        //}
-
-        //public double Ro
-        //{
-        //    get
-        //    {
-        //        return ro;
-        //    }
-        //}
 
         public double FiSmin
         {
@@ -259,14 +190,6 @@ namespace Projekt1._0
             }
         }
 
-        public string AsMinMaxComment
-        {
-            get
-            {
-                return asMinMaxComment;
-            }
-        }
-
         public string FiSComment
         {
             get
@@ -288,21 +211,6 @@ namespace Projekt1._0
             areaConcrete = project.Column.Dimension.Height * project.Column.Dimension.Width;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AreaConcrete"));
 
-            //areaAs = project.Column.Dimension.Quantity1y * (project.Column.Diameters.Fi1y * 0.5) * (project.Column.Diameters.Fi1y * 0.5) * Math.PI + +
-            //    project.Column.Dimension.Quantity2y * (project.Column.Diameters.Fi2y * 0.5) * (project.Column.Diameters.Fi2y * 0.5) * Math.PI +
-            //    project.Column.Dimension.Quantity1z * (project.Column.Diameters.Fi1z * 0.5) * (project.Column.Diameters.Fi1z * 0.5) * Math.PI +
-            //    project.Column.Dimension.Quantity2z * (project.Column.Diameters.Fi2z * 0.5) * (project.Column.Diameters.Fi2z * 0.5) * Math.PI;
-            //areaAs = Math.Round((Double)areaAs, 2);
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AreaAs"));
-
-            //    ro = 0.01*areaAs/areaConcrete;
-            //    ro = Math.Round((Double)ro, 5);
-            //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ro"));               
-
-            //    fiEfektywne = project.Column.EnvironmentalCondition.FiKoncowe * project.Column.EnvironmentalCondition.M0eqpm0ed;
-            //    fiEfektywne = Math.Round((Double)fiEfektywne, 3);
-            //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("FiEfektywne"));
-
             fcd = project.Column.Concrete.Fck / project.Column.Concrete.GammaC;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Fcd"));
 
@@ -311,26 +219,6 @@ namespace Projekt1._0
 
             areaAsmin = 100 * Math.Max(project.Column.Statics.CompressiveForce *0.5 / fyd, areaConcrete * 0.5 * 0.002); //mm2
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AreaAsmin"));
-
-            //areaAsmax = 0.4 * project.Column.Dimension.Height * project.Column.Dimension.Width * 100;
-            ////areaAsmax = Math.Round((Double)areaAsmax, 2);
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AreaAsmax"));
-
-            //areaAs1y = project.Column.Dimension.Quantity1y * (project.Column.Diameters.Fi1y * 0.5) * (project.Column.Diameters.Fi1y * 0.5) * Math.PI;
-            //areaAs1y = Math.Round((Double)areaAs1y, 2);
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AreaAs1y"));
-            //areaAs2y = project.Column.Dimension.Quantity2y * (project.Column.Diameters.Fi2y * 0.5) * (project.Column.Diameters.Fi2y * 0.5) * Math.PI;
-            //areaAs2y = Math.Round((Double)areaAs2y, 2);
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AreaAs2y"));
-            //areaAs1z = project.Column.Dimension.Quantity1z * (project.Column.Diameters.Fi1z * 0.5) * (project.Column.Diameters.Fi1z * 0.5) * Math.PI;
-            //areaAs1z = Math.Round((Double)areaAs1z, 2);
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AreaAs1z"));
-            //areaAs2z = project.Column.Dimension.Quantity2z * (project.Column.Diameters.Fi2z * 0.5) * (project.Column.Diameters.Fi2z * 0.5) * Math.PI;
-            //areaAs2z = Math.Round((Double)areaAs2z, 2);
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AreaAs2z"));
-
-            //areaAsy = AreaAs1y + AreaAs2y;
-            //areaAsz = AreaAs1z + AreaAs2z;
 
             fiSmin = Math.Max(Math.Max(Math.Max(0.25 * project.Column.Diameters.Fi1y, 0.25 * project.Column.Diameters.Fi2y), Math.Max(0.25 * project.Column.Diameters.Fi1z, 0.25 * project.Column.Diameters.Fi2z)), 6); //mm          
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("FiSmin"));
@@ -367,18 +255,6 @@ namespace Projekt1._0
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("A2z"));
             d2z = project.Column.Dimension.Width - a2z * 0.1;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("D2z"));
-
-            //if (areaAs >= areaAsmin && areaAs <= areaAsmax)
-            //{
-            //    asMinMaxComment = "SPEŁNIONY";
-            //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AsMinMaxComment"));
-            //}
-            //else
-            //{
-            //    asMinMaxComment = "NIESPEŁNIONY";
-            //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AsMinMaxComment"));
-            //}
-
 
             if (project.Column.Diameters.FiS >= fiSmin)
             {

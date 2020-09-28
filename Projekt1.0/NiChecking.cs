@@ -228,7 +228,6 @@ namespace Projekt1._0
             project.Calculate();
             while ((project.SecondOrderCalculations.Lambday > project.SecondOrderCalculations.LambdalimY) && (Math.Abs((niY - niY2) / niY2) > 0.05))
             {
-                // TODO: Show progress information in pop-up window - e.g. Show: Trying niY = X.XXX
                 niY = niY + 0.001;
                 project.Calculate();
             }
@@ -236,12 +235,10 @@ namespace Projekt1._0
 
             while ((project.SecondOrderCalculations.Lambdaz > project.SecondOrderCalculations.LambdalimZ) && (Math.Abs((niZ - niZ2) / niZ2) > 0.05))
             {
-                // TODO: Show progress information in pop-up window - e.g. Show: Trying niY = X.XXX
                 niZ = niZ + 0.001;
                 project.Calculate();
             }
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NiZ"));
-
         }
     }
 }

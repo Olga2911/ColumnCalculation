@@ -10,20 +10,13 @@ namespace Projekt1._0
 {
     class Project
     {
-        // Input data
         private Column column = new Column();
 
-        // Calculated data
         private ConcreteCoverMinDurCalculation concreteCoverMinDurCalculation;
         private BasicCalculations basicCalculations;
-
         private SecondOrderCalculations secondOrderCalculations;
         private LoadCapacityCalculation loadCapacityCalculation;
         private NiChecking niChecking;
-        //private EnvironmentalConditionCalculation environmentalConditionCalculation;
-        //private BiaxialBendingCalculation biaxialBendingCalculation;
-
-        private ReinforcementDetailsCommand reinforcementDetails = new ReinforcementDetailsCommand();
 
         public Project()
         {
@@ -33,9 +26,6 @@ namespace Projekt1._0
             secondOrderCalculations = new SecondOrderCalculations();
             loadCapacityCalculation = new LoadCapacityCalculation();
             niChecking = new NiChecking();
-            //environmentalConditionCalculation = new EnvironmentalConditionCalculation(this);
-            //    biaxialBendingCalculation = new BiaxialBendingCalculation(this);
-
             niChecking.FindNi(this);
         }
 
@@ -87,29 +77,6 @@ namespace Projekt1._0
             }
         }
 
-        //public EnvironmentalConditionCalculation EnvironmentalConditionCalculation
-        //{
-        //    get
-        //    {
-        //        return environmentalConditionCalculation;
-        //    }
-        //}
-
-        //public BiaxialBendingCalculation BiaxialBendingCalculation
-        //{
-        //    get
-        //    {
-        //        return biaxialBendingCalculation;
-        //    }
-        //}
-
-        public ICommand ReinforcementDetailsView
-        {
-            get
-            {
-                return reinforcementDetails;
-            }
-        }
 
         void ColumnPropertyChangedEventHandler(object sender, PropertyChangedEventArgs e)
         {
@@ -123,8 +90,6 @@ namespace Projekt1._0
             secondOrderCalculations.Calculate(this);
             loadCapacityCalculation.Calculate(this);
             niChecking.Calculate(this);
-            //environmentalConditionCalculation.Calculate(this);
-            //    biaxialBendingCalculation.Calculate(this);
         }
     }
 }

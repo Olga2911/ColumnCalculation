@@ -34,9 +34,8 @@
 
                 </Grid>
 
-            <TextBlock Margin="5 10 5 0"  FontSize="10" Text="Zalecaną klasą konstrukcji jest S4. Zalecane modyfikacje klasy konstrukcji podano w poniższej tabeli. "/>
-
-            <TextBlock Margin="5 20 5 0" FontStyle="Italic"  FontSize="10" Text="Tab. Zalecana klasyfikacja konstrukcji [źródło EC2 Tablica 4.3N]" />
+                <TextBlock Margin="5 10 5 0"  FontSize="10" Text="Zalecaną klasą konstrukcji jest S4. Zalecane modyfikacje klasy konstrukcji podano w poniższej tabeli. "/>
+                <TextBlock Margin="5 20 5 0" FontStyle="Italic"  FontSize="10" Text="Tab. Zalecana klasyfikacja konstrukcji [źródło EC2 Tablica 4.3N]" />
 
                 <Image Margin="5 2 5 5" Width="515" Name="image" Source="D:\Studia\Mgr\ColumnCalculation-master\ColumnCalculation-master\Rysunki\TabKlasaKonstrukcji.jpg " >
                 </Image>

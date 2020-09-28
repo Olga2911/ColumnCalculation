@@ -50,12 +50,10 @@
                     <TextBlock Margin="8 3 5 2" FontSize="9" Text="[-]" />
                     <TextBlock Margin="8 3 5 2" FontSize="9" Text="[-]" />
                 </StackPanel>
-                
             </Grid>
 
             <Image Margin="5 8 5 5" Width="365" Name="image" Source="D:\Studia\Mgr\ColumnCalculation-master\ColumnCalculation-master\Rysunki\Mi.jpg " >
             </Image>
-
         </StackPanel>
     </Border>
 </Window>

@@ -28,14 +28,11 @@ namespace Projekt1._0
         private ExposureClassCommand exposureClassCommand = new ExposureClassCommand();
         private EnvironmentalClassCommand environmentalClassCommand = new EnvironmentalClassCommand();
         private MiParameterInformationCommand miParameterInformationCommand = new MiParameterInformationCommand();
-        private RMParameterInformationCommand rMParameterInformationCommand = new RMParameterInformationCommand();
         private KSParameterInformationCommand kSParameterInformationCommand = new KSParameterInformationCommand();
-        private C0ParameterInformationCommand c0ParameterInformationCommand = new C0ParameterInformationCommand();
-        private AParameterCommand aParameterCommand = new AParameterCommand();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public Column () //konstruktor klasy
+        public Column ()
         {
             dimension.PropertyChanged += InputPropertyChangedEventHandler;
             statics.PropertyChanged += InputPropertyChangedEventHandler;
@@ -220,35 +217,11 @@ namespace Projekt1._0
             }
         }
 
-        public ICommand RMParameterInformation
-        {
-            get
-            {
-                return rMParameterInformationCommand;
-            }
-        }
-
         public ICommand KSParameterInformation
         {
             get
             {
                 return kSParameterInformationCommand;
-            }
-        }
-
-        public ICommand C0ParameterInformation
-        {
-            get
-            {
-                return c0ParameterInformationCommand;
-            }
-        }
-
-        public ICommand AParameter
-        {
-            get
-            {
-                return aParameterCommand;
             }
         }
 

@@ -55,15 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AParameter.xaml.cs">
-      <DependentUpon>AParameter.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="AParameterCommand.cs" />
     <Compile Include="BasicCalculations.cs" />
-    <Compile Include="C0ParameterInformation.xaml.cs">
-      <DependentUpon>C0ParameterInformation.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="C0ParameterInformationCommand.cs" />
     <Compile Include="Concrete.cs" />
     <Compile Include="ConcreteCover.xaml.cs">
       <DependentUpon>ConcreteCover.xaml</DependentUpon>
@@ -97,15 +89,7 @@
     <Compile Include="LoadCapacityCalculation.cs" />
     <Compile Include="MiParameterInformationCommand.cs" />
     <Compile Include="NiChecking.cs" />
-    <Compile Include="RMParameterInformation.xaml.cs">
-      <DependentUpon>RMParameterInformation.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Project.cs" />
-    <Compile Include="ReinforcementDetails.xaml.cs">
-      <DependentUpon>ReinforcementDetails.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ReinforcementDetailsCommand.cs" />
-    <Compile Include="RMParameterInformationCommand.cs" />
     <Compile Include="SecondOrderCalculations.cs" />
     <Compile Include="SecondOrderParameters.cs" />
     <Compile Include="Statics.cs" />
@@ -119,14 +103,6 @@
       <DependentUpon>StructuralClassParameters.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tables.cs" />
-    <Page Include="AParameter.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="C0ParameterInformation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="ConcreteCover.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -162,14 +138,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ConcretParameters.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="RMParameterInformation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ReinforcementDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

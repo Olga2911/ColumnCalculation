@@ -9,7 +9,6 @@ namespace Projekt1._0
 {
     class LoadCapacityCalculation : INotifyPropertyChanged
     {
-        //WYMIAROWANIE ZBROJENIA
         private Double ksiEff = 0.0;
         private Double ksiEffM = 0.0;
         private Double as1y = 0.0;
@@ -291,10 +290,9 @@ namespace Projekt1._0
 
         public void Calculate(Project project)
         {
-            ksiEff = project.Column.Steel.KsiEffLim;
-            //ksiEff = Math.Round((Double)ksiEff, 3);
+            // KIERUNEK Y
 
-            // kierunek Y
+            ksiEff = project.Column.Steel.KsiEffLim;
 
             as2y =
                 (project.Column.Statics.CompressiveForce * project.SecondOrderCalculations.Es1y - ksiEff * (1 - 0.5 * ksiEff)
@@ -321,7 +319,7 @@ namespace Projekt1._0
                 niEff = (project.Column.Statics.CompressiveForce * project.SecondOrderCalculations.Es1y - as2yProv * (0.01 * project.BasicCalculations.D1y - project.BasicCalculations.A2y * 0.001) * project.BasicCalculations.Fyd * 1000)
                     / (project.Column.Dimension.Width * 0.01 * 0.01 * project.BasicCalculations.D1y * 0.01 * project.BasicCalculations.D1y * project.BasicCalculations.Fcd * 1000);
 
-                //tabela 4.8 zal2 z ni
+                //tabela 4.8 
 
                 ksiEff = tables.setKsi48(niEff);
 
@@ -350,8 +348,8 @@ namespace Projekt1._0
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("As1yProv"));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("As1yProvV"));
                 }
-
             }
+
             else
             {
                 as1y = (project.Column.Steel.KsiEffLim * project.BasicCalculations.D1y * 0.01 * project.Column.Dimension.Width * 0.01 * project.BasicCalculations.Fcd * 1000 + as2y * project.BasicCalculations.Fyd * 1000 - project.Column.Statics.CompressiveForce) / (project.BasicCalculations.Fyd * 1000);
@@ -373,7 +371,7 @@ namespace Projekt1._0
                     //MAŁY MIMOŚRÓD
                     niCEff = project.Column.Statics.CompressiveForce * project.SecondOrderCalculations.Es2y / (project.Column.Dimension.Width * 0.01 * project.BasicCalculations.D1y * 0.01 * project.BasicCalculations.D1y * 0.01 * project.BasicCalculations.Fcd * 1000);
 
-                    //tabelka 5.1
+                    //tabela 5.1
                     niCEffMax = tables.niCeffMax(project.BasicCalculations.A2y / project.BasicCalculations.D1y);
                     ksiEffM = tables.ksieffM(project.BasicCalculations.A2y / project.BasicCalculations.D1y, niCEff); 
 
@@ -390,7 +388,7 @@ namespace Projekt1._0
                             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("As1yProv"));
                             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("As1yProvV"));
                         }
-                        ////////////////////////////////////////////
+                       
                         else
                         {
                             quantity1y = as1y / (0.000001 * Math.PI * ((project.Column.Diameters.Fi1y) / 2) * ((project.Column.Diameters.Fi1y) / 2));
@@ -402,6 +400,7 @@ namespace Projekt1._0
                             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("As1yProvV"));
                         }
                     }
+
                     else
                     {
                         as1y = (project.Column.Statics.CompressiveForce * project.SecondOrderCalculations.Es2y - 0.5 * project.BasicCalculations.D1y * 0.01 * project.BasicCalculations.D1y * 0.01 * project.Column.Dimension.Width * 0.01 * project.BasicCalculations.Fcd * 1000)
@@ -422,8 +421,6 @@ namespace Projekt1._0
                     as2yProv = quantity2y * (0.000001 * Math.PI * ((project.Column.Diameters.Fi2y) / 2) * ((project.Column.Diameters.Fi2y) / 2));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("As2yProv"));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("As2yProvV"));
-
-
                 }
             }
 
@@ -447,8 +444,8 @@ namespace Projekt1._0
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("As2yProvV"));
             }
 
+            // KIERUNEK Z
 
-            // kierunek Z
             ksiEff = project.Column.Steel.KsiEffLim;
 
             as2z =
@@ -476,7 +473,7 @@ namespace Projekt1._0
                 niEffZ = (project.Column.Statics.CompressiveForce * project.SecondOrderCalculations.Es1z - as2zProv * (0.01 * project.BasicCalculations.D1z - project.BasicCalculations.A2z * 0.001) * project.BasicCalculations.Fyd * 1000)
                     / (project.Column.Dimension.Height * 0.01 * 0.01 * project.BasicCalculations.D1z * 0.01 * project.BasicCalculations.D1z * project.BasicCalculations.Fcd * 1000);
 
-                //tabela 4.8 zal2 z ni
+                //tabela 4.8
                 ksiEffZ = tables.setKsi48(niEffZ);
 
                 if (ksiEffZ < 2 * project.BasicCalculations.A2z * 0.001 / 0.01 * project.BasicCalculations.D1z)
@@ -492,6 +489,7 @@ namespace Projekt1._0
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("As1zProv"));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("As1zProvV"));
                 }
+
                 else
                 {
                     as1z = ((ksiEffZ * 0.01 * project.BasicCalculations.D2z * project.Column.Dimension.Height * 0.01 * project.BasicCalculations.Fcd * 1000) + (as2zProv * project.BasicCalculations.Fyd * 1000) - project.Column.Statics.CompressiveForce) / project.BasicCalculations.Fyd * 1000;
@@ -503,10 +501,10 @@ namespace Projekt1._0
                     as1zProv = quantity1z * (0.000001 * Math.PI * ((project.Column.Diameters.Fi1z) / 2) * ((project.Column.Diameters.Fi1z) / 2));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("As1zProv"));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("As1zProvV"));
-
                 }
 
             }
+
             else
             {
                 as1z = (project.Column.Steel.KsiEffLim * project.BasicCalculations.D1z * 0.01 * project.Column.Dimension.Height * 0.01 * project.BasicCalculations.Fcd * 1000 + as2z * project.BasicCalculations.Fyd * 1000 - project.Column.Statics.CompressiveForce) / (project.BasicCalculations.Fyd * 1000);
@@ -523,12 +521,13 @@ namespace Projekt1._0
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("As1zProv"));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("As1zProvV"));
                 }
+
                 else
                 {
                     //MAŁY MIMOŚRÓD
                     niCEffZ = project.Column.Statics.CompressiveForce * project.SecondOrderCalculations.Es2z / (project.Column.Dimension.Height * 0.01 * project.BasicCalculations.D1z * 0.01 * project.BasicCalculations.D1z * 0.01 * project.BasicCalculations.Fcd * 1000);
 
-                    //tabelka 5.1
+                    //tabela 5.1
                     niCEffMaxZ = tables.niCeffMax(project.BasicCalculations.A2z / project.BasicCalculations.D1z);
                     ksiEffMZ = tables.ksieffM(project.BasicCalculations.A2z / project.BasicCalculations.D1z, niCEffZ);
 
@@ -557,6 +556,7 @@ namespace Projekt1._0
                             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("As1zProvV"));
                         }
                     }
+
                     else
                     {
                         as1z = (project.Column.Statics.CompressiveForce * project.SecondOrderCalculations.Es2z - 0.5 * project.BasicCalculations.D1z * 0.01 * project.BasicCalculations.D1z * 0.01 * project.Column.Dimension.Height * 0.01 * project.BasicCalculations.Fcd * 1000)
@@ -577,7 +577,6 @@ namespace Projekt1._0
                     as2zProv = quantity2z * (0.000001 * Math.PI * ((project.Column.Diameters.Fi2z) / 2) * ((project.Column.Diameters.Fi2z) / 2));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("As2zProv"));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("As2zProvV"));
-
                 }
             }
 
@@ -589,7 +588,6 @@ namespace Projekt1._0
                 as1zProv = quantity1z* (0.000001 * Math.PI * ((project.Column.Diameters.Fi1z) / 2) * ((project.Column.Diameters.Fi1z) / 2));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("As1zProv"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("As1zProvV"));
-
             }
 
             if (as2zProv < project.BasicCalculations.AreaAsmin * 0.000001)
@@ -604,10 +602,7 @@ namespace Projekt1._0
 
             ro = 10000*(as1yProv + as2yProv + as1zProv + as2zProv) / (project.Column.Dimension.Width * project.Column.Dimension.Height);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ro"));
-
         }
-
-
     }
 }
 

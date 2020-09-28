@@ -80,17 +80,4 @@
             </Grid>
         </StackPanel>
     </Border>
-
-
-    <!--<Grid>
-        <Border Padding="5">
-            <StackPanel>
-                <TextBlock Margin="5 4 5 2" Text="Stal:" />
-                <TextBox Text="{Binding Column.Steel.SteelClassDescription}"   />
-                <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.Height}" />
-                <TextBox Background="Beige" Margin="5 2 5 2" Text="{Binding CrossSectionCharacteristic.Width}" />
-            </StackPanel>
-        </Border>
-    </Grid>-->
-    
 </Window>

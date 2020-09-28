@@ -172,12 +172,11 @@
                 <StackPanel>
                     <Border BorderBrush="CadetBlue" BorderThickness="1" Padding="3" Margin="4">
                         <StackPanel>
-                            <TextBlock Margin="5 0 5 0" FontSize="12" FontWeight="Bold">
-                                WYMIARY ZALEŻNE OD c<Run FontSize="7" BaselineAlignment="Subscript">nom</Run>
-                            </TextBlock>
-
-
-                                <StackPanel Grid.Column="0" Margin="0,0,0.333,-0.333">
+                                    <TextBlock Margin="5 0 5 0" FontSize="12" FontWeight="Bold">
+                                    WYMIARY ZALEŻNE OD c<Run FontSize="7" BaselineAlignment="Subscript">nom</Run>
+                                    </TextBlock>
+                                    
+                                    <StackPanel Grid.Column="0" Margin="0,0,0.333,-0.333">
                                     <TextBlock  FontWeight="Bold" Margin="5 4 5 0" FontSize="9" Text="KIERUNEK Y:" />
                                     <Grid>
                                         <Grid.ColumnDefinitions>
@@ -201,14 +200,6 @@
                                         </TextBlock>
                                         </TextBlock>
 
-                                            <!--<TextBlock FontSize="9" Margin="5 5 5 2">
-                                        d<Run FontSize="7" BaselineAlignment="Subscript">1y</Run>= h- 
-                        
-                                        <TextBlock FontSize="9">
-                                        a<Run FontSize="7" BaselineAlignment="Subscript">1y</Run>= 
-                                        </TextBlock>
-                                        </TextBlock>-->
-
                                         <TextBlock FontSize="9" Margin="5 5 5 2">
                                         a<Run FontSize="7" BaselineAlignment="Subscript">2y</Run>=
                         
@@ -224,28 +215,16 @@
                                         0,5φ<Run FontSize="7" BaselineAlignment="Subscript">2y</Run>= 
                                         </TextBlock>
                                         </TextBlock>
-
-                                            <!--<TextBlock FontSize="9" Margin="5 5 5 2">
-                                        d<Run FontSize="7" BaselineAlignment="Subscript">2y</Run>= h- 
-                        
-                                        <TextBlock FontSize="9">
-                                        a<Run FontSize="7" BaselineAlignment="Subscript">2y</Run>= 
-                                        </TextBlock>
-                                        </TextBlock>-->
                                         </StackPanel>
 
                                         <StackPanel Grid.Column="1">
                                             <TextBox FontSize="9" Background="Gainsboro" Margin="0 0 0 2"  IsReadOnly="True" Text="{Binding BasicCalculations.A1y, Mode=OneWay}"/>
-                                            <!--<TextBox FontSize="9" Background="Gainsboro" Margin="0 4 0 2" IsReadOnly="True" Text="{Binding BasicCalculations.D1y, Mode=OneWay}"/>-->
                                             <TextBox FontSize="9" Background="Gainsboro" Margin="0 4 0 5" IsReadOnly="True" Text="{Binding BasicCalculations.A2y, Mode=OneWay}"/>
-                                            <!--<TextBox FontSize="9" Background="Gainsboro" Margin="0 4 0 2" IsReadOnly="True" Text="{Binding BasicCalculations.D2y, Mode=OneWay}"/>-->
                                         </StackPanel>
 
                                         <StackPanel Grid.Column="2">
                                             <TextBlock FontSize="9" Margin="8 0 5 2" Text="[mm]" />
-                                            <!--<TextBlock FontSize="9" Margin="4 6 10 2" Text="[cm]" />-->
                                             <TextBlock FontSize="9" Margin="8 6 5 2" Text="[mm]" />
-                                            <!--<TextBlock FontSize="9" Margin="4 6 10 2" Text="[cm]" />-->
                                         </StackPanel>
                                     </Grid>
 
@@ -272,14 +251,6 @@
                                         </TextBlock>
                                         </TextBlock>
 
-                                            <!--<TextBlock FontSize="9" Margin="10 5 5 2">
-                                        d<Run FontSize="7" BaselineAlignment="Subscript">1z</Run>= b- 
-                        
-                                        <TextBlock FontSize="9">
-                                        a<Run FontSize="7" BaselineAlignment="Subscript">1z</Run>= 
-                                        </TextBlock>
-                                        </TextBlock>-->
-
                                         <TextBlock FontSize="9" Margin="5 5 5 2">
                                         a<Run FontSize="7" BaselineAlignment="Subscript">2z</Run>=
                         
@@ -295,117 +266,19 @@
                                         0,5φ<Run FontSize="7" BaselineAlignment="Subscript">2z</Run>= 
                                         </TextBlock>
                                         </TextBlock>
-
-                                            <!--<TextBlock FontSize="9" Margin="10 5 5 2">
-                                        d<Run FontSize="7" BaselineAlignment="Subscript">2z</Run>= b- 
-                        
-                                        <TextBlock FontSize="9">
-                                        a<Run FontSize="7" BaselineAlignment="Subscript">2z</Run>= 
-                                        </TextBlock>
-                                        </TextBlock>-->
                                         </StackPanel>
+                                        
                                         <StackPanel Grid.Column="1">
                                             <TextBox FontSize="9" Background="Gainsboro" Margin="0 0 0 2" IsReadOnly="True" Text="{Binding BasicCalculations.A1z, Mode=OneWay}"/>
-                                            <!--<TextBox FontSize="9" Background="Gainsboro" Margin="0 4 0 2" IsReadOnly="True" Text="{Binding BasicCalculations.D1z, Mode=OneWay}"/>-->
                                             <TextBox FontSize="9" Background="Gainsboro" Margin="0 4 0 5" IsReadOnly="True" Text="{Binding BasicCalculations.A2z, Mode=OneWay}"/>
-                                            <!--<TextBox FontSize="9" Background="Gainsboro" Margin="0 4 0 2" IsReadOnly="True" Text="{Binding BasicCalculations.D2z, Mode=OneWay}"/>-->
                                         </StackPanel>
 
                                         <StackPanel Grid.Column="2">
                                             <TextBlock FontSize="9" Margin="8 0 5 2" Text="[mm]" />
-                                            <!--<TextBlock FontSize="9" Margin="4 6 0 2" Text="[cm]" />-->
                                             <TextBlock FontSize="9" Margin="8 6 5 2" Text="[mm]" />
-                                            <!--<TextBlock FontSize="9" Margin="4 6 0 2" Text="[cm]" />-->
                                         </StackPanel>
                                     </Grid>
-
-
-                                </StackPanel>
-
-
-                                <!--<StackPanel Grid.Column="1">
-                                    <TextBlock FontWeight="Bold" Margin="10 4 5 0" FontSize="9" Text="KIERUNEK Z:" />
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="3.7*" />
-                                            <ColumnDefinition Width="1.2*" />
-                                            <ColumnDefinition Width="1.2*" />
-                                        </Grid.ColumnDefinitions>
-
-                                        <StackPanel Grid.Column="0">
-                                            <TextBlock FontSize="9" Margin="10 0 5 2">
-                                        a<Run FontSize="7" BaselineAlignment="Subscript">1z</Run>=                                      <TextBlock FontSize="9">
-                                         c<Run FontSize="7" BaselineAlignment="Subscript">nom</Run>+ 
-                                        </TextBlock>
-
-                                        <TextBlock FontSize="9" >
-                                        φ<Run FontSize="7" BaselineAlignment="Subscript">1z</Run>+ 
-                                        </TextBlock>
-
-                                        <TextBlock FontSize="9" >
-                                        0,5φ<Run FontSize="7" BaselineAlignment="Subscript">s</Run>= 
-                                        </TextBlock>
-                                        </TextBlock>
-
-                                            -->
-                                <!--<TextBlock FontSize="9" Margin="10 5 5 2">
-                                        d<Run FontSize="7" BaselineAlignment="Subscript">1z</Run>= b- 
-                        
-                                        <TextBlock FontSize="9">
-                                        a<Run FontSize="7" BaselineAlignment="Subscript">1z</Run>= 
-                                        </TextBlock>
-                                        </TextBlock>-->
-                                <!--
-
-                                            <TextBlock FontSize="9" Margin="10 5 5 2">
-                                        a<Run FontSize="7" BaselineAlignment="Subscript">2z</Run>=
-                        
-                                        <TextBlock FontSize="9">
-                                        c<Run FontSize="7" BaselineAlignment="Subscript">nom</Run>+ 
-                                        </TextBlock>
-
-                                        <TextBlock FontSize="9" >
-                                        φ<Run FontSize="7" BaselineAlignment="Subscript">2z</Run>+ 
-                                        </TextBlock>
-
-                                        <TextBlock FontSize="9" >
-                                        0,5φ<Run FontSize="7" BaselineAlignment="Subscript">s</Run>= 
-                                        </TextBlock>
-                                        </TextBlock>
-
-                                            -->
-                                <!--<TextBlock FontSize="9" Margin="10 5 5 2">
-                                        d<Run FontSize="7" BaselineAlignment="Subscript">2z</Run>= b- 
-                        
-                                        <TextBlock FontSize="9">
-                                        a<Run FontSize="7" BaselineAlignment="Subscript">2z</Run>= 
-                                        </TextBlock>
-                                        </TextBlock>-->
-                                <!--
-                                        </StackPanel>
-                                        <StackPanel Grid.Column="1">
-                                            <TextBox FontSize="9" Background="Gainsboro" Margin="0 0 0 2" IsReadOnly="True" Text="{Binding BasicCalculations.A1z, Mode=OneWay}"/>
-                                            -->
-                                <!--<TextBox FontSize="9" Background="Gainsboro" Margin="0 4 0 2" IsReadOnly="True" Text="{Binding BasicCalculations.D1z, Mode=OneWay}"/>-->
-                                <!--
-                                            <TextBox FontSize="9" Background="Gainsboro" Margin="0 4 0 2" IsReadOnly="True" Text="{Binding BasicCalculations.A2z, Mode=OneWay}"/>
-                                            -->
-                                <!--<TextBox FontSize="9" Background="Gainsboro" Margin="0 4 0 2" IsReadOnly="True" Text="{Binding BasicCalculations.D2z, Mode=OneWay}"/>-->
-                                <!--
-                                        </StackPanel>
-
-                                        <StackPanel Grid.Column="2">
-                                            <TextBlock FontSize="9" Margin="4 0 0 2" Text="[mm]" />
-                                            -->
-                                <!--<TextBlock FontSize="9" Margin="4 6 0 2" Text="[cm]" />-->
-                                <!--
-                                            <TextBlock FontSize="9" Margin="4 6 0 2" Text="[mm]" />
-                                            -->
-                                <!--<TextBlock FontSize="9" Margin="4 6 0 2" Text="[cm]" />-->
-                                <!--
-                                        </StackPanel>
-                                    </Grid>
-                                </StackPanel>-->
+                                    </StackPanel>
                         </StackPanel>
                     </Border>
                 </StackPanel>
@@ -416,108 +289,3 @@
 
 
 
-<!--ODLEGŁOŚCI A 
-            <TextBlock FontWeight="Bold" Margin="5 9 5 2" FontSize="9" Text="Kierunek y:" />
-            <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="4.9*" />
-                        <ColumnDefinition Width="1.2*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-
-                <StackPanel Grid.Column="0">
-                    <TextBlock FontSize="9" Margin="5 9 5 2">
-                       a<Run FontSize="7" BaselineAlignment="Subscript">1y</Run>=
-                      
-                      <TextBlock FontSize="9">
-                       c<Run FontSize="7" BaselineAlignment="Subscript">nom</Run> + 
-                      </TextBlock>
-
-                       <TextBlock FontSize="9" >
-                        φ<Run FontSize="7" BaselineAlignment="Subscript">1y</Run> + 
-                       </TextBlock>
-
-                       <TextBlock FontSize="9" >
-                        0,5φ<Run FontSize="7" BaselineAlignment="Subscript">s</Run> = 
-                       </TextBlock>
-                    </TextBlock>
-                    
-                    <TextBlock FontSize="9" Margin="5 9 5 2">
-                        d<Run FontSize="7" BaselineAlignment="Subscript">1y</Run> = h - 
-                        
-                       <TextBlock FontSize="9">
-                        a<Run FontSize="7" BaselineAlignment="Subscript">1y</Run> = 
-                       </TextBlock>
-                    </TextBlock>
-                    
-                    <TextBlock FontSize="9" Margin="5 9 5 2">
-                       a<Run FontSize="7" BaselineAlignment="Subscript">2y</Run>=
-                        
-                       <TextBlock FontSize="9">
-                        c<Run FontSize="7" BaselineAlignment="Subscript">nom</Run> + 
-                       </TextBlock>
-
-                       <TextBlock FontSize="9" >
-                        φ<Run FontSize="7" BaselineAlignment="Subscript">2y</Run> + 
-                       </TextBlock>
-
-                       <TextBlock FontSize="9" >
-                        0,5φ<Run FontSize="7" BaselineAlignment="Subscript">s</Run> = 
-                       </TextBlock>
-                    </TextBlock>
-
-                    <TextBlock FontSize="9" Margin="5 9 5 2">
-                        d<Run FontSize="7" BaselineAlignment="Subscript">2y</Run> = h - 
-                        
-                       <TextBlock FontSize="9">
-                        a<Run FontSize="7" BaselineAlignment="Subscript">2y</Run> = 
-                       </TextBlock>
-                    </TextBlock>
-                    
-
-                    <TextBlock FontWeight="Bold" Margin="5 9 5 2" FontSize="9" Text="Kierunek z:" />
-
-                    <TextBlock FontSize="9" Margin="5 9 5 2">
-                                   a<Run FontSize="7" BaselineAlignment="Subscript">1z</Run>=
-                    </TextBlock>
-                    <TextBlock FontSize="9" Margin="5 9 5 2">
-                                   d<Run FontSize="7" BaselineAlignment="Subscript">1z</Run>=
-                    </TextBlock>
-                    <TextBlock FontSize="9" Margin="5 9 5 2">
-                                   a<Run FontSize="7" BaselineAlignment="Subscript">2z</Run>=
-                    </TextBlock>
-                    <TextBlock FontSize="9" Margin="5 9 5 2">
-                                   d<Run FontSize="7" BaselineAlignment="Subscript">2z</Run>=
-                    </TextBlock>
-                </StackPanel>
-                
-                <StackPanel Grid.Column="2">
-                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2"  IsReadOnly="True" Text="{Binding BasicCalculations.A1y, Mode=OneWay}"/>
-                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" IsReadOnly="True" Text="{Binding BasicCalculations.D1y, Mode=OneWay}"/>
-                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" IsReadOnly="True" Text="{Binding BasicCalculations.A2y, Mode=OneWay}"/>
-                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" IsReadOnly="True" Text="{Binding BasicCalculations.D2y, Mode=OneWay}"/>
-
-                    <TextBlock FontSize="9" Margin="0 7 0 2" />
-
-                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" IsReadOnly="True" Text="{Binding BasicCalculations.A1z, Mode=OneWay}"/>
-                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" IsReadOnly="True" Text="{Binding BasicCalculations.D1z, Mode=OneWay}"/>
-                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" IsReadOnly="True" Text="{Binding BasicCalculations.A2z, Mode=OneWay}"/>
-                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 7 0 2" IsReadOnly="True" Text="{Binding BasicCalculations.D2z, Mode=OneWay}"/>
-                </StackPanel>
-
-                <StackPanel Grid.Column="3">
-                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
-                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
-                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
-                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
-
-                    <TextBlock FontSize="9" Margin="0 7 0 2" />
-
-                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
-                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
-                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
-                    <TextBlock FontSize="9" Margin="8 8 5 2" Text="[mm]" />
-                </StackPanel>
-            </Grid>-->
