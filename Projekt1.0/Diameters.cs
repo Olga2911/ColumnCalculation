@@ -9,10 +9,10 @@ namespace Projekt1._0
 {
     class Diameters : INotifyPropertyChanged
     {
-        private int fi1y = 20; //mm
-        private int fi2y = 20; //mm
-        private int fi1z = 20; //mm
-        private int fi2z = 20; //mm
+        private int fi1y =6; //mm
+        private int fi2y = 8; //mm
+        private int fi1z = 6; //mm
+        private int fi2z = 6; //mm
         private int fiS = 6; //mm
 
         public event PropertyChangedEventHandler PropertyChanged;

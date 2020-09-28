@@ -71,6 +71,14 @@ namespace Projekt1._0
             }
         }
 
+        public double AreaAsminV
+        {
+            get
+            {
+                return areaAsmin/100;
+            }
+        }
+
         public double AreaAsmax
         {
             get
@@ -296,15 +304,12 @@ namespace Projekt1._0
             //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("FiEfektywne"));
 
             fcd = project.Column.Concrete.Fck / project.Column.Concrete.GammaC;
-            //fcd = Math.Round((Double)fcd, 3);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Fcd"));
 
             fyd = project.Column.Steel.Fyk / project.Column.Steel.GammaS;
-            //fyd = Math.Round((Double)fyd, 3);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Fyd"));
 
             areaAsmin = 100 * Math.Max(project.Column.Statics.CompressiveForce *0.5 / fyd, areaConcrete * 0.5 * 0.002); //mm2
-            //areaAsmin = Math.Round((Double)areaAsmin, 2);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AreaAsmin"));
 
             //areaAsmax = 0.4 * project.Column.Dimension.Height * project.Column.Dimension.Width * 100;

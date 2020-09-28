@@ -38,7 +38,7 @@
                 </StackPanel>
 
                 <StackPanel Grid.Column="1">
-                    <TextBox FontSize="9" Background="Gainsboro" Margin="0 1 0 2" Text="{Binding BasicCalculations.Ro, Mode=OneWay}" IsReadOnly="True"  />
+                    <TextBox Background="Gainsboro" FontSize="9" Margin="0 0 0 2" IsReadOnly="True" Text="{Binding LoadCapacityCalculation.Ro, Mode=OneWay, StringFormat={}{0:n3}}"/>
                 </StackPanel>
 
                 <StackPanel Grid.Column="2">

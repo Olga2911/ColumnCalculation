@@ -166,7 +166,7 @@ namespace Projekt1._0
                 return niZ2;
             }
         }
-
+        
         public void Calculate(Project project)
         {
 
@@ -184,7 +184,7 @@ namespace Projekt1._0
 
             isy = project.LoadCapacityCalculation.As1yProv * 10000 * Math.Pow((0.5 * project.Column.Dimension.Height - project.BasicCalculations.A1y * 0.1), 2) +
                project.LoadCapacityCalculation.As2yProv * 10000 * Math.Pow((0.5 * project.Column.Dimension.Height - project.BasicCalculations.A2y * 0.1), 2);
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("isy"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("isy")); //cm4
 
             eiy = kcy * project.Column.Concrete.Ecm * Icy * 0.01 + project.Column.SecondOrderParameters.Ks * project.Column.Steel.Es * Isy * 0.01;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Eiy"));
@@ -217,6 +217,7 @@ namespace Projekt1._0
 
             niZ2 = 1 / (1 - (project.Column.Statics.CompressiveForce / nbz));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NiZ2"));
+
         }
 
         public void FindNi(Project project)
